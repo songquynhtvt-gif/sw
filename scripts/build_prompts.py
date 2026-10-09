@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RULES = (ROOT / "docs/PROMPT-RULES-TEAM.md").read_text(encoding="utf-8")
 SPECS = json.loads((ROOT / "prompts/specs.json").read_text(encoding="utf-8"))
+CLOSET = json.loads((ROOT / "prompts/closet/items.json").read_text(encoding="utf-8"))
 OUT = ROOT / "prompts"
 
 RIG_LINE = "Arms slightly away from the body, wisps not touching him, eyes open."
@@ -27,6 +28,8 @@ HUHU_MASTER = block_after("**MASTER**")
 HUHU_NEGATIVE = block_after("**NEGATIVE**")
 BG_TEMPLATE = block_after("**Mẫu (dán, điền 4 ô)")
 ICON_TEMPLATE = block_after("**Thêm icon mới:**")
+ITEM_MASTER = block_after("**ITEM MASTER**")
+ITEM_NEGATIVE = block_after("**ITEM NEGATIVE**")
 
 
 def fence(text):
@@ -129,8 +132,51 @@ def icons(items):
 """
 
 
-for s in SPECS["huhu"]:
-    write(OUT / "huhu" / f"{s['id']}.md", huhu(s))
-for s in SPECS["bg"]:
-    write(OUT / "bg" / f"{s['id']}.md", bg(s, SPECS["bg_layout"], SPECS["bg_states"]))
-write(OUT / "icons" / "batch1.md", icons(SPECS["icons_batch1"]))
+def item_prompt(item):
+    """Full prompt text (master + negative) for one Tủ đồ item."""
+    slot = CLOSET["slots"][item["slot"]]
+    prompt = (
+        ITEM_MASTER.replace("[ITEM]", item["item"])
+        .replace("[SLOT]", slot["en"])
+        .replace("[COLOURS]", item["colours"])
+        .replace("[FIT]", slot["fit"])
+    )
+    return prompt + "\n\n" + ITEM_NEGATIVE
+
+
+def closet_wave(wave, items):
+    parts = [f"""# Tủ đồ · {CLOSET['waves'][wave]}
+
+- Rules: `docs/PROMPT-RULES-TEAM.md` §7 · catalogue: `prompts/closet/items.json`
+- One item per chat message; new chat every 3–4 images
+- Output: 1:1, transparent → `assets/closet/gen/<id>-v1.png`; approved → `assets/closet/approved/<id>.png`
+- Or run `python3 scripts/gen_closet.py --wave {wave}` (GPT API)
+"""]
+    for it in items:
+        if it["status"] == "blocked":
+            parts.append(f"## {it['name']} · `{it['id']}` · BLOCKED\n\n{it.get('note', '')}\n")
+            continue
+        meta = f"slot {it['slot']} · {it['price']} bánh cam · {it['status']}"
+        if it.get("source"):
+            meta += f" · from {it['source']}"
+        if it.get("note"):
+            meta += f" · {it['note']}"
+        parts.append(f"## {it['name']} · `{it['id']}`\n\n{meta}\n\n{fence(item_prompt(it))}\n")
+    parts.append("## Result\n| Item | Run | File | Verdict | Note |\n|---|---|---|---|---|\n| | | | | |\n")
+    return "\n".join(parts)
+
+
+def main():
+    for s in SPECS["huhu"]:
+        write(OUT / "huhu" / f"{s['id']}.md", huhu(s))
+    for s in SPECS["bg"]:
+        write(OUT / "bg" / f"{s['id']}.md", bg(s, SPECS["bg_layout"], SPECS["bg_states"]))
+    write(OUT / "icons" / "batch1.md", icons(SPECS["icons_batch1"]))
+    for wave in CLOSET["waves"]:
+        items = [i for i in CLOSET["items"] if i["wave"] == wave]
+        if items:
+            write(OUT / "closet" / f"{wave}.md", closet_wave(wave, items))
+
+
+if __name__ == "__main__":
+    main()

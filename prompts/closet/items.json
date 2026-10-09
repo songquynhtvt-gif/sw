@@ -1,0 +1,518 @@
+{
+  "_note": "Tủ đồ catalogue. Edit here, then run python3 scripts/build_prompts.py (prompt files) or python3 scripts/gen_closet.py (GPT images). Template: docs/PROMPT-RULES-TEAM.md §7. status: idea | need | blocked | gen | approved",
+  "slots": {
+    "head": {
+      "label": "Đầu (neo đầu)",
+      "en": "worn on the head",
+      "fit": "Straight front view, exactly as it sits on top of a big round head between two round ears; leave clear gaps or cut-outs where the two ears poke through. About as wide as the head."
+    },
+    "neck": {
+      "label": "Cổ (neo cổ)",
+      "en": "worn around the neck and chest",
+      "fit": "Straight front view, exactly as it wraps a short chubby neck just under a big round head; the top edge is a gentle smile-shaped curve, the rest hangs on the chest."
+    },
+    "back": {
+      "label": "Lưng (cần neo lưng, chưa có trong brief)",
+      "en": "worn on the back",
+      "fit": "Straight front view of the item as it sits BEHIND the character: draw the whole item, symmetrical, straps or ties pointing toward the centre; the app hides the middle behind the body so only the sides peek out."
+    },
+    "hand": {
+      "label": "Tay cầm (cần neo tay, chưa có trong brief)",
+      "en": "held in one paw",
+      "fit": "Held upright as if in a small mitten paw: the handle or grip is at the bottom-centre, the item stands straight up, small enough to be held in one paw."
+    },
+    "body": {
+      "label": "Thân (cần neo thân, chưa có trong brief)",
+      "en": "worn on the body",
+      "fit": "Straight front view of a tiny garment for a chubby round body with short arms, laid flat and symmetrical, short sleeves, no body inside."
+    },
+    "food": {
+      "label": "Món khoái khẩu (icon + cho ăn)",
+      "en": "a treat the tiger eats",
+      "fit": "A single serving seen in three-quarter view from slightly above, small enough to be held in two paws."
+    },
+    "streak": {
+      "label": "Giữ chuỗi (icon)",
+      "en": "a small reward icon",
+      "fit": "A single object seen straight on, chunky and simple, works as an icon."
+    }
+  },
+  "tiers": {
+    "40": "Phụ kiện rẻ / món ăn",
+    "80": "Phụ kiện thường, món mới mỗi đợt",
+    "150": "Món để dành dài hạn"
+  },
+  "waves": {
+    "stage1": "Stage 1 (HIFI-PREP G5, đã duyệt)",
+    "w3": "Tuần 3 · Rừng lá",
+    "w5": "Tuần 5 · Thám hiểm",
+    "w7": "Tuần 7 · Sông nước",
+    "w9": "Tuần 9 · Đồng quê",
+    "w11": "Tuần 11 · Đêm đom đóm",
+    "w13": "Tuần 13 · Tết",
+    "long": "Để dành (150)",
+    "backlog": "Dự phòng"
+  },
+  "items": [
+    {
+      "id": "non-la",
+      "name": "Nón lá",
+      "wave": "stage1",
+      "slot": "head",
+      "price": 40,
+      "status": "need",
+      "item": "a small Vietnamese conical palm-leaf hat (nón lá), pale straw with thin concentric rib lines, a coral chin ribbon tied in a small bow",
+      "colours": "straw #E8D9A8, coral #F07C62 ribbon, cream"
+    },
+    {
+      "id": "khan-ran",
+      "name": "Khăn rằn",
+      "wave": "stage1",
+      "slot": "neck",
+      "price": 40,
+      "status": "need",
+      "item": "a Southern Vietnamese checkered scarf (khăn rằn) in small navy and cream checks, folded into a triangle and tied in a knot at the front-left, two short ends sticking out",
+      "colours": "navy #1B2A6B and cream checks",
+      "source": "sheet-1 #3 (red bandana) with the swirl clouds replaced by the khăn rằn check"
+    },
+    {
+      "id": "no-buom",
+      "name": "Nơ bướm",
+      "wave": "stage1",
+      "slot": "neck",
+      "price": 40,
+      "status": "need",
+      "item": "a chunky butterfly bow tie on a thin band, two rounded loops and a small knot",
+      "colours": "coral #F07C62, butter #F7C844 polka dots"
+    },
+    {
+      "id": "vong-hoa",
+      "name": "Vòng hoa",
+      "wave": "stage1",
+      "slot": "head",
+      "price": 40,
+      "status": "need",
+      "item": "a flower crown ring of small five-petal flowers and leaves, worn flat around the top of the head",
+      "colours": "butter #F7C844 and coral #F07C62 flowers, leaf #6CC36F leaves"
+    },
+    {
+      "id": "khan-quang-la",
+      "name": "Khăn quàng lá",
+      "wave": "stage1",
+      "slot": "neck",
+      "price": 40,
+      "status": "need",
+      "item": "a scarf made of overlapping big green leaves with visible centre veins, wrapped once around the neck, two leaf tips hanging at the front",
+      "colours": "leaf #6CC36F and dark leaf #3E8E4F, cream veins",
+      "source": "sheet-1 #1 leaf cap, same leaf language"
+    },
+    {
+      "id": "ao-ba-ba",
+      "name": "Áo bà ba mini",
+      "wave": "stage1",
+      "slot": "body",
+      "price": 80,
+      "status": "blocked",
+      "item": "a tiny Vietnamese áo bà ba blouse: collarless, buttoned down the centre with small round buttons, two front pockets, short wide sleeves",
+      "colours": "turquoise #2EC4B6, cream buttons",
+      "note": "needs a body anchor (brief only has head/neck)"
+    },
+    {
+      "id": "den-ong-sao",
+      "name": "Đèn ông sao",
+      "wave": "stage1",
+      "slot": "hand",
+      "price": 80,
+      "status": "blocked",
+      "item": "",
+      "colours": "",
+      "note": "OPEN-QUESTIONS #1: banned by PROMPT-RULES §1. Proposed replacement: hu-dom-dom (firefly jar)"
+    },
+    {
+      "id": "dieu-giay",
+      "name": "Diều giấy",
+      "wave": "stage1",
+      "slot": "back",
+      "price": 80,
+      "status": "need",
+      "item": "a small diamond-shaped Vietnamese paper kite on a bamboo cross frame, with a short ribbon tail of three bows",
+      "colours": "butter #F7C844 and coral #F07C62 panels, bamboo frame",
+      "note": "needs a back anchor; or hand slot holding the string"
+    },
+    {
+      "id": "trong-com",
+      "name": "Trống cơm",
+      "wave": "stage1",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a small Vietnamese barrel drum (trống cơm) lying sideways on the chest, hung from a woven strap around the neck, laced with criss-cross cords",
+      "colours": "warm wood #C98A4B body, cream drum heads, coral #F07C62 cords"
+    },
+    {
+      "id": "ba-lo-go",
+      "name": "Ba lô mây",
+      "wave": "stage1",
+      "slot": "back",
+      "price": 80,
+      "status": "need",
+      "item": "a small woven rattan backpack with a rounded flap, a wooden toggle and two shoulder straps",
+      "colours": "rattan #D9B577, wood #8B5A2B toggle",
+      "note": "renamed from ba lô gỗ: rattan reads more Vietnamese. Needs a back anchor"
+    },
+    {
+      "id": "banh-cam",
+      "name": "Bánh cam",
+      "wave": "stage1",
+      "slot": "food",
+      "price": 40,
+      "status": "need",
+      "item": "one bánh cam: a round golden fried sesame ball with tiny cream sesame dots, must read as a Vietnamese sesame ball, not a coin or a cookie",
+      "colours": "golden #D9953B, cream sesame dots"
+    },
+    {
+      "id": "xoi-gac",
+      "name": "Xôi gấc",
+      "wave": "stage1",
+      "slot": "food",
+      "price": 40,
+      "status": "need",
+      "item": "a small mound of red-orange gấc sticky rice on a piece of banana leaf, rounded dome shape with a few visible rice grain bumps",
+      "colours": "gấc red-orange #E0573A, leaf #6CC36F"
+    },
+    {
+      "id": "che",
+      "name": "Chè",
+      "wave": "stage1",
+      "slot": "food",
+      "price": 40,
+      "status": "need",
+      "item": "a small clear glass of Vietnamese layered chè dessert: green, yellow mung bean and white coconut layers, a little spoon",
+      "colours": "leaf green, butter yellow, cream layers"
+    },
+    {
+      "id": "banh-bo",
+      "name": "Bánh bò",
+      "wave": "stage1",
+      "slot": "food",
+      "price": 40,
+      "status": "need",
+      "item": "one small round puffy Vietnamese steamed rice cake (bánh bò), soft dome with a honeycomb top, pandan green",
+      "colours": "pandan green #8BC97A, cream"
+    },
+    {
+      "id": "ngay-ngu",
+      "name": "Ngày Ngủ",
+      "wave": "stage1",
+      "slot": "streak",
+      "price": 50,
+      "status": "need",
+      "item": "a small soft sleeping cap with a round pom-pom resting on a little rattan pillow",
+      "colours": "violet #8A6BE0, cream pom-pom, rattan pillow"
+    },
+    {
+      "id": "hoi-sinh-chuoi",
+      "name": "Hồi Sinh Chuỗi",
+      "wave": "stage1",
+      "slot": "streak",
+      "price": 150,
+      "status": "need",
+      "item": "a young bamboo shoot sprouting two fresh leaves out of a small round clay pot",
+      "colours": "leaf #6CC36F, warm clay #C98A4B"
+    },
+    {
+      "id": "mu-la",
+      "name": "Mũ lá",
+      "wave": "w3",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a soft cap made of overlapping green leaves with visible veins, two small leaves sprouting on top",
+      "colours": "leaf #6CC36F, dark leaf #3E8E4F, cream veins",
+      "source": "sheet-1 #1, kept as is"
+    },
+    {
+      "id": "vong-hat-rung",
+      "name": "Vòng hạt rừng",
+      "wave": "w3",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a necklace of round wooden and green seed beads on a twisted brown cord, a round wooden medallion carved with a two-leaf sprout, one small leaf beside it",
+      "colours": "wood #C98A4B, leaf #6CC36F beads, cream beads",
+      "source": "sheet-1 #4, kept"
+    },
+    {
+      "id": "ao-toi-la",
+      "name": "Áo tơi lá",
+      "wave": "w3",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a short shoulder cape like a Vietnamese palm-leaf raincoat (áo tơi): layered rows of long dry palm leaves tied at the neck with a cord",
+      "colours": "dry leaf #C9B26A, darker leaf lines #8F7A3A",
+      "source": "replaces the swirl capes on sheet-2"
+    },
+    {
+      "id": "mu-chop-la",
+      "name": "Mũ chóp lá",
+      "wave": "w3",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a soft pointed hat made of folded green leaves, the tip bending over, a band of tied bamboo strip around the base, a tiny leaf twig tucked in",
+      "colours": "leaf #6CC36F, bamboo #E8D9A8 band",
+      "source": "sheet-1 #5 witch hat, reworked with leaves + bamboo band"
+    },
+    {
+      "id": "mu-coi-kinh",
+      "name": "Mũ cối kính bay",
+      "wave": "w5",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a small Vietnamese pith helmet (mũ cối) with a brown band and a pair of round aviator goggles resting on the front",
+      "colours": "khaki cream #E8D9A8, brown #8B5A2B band, turquoise #2EC4B6 lenses",
+      "source": "sheet-2 #1, kept"
+    },
+    {
+      "id": "ong-nhom-tre",
+      "name": "Ống nhòm tre",
+      "wave": "w5",
+      "slot": "hand",
+      "price": 80,
+      "status": "need",
+      "item": "a short spyglass made of a bamboo tube with two rattan bands and a round lens, held upright",
+      "colours": "bamboo #D9C27A, rattan bands, turquoise lens",
+      "source": "sheet-2 #10 with the compass removed"
+    },
+    {
+      "id": "tui-coi",
+      "name": "Túi cói",
+      "wave": "w5",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a small woven sedge (cói) satchel on a long strap worn across the chest, the bag sits at the front-right with a leaf-shaped button",
+      "colours": "sedge #D9B577, leaf #6CC36F button"
+    },
+    {
+      "id": "ong-tre-nuoc",
+      "name": "Ống tre đựng nước",
+      "wave": "w5",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a bamboo-tube water flask with a wooden stopper hanging at the chest from a cord around the neck",
+      "colours": "bamboo green #8BC97A, wood stopper"
+    },
+    {
+      "id": "mu-thuyen-giay",
+      "name": "Mũ thuyền giấy",
+      "wave": "w7",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a folded newspaper-style paper boat hat, plain cream paper with crisp fold lines and one turquoise folded edge",
+      "colours": "cream paper, turquoise #2EC4B6 edge",
+      "source": "sheet-2 #3 with the red sun and swirl removed"
+    },
+    {
+      "id": "vong-hoa-sung",
+      "name": "Vòng hoa súng",
+      "wave": "w7",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a crown ring of three water lily flowers (hoa súng) on round lily pads",
+      "colours": "violet #8A6BE0 flowers, turquoise #2EC4B6 pads, butter centres"
+    },
+    {
+      "id": "no-la-dua",
+      "name": "Nơ lá dừa",
+      "wave": "w7",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a bow woven from strips of coconut leaf, like a Mekong child's coconut-leaf toy, on a thin green band",
+      "colours": "coconut leaf green #6CC36F, pale leaf #CFE39A"
+    },
+    {
+      "id": "gio-tre",
+      "name": "Giỏ tre",
+      "wave": "w7",
+      "slot": "back",
+      "price": 80,
+      "status": "need",
+      "item": "a small woven bamboo fishing basket (giỏ) with a narrow neck and a carrying cord",
+      "colours": "bamboo #D9C27A, darker weave lines"
+    },
+    {
+      "id": "mu-trum-trau",
+      "name": "Mũ trùm sừng trâu",
+      "wave": "w9",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a cosy cream hood with two short curved brown buffalo horns, two small green leaves at the sides and two round pom-pom ties",
+      "colours": "cream, brown #8B5A2B horns, leaf #6CC36F",
+      "source": "sheet-1 #8 with the swirl cloud removed; horns now read as con trâu"
+    },
+    {
+      "id": "mo-trau",
+      "name": "Mõ trâu",
+      "wave": "w9",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a wooden buffalo bell (mõ trâu): a small carved wooden block bell with a clapper, hung from a rope around the neck",
+      "colours": "wood #C98A4B, rope #8B5A2B"
+    },
+    {
+      "id": "mu-rom",
+      "name": "Mũ rơm",
+      "wave": "w9",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a round woven straw hat with a wide brim and a leaf-green band, one small yellow rice-flower tucked in the band",
+      "colours": "straw #E8C46A, leaf #6CC36F band"
+    },
+    {
+      "id": "sao-truc",
+      "name": "Sáo trúc",
+      "wave": "w9",
+      "slot": "hand",
+      "price": 80,
+      "status": "need",
+      "item": "a short bamboo flute (sáo trúc) with round finger holes and a small coral cord tied near the end, held upright",
+      "colours": "bamboo #D9C27A, coral cord"
+    },
+    {
+      "id": "bang-do-trang",
+      "name": "Băng đô trăng khuyết",
+      "wave": "w11",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a headband with a butter-yellow crescent moon in the centre, flanked by cream petals and green leaves, one small round bead hanging below",
+      "colours": "butter #F7C844 moon, cream petals, leaf #6CC36F",
+      "source": "sheet-1 #6 with the diamond gem replaced by a round bead"
+    },
+    {
+      "id": "hu-dom-dom",
+      "name": "Hũ đom đóm",
+      "wave": "w11",
+      "slot": "hand",
+      "price": 80,
+      "status": "need",
+      "item": "a small glass jar with a cloth lid tied with string, three tiny fireflies inside drawn as small butter-yellow dots with ONE flat lighter shape around them, no blur",
+      "colours": "clear glass with turquoise tint, butter #F7C844 fireflies",
+      "note": "proposed replacement for đèn ông sao"
+    },
+    {
+      "id": "ao-choang-cham",
+      "name": "Áo choàng chàm",
+      "wave": "w11",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a short indigo shoulder cape with a cream scalloped hem, scattered small round butter dots like stars (round dots only), fastened with a wooden toggle",
+      "colours": "indigo #3B4BA8, cream hem, butter dots",
+      "source": "sheet-1 #7 with the 4-point sparkles, swirls and tassels removed"
+    },
+    {
+      "id": "canh-chuon-chuon",
+      "name": "Cánh chuồn chuồn",
+      "wave": "w11",
+      "slot": "back",
+      "price": 80,
+      "status": "need",
+      "item": "two pairs of small dragonfly wings, long rounded shapes with a simple vein pattern, joined at the centre",
+      "colours": "pale turquoise #A8E6DF, violet #8A6BE0 veins",
+      "source": "sheet-2 #12 wings, now dragonfly (not angel)"
+    },
+    {
+      "id": "khan-dong",
+      "name": "Khăn đóng",
+      "wave": "w13",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a traditional Vietnamese khăn đóng: a round wrapped headband turban with neat diagonal fold lines, flat top open",
+      "colours": "navy #1B2A6B, a thin butter #F7C844 edge"
+    },
+    {
+      "id": "canh-mai",
+      "name": "Cành mai cài",
+      "wave": "w13",
+      "slot": "head",
+      "price": 80,
+      "status": "need",
+      "item": "a small sprig of yellow apricot blossom (hoa mai) with five-petal flowers and buds, tucked on one side of the head",
+      "colours": "butter #F7C844 flowers, brown twig, leaf buds"
+    },
+    {
+      "id": "khanh-bac",
+      "name": "Khánh bạc",
+      "wave": "w13",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a Vietnamese baby silver khánh pendant: a flat curved silver plate shaped like a lotus-edged crescent, hanging from a thin coral cord, two tiny silver bells",
+      "colours": "silver #C9D1D9 with a cream highlight shape, coral #F07C62 cord",
+      "source": "replaces sheet-1 #9 jade ring"
+    },
+    {
+      "id": "tui-gam",
+      "name": "Túi gấm",
+      "wave": "w13",
+      "slot": "neck",
+      "price": 80,
+      "status": "need",
+      "item": "a small drawstring pouch of patterned cloth with a simple diamond weave, hanging at the chest",
+      "colours": "coral #F07C62, butter pattern"
+    },
+    {
+      "id": "non-quai-thao",
+      "name": "Nón quai thao",
+      "wave": "long",
+      "slot": "head",
+      "price": 150,
+      "status": "need",
+      "item": "a Northern Vietnamese nón quai thao: a big flat round palm-leaf hat with a shallow rim and two long cream silk chin straps",
+      "colours": "straw #E8D9A8, cream straps, a coral inner band"
+    },
+    {
+      "id": "canh-dieu-sao",
+      "name": "Cánh diều sáo",
+      "wave": "long",
+      "slot": "back",
+      "price": 150,
+      "status": "need",
+      "item": "a Vietnamese flute kite (diều sáo): a long flat wing-shaped kite on a bamboo frame with a row of small bamboo flutes along its centre",
+      "colours": "cream paper, bamboo frame, turquoise trim"
+    },
+    {
+      "id": "ao-choang-tho-cam",
+      "name": "Áo choàng thổ cẩm",
+      "wave": "long",
+      "slot": "neck",
+      "price": 150,
+      "status": "need",
+      "item": "a short shoulder cape of Vietnamese highland brocade (thổ cẩm): horizontal bands of simple diamond and zigzag woven patterns, fastened with a wooden toggle",
+      "colours": "indigo #3B4BA8, coral, butter, cream bands"
+    },
+    {
+      "id": "bang-do-may",
+      "name": "Băng đô mây",
+      "wave": "backlog",
+      "slot": "head",
+      "price": 80,
+      "status": "idea",
+      "item": "a sky-blue headband topped with four round puffy clouds (simple round bumps, no spirals or curls), two small round butter-yellow beads hanging at the ends",
+      "colours": "sky blue #8DC6EE band, cream clouds, butter beads",
+      "source": "sheet-1 #2 with the swirl curls and stars removed"
+    }
+  ]
+}
