@@ -1,7 +1,7 @@
 # Tủ đồ · ý tưởng, list items, pipeline GPT
 
-Nguồn: brief v13.4 (phụ kiện = PNG trong suốt gắn điểm neo đầu/cổ · giá 40 / 80 / 150 · 4 món mới 80 mỗi 2 tuần từ tuần 3 · cần món 150 để dành), HIFI-PREP G5 (list stage 1 đã duyệt), PROMPT-RULES §1 + §7.
-Catalogue máy đọc được: `prompts/closet/items.json` (44 món). Prompt từng đợt: `prompts/closet/<wave>.md`.
+Nguồn: brief v13.4 (phụ kiện = PNG trong suốt gắn điểm neo · founder 9/10: **neo đầu, cổ, tay** · giá 40 / 80 / 150 · 4 món mới 80 mỗi 2 tuần từ tuần 3 · cần món 150 để dành), HIFI-PREP G5 (list stage 1 đã duyệt), PROMPT-RULES §1 + §7.
+Catalogue máy đọc được: `prompts/closet/items.json` (42 món). Prompt từng đợt: `prompts/closet/<wave>.md`.
 
 ---
 
@@ -34,43 +34,52 @@ Catalogue máy đọc được: `prompts/closet/items.json` (44 món). Prompt t�
 | 2 · 9 | Đèn lồng có tua | 🔴 đèn lồng tua | bỏ (xem `hu-dom-dom`) |
 | 2 · 10 | Ống nhòm + la bàn | 🟡 bỏ la bàn, thân tre | `ong-nhom-tre` |
 | 2 · 11 | Bó cuộn giấy | 🔴 cuộn giấy | bỏ |
-| 2 · 12 | Cánh thiên thần | 🟡 → cánh chuồn chuồn | `canh-chuon-chuon` |
+| 2 · 12 | Cánh thiên thần | 🟡 → chuồn chuồn đậu trên băng đô (không có neo lưng) | `bang-do-chuon-chuon` |
 
 ---
 
-## 2 · List items (44)
+## 2 · List items (42)
 
 Đầy đủ mô tả, màu, nguồn: `prompts/closet/items.json`. Xem nhanh: `python3 scripts/gen_closet.py --list`.
 
-**Stage 1 (G5, giữ nguyên list đã duyệt)**
+**Stage 1 (G5, chỉnh theo quyết định 9/10)**
 - Phụ kiện 40: Nón lá · Khăn rằn · Nơ bướm · Vòng hoa · Khăn quàng lá
-- Phụ kiện 80: Áo bà ba mini ⛔ · Đèn ông sao ⛔ · Diều giấy · Trống cơm · Ba lô mây (đổi từ "gỗ")
+- Phụ kiện 80: Diều giấy ✋ (cầm que) · Trống cơm · Giỏ xách mây ✋ (thay ba lô gỗ)
+- Đã bỏ: Đèn ông sao (founder 9/10), Áo bà ba mini (không có neo thân)
 - Món khoái khẩu 40: Bánh cam · Xôi gấc · Chè · Bánh bò
 - Giữ chuỗi: Ngày Ngủ (50) · Hồi Sinh Chuỗi (150)
 
-**Đợt mới, 4 món × 80, mỗi 2 tuần** (mỗi đợt 1 chủ đề, luôn có ≥1 mũ + ≥1 món cổ để chạy được trên neo hiện có)
+**Đợt mới, 4 món × 80, mỗi 2 tuần** (mỗi đợt 1 chủ đề, mỗi đợt có ≥1 mũ + ≥1 món cổ)
 
 | Đợt | Chủ đề | Món |
 |---|---|---|
 | Tuần 3 | Rừng lá | Mũ lá · Vòng hạt rừng · Áo tơi lá · Mũ chóp lá |
 | Tuần 5 | Thám hiểm | Mũ cối kính bay · Ống nhòm tre ✋ · Túi cói · Ống tre đựng nước |
-| Tuần 7 | Sông nước | Mũ thuyền giấy · Vòng hoa súng · Nơ lá dừa · Giỏ tre 🎒 |
+| Tuần 7 | Sông nước | Mũ thuyền giấy · Vòng hoa súng · Nơ lá dừa · Cần câu tre ✋ |
 | Tuần 9 | Đồng quê | Mũ trùm sừng trâu · Mõ trâu · Mũ rơm · Sáo trúc ✋ |
-| Tuần 11 | Đêm đom đóm | Băng đô trăng khuyết · Hũ đom đóm ✋ · Áo choàng chàm · Cánh chuồn chuồn 🎒 |
+| Tuần 11 | Đêm đom đóm | Băng đô trăng khuyết · Hũ đom đóm ✋ · Áo choàng chàm · Băng đô chuồn chuồn |
 | Tuần 13 | Tết | Khăn đóng · Cành mai cài · Khánh bạc · Túi gấm |
 
-**Để dành 150:** Nón quai thao · Cánh diều sáo 🎒 · Áo choàng thổ cẩm
+**Để dành 150:** Nón quai thao · Cánh diều sáo ✋ (cầm que) · Áo choàng thổ cẩm
 **Dự phòng:** Băng đô mây
 
-⛔ blocked · ✋ cần neo tay · 🎒 cần neo lưng
+✋ neo tay
 
 ---
 
-## 3 · Cần founder quyết
+## 3 · Quyết định (founder 9/10)
 
-1. **Neo lưng / tay / thân.** Brief chỉ có neo đầu + cổ. 9 món (diều, ba lô, áo bà ba, ống nhòm, sáo, hũ đom đóm, giỏ, cánh chuồn chuồn, diều sáo) cần thêm neo. Nếu không thêm: đổi các món đó sang đầu/cổ hoặc dời sang stage 2.
-2. **Đèn ông sao** (OPEN-QUESTIONS #1). Đề xuất thay bằng **Hũ đom đóm** (`hu-dom-dom`), không đụng luật đèn.
-3. **3 bạn đồng hành × 3 dạng tiến hoá.** Một file master mỗi món; code scale/xoay theo neo của từng con/dạng. Nếu đầu Dūdū/Wūwū khác hình quá thì mũ cần bản riêng, test sớm với `mu-la` + `khan-ran`.
+1. **Neo: đầu, cổ, tay.** Không có neo lưng / thân. Món lưng đổi sang cầm tay (diều, diều sáo cầm que; giỏ xách mây, cần câu tre) hoặc lên đầu (băng đô chuồn chuồn). Áo bà ba bỏ.
+2. **Đèn ông sao: bỏ** khỏi Tủ đồ. Hũ đom đóm vẫn ở đợt tuần 11.
+3. **Thử trên Hǔhǔ trước.** Neo đo trên `assets/char/gen/huhu-front-idle.png`, nằm trong `items.json` → `anchors.huhu`. Dūdū / Wūwū thêm sau, cùng cấu trúc.
+
+### Ướm đồ lên Hǔhǔ
+```
+python3 scripts/fit_preview.py --id mu-la                         # 1 món
+python3 scripts/fit_preview.py --id non-la khan-ran ong-nhom-tre  # đủ bộ đầu + cổ + tay
+```
+→ `assets/closet/fit/huhu-<ids>.png`. Lấy file approved nếu có, không thì bản gen mới nhất.
+Món lệch: thêm `"fit": {"scale": 1.1, "dx": 0, "dy": -0.02}` vào món đó trong `items.json` (đơn vị = tỉ lệ ảnh pose). Số `fit` này là số dev dùng để gắn neo trong app.
 
 ---
 
@@ -81,10 +90,11 @@ Catalogue máy đọc được: `prompts/closet/items.json` (44 món). Prompt t�
    OPENAI_API_KEY=sk-...
    OPENAI_IMAGE_MODEL=gpt-image-1
    ```
-2. Chạy thử 2 món, đeo lên Hǔhǔ trong Figma để chốt style:
+2. Chạy thử 3 món (đầu + cổ + tay), ướm lên Hǔhǔ để chốt style:
    ```
-   python3 scripts/gen_closet.py --id mu-la khan-ran --dry-run   # xem prompt
-   python3 scripts/gen_closet.py --id mu-la khan-ran             # 2 biến thể / món
+   python3 scripts/gen_closet.py --id mu-la khan-ran ong-nhom-tre --dry-run   # xem prompt
+   python3 scripts/gen_closet.py --id mu-la khan-ran ong-nhom-tre             # 2 biến thể / món
+   python3 scripts/fit_preview.py --id mu-la khan-ran ong-nhom-tre
    ```
 3. Chấm theo QA §7. Món 🟢 copy sang `assets/closet/approved/<id>.png`, sửa `status` thành `approved` trong `items.json`.
 4. Từ đó luôn đính kèm món đã duyệt làm style ref để cả kho đồng bộ:
@@ -96,4 +106,4 @@ Catalogue máy đọc được: `prompts/closet/items.json` (44 món). Prompt t�
 Không có API key: mở `prompts/closet/<wave>.md`, dán từng prompt vào ChatGPT như quy trình cũ.
 Thêm món mới: thêm 1 object vào `items.json` → `python3 scripts/build_prompts.py`.
 
-Chi phí ước tính: 42 món chạy được × 2 biến thể ≈ 84 ảnh mỗi vòng (`--quality medium`).
+Chi phí ước tính: 42 món × 2 biến thể ≈ 84 ảnh mỗi vòng (`--quality medium`).

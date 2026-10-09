@@ -13,7 +13,7 @@ App iPad đọc truyện tiếng Trung cho trẻ Việt 5–12 tuổi. Repo này
 | `docs/DESIGN.md` | Design system đã lock: màu, font, shape D/B/A, component, Hǔhǔ rules |
 | `docs/HIFI-PREP.md` | Kế hoạch Phase A→J, screen list, asset matrix, generation queue |
 | `docs/TongHua-Land-Build-Brief-v13.4.html` | Product & engineering brief |
-| `docs/TU-DO.md` | Tủ đồ: review sheet phụ kiện, list 44 items, pipeline GPT (`scripts/gen_closet.py`) |
+| `docs/TU-DO.md` | Tủ đồ: review sheet phụ kiện, list 42 items, pipeline GPT (`scripts/gen_closet.py`), ướm lên Hǔhǔ (`scripts/fit_preview.py`) |
 
 **Còn thiếu (docs có nhắc tới):** `PRODUCT.md` (locked copy, companion lines), `ref/PROMPTS-MASTER.md`, `screen-mapping-rules.html`, `.impeccable/design.json`, `companion-cast.md`.
 
@@ -29,7 +29,7 @@ assets/
   icons/         C2 cut-paper
   ui-kit/pieces/ giấy dó + bamboo
   story/         art truyện mẫu
-  closet/        Tủ đồ: gen/ (GPT output) · approved/
+  closet/        Tủ đồ: gen/ (GPT output) · approved/ · fit/ (ướm lên nhân vật)
   manifest.json  37 asset stage 1 + trạng thái
 materials/       input thô: chatgpt-designs/, stitch-layouts/, references/
 app/             code (sau hi-fi)

@@ -26,15 +26,15 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Cánh diều sáo · `canh-dieu-sao`
 
-slot back · 150 bánh cam · need
+slot hand · 150 bánh cam · need · hand slot: held up on a stick
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
 
-ITEM: a Vietnamese flute kite (diều sáo): a long flat wing-shaped kite on a bamboo frame with a row of small bamboo flutes along its centre
-SLOT: worn on the back
+ITEM: a Vietnamese flute kite (diều sáo): a flat wing-shaped kite on a bamboo frame with a row of small bamboo flutes along its centre, held up on a short bamboo stick
+SLOT: held in one paw
 COLOURS: cream paper, bamboo frame, turquoise trim
-FIT: Straight front view of the item as it sits BEHIND the character: draw the whole item, symmetrical, straps or ties pointing toward the centre; the app hides the middle behind the body so only the sides peek out.
+FIT: Held upright as if in a small mitten paw: the handle or grip is at the bottom-centre, the item stands straight up, small enough to be held in one paw.
 
 STYLE: thin dark sage outline #587E5C (never black), outer contour slightly thicker, inner lines thinner. Flat fills only, bright and clean, at most 2-3 colours plus cream #F5F4D0. Simple chunky shapes that still read at 96 px. Vietnamese materials and craft: bamboo, rattan, straw, banana and palm leaf, cotton, indigo cloth, wood, silver.
 

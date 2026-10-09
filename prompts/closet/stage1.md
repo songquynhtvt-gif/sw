@@ -100,25 +100,17 @@ OUTPUT: the single item centred with 12% margin, fully transparent background, s
 Do NOT: draw the tiger, a head, ears or any body part; draw several items or a sheet; add a navy or coloured offset shadow, gloss, glow, gradients, 3D, blur or noisy texture; add four-point sparkles; use Chinese motifs (swirl clouds, dragons, tasselled lanterns, star lanterns, melon caps, round jade discs, red-and-gold imperial colours); draw maps with a red X, compasses or rolled scrolls; draw crowns, medals, trophies or gems; add text, letters or numbers; use mint green #BDDBA7 as the main colour.
 ```
 
-## Áo bà ba mini · `ao-ba-ba` · BLOCKED
-
-needs a body anchor (brief only has head/neck)
-
-## Đèn ông sao · `den-ong-sao` · BLOCKED
-
-OPEN-QUESTIONS #1: banned by PROMPT-RULES §1. Proposed replacement: hu-dom-dom (firefly jar)
-
 ## Diều giấy · `dieu-giay`
 
-slot back · 80 bánh cam · need · needs a back anchor; or hand slot holding the string
+slot hand · 80 bánh cam · need · hand slot: kite held up on a stick
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
 
-ITEM: a small diamond-shaped Vietnamese paper kite on a bamboo cross frame, with a short ribbon tail of three bows
-SLOT: worn on the back
+ITEM: a small diamond-shaped Vietnamese paper kite on a bamboo cross frame, held up on a short bamboo stick, with a short ribbon tail of three bows
+SLOT: held in one paw
 COLOURS: butter #F7C844 and coral #F07C62 panels, bamboo frame
-FIT: Straight front view of the item as it sits BEHIND the character: draw the whole item, symmetrical, straps or ties pointing toward the centre; the app hides the middle behind the body so only the sides peek out.
+FIT: Held upright as if in a small mitten paw: the handle or grip is at the bottom-centre, the item stands straight up, small enough to be held in one paw.
 
 STYLE: thin dark sage outline #587E5C (never black), outer contour slightly thicker, inner lines thinner. Flat fills only, bright and clean, at most 2-3 colours plus cream #F5F4D0. Simple chunky shapes that still read at 96 px. Vietnamese materials and craft: bamboo, rattan, straw, banana and palm leaf, cotton, indigo cloth, wood, silver.
 
@@ -146,17 +138,17 @@ OUTPUT: the single item centred with 12% margin, fully transparent background, s
 Do NOT: draw the tiger, a head, ears or any body part; draw several items or a sheet; add a navy or coloured offset shadow, gloss, glow, gradients, 3D, blur or noisy texture; add four-point sparkles; use Chinese motifs (swirl clouds, dragons, tasselled lanterns, star lanterns, melon caps, round jade discs, red-and-gold imperial colours); draw maps with a red X, compasses or rolled scrolls; draw crowns, medals, trophies or gems; add text, letters or numbers; use mint green #BDDBA7 as the main colour.
 ```
 
-## Ba lô mây · `ba-lo-go`
+## Giỏ xách mây · `gio-xach-may`
 
-slot back · 80 bánh cam · need · renamed from ba lô gỗ: rattan reads more Vietnamese. Needs a back anchor
+slot hand · 80 bánh cam · need · replaces ba lô gỗ (no back anchor)
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
 
-ITEM: a small woven rattan backpack with a rounded flap, a wooden toggle and two shoulder straps
-SLOT: worn on the back
+ITEM: a small woven rattan handbag basket with a round arched handle and a wooden toggle on the lid, held by the handle
+SLOT: held in one paw
 COLOURS: rattan #D9B577, wood #8B5A2B toggle
-FIT: Straight front view of the item as it sits BEHIND the character: draw the whole item, symmetrical, straps or ties pointing toward the centre; the app hides the middle behind the body so only the sides peek out.
+FIT: Held upright as if in a small mitten paw: the handle or grip is at the bottom-centre, the item stands straight up, small enough to be held in one paw.
 
 STYLE: thin dark sage outline #587E5C (never black), outer contour slightly thicker, inner lines thinner. Flat fills only, bright and clean, at most 2-3 colours plus cream #F5F4D0. Simple chunky shapes that still read at 96 px. Vietnamese materials and craft: bamboo, rattan, straw, banana and palm leaf, cotton, indigo cloth, wood, silver.
 

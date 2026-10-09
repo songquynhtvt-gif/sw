@@ -1,5 +1,5 @@
 {
-  "_note": "Tủ đồ catalogue. Edit here, then run python3 scripts/build_prompts.py (prompt files) or python3 scripts/gen_closet.py (GPT images). Template: docs/PROMPT-RULES-TEAM.md §7. status: idea | need | blocked | gen | approved",
+  "_note": "Tủ đồ catalogue. Edit here, then run python3 scripts/build_prompts.py (prompt files) or python3 scripts/gen_closet.py (GPT images), python3 scripts/fit_preview.py (try on a companion). Template: docs/PROMPT-RULES-TEAM.md §7. status: idea | need | blocked | gen | approved",
   "slots": {
     "head": {
       "label": "Đầu (neo đầu)",
@@ -11,20 +11,10 @@
       "en": "worn around the neck and chest",
       "fit": "Straight front view, exactly as it wraps a short chubby neck just under a big round head; the top edge is a gentle smile-shaped curve, the rest hangs on the chest."
     },
-    "back": {
-      "label": "Lưng (cần neo lưng, chưa có trong brief)",
-      "en": "worn on the back",
-      "fit": "Straight front view of the item as it sits BEHIND the character: draw the whole item, symmetrical, straps or ties pointing toward the centre; the app hides the middle behind the body so only the sides peek out."
-    },
     "hand": {
-      "label": "Tay cầm (cần neo tay, chưa có trong brief)",
+      "label": "Tay cầm (neo tay)",
       "en": "held in one paw",
       "fit": "Held upright as if in a small mitten paw: the handle or grip is at the bottom-centre, the item stands straight up, small enough to be held in one paw."
-    },
-    "body": {
-      "label": "Thân (cần neo thân, chưa có trong brief)",
-      "en": "worn on the body",
-      "fit": "Straight front view of a tiny garment for a chubby round body with short arms, laid flat and symmetrical, short sleeves, no body inside."
     },
     "food": {
       "label": "Món khoái khẩu (icon + cho ăn)",
@@ -107,37 +97,15 @@
       "source": "sheet-1 #1 leaf cap, same leaf language"
     },
     {
-      "id": "ao-ba-ba",
-      "name": "Áo bà ba mini",
-      "wave": "stage1",
-      "slot": "body",
-      "price": 80,
-      "status": "blocked",
-      "item": "a tiny Vietnamese áo bà ba blouse: collarless, buttoned down the centre with small round buttons, two front pockets, short wide sleeves",
-      "colours": "turquoise #2EC4B6, cream buttons",
-      "note": "needs a body anchor (brief only has head/neck)"
-    },
-    {
-      "id": "den-ong-sao",
-      "name": "Đèn ông sao",
-      "wave": "stage1",
-      "slot": "hand",
-      "price": 80,
-      "status": "blocked",
-      "item": "",
-      "colours": "",
-      "note": "OPEN-QUESTIONS #1: banned by PROMPT-RULES §1. Proposed replacement: hu-dom-dom (firefly jar)"
-    },
-    {
       "id": "dieu-giay",
       "name": "Diều giấy",
       "wave": "stage1",
-      "slot": "back",
+      "slot": "hand",
       "price": 80,
       "status": "need",
-      "item": "a small diamond-shaped Vietnamese paper kite on a bamboo cross frame, with a short ribbon tail of three bows",
+      "item": "a small diamond-shaped Vietnamese paper kite on a bamboo cross frame, held up on a short bamboo stick, with a short ribbon tail of three bows",
       "colours": "butter #F7C844 and coral #F07C62 panels, bamboo frame",
-      "note": "needs a back anchor; or hand slot holding the string"
+      "note": "hand slot: kite held up on a stick"
     },
     {
       "id": "trong-com",
@@ -150,15 +118,15 @@
       "colours": "warm wood #C98A4B body, cream drum heads, coral #F07C62 cords"
     },
     {
-      "id": "ba-lo-go",
-      "name": "Ba lô mây",
+      "id": "gio-xach-may",
+      "name": "Giỏ xách mây",
       "wave": "stage1",
-      "slot": "back",
+      "slot": "hand",
       "price": 80,
       "status": "need",
-      "item": "a small woven rattan backpack with a rounded flap, a wooden toggle and two shoulder straps",
+      "item": "a small woven rattan handbag basket with a round arched handle and a wooden toggle on the lid, held by the handle",
       "colours": "rattan #D9B577, wood #8B5A2B toggle",
-      "note": "renamed from ba lô gỗ: rattan reads more Vietnamese. Needs a back anchor"
+      "note": "replaces ba lô gỗ (no back anchor)"
     },
     {
       "id": "banh-cam",
@@ -338,14 +306,15 @@
       "colours": "coconut leaf green #6CC36F, pale leaf #CFE39A"
     },
     {
-      "id": "gio-tre",
-      "name": "Giỏ tre",
+      "id": "can-cau-tre",
+      "name": "Cần câu tre",
       "wave": "w7",
-      "slot": "back",
+      "slot": "hand",
       "price": 80,
       "status": "need",
-      "item": "a small woven bamboo fishing basket (giỏ) with a narrow neck and a carrying cord",
-      "colours": "bamboo #D9C27A, darker weave lines"
+      "item": "a short bamboo fishing rod held upright, a thin line hanging from the tip with a small red-and-cream float",
+      "colours": "bamboo #D9C27A, coral #F07C62 float",
+      "note": "replaces giỏ tre (no back anchor)"
     },
     {
       "id": "mu-trum-trau",
@@ -422,15 +391,16 @@
       "source": "sheet-1 #7 with the 4-point sparkles, swirls and tassels removed"
     },
     {
-      "id": "canh-chuon-chuon",
-      "name": "Cánh chuồn chuồn",
+      "id": "bang-do-chuon-chuon",
+      "name": "Băng đô chuồn chuồn",
       "wave": "w11",
-      "slot": "back",
+      "slot": "head",
       "price": 80,
       "status": "need",
-      "item": "two pairs of small dragonfly wings, long rounded shapes with a simple vein pattern, joined at the centre",
-      "colours": "pale turquoise #A8E6DF, violet #8A6BE0 veins",
-      "source": "sheet-2 #12 wings, now dragonfly (not angel)"
+      "item": "a thin headband with a small dragonfly perched on top in the centre, two pairs of long rounded wings spread wide with a simple vein pattern",
+      "colours": "pale turquoise #A8E6DF wings, violet #8A6BE0 body and veins, leaf band",
+      "source": "sheet-2 #12 wings, now dragonfly (not angel)",
+      "note": "replaces cánh chuồn chuồn (no back anchor)"
     },
     {
       "id": "khan-dong",
@@ -487,11 +457,12 @@
       "id": "canh-dieu-sao",
       "name": "Cánh diều sáo",
       "wave": "long",
-      "slot": "back",
+      "slot": "hand",
       "price": 150,
       "status": "need",
-      "item": "a Vietnamese flute kite (diều sáo): a long flat wing-shaped kite on a bamboo frame with a row of small bamboo flutes along its centre",
-      "colours": "cream paper, bamboo frame, turquoise trim"
+      "item": "a Vietnamese flute kite (diều sáo): a flat wing-shaped kite on a bamboo frame with a row of small bamboo flutes along its centre, held up on a short bamboo stick",
+      "colours": "cream paper, bamboo frame, turquoise trim",
+      "note": "hand slot: held up on a stick"
     },
     {
       "id": "ao-choang-tho-cam",
@@ -514,5 +485,26 @@
       "colours": "sky blue #8DC6EE band, cream clouds, butter beads",
       "source": "sheet-1 #2 with the swirl curls and stars removed"
     }
-  ]
+  ],
+  "anchors": {
+    "_note": "Fractions of the pose image. head: item bottom edge sits at y, neck: item top edge at y, hand: item bottom at y. w = item width (head/neck) or h = item height (hand). Per-item tweak: add \"fit\": {\"scale\": 1.1, \"dx\": 0, \"dy\": -0.02} to the item.",
+    "huhu": {
+      "pose": "assets/char/gen/huhu-front-idle.png",
+      "head": {
+        "x": 0.5,
+        "y": 0.27,
+        "w": 0.62
+      },
+      "neck": {
+        "x": 0.5,
+        "y": 0.515,
+        "w": 0.52
+      },
+      "hand": {
+        "x": 0.24,
+        "y": 0.86,
+        "h": 0.34
+      }
+    }
+  }
 }
