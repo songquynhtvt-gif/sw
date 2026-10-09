@@ -4,7 +4,7 @@
 
 **⚠ Palette conflicts with DESIGN.md.** DESIGN.md says white fur #FAFAF5, burnt-orange #C8703F outline/ears/tail/paws, straw hat #D9B26A, bamboo tube #C9955A. This set has orange fur with cream belly and patches, a green conical hat, dark-brown outline and a green bamboo stick. DESIGN.md itself says those colours come from the old brand book and need checking against the illustrator's file. **Founder decides which one is canon. Then update DESIGN.md or regenerate.**
 
-General: bipedal ✓ · 2–3 mint wisps ✓ (wisps here have faces; Hǔhǔ's don't, so pick one) · flat 2D ✓ · tongue-out on most poses (on-model?) · no black outline ✓.
+General: bipedal ✓ · 2–3 mint wisps ✓ (Dūdū's wisps have eyes + mouth; rules §3 says Hǔhǔ's wisps have eyes, no mouth. Decide if Dūdū follows the same rule) · flat 2D ✓ · tongue-out on most poses (on-model?) · no black outline ✓.
 
 | File | Slot (HIFI-PREP C2 equivalent) | Notes |
 |---|---|---|

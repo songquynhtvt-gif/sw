@@ -1,0 +1,100 @@
+{
+  "_note": "Edit this file, then run: python3 scripts/build_prompts.py. Templates come from docs/PROMPT-RULES-TEAM.md and are never edited by hand here.",
+  "huhu": [
+    {
+      "id": "front-idle",
+      "slot": "Companion pick (hero 420pt). Replaces gen/huhu-front-idle.png (🟠 eyes)",
+      "pose": "standing upright facing the viewer, feet slightly apart, both arms relaxed at his sides a little away from the body, tail curving up behind his right leg",
+      "expression": "calm friendly smile, mouth closed, both eyes open and looking straight at the viewer",
+      "prop": "none",
+      "accent": "none",
+      "rig": true
+    },
+    {
+      "id": "found-the-map",
+      "slot": "PT-07 Map found (hero). North Star moment",
+      "pose": "standing in three-quarter view turned to the right, holding an old folded paper map open with both paws at chest height, leaning slightly forward",
+      "expression": "amazed and excited, eyes wide, small open mouth under the smile line",
+      "prop": "an old cream paper map #EFE3C4, folded in thirds, plain with a few faded ink dotted lines, no text, no red X, no compass",
+      "accent": "none"
+    },
+    {
+      "id": "ha-back-after-gap",
+      "slot": "Home, returning after a gap (\"Hả?!\")",
+      "pose": "standing, body turned three-quarter to the right, one paw raised near his cheek, ears perked up, tail straight up",
+      "expression": "surprised and happy at the same time, eyebrows up, small round open mouth under the smile line",
+      "prop": "none",
+      "accent": "two short orange #FF8F45 surprise strokes above his head"
+    },
+    {
+      "id": "listening",
+      "slot": "Reader corner (150pt). Rises from bottom edge, cropped at hips in layout",
+      "pose": "standing, head tilted slightly to the right, one paw cupped behind his right ear as if listening",
+      "expression": "focused and curious, eyes looking up and to the right, mouth closed",
+      "prop": "none",
+      "accent": "none"
+    },
+    {
+      "id": "eating-banh-cam",
+      "slot": "FEED-01 Nuôi lớn (hero)",
+      "pose": "sitting upright on his bottom, legs out in front, holding one bánh cam with both paws close to his mouth",
+      "expression": "delighted, eyes half closed in joy, taking a small bite, small open mouth under the smile line",
+      "prop": "one bánh cam: a round golden fried sesame ball #D9953B with tiny cream sesame dots, about the size of his paw. It must read as a Vietnamese sesame ball, not a coin, not a cookie",
+      "accent": "none"
+    },
+    {
+      "id": "bowl-full",
+      "slot": "FEED-01 bowl full / +5 bánh cam",
+      "pose": "sitting upright, patting his round belly with one paw, the other paw resting on the rim of a small bowl beside him",
+      "expression": "content and satisfied, eyes closed in happy arcs, closed smile",
+      "prop": "a small round Vietnamese ceramic bowl, cream with one blue band, piled with bánh cam sesame balls",
+      "accent": "none"
+    },
+    {
+      "id": "sleeping",
+      "slot": "Ngày Ngủ (streak freeze) / bedtime",
+      "pose": "curled up lying on his side on the ground, head resting on his paws, tail wrapped around his body",
+      "expression": "peacefully asleep, eyes closed in soft arcs, smile line still visible",
+      "prop": "none",
+      "accent": "the ghost wisps are also sleepy, eyes as small closed arcs"
+    }
+  ],
+  "bg": [
+    {
+      "id": "C0-nha-nho-ben-doi",
+      "slot": "C0 · Companion pick, Name, Home for new users",
+      "scene": "a small Vietnamese stilt house (nhà sàn) with a thatched roof on a gentle hill, banana trees and ferns around it, a woven bamboo fence, a clay water jar (chum) by the steps, one glass oil lamp hanging under the eaves",
+      "mood": "cosy, safe, first night of an adventure"
+    },
+    {
+      "id": "C1-xom-tre-den-sang",
+      "slot": "C1 · Keeper Chó Đội Nón",
+      "scene": "a small village lane lined with tall bamboo groves, two thatched houses with woven rattan walls, a round woven basket boat (thúng chai) leaning on a fence, a conical hat (nón lá) hanging on a post, one glass oil lamp on a wooden stool by a doorway",
+      "mood": "friendly, lively, neighbourly, warm"
+    },
+    {
+      "id": "C2-rung-ngan-mat",
+      "slot": "C2 · Keeper Hổ Tinh",
+      "scene": "a deep round-canopy forest with huge banana leaves and giant ferns, mossy roots, a narrow dirt path winding into the trees, one glass oil lamp resting on a flat stone",
+      "mood": "mysterious, playful, many eyes watching kindly"
+    }
+  ],
+  "bg_layout": {
+    "calm": "the top 30 percent across the full width is a calm deep indigo night sky with no stars; the middle third of the width from 30 to 70 percent high is a calm dark teal leaf wall where a cream card sits",
+    "stage": "one flat empty patch of grass or path from 6 to 36 percent of the width, top at 62 percent of the height, where a character stands",
+    "busy": "the right 30 percent of the image between 25 and 75 percent high, plus the far left edge above the stage"
+  },
+  "bg_states": {
+    "chua-sang": "Edit only the light and mist, keep everything else exactly the same: the oil lamp flame is out (glass chimney empty, no amber), a soft flat layer of cool blue-grey mist covers the lower half, colours 20 percent less saturated. No blur.",
+    "da-sang": "Base render. Lamp lit, full saturation."
+  },
+  "icons_batch1": [
+    "Bí Kíp tab: a small bamboo-bound notebook tied with twine, cream pages, leaf green cover",
+    "Phiêu Lưu Ký tab: a folded old paper map with a dotted path, cream and turquoise, no X, no compass",
+    "bánh cam: a round golden fried sesame ball #D9953B seen three-quarter, tiny cream sesame dots, must not look like a coin",
+    "audio: a small speaker shape with two curved sound waves, coral",
+    "pinyin toggle: a small cream paper tag with a single tone-mark accent stroke above a blank line, violet (no letters)",
+    "bowl: a small round Vietnamese ceramic bowl, cream with a turquoise band, empty",
+    "stamp frame: an empty round passport stamp ring with a scalloped edge, coral, blank centre"
+  ]
+}
