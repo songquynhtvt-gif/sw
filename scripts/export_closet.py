@@ -22,7 +22,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_prompts import CLOSET, ROOT  # noqa: E402
-from fit_preview import LAYER, item_file, try_on  # noqa: E402
+from fit_preview import LAYER, export_rig, item_file, sheet, try_on  # noqa: E402
 
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
@@ -67,6 +67,7 @@ def main():
     ap.add_argument("--size", type=int, default=2048, help="longest side of each PNG")
     ap.add_argument("--no-svg", action="store_true")
     ap.add_argument("--id", nargs="+", help="only these items (default: every item with an image)")
+    ap.add_argument("--part-mb", type=float, default=28, help="split into zips of at most this size")
     ap.add_argument("--out", type=Path, default=ROOT / f"exports/tu-do-{date.today():%Y%m%d}.zip")
     args = ap.parse_args()
 
@@ -79,42 +80,68 @@ def main():
             print("vtracer not installed: PNG only (pip install vtracer for SVG)")
             svg = False
 
-    rows, missing = [], []
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(args.out, "w", zipfile.ZIP_DEFLATED) as z:
-        table = io.StringIO()
-        w = csv.writer(table)
-        w.writerow(["id", "name", "wave", "slot", "price", "status", "png", "source"])
-        for it in CLOSET["items"]:
-            if args.id and it["id"] not in args.id:
-                continue
-            src = item_file(it["id"])
-            if src is None:
-                missing.append(it["id"])
-                continue
-            raw = Image.open(src).convert("RGBA")
-            img = sharpen(raw, args.size)
-            buf = io.BytesIO()
-            img.save(buf, "PNG", optimize=True)
-            name = f"png/{it['wave']}/{it['id']}.png"
-            z.writestr(name, buf.getvalue())
-            if svg:
-                small = io.BytesIO()
-                raw.crop(raw.getbbox()).save(small, "PNG")  # trace the source: fewer paths, same look
-                z.writestr(f"svg/{it['wave']}/{it['id']}.svg", to_svg(small.getvalue()))
-            if it["slot"] in LAYER:
-                z.write(try_on([it["id"]]), f"fit/huhu-{it['id']}.png")
-            w.writerow([it["id"], it["name"], it["wave"], it["slot"], it["price"], it["status"], name,
-                        src.relative_to(ROOT)])
-            rows.append((it, img))
-            print(f"✓ {it['id']} {img.size[0]}×{img.size[1]}")
-        z.writestr("catalogue.csv", "﻿" + table.getvalue())  # BOM so Excel reads Vietnamese
-        if rows:
-            buf = io.BytesIO()
-            contact_sheet(rows).save(buf, "PNG")
-            z.writestr("contact-sheet.png", buf.getvalue())
+    rows, missing, groups = [], [], []  # groups: one list of (zip path, bytes) per item, kept together
+    table = io.StringIO()
+    w = csv.writer(table)
+    w.writerow(["id", "name", "wave", "slot", "price", "status", "png", "source"])
+    for it in CLOSET["items"]:
+        if args.id and it["id"] not in args.id:
+            continue
+        src = item_file(it["id"])
+        if src is None:
+            missing.append(it["id"])
+            continue
+        raw = Image.open(src).convert("RGBA")
+        img = sharpen(raw, args.size)
+        buf = io.BytesIO()
+        img.save(buf, "PNG", optimize=True)
+        name = f"png/{it['wave']}/{it['id']}.png"
+        group = [(name, buf.getvalue())]
+        if svg:
+            small = io.BytesIO()
+            raw.crop(raw.getbbox()).save(small, "PNG")  # trace the source: fewer paths, same look
+            group.append((f"svg/{it['wave']}/{it['id']}.svg", to_svg(small.getvalue()).encode()))
+        if it["slot"] in LAYER:
+            group.append((f"fit/huhu-{it['id']}.png", try_on([it["id"]]).read_bytes()))
+        groups.append(group)
+        w.writerow([it["id"], it["name"], it["wave"], it["slot"], it["price"], it["status"], name,
+                    src.relative_to(ROOT)])
+        rows.append((it, img))
+        print(f"✓ {it['id']} {img.size[0]}×{img.size[1]}")
 
-    print(f"\n{len(rows)} items → {args.out.relative_to(ROOT)}")
+    head = [("catalogue.csv", ("\ufeff" + table.getvalue()).encode())]  # BOM so Excel reads Vietnamese
+    if rows:
+        buf = io.BytesIO()
+        contact_sheet(rows).save(buf, "PNG")
+        head.append(("contact-sheet.png", buf.getvalue()))
+    if not args.id:  # whole catalogue: outfits, the dressed sheet and the app rig
+        for o in CLOSET.get("outfits", []):
+            if all(item_file(x) for x in o["ids"]):
+                head.append((f"fit/outfit-{'+'.join(o['ids'])}.png", try_on(o["ids"]).read_bytes()))
+        head.append(("huhu-mac-do.png", sheet().read_bytes()))
+        for f in sorted(export_rig().iterdir()):
+            head.append((f"rig/huhu-front/{f.name}", f.read_bytes()))
+
+    # pack into zips under --part-mb each (chat uploads cap at 30 MB)
+    limit = args.part_mb * 1024 * 1024
+    parts, size = [[]], 0
+    for group in [head] + groups:
+        g = sum(len(b) for _, b in group)
+        if parts[-1] and size + g > limit:
+            parts.append([])
+            size = 0
+        parts[-1].extend(group)
+        size += g
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    outs = [args.out] if len(parts) == 1 else \
+        [args.out.with_name(f"{args.out.stem}-{k}of{len(parts)}.zip") for k in range(1, len(parts) + 1)]
+    for out, entries in zip(outs, parts):
+        with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+            for name, data in entries:
+                z.writestr(name, data)
+        print(f"→ {out.relative_to(ROOT)} ({out.stat().st_size / 1e6:.1f} MB, {len(entries)} files)")
+
+    print(f"\n{len(rows)} items")
     if missing:
         print(f"no image yet ({len(missing)}): {' '.join(missing)}")
 

@@ -60,7 +60,7 @@
           "files": [
             "assets/closet/gen/non-la-v1.png"
           ],
-          "verdict": "🟠 the chin bow hangs below the brim and covers the face when worn: regenerate with a short strap · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟠 the chin bow hangs below the brim and covers the face when worn: regenerate with a short strap · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -68,12 +68,13 @@
           "files": [
             "assets/closet/gen/non-la-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟠 the chin bow hangs below the brim and covers the face when worn: regenerate with a short strap · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
         "scale": 1.2,
-        "dy": 0.03
+        "dy": 0.03,
+        "ears": "covered"
       }
     },
     {
@@ -93,7 +94,7 @@
           "files": [
             "assets/closet/gen/khan-ran-v1.png"
           ],
-          "verdict": "🟠 navy offset shadow kept (same colour as the checks, cannot be removed safely): regenerate without shadow · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟠 navy offset shadow kept (same colour as the checks, cannot be removed safely): regenerate without shadow · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -101,7 +102,7 @@
           "files": [
             "assets/closet/gen/khan-ran-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟠 navy offset shadow kept (same colour as the checks, cannot be removed safely): regenerate without shadow · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -124,7 +125,7 @@
           "files": [
             "assets/closet/gen/no-buom-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -132,7 +133,7 @@
           "files": [
             "assets/closet/gen/no-buom-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -152,7 +153,7 @@
           "files": [
             "assets/closet/gen/vong-hoa-v1.png"
           ],
-          "verdict": "🟡 ring seen from above, sits ok · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 ring seen from above, sits ok · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -160,12 +161,13 @@
           "files": [
             "assets/closet/gen/vong-hoa-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟡 ring seen from above, sits ok · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
         "scale": 0.9,
-        "dy": 0.04
+        "dy": 0.04,
+        "ears": "front"
       }
     },
     {
@@ -185,7 +187,7 @@
           "files": [
             "assets/closet/gen/khan-quang-la-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -193,7 +195,7 @@
           "files": [
             "assets/closet/gen/khan-quang-la-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -217,7 +219,7 @@
           "files": [
             "assets/closet/gen/dieu-giay-v1.png"
           ],
-          "verdict": "🔴 swirl clouds on the kite (rules §1): regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🔴 swirl clouds on the kite (rules §1): regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -225,7 +227,7 @@
           "files": [
             "assets/closet/gen/dieu-giay-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🔴 swirl clouds on the kite (rules §1): regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -248,7 +250,7 @@
           "files": [
             "assets/closet/gen/trong-com-v1.png"
           ],
-          "verdict": "🟡 tassels on the strap ends · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 tassels on the strap ends · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -256,7 +258,7 @@
           "files": [
             "assets/closet/gen/trong-com-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟡 tassels on the strap ends · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -277,7 +279,7 @@
           "files": [
             "assets/closet/gen/gio-xach-may-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -285,7 +287,7 @@
           "files": [
             "assets/closet/gen/gio-xach-may-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -305,7 +307,7 @@
           "files": [
             "assets/closet/gen/banh-cam-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -313,7 +315,7 @@
           "files": [
             "assets/closet/gen/banh-cam-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -333,7 +335,7 @@
           "files": [
             "assets/closet/gen/xoi-gac-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -341,7 +343,7 @@
           "files": [
             "assets/closet/gen/xoi-gac-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -361,7 +363,7 @@
           "files": [
             "assets/closet/gen/che-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -369,7 +371,7 @@
           "files": [
             "assets/closet/gen/che-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -389,7 +391,7 @@
           "files": [
             "assets/closet/gen/banh-bo-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -397,7 +399,7 @@
           "files": [
             "assets/closet/gen/banh-bo-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -438,7 +440,7 @@
           "files": [
             "assets/closet/gen/mu-la-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -446,9 +448,12 @@
           "files": [
             "assets/closet/gen/mu-la-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "fit": {
+        "ears": "front"
+      }
     },
     {
       "id": "vong-hat-rung",
@@ -467,7 +472,7 @@
           "files": [
             "assets/closet/gen/vong-hat-rung-v1.png"
           ],
-          "verdict": "🟠 drawn as a full front-on ring, not a hanging U: regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟠 drawn as a full front-on ring, not a hanging U: regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -475,7 +480,7 @@
           "files": [
             "assets/closet/gen/vong-hat-rung-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟠 drawn as a full front-on ring, not a hanging U: regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -500,7 +505,7 @@
           "files": [
             "assets/closet/gen/ao-toi-la-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -508,7 +513,7 @@
           "files": [
             "assets/closet/gen/ao-toi-la-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ]
     },
@@ -529,7 +534,7 @@
           "files": [
             "assets/closet/gen/mu-chop-la-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -537,9 +542,12 @@
           "files": [
             "assets/closet/gen/mu-chop-la-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "fit": {
+        "ears": "covered"
+      }
     },
     {
       "id": "mu-coi-kinh",
@@ -558,7 +566,7 @@
           "files": [
             "assets/closet/gen/mu-coi-kinh-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -566,9 +574,12 @@
           "files": [
             "assets/closet/gen/mu-coi-kinh-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "fit": {
+        "ears": "covered"
+      }
     },
     {
       "id": "ong-nhom-tre",
@@ -587,7 +598,7 @@
           "files": [
             "assets/closet/gen/ong-nhom-tre-v1.png"
           ],
-          "verdict": "🟡 diagonal, not upright; fine in hand · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 diagonal, not upright; fine in hand · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -595,7 +606,7 @@
           "files": [
             "assets/closet/gen/ong-nhom-tre-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟡 diagonal, not upright; fine in hand · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -618,7 +629,7 @@
           "files": [
             "assets/closet/gen/tui-coi-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -626,7 +637,7 @@
           "files": [
             "assets/closet/gen/tui-coi-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -649,7 +660,7 @@
           "files": [
             "assets/closet/gen/ong-tre-nuoc-v1.png"
           ],
-          "verdict": "🟡 diagonal, long cord · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 diagonal, long cord · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -657,7 +668,7 @@
           "files": [
             "assets/closet/gen/ong-tre-nuoc-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟡 diagonal, long cord · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -682,7 +693,7 @@
           "files": [
             "assets/closet/gen/mu-thuyen-giay-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -690,9 +701,12 @@
           "files": [
             "assets/closet/gen/mu-thuyen-giay-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "fit": {
+        "ears": "covered"
+      }
     },
     {
       "id": "vong-hoa-sung",
@@ -710,7 +724,7 @@
           "files": [
             "assets/closet/gen/vong-hoa-sung-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -718,9 +732,12 @@
           "files": [
             "assets/closet/gen/vong-hoa-sung-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "fit": {
+        "ears": "front"
+      }
     },
     {
       "id": "no-la-dua",
@@ -738,7 +755,7 @@
           "files": [
             "assets/closet/gen/no-la-dua-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -746,7 +763,7 @@
           "files": [
             "assets/closet/gen/no-la-dua-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -770,7 +787,7 @@
           "files": [
             "assets/closet/gen/can-cau-tre-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
         },
         {
           "date": "2026-10-09",
@@ -778,7 +795,7 @@
           "files": [
             "assets/closet/gen/can-cau-tre-v2.png"
           ],
-          "verdict": ""
+          "verdict": "🟢 clean cut-out (AI 2x), fits · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -802,12 +819,21 @@
           "files": [
             "assets/closet/gen/mu-trum-trau-v1.png"
           ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🔴 swirl cloud motif on the hood (rules §1): regenerate, add 'no swirls, no clouds' · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/mu-trum-trau-v2.png"
+          ],
           "verdict": "🔴 swirl cloud motif on the hood (rules §1): regenerate, add 'no swirls, no clouds' · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
         "scale": 1.05,
-        "dy": 0.13
+        "dy": 0.13,
+        "ears": "covered"
       }
     },
     {
@@ -825,6 +851,14 @@
           "model": "chatgpt sheet w9-1",
           "files": [
             "assets/closet/gen/mo-trau-v1.png"
+          ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 bell shape reads like a metal cowbell; wood colour ok · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/mo-trau-v2.png"
           ],
           "verdict": "🟡 bell shape reads like a metal cowbell; wood colour ok · watercolour texture, no sage outline (prompt ignored)"
         }
@@ -849,9 +883,20 @@
           "files": [
             "assets/closet/gen/mu-rom-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/mu-rom-v2.png"
+          ],
+          "verdict": "🟢 clean cut-out (AI 2x), fits · watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "fit": {
+        "ears": "covered"
+      }
     },
     {
       "id": "sao-truc",
@@ -869,6 +914,14 @@
           "files": [
             "assets/closet/gen/sao-truc-v1.png"
           ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 tassels on the cord · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/sao-truc-v2.png"
+          ],
           "verdict": "🟡 tassels on the cord · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
@@ -885,7 +938,10 @@
       "status": "need",
       "item": "a headband with a butter-yellow crescent moon in the centre, flanked by cream petals and green leaves, one small round bead hanging below",
       "colours": "butter #F7C844 moon, cream petals, leaf #6CC36F",
-      "source": "sheet-1 #6 with the diamond gem replaced by a round bead"
+      "source": "sheet-1 #6 with the diamond gem replaced by a round bead",
+      "fit": {
+        "ears": "front"
+      }
     },
     {
       "id": "hu-dom-dom",
@@ -919,7 +975,10 @@
       "item": "a thin headband with a small dragonfly perched on top in the centre, two pairs of long rounded wings spread wide with a simple vein pattern",
       "colours": "pale turquoise #A8E6DF wings, violet #8A6BE0 body and veins, leaf band",
       "source": "sheet-2 #12 wings, now dragonfly (not angel)",
-      "note": "replaces cánh chuồn chuồn (no back anchor)"
+      "note": "replaces cánh chuồn chuồn (no back anchor)",
+      "fit": {
+        "ears": "front"
+      }
     },
     {
       "id": "khan-dong",
@@ -937,12 +996,21 @@
           "files": [
             "assets/closet/gen/khan-dong-v1.png"
           ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟠 navy offset shadow kept (navy item, cannot be removed safely): regenerate without shadow · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/khan-dong-v2.png"
+          ],
           "verdict": "🟠 navy offset shadow kept (navy item, cannot be removed safely): regenerate without shadow · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
         "scale": 0.95,
-        "dy": 0.06
+        "dy": 0.05,
+        "ears": "covered"
       }
     },
     {
@@ -961,13 +1029,22 @@
           "files": [
             "assets/closet/gen/canh-mai-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/canh-mai-v2.png"
+          ],
+          "verdict": "🟢 clean cut-out (AI 2x), fits · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
         "scale": 0.5,
         "dx": 0.17,
-        "dy": 0.03
+        "dy": 0.03,
+        "ears": "front"
       }
     },
     {
@@ -986,6 +1063,14 @@
           "model": "chatgpt sheet w13-1",
           "files": [
             "assets/closet/gen/khanh-bac-v1.png"
+          ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 reads close to a Chinese longevity lock; ok as khánh bạc, founder to confirm · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/khanh-bac-v2.png"
           ],
           "verdict": "🟡 reads close to a Chinese longevity lock; ok as khánh bạc, founder to confirm · watercolour texture, no sage outline (prompt ignored)"
         }
@@ -1010,6 +1095,14 @@
           "files": [
             "assets/closet/gen/tui-gam-v1.png"
           ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 tassels on the drawstring · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/tui-gam-v2.png"
+          ],
           "verdict": "🟡 tassels on the drawstring · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
@@ -1033,12 +1126,21 @@
           "files": [
             "assets/closet/gen/non-quai-thao-v1.png"
           ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟠 the cream sash hangs below the brim and covers the face when worn: regenerate with straps only · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet long-1",
+          "files": [
+            "assets/closet/gen/non-quai-thao-v2.png"
+          ],
           "verdict": "🟠 the cream sash hangs below the brim and covers the face when worn: regenerate with straps only · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
         "scale": 1.35,
-        "dy": 0.1
+        "dy": 0.1,
+        "ears": "covered"
       }
     },
     {
@@ -1057,6 +1159,14 @@
           "model": "chatgpt sheet long-1",
           "files": [
             "assets/closet/gen/canh-dieu-sao-v1.png"
+          ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🔴 swirl clouds on the kite again (rules §1): regenerate, add 'no swirls, no clouds' to the prompt · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet long-1",
+          "files": [
+            "assets/closet/gen/canh-dieu-sao-v2.png"
           ],
           "verdict": "🔴 swirl clouds on the kite again (rules §1): regenerate, add 'no swirls, no clouds' to the prompt · watercolour texture, no sage outline (prompt ignored)"
         }
@@ -1081,7 +1191,15 @@
           "files": [
             "assets/closet/gen/ao-choang-tho-cam-v1.png"
           ],
-          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet long-1",
+          "files": [
+            "assets/closet/gen/ao-choang-tho-cam-v2.png"
+          ],
+          "verdict": "🟢 clean cut-out (AI 2x), fits · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
@@ -1105,11 +1223,21 @@
           "files": [
             "assets/closet/gen/bang-do-may-v1.png"
           ],
+          "verdict": "superseded by v2 (AI upscale + cleaner cut) · was: 🟡 bead drops sit near the eyes · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet backlog-1",
+          "files": [
+            "assets/closet/gen/bang-do-may-v2.png"
+          ],
           "verdict": "🟡 bead drops sit near the eyes · watercolour texture, no sage outline (prompt ignored)"
         }
       ],
       "fit": {
-        "dy": 0.07
+        "dy": 0.0,
+        "ears": "covered",
+        "scale": 1.18
       }
     }
   ],
@@ -1131,7 +1259,119 @@
         "x": 0.24,
         "y": 0.86,
         "h": 0.34
+      },
+      "layers": {
+        "_note": "Occluding parts of the pose (fractions). chin: jaw curve, left to right; the head above it is redrawn over neck items. ears: redrawn over head items whose fit.ears is 'front' (only above ear_cut). paw: redrawn over hand items.",
+        "chin": [
+          [
+            0.174,
+            0.509
+          ],
+          [
+            0.311,
+            0.536
+          ],
+          [
+            0.498,
+            0.548
+          ],
+          [
+            0.685,
+            0.536
+          ],
+          [
+            0.822,
+            0.509
+          ]
+        ],
+        "ears": [
+          {
+            "x": 0.326,
+            "y": 0.152,
+            "rx": 0.093,
+            "ry": 0.095
+          },
+          {
+            "x": 0.691,
+            "y": 0.145,
+            "rx": 0.093,
+            "ry": 0.095
+          }
+        ],
+        "ear_cut": 0.212,
+        "paw": {
+          "x": 0.243,
+          "y": 0.83,
+          "rx": 0.06,
+          "ry": 0.051
+        }
       }
     }
-  }
+  },
+  "outfits": [
+    {
+      "name": "Đi rừng",
+      "ids": [
+        "mu-la",
+        "vong-hat-rung",
+        "ong-nhom-tre"
+      ]
+    },
+    {
+      "name": "Nhà thám hiểm",
+      "ids": [
+        "mu-coi-kinh",
+        "tui-coi",
+        "ong-nhom-tre"
+      ]
+    },
+    {
+      "name": "Miền Tây",
+      "ids": [
+        "non-la",
+        "khan-ran",
+        "can-cau-tre"
+      ]
+    },
+    {
+      "name": "Sông nước",
+      "ids": [
+        "mu-thuyen-giay",
+        "no-la-dua",
+        "can-cau-tre"
+      ]
+    },
+    {
+      "name": "Đồng quê",
+      "ids": [
+        "mu-rom",
+        "mo-trau",
+        "sao-truc"
+      ]
+    },
+    {
+      "name": "Tết",
+      "ids": [
+        "canh-mai",
+        "khanh-bac",
+        "gio-xach-may"
+      ]
+    },
+    {
+      "name": "Hội làng",
+      "ids": [
+        "vong-hoa",
+        "trong-com",
+        "dieu-giay"
+      ]
+    },
+    {
+      "name": "Kinh Bắc",
+      "ids": [
+        "non-quai-thao",
+        "ao-choang-tho-cam",
+        "canh-dieu-sao"
+      ]
+    }
+  ]
 }

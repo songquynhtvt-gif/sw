@@ -1,0 +1,145 @@
+{
+  "_note": "Draw back to front. All layers share the pose size; item anchors are fractions of it.",
+  "order": [
+    "body.png",
+    "item shadow (items' alpha, offset 0.8% H, blur 0.6% H, #3B523D 28%, clipped to body)",
+    "neck item",
+    "head-front.png (only when a neck item is worn)",
+    "head item",
+    "ears-front.png (only when the head item's fit.ears is 'front')",
+    "hand item",
+    "paw-front.png"
+  ],
+  "anchors": {
+    "head": {
+      "x": 0.5,
+      "y": 0.27,
+      "w": 0.62
+    },
+    "neck": {
+      "x": 0.5,
+      "y": 0.515,
+      "w": 0.52
+    },
+    "hand": {
+      "x": 0.24,
+      "y": 0.86,
+      "h": 0.34
+    }
+  },
+  "items": {
+    "non-la": {
+      "scale": 1.2,
+      "dy": 0.03,
+      "ears": "covered"
+    },
+    "khan-ran": {
+      "scale": 0.95
+    },
+    "no-buom": {},
+    "vong-hoa": {
+      "scale": 0.9,
+      "dy": 0.04,
+      "ears": "front"
+    },
+    "khan-quang-la": {
+      "scale": 0.85
+    },
+    "dieu-giay": {
+      "scale": 1.5
+    },
+    "trong-com": {},
+    "gio-xach-may": {},
+    "mu-la": {
+      "ears": "front"
+    },
+    "vong-hat-rung": {
+      "scale": 0.62,
+      "dy": -0.05
+    },
+    "ao-toi-la": {},
+    "mu-chop-la": {
+      "ears": "covered"
+    },
+    "mu-coi-kinh": {
+      "ears": "covered"
+    },
+    "ong-nhom-tre": {
+      "scale": 0.85
+    },
+    "tui-coi": {
+      "scale": 0.8
+    },
+    "ong-tre-nuoc": {
+      "scale": 0.55,
+      "dy": -0.04
+    },
+    "mu-thuyen-giay": {
+      "ears": "covered"
+    },
+    "vong-hoa-sung": {
+      "ears": "front"
+    },
+    "no-la-dua": {
+      "scale": 0.75
+    },
+    "can-cau-tre": {
+      "scale": 1.45
+    },
+    "mu-trum-trau": {
+      "scale": 1.05,
+      "dy": 0.13,
+      "ears": "covered"
+    },
+    "mo-trau": {
+      "scale": 0.5
+    },
+    "mu-rom": {
+      "ears": "covered"
+    },
+    "sao-truc": {
+      "scale": 1.3
+    },
+    "bang-do-trang": {
+      "ears": "front"
+    },
+    "hu-dom-dom": {},
+    "ao-choang-cham": {},
+    "bang-do-chuon-chuon": {
+      "ears": "front"
+    },
+    "khan-dong": {
+      "scale": 0.95,
+      "dy": 0.05,
+      "ears": "covered"
+    },
+    "canh-mai": {
+      "scale": 0.5,
+      "dx": 0.17,
+      "dy": 0.03,
+      "ears": "front"
+    },
+    "khanh-bac": {
+      "scale": 0.8
+    },
+    "tui-gam": {
+      "scale": 0.75
+    },
+    "non-quai-thao": {
+      "scale": 1.35,
+      "dy": 0.1,
+      "ears": "covered"
+    },
+    "canh-dieu-sao": {
+      "scale": 1.5
+    },
+    "ao-choang-tho-cam": {
+      "scale": 1.05
+    },
+    "bang-do-may": {
+      "dy": 0.0,
+      "ears": "covered",
+      "scale": 1.18
+    }
+  }
+}
