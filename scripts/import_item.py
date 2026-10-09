@@ -121,7 +121,8 @@ def strip_shadow(img):
     """
     arr = np.asarray(img).astype(np.float32)
     r, g, b, a = arr[..., 0], arr[..., 1], arr[..., 2], arr[..., 3]
-    blue = (b > r + 45) & (b > g + 30) & (b > 90) & (a > 0)
+    # the shadow is a dark royal blue (g ~55-75); sky blue (#8DC6EE, g ~200) must survive
+    blue = (b > r + 45) & (b > g + 30) & (b > 90) & (g < 140) & (a > 0)
     outside = a < 128
     region = np.zeros(blue.shape, bool)
     for _ in range(200):

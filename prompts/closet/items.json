@@ -511,10 +511,20 @@
       "wave": "w7",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a folded newspaper-style paper boat hat, plain cream paper with crisp fold lines and one turquoise folded edge",
       "colours": "cream paper, turquoise #2EC4B6 edge",
-      "source": "sheet-2 #3 with the red sun and swirl removed"
+      "source": "sheet-2 #3 with the red sun and swirl removed",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/mu-thuyen-giay-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "vong-hoa-sung",
@@ -522,9 +532,19 @@
       "wave": "w7",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a crown ring of three water lily flowers (hoa súng) on round lily pads",
-      "colours": "violet #8A6BE0 flowers, turquoise #2EC4B6 pads, butter centres"
+      "colours": "violet #8A6BE0 flowers, turquoise #2EC4B6 pads, butter centres",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/vong-hoa-sung-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "no-la-dua",
@@ -532,9 +552,22 @@
       "wave": "w7",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a bow woven from strips of coconut leaf, like a Mekong child's coconut-leaf toy, on a thin green band",
-      "colours": "coconut leaf green #6CC36F, pale leaf #CFE39A"
+      "colours": "coconut leaf green #6CC36F, pale leaf #CFE39A",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/no-la-dua-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.75
+      }
     },
     {
       "id": "can-cau-tre",
@@ -542,10 +575,23 @@
       "wave": "w7",
       "slot": "hand",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a short bamboo fishing rod held upright, a thin line hanging from the tip with a small red-and-cream float",
       "colours": "bamboo #D9C27A, coral #F07C62 float",
-      "note": "replaces giỏ tre (no back anchor)"
+      "note": "replaces giỏ tre (no back anchor)",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/can-cau-tre-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.45
+      }
     },
     {
       "id": "mu-trum-trau",
@@ -639,9 +685,23 @@
       "wave": "w13",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a traditional Vietnamese khăn đóng: a round wrapped headband turban with neat diagonal fold lines, flat top open",
-      "colours": "navy #1B2A6B, a thin butter #F7C844 edge"
+      "colours": "navy #1B2A6B, a thin butter #F7C844 edge",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/khan-dong-v1.png"
+          ],
+          "verdict": "🟠 navy offset shadow kept (navy item, cannot be removed safely): regenerate without shadow · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.95,
+        "dy": 0.06
+      }
     },
     {
       "id": "canh-mai",
@@ -649,9 +709,24 @@
       "wave": "w13",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a small sprig of yellow apricot blossom (hoa mai) with five-petal flowers and buds, tucked on one side of the head",
-      "colours": "butter #F7C844 flowers, brown twig, leaf buds"
+      "colours": "butter #F7C844 flowers, brown twig, leaf buds",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/canh-mai-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.5,
+        "dx": 0.17,
+        "dy": 0.03
+      }
     },
     {
       "id": "khanh-bac",
@@ -659,10 +734,23 @@
       "wave": "w13",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a Vietnamese baby silver khánh pendant: a flat curved silver plate shaped like a lotus-edged crescent, hanging from a thin coral cord, two tiny silver bells",
       "colours": "silver #C9D1D9 with a cream highlight shape, coral #F07C62 cord",
-      "source": "replaces sheet-1 #9 jade ring"
+      "source": "replaces sheet-1 #9 jade ring",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/khanh-bac-v1.png"
+          ],
+          "verdict": "🟡 reads close to a Chinese longevity lock; ok as khánh bạc, founder to confirm · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.8
+      }
     },
     {
       "id": "tui-gam",
@@ -670,9 +758,22 @@
       "wave": "w13",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a small drawstring pouch of patterned cloth with a simple diamond weave, hanging at the chest",
-      "colours": "coral #F07C62, butter pattern"
+      "colours": "coral #F07C62, butter pattern",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w13-1",
+          "files": [
+            "assets/closet/gen/tui-gam-v1.png"
+          ],
+          "verdict": "🟡 tassels on the drawstring · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.75
+      }
     },
     {
       "id": "non-quai-thao",
@@ -680,9 +781,23 @@
       "wave": "long",
       "slot": "head",
       "price": 150,
-      "status": "need",
+      "status": "gen",
       "item": "a Northern Vietnamese nón quai thao: a big flat round palm-leaf hat with a shallow rim and two long cream silk chin straps",
-      "colours": "straw #E8D9A8, cream straps, a coral inner band"
+      "colours": "straw #E8D9A8, cream straps, a coral inner band",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet long-1",
+          "files": [
+            "assets/closet/gen/non-quai-thao-v1.png"
+          ],
+          "verdict": "🟠 the cream sash hangs below the brim and covers the face when worn: regenerate with straps only · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.35,
+        "dy": 0.1
+      }
     },
     {
       "id": "canh-dieu-sao",
@@ -690,10 +805,23 @@
       "wave": "long",
       "slot": "hand",
       "price": 150,
-      "status": "need",
+      "status": "gen",
       "item": "a Vietnamese flute kite (diều sáo): a flat wing-shaped kite on a bamboo frame with a row of small bamboo flutes along its centre, held up on a short bamboo stick",
       "colours": "cream paper, bamboo frame, turquoise trim",
-      "note": "hand slot: held up on a stick"
+      "note": "hand slot: held up on a stick",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet long-1",
+          "files": [
+            "assets/closet/gen/canh-dieu-sao-v1.png"
+          ],
+          "verdict": "🔴 swirl clouds on the kite again (rules §1): regenerate, add 'no swirls, no clouds' to the prompt · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.5
+      }
     },
     {
       "id": "ao-choang-tho-cam",
@@ -701,9 +829,22 @@
       "wave": "long",
       "slot": "neck",
       "price": 150,
-      "status": "need",
+      "status": "gen",
       "item": "a short shoulder cape of Vietnamese highland brocade (thổ cẩm): horizontal bands of simple diamond and zigzag woven patterns, fastened with a wooden toggle",
-      "colours": "indigo #3B4BA8, coral, butter, cream bands"
+      "colours": "indigo #3B4BA8, coral, butter, cream bands",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet long-1",
+          "files": [
+            "assets/closet/gen/ao-choang-tho-cam-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.05
+      }
     },
     {
       "id": "bang-do-may",
@@ -711,10 +852,23 @@
       "wave": "backlog",
       "slot": "head",
       "price": 80,
-      "status": "idea",
+      "status": "gen",
       "item": "a sky-blue headband topped with four round puffy clouds (simple round bumps, no spirals or curls), two small round butter-yellow beads hanging at the ends",
       "colours": "sky blue #8DC6EE band, cream clouds, butter beads",
-      "source": "sheet-1 #2 with the swirl curls and stars removed"
+      "source": "sheet-1 #2 with the swirl curls and stars removed",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet backlog-1",
+          "files": [
+            "assets/closet/gen/bang-do-may-v1.png"
+          ],
+          "verdict": "🟡 bead drops sit near the eyes · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "dy": 0.07
+      }
     }
   ],
   "anchors": {

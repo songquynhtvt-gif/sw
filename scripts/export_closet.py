@@ -8,6 +8,7 @@ SVG: traced with vtracer when installed (pip install vtracer); sharp at any size
 
   python3 scripts/export_closet.py            # -> exports/tu-do-<date>.zip
   python3 scripts/export_closet.py --size 1024 --no-svg
+  python3 scripts/export_closet.py --id mu-la khan-ran --out exports/two.zip
 """
 import argparse
 import csv
@@ -65,9 +66,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--size", type=int, default=2048, help="longest side of each PNG")
     ap.add_argument("--no-svg", action="store_true")
+    ap.add_argument("--id", nargs="+", help="only these items (default: every item with an image)")
     ap.add_argument("--out", type=Path, default=ROOT / f"exports/tu-do-{date.today():%Y%m%d}.zip")
     args = ap.parse_args()
 
+    args.out = args.out.resolve()
     svg = not args.no_svg
     if svg:
         try:
@@ -83,6 +86,8 @@ def main():
         w = csv.writer(table)
         w.writerow(["id", "name", "wave", "slot", "price", "status", "png", "source"])
         for it in CLOSET["items"]:
+            if args.id and it["id"] not in args.id:
+                continue
             src = item_file(it["id"])
             if src is None:
                 missing.append(it["id"])
