@@ -1,1 +1,301 @@
-{ "assets": [] }
+{
+  "_note": "Stage-1 asset matrix from docs/HIFI-PREP.md C2/C4/G4. status: need | placeholder | gen | approved",
+  "assets": [
+    {
+      "id": "huhu-01-greeting-home",
+      "kind": "char",
+      "path": "assets/char/approved/01-greeting-home.png",
+      "screens": "Name, Home, Library",
+      "status": "placeholder",
+      "note": "re-render >=1500px"
+    },
+    {
+      "id": "huhu-02-levelup-pass",
+      "kind": "char",
+      "path": "assets/char/approved/02-levelup-pass.png",
+      "screens": "Placement result, Quiz result, Test result",
+      "status": "placeholder",
+      "note": "re-render >=1500px"
+    },
+    {
+      "id": "huhu-03-hehe-before-test",
+      "kind": "char",
+      "path": "assets/char/approved/03-hehe-before-test.png",
+      "screens": "Level-up popup",
+      "status": "placeholder",
+      "note": "re-render >=1500px"
+    },
+    {
+      "id": "huhu-05-miss",
+      "kind": "char",
+      "path": "assets/char/approved/05-miss.png",
+      "screens": "Quiz, Level test",
+      "status": "placeholder",
+      "note": "re-render >=1500px"
+    },
+    {
+      "id": "huhu-06-thinking",
+      "kind": "char",
+      "path": "assets/char/approved/06-thinking.png",
+      "screens": "Placement, Quiz, Level test",
+      "status": "placeholder",
+      "note": "re-render >=1500px"
+    },
+    {
+      "id": "huhu-07-correct",
+      "kind": "char",
+      "path": "assets/char/approved/07-correct.png",
+      "screens": "Quiz, Passport",
+      "status": "placeholder",
+      "note": "re-render >=1500px"
+    },
+    {
+      "id": "huhu-front-idle",
+      "kind": "char",
+      "path": "assets/char/approved/front-idle.png",
+      "screens": "Companion pick",
+      "status": "need",
+      "note": ""
+    },
+    {
+      "id": "huhu-found-the-map",
+      "kind": "char",
+      "path": "assets/char/approved/found-the-map.png",
+      "screens": "Map found",
+      "status": "need",
+      "note": ""
+    },
+    {
+      "id": "huhu-ha-back-after-gap",
+      "kind": "char",
+      "path": "assets/char/approved/ha-back-after-gap.png",
+      "screens": "Home returning",
+      "status": "need",
+      "note": ""
+    },
+    {
+      "id": "huhu-listening",
+      "kind": "char",
+      "path": "assets/char/approved/listening.png",
+      "screens": "Reader",
+      "status": "need",
+      "note": ""
+    },
+    {
+      "id": "huhu-eating-banh-cam",
+      "kind": "char",
+      "path": "assets/char/approved/eating-banh-cam.png",
+      "screens": "Feeding",
+      "status": "need",
+      "note": ""
+    },
+    {
+      "id": "huhu-bowl-full",
+      "kind": "char",
+      "path": "assets/char/approved/bowl-full.png",
+      "screens": "Feeding",
+      "status": "need",
+      "note": ""
+    },
+    {
+      "id": "huhu-sleeping",
+      "kind": "char",
+      "path": "assets/char/approved/sleeping.png",
+      "screens": "Ngày Ngủ",
+      "status": "need",
+      "note": ""
+    },
+    {
+      "id": "bg-C0-chua-sang",
+      "kind": "bg",
+      "path": "assets/bg/chua-sang/C0-nha-nho-ben-doi.png",
+      "screens": "Home, pick, name, feeding",
+      "status": "need",
+      "note": "1536x1024 gen, crop 16:10, CRAZY style"
+    },
+    {
+      "id": "bg-C0-da-sang",
+      "kind": "bg",
+      "path": "assets/bg/da-sang/C0-nha-nho-ben-doi.png",
+      "screens": "Home, pick, name, feeding",
+      "status": "need",
+      "note": "1536x1024 gen, crop 16:10, CRAZY style"
+    },
+    {
+      "id": "bg-C1-chua-sang",
+      "kind": "bg",
+      "path": "assets/bg/chua-sang/C1-xom-tre-den-sang.png",
+      "screens": "Home, pick, name, feeding",
+      "status": "need",
+      "note": "1536x1024 gen, crop 16:10, CRAZY style"
+    },
+    {
+      "id": "bg-C1-da-sang",
+      "kind": "bg",
+      "path": "assets/bg/da-sang/C1-xom-tre-den-sang.png",
+      "screens": "Home, pick, name, feeding",
+      "status": "need",
+      "note": "1536x1024 gen, crop 16:10, CRAZY style"
+    },
+    {
+      "id": "bg-C2-chua-sang",
+      "kind": "bg",
+      "path": "assets/bg/chua-sang/C2-rung-ngan-mat.png",
+      "screens": "Home, pick, name, feeding",
+      "status": "need",
+      "note": "1536x1024 gen, crop 16:10, CRAZY style"
+    },
+    {
+      "id": "bg-C2-da-sang",
+      "kind": "bg",
+      "path": "assets/bg/da-sang/C2-rung-ngan-mat.png",
+      "screens": "Home, pick, name, feeding",
+      "status": "need",
+      "note": "1536x1024 gen, crop 16:10, CRAZY style"
+    },
+    {
+      "id": "map-mo",
+      "kind": "map",
+      "path": "assets/map/map-mo.png",
+      "screens": "Map found, Phiêu Lưu Ký",
+      "status": "need",
+      "note": "HIFI-PREP G3 prompt"
+    },
+    {
+      "id": "map-dang-mo",
+      "kind": "map",
+      "path": "assets/map/map-dang-mo.png",
+      "screens": "Map found, Phiêu Lưu Ký",
+      "status": "need",
+      "note": "HIFI-PREP G3 prompt"
+    },
+    {
+      "id": "map-da-sang",
+      "kind": "map",
+      "path": "assets/map/map-da-sang.png",
+      "screens": "Map found, Phiêu Lưu Ký",
+      "status": "need",
+      "note": "HIFI-PREP G3 prompt"
+    },
+    {
+      "id": "icon-tab-kho-tang-truyen",
+      "kind": "icon",
+      "path": "assets/icons/tab-kho-tang-truyen.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-tab-bi-kip",
+      "kind": "icon",
+      "path": "assets/icons/tab-bi-kip.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-tab-phieu-luu-ky",
+      "kind": "icon",
+      "path": "assets/icons/tab-phieu-luu-ky.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-tab-su-phu",
+      "kind": "icon",
+      "path": "assets/icons/tab-su-phu.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-xp-star",
+      "kind": "icon",
+      "path": "assets/icons/xp-star.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-banh-cam",
+      "kind": "icon",
+      "path": "assets/icons/banh-cam.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-audio",
+      "kind": "icon",
+      "path": "assets/icons/audio.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-pinyin-toggle",
+      "kind": "icon",
+      "path": "assets/icons/pinyin-toggle.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-back",
+      "kind": "icon",
+      "path": "assets/icons/back.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-close",
+      "kind": "icon",
+      "path": "assets/icons/close.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-lock",
+      "kind": "icon",
+      "path": "assets/icons/lock.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-learned",
+      "kind": "icon",
+      "path": "assets/icons/learned.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-review",
+      "kind": "icon",
+      "path": "assets/icons/review.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-bowl",
+      "kind": "icon",
+      "path": "assets/icons/bowl.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    },
+    {
+      "id": "icon-stamp-frame",
+      "kind": "icon",
+      "path": "assets/icons/stamp-frame.svg",
+      "screens": "various",
+      "status": "need",
+      "note": "C2 cut-paper style"
+    }
+  ]
+}

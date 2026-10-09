@@ -1,45 +1,46 @@
-# sw — App build: Figma layout + GPT visual assets
+# TongHua Land — hi-fi build (Figma + GPT assets)
 
-Project gom 2 luồng làm việc song song:
+App iPad đọc truyện tiếng Trung cho trẻ Việt 5–12 tuổi. Repo này gom 2 luồng:
 
-| Luồng | Mục tiêu | Thư mục |
-|---|---|---|
-| **1. Figma layout** | Dựng layout / screen trong Figma, adapt từ visual design ChatGPT đã generate | `figma/`, `materials/chatgpt-designs/` |
-| **2. GPT visual assets** | Prompt GPT tạo background, items, icon cho app | `prompts/`, `assets/` |
+1. **Figma layout** — dựng design system + 15 screen stage 1, adapt từ visual ChatGPT / Stitch lo-fi → `figma/`
+2. **GPT visual assets** — nhân vật (Hǔhǔ), background land, map, icon, UI kit → `prompts/`, `assets/`
 
-Hai luồng gặp nhau ở `app/` — code app dùng layout từ Figma và asset từ GPT.
+**Deadline: 12/10/2026** (HIFI-PREP A0).
+
+## Docs (nguồn chuẩn)
+| File | Nội dung |
+|---|---|
+| `docs/DESIGN.md` | Design system đã lock: màu, font, shape D/B/A, component, Hǔhǔ rules |
+| `docs/HIFI-PREP.md` | Kế hoạch Phase A→J, screen list, asset matrix, generation queue |
+| `docs/TongHua-Land-Build-Brief-v13.4.html` | Product & engineering brief |
+
+**Còn thiếu (docs có nhắc tới):** `PRODUCT.md` (locked copy, companion lines), `ref/PROMPTS-MASTER.md`, `screen-mapping-rules.html`, `.impeccable/design.json`, `companion-cast.md`.
 
 ## Cấu trúc
-
 ```
-materials/            # Input gốc bạn gửi (chưa xử lý)
-  chatgpt-designs/    # Ảnh design ChatGPT đã generate
-  references/         # Moodboard, brief, spec, ghi chú
-figma/                # Link file Figma, node IDs, design tokens export
-  figma.md
-prompts/              # Prompt GPT cho từng loại asset
-  backgrounds/
-  items/
-  ui/
-  _template.md
-assets/               # Asset đã generate & chọn (output cuối)
-  backgrounds/ items/ icons/ ui/
-  manifest.json       # Danh sách asset: tên, prompt nguồn, kích thước, trạng thái
-docs/                 # Brief, style guide, quyết định thiết kế
-app/                  # Source code app (stack chốt sau khi có material)
+docs/            nguồn chuẩn
+figma/           tokens.json (variables), figma.md (link, pages, screen tracker)
+prompts/         prompt từng asset (theo PROMPTS-MASTER)
+assets/
+  char/          benchmark/ (file designer) · gen/ (đang thử) · approved/ · placeholders/
+  bg/            chua-sang/ · da-sang/   (C0–C12)
+  map/           Bản đồ tổng 3 state
+  icons/         C2 cut-paper
+  ui-kit/pieces/ giấy dó + bamboo
+  story/         art truyện mẫu
+  manifest.json  37 asset stage 1 + trạng thái
+materials/       input thô: chatgpt-designs/, stitch-layouts/, references/
+app/             code (sau hi-fi)
 ```
 
-## Quy trình
-
-1. Bỏ material vào `materials/` (design ChatGPT, brief, reference).
-2. **Figma**: điền link file vào `figma/figma.md` → dựng/adapt layout trong Figma → export tokens (màu, font, spacing).
-3. **Assets**: viết prompt theo `prompts/_template.md` → generate bằng GPT → lưu vào `assets/` và ghi vào `assets/manifest.json`.
-4. Upload asset vào Figma để ráp vào layout, rồi implement vào `app/`.
-
-## Trạng thái
-
-- [ ] Nhận đủ material
-- [ ] Chốt platform & stack cho `app/`
-- [ ] Style guide (`docs/style-guide.md`)
-- [ ] Figma file + screen list
-- [ ] Asset list + prompt
+## Tiến độ (theo HIFI-PREP)
+| Phase | | Status |
+|---|---|---|
+| 0, A | Brand lock + decisions | ✅ |
+| B | Figma foundation (variables, text styles, components) | ⬜ |
+| C | Asset matrix | 🟡 `assets/manifest.json` |
+| D | Audit Stitch lo-fi | ⬜ cần PNG trong `materials/stitch-layouts/` |
+| E | Copy deck | ⬜ cần PRODUCT.md |
+| F | 15 screens + states | ⬜ |
+| G | Produce assets | ⏸ |
+| H–J | Swap, motion/VO, handoff | ⬜ |
