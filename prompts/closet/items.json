@@ -61,6 +61,14 @@
             "assets/closet/gen/non-la-v1.png"
           ],
           "verdict": "🟠 the chin bow hangs below the brim and covers the face when worn: regenerate with a short strap · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/non-la-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -86,6 +94,14 @@
             "assets/closet/gen/khan-ran-v1.png"
           ],
           "verdict": "🟠 navy offset shadow kept (same colour as the checks, cannot be removed safely): regenerate without shadow · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/khan-ran-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -109,6 +125,14 @@
             "assets/closet/gen/no-buom-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/no-buom-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -129,6 +153,14 @@
             "assets/closet/gen/vong-hoa-v1.png"
           ],
           "verdict": "🟡 ring seen from above, sits ok · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/vong-hoa-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -154,6 +186,14 @@
             "assets/closet/gen/khan-quang-la-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/khan-quang-la-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -178,6 +218,14 @@
             "assets/closet/gen/dieu-giay-v1.png"
           ],
           "verdict": "🔴 swirl clouds on the kite (rules §1): regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/dieu-giay-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -201,6 +249,14 @@
             "assets/closet/gen/trong-com-v1.png"
           ],
           "verdict": "🟡 tassels on the strap ends · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/trong-com-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -222,6 +278,14 @@
             "assets/closet/gen/gio-xach-may-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/gio-xach-may-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -242,6 +306,14 @@
             "assets/closet/gen/banh-cam-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/banh-cam-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -262,6 +334,14 @@
             "assets/closet/gen/xoi-gac-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/xoi-gac-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -282,6 +362,14 @@
             "assets/closet/gen/che-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/che-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -302,6 +390,14 @@
             "assets/closet/gen/banh-bo-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/banh-bo-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -431,6 +527,14 @@
             "assets/closet/gen/mu-coi-kinh-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/mu-coi-kinh-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -452,6 +556,14 @@
             "assets/closet/gen/ong-nhom-tre-v1.png"
           ],
           "verdict": "🟡 diagonal, not upright; fine in hand · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/ong-nhom-tre-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -475,6 +587,14 @@
             "assets/closet/gen/tui-coi-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/tui-coi-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -498,6 +618,14 @@
             "assets/closet/gen/ong-tre-nuoc-v1.png"
           ],
           "verdict": "🟡 diagonal, long cord · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/ong-tre-nuoc-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
