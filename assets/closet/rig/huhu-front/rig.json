@@ -1,14 +1,14 @@
 {
   "_note": "Draw back to front. All layers share the pose size; item anchors are fractions of it.",
   "order": [
-    "body.png",
+    "body.png, or body-no-ears.png when the head item's fit.ears is 'covered'",
     "item shadow (items' alpha, offset 0.8% H, blur 0.6% H, #3B523D 28%, clipped to body)",
-    "neck item",
+    "neck item, bent: sides lifted by 2.8% H (parabola) to follow the jaw",
     "head-front.png (only when a neck item is worn)",
-    "head item",
+    "head item, bent: sides dropped by 3% H (parabola) to hug the head",
     "ears-front.png (only when the head item's fit.ears is 'front')",
     "hand item",
-    "paw-front.png"
+    "paw-holding.png (only when a hand item is held; moves with the item's dx/dy)"
   ],
   "anchors": {
     "head": {
@@ -131,13 +131,13 @@
       "ears": "covered"
     },
     "canh-dieu-sao": {
-      "scale": 1.5
+      "scale": 1.2
     },
     "ao-choang-tho-cam": {
       "scale": 1.05
     },
     "bang-do-may": {
-      "dy": 0.0,
+      "dy": 0.06,
       "ears": "covered",
       "scale": 1.18
     }

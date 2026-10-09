@@ -2,11 +2,12 @@
 """Dress a companion in Tủ đồ items (layered, not pasted on top).
 
 The pose is split into occluding parts so items read as worn:
-  body → item shadow on the fur → neck items → head front (chin, cheeks, fangs over the
-  scarf's top edge) → head items → ears front (small hats: ears poke through) →
-  hand items → paw front (the paw closes over the grip)
+  body (ears removed under big hats, head outline redrawn) → item shadow on the fur →
+  neck items (bent to follow the jaw) → head front (chin, cheeks, fangs over the scarf's
+  top edge) → head items (bent to hug the head) → ears front (small hats: ears poke
+  through) → hand items → a drawn mitten paw closed over the grip
 Geometry lives in prompts/closet/items.json -> anchors.<companion> ("layers": fractions of the
-pose). Per item "fit": {"scale", "dx", "dy", "ears": "front" | "covered"}.
+pose). Per item "fit": {"scale", "dx", "dy", "ears": "front" | "covered", "bend": fraction of H}.
 
 Uses the approved file if there is one, else the newest gen file, unless --file is given.
 
@@ -51,12 +52,84 @@ def place(art, slot, anchor, tweak, W, H, pad, canvas):
         w = anchor["w"] * W * scale
         h = art.height * w / art.width
     art = art.resize((round(w), round(h)), Image.LANCZOS)
+    depth = tweak.get("bend", {"head": 0.03, "neck": -0.028}.get(slot, 0)) * H
+    art = bend(art, depth)
+    h = art.height
     x = (anchor["x"] + tweak.get("dx", 0)) * W - w / 2
     y = (anchor["y"] + tweak.get("dy", 0)) * H
     if slot != "neck":  # head and hand: anchor is the item's bottom edge
         y -= h
     layer = Image.new("RGBA", canvas)
     layer.alpha_composite(art, (round(x) + pad, round(y) + pad))
+    return layer
+
+
+OUTLINE = (46, 83, 59)   # Hǔhǔ's line colour, sampled from the pose
+FUR = (245, 244, 208)
+
+
+def bend(art, depth):
+    """Curve an item along the body: depth > 0 drops the sides (hat hugging the head),
+    depth < 0 lifts them (scarf following the jaw). Parabolic per-column shift."""
+    if not depth:
+        return art
+    import numpy as np
+    a = np.asarray(art)
+    h, w = a.shape[:2]
+    d = abs(round(depth))
+    out = np.zeros((h + d, w, 4), np.uint8)
+    for x in range(w):
+        t = (x - (w - 1) / 2) / ((w - 1) / 2)
+        s = round(d * t * t)
+        y0 = s if depth > 0 else d - s
+        out[y0:y0 + h, x] = a[:, x]
+    return Image.fromarray(out, "RGBA")
+
+
+def ears_off(base, geo, W, H, pad):
+    """The pose without ears: erase above the head curve and redraw the outline there,
+    so a big hat sits on a round head instead of being propped up by the ears."""
+    hd = geo["head"]
+    cx, cy, rx, ry = hd["x"] * W + pad, hd["y"] * H + pad, hd["rx"] * W, hd["ry"] * H
+    zone = Image.new("L", base.size)
+    d = ImageDraw.Draw(zone)
+    x0 = min(e["x"] - e["rx"] for e in geo["ears"]) * W + pad - 4
+    x1 = max(e["x"] + e["rx"] for e in geo["ears"]) * W + pad + 4
+    d.rectangle([x0, 0, x1, geo["ear_cut"] * H + pad], fill=255)
+    d.ellipse([cx - rx, cy - ry, cx + rx, cy + ry], fill=0)  # keep the head itself
+    out = base.copy()
+    out.putalpha(ImageChops.subtract(base.getchannel("A"), zone))
+    k = 4  # supersampled outline arc
+    arc = Image.new("RGBA", (base.width * k, base.height * k))
+    lw = max(2, round(W * 0.009)) * k
+    top = cy - ry
+    ImageDraw.Draw(arc).arc([(cx - rx) * k, top * k, (cx + rx) * k, (cy + ry) * k], 180, 360,
+                            fill=OUTLINE + (255,), width=lw)
+    arc = arc.resize(base.size, Image.LANCZOS)
+    clip = Image.new("L", base.size)
+    ImageDraw.Draw(clip).rectangle([x0, 0, x1, geo["ear_cut"] * H + pad + 6], fill=255)
+    arc.putalpha(ImageChops.multiply(arc.getchannel("A"), clip))
+    out.alpha_composite(arc)
+    return out
+
+
+def paw(canvas, cx, cy, W, side=1):
+    """A closed mitten paw in Hǔhǔ's style, drawn over a held item's grip."""
+    k = 4
+    rx, ry = W * 0.052, W * 0.046
+    lw = max(2, round(W * 0.008))
+    img = Image.new("RGBA", (round(rx * 2 + lw * 4) * k, round(ry * 2 + lw * 4) * k))
+    d = ImageDraw.Draw(img)
+    o = lw * 2 * k
+    d.ellipse([o, o, o + rx * 2 * k, o + ry * 2 * k], fill=FUR + (255,), outline=OUTLINE + (255,), width=lw * k)
+    for f in (0.36, 0.64):  # two finger creases on the side facing the item
+        fy = o + ry * 2 * k * f
+        fx = o + rx * 2 * k * (0.62 if side > 0 else 0.10)
+        d.arc([fx, fy - ry * 0.35 * k, fx + rx * 0.55 * k, fy + ry * 0.35 * k],
+              270 if side > 0 else 90, 90 if side > 0 else 270, fill=OUTLINE + (255,), width=round(lw * 0.8 * k))
+    img = img.resize((img.width // k, img.height // k), Image.LANCZOS)
+    layer = Image.new("RGBA", canvas)
+    layer.alpha_composite(img, (round(cx - img.width / 2), round(cy - img.height / 2)))
     return layer
 
 
@@ -143,6 +216,10 @@ def dress(ids, companion="huhu", files=None):
         return out.crop(out.getbbox())
 
     masks = part_masks(geo, W, H, pad, canvas)
+    if "head" in layers and layers["head"][0].get("fit", {}).get("ears", "front") == "covered" and "head" in geo:
+        body = ears_off(base, geo, W, H, pad)  # the body itself changes: no ears under a big hat
+        out = body.copy()
+        base = body
     out.alpha_composite(shadow([layer for _, layer in layers.values()], base, H))
     if "neck" in layers:
         out.alpha_composite(layers["neck"][1])
@@ -153,8 +230,13 @@ def dress(ids, companion="huhu", files=None):
         if it.get("fit", {}).get("ears", "front") == "front":
             out.alpha_composite(cut(base, masks["ears"]))
     if "hand" in layers:
-        out.alpha_composite(layers["hand"][1])
-        out.alpha_composite(cut(base, masks["paw"]))
+        it, layer = layers["hand"]
+        out.alpha_composite(layer)
+        tw = it.get("fit", {})
+        a = anchors["hand"]
+        gx = (a["x"] + tw.get("dx", 0)) * W + pad
+        gy = (a["y"] + tw.get("dy", 0)) * H + pad - W * 0.05  # the paw closes just above the grip end
+        out.alpha_composite(paw(canvas, gx, gy, W, side=1))
     return out.crop(out.getbbox())
 
 
@@ -174,13 +256,23 @@ def export_rig(companion="huhu"):
     folder = RIG / f"{companion}-front"
     folder.mkdir(parents=True, exist_ok=True)
     base.crop(box).save(folder / "body.png")
-    for k in ("head", "ears", "paw"):
+    for k in ("head", "ears"):
         cut(base, masks[k]).crop(box).save(folder / f"{k}-front.png")
+    ears_off(base, anchors["layers"], W, H, pad).crop(box).save(folder / "body-no-ears.png")
+    a = anchors["hand"]
+    paw(canvas, a["x"] * W + pad, a["y"] * H + pad - W * 0.05, W).crop(box).save(folder / "paw-holding.png")
+    stale = folder / "paw-front.png"
+    if stale.exists():
+        stale.unlink()
     order = {
         "_note": "Draw back to front. All layers share the pose size; item anchors are fractions of it.",
-        "order": ["body.png", "item shadow (items' alpha, offset 0.8% H, blur 0.6% H, #3B523D 28%, clipped to body)",
-                  "neck item", "head-front.png (only when a neck item is worn)", "head item",
-                  "ears-front.png (only when the head item's fit.ears is 'front')", "hand item", "paw-front.png"],
+        "order": ["body.png, or body-no-ears.png when the head item's fit.ears is 'covered'",
+                  "item shadow (items' alpha, offset 0.8% H, blur 0.6% H, #3B523D 28%, clipped to body)",
+                  "neck item, bent: sides lifted by 2.8% H (parabola) to follow the jaw",
+                  "head-front.png (only when a neck item is worn)",
+                  "head item, bent: sides dropped by 3% H (parabola) to hug the head",
+                  "ears-front.png (only when the head item's fit.ears is 'front')",
+                  "hand item", "paw-holding.png (only when a hand item is held; moves with the item's dx/dy)"],
         "anchors": {k: v for k, v in anchors.items() if k in ("head", "neck", "hand")},
         "items": {i["id"]: i.get("fit", {}) for i in CLOSET["items"] if i["slot"] in LAYER},
     }

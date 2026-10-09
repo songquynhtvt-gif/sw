@@ -129,3 +129,14 @@ Món lệch: thêm `"fit": {"scale": 1.1, "dx": 0, "dy": -0.02}` vào món đó 
 Thêm món mới: thêm 1 object vào `items.json` → `python3 scripts/build_prompts.py`.
 
 Chi phí ước tính: 42 món × 2 biến thể ≈ 84 ảnh mỗi vòng (`--quality medium`).
+
+## 5 · Hǔhǔ mặc đồ (layered, cho app)
+
+`python3 scripts/fit_preview.py --sheet` → `assets/closet/fit/_sheet-huhu-mac-do.png` (mọi món + 8 bộ phối) · `--rig` → `assets/closet/rig/huhu-front/` (lớp + `rig.json` thứ tự vẽ).
+
+Hǔhǔ được chỉnh theo đồ, không dán đè:
+- Mũ to (`fit.ears: "covered"`): dùng `body-no-ears.png` (bỏ tai, vẽ lại viền đầu) để mũ ôm đầu tròn. Mũ nhỏ (`"front"`): tai vẽ đè lên mũ, ló ra.
+- Mũ uốn cong ôm đầu (2 bên hạ 3% H), khăn/vòng/áo choàng uốn theo cằm (2 bên nâng 2.8% H); `head-front.png` (cằm, má, nanh) đè lên mép trên của đồ cổ.
+- Đồ cầm tay: `paw-holding.png` (bàn tay nắm, nét Hǔhǔ) đè lên cán.
+- Bóng đổ mờ của đồ lên lông.
+Số đo (cằm, tai, đầu, tay) trong `items.json` → `anchors.huhu.layers`, chỉ đúng cho pose `huhu-front-idle`; pose/companion khác cần đo lại.

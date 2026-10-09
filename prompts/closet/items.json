@@ -1172,7 +1172,7 @@
         }
       ],
       "fit": {
-        "scale": 1.5
+        "scale": 1.2
       }
     },
     {
@@ -1235,7 +1235,7 @@
         }
       ],
       "fit": {
-        "dy": 0.0,
+        "dy": 0.06,
         "ears": "covered",
         "scale": 1.18
       }
@@ -1261,7 +1261,7 @@
         "h": 0.34
       },
       "layers": {
-        "_note": "Occluding parts of the pose (fractions). chin: jaw curve, left to right; the head above it is redrawn over neck items. ears: redrawn over head items whose fit.ears is 'front' (only above ear_cut). paw: redrawn over hand items.",
+        "_note": "Occluding parts of the pose (fractions). chin: jaw curve, left to right; the head above it is redrawn over neck items. ears: redrawn over head items whose fit.ears is 'front' (only above ear_cut). paw: redrawn over hand items. head: ellipse of the skull, used to remove the ears under big hats.",
         "chin": [
           [
             0.174,
@@ -1304,6 +1304,12 @@
           "y": 0.83,
           "rx": 0.06,
           "ry": 0.051
+        },
+        "head": {
+          "x": 0.492,
+          "y": 0.376,
+          "rx": 0.311,
+          "ry": 0.251
         }
       }
     }
