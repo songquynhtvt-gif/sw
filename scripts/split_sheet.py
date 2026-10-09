@@ -22,7 +22,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_prompts import ROOT, sheets  # noqa: E402
 from fit_preview import LAYER, try_on  # noqa: E402
 from gen_closet import OUT, log_run, next_version  # noqa: E402
-from import_item import keeps_shadow, remove_white, strip_shadow  # noqa: E402
+from import_item import keeps_shadow, remove_white, strip_shadow, tidy  # noqa: E402
+import upscale  # noqa: E402
 
 SCALE = 4          # find shapes on a 1/4 size mask, fast enough in pure Python
 MIN_SHARE = 0.0005  # shapes smaller than this share of the sheet are specks
@@ -51,8 +52,26 @@ def components(mask):
     return out
 
 
-def split(sheet_path, cols, rows, n, tolerance):
-    img = remove_white(Image.open(sheet_path), tolerance)
+CACHE = ROOT / "tools/cache/sheets"
+
+
+def load_sheet(sheet_path, ai):
+    """The sheet, AI-upscaled 2x when the Real-ESRGAN models are installed (cached)."""
+    img = Image.open(sheet_path)
+    if not ai or not upscale.available():
+        return img
+    cached = CACHE / f"{sheet_path.stem}-x2.png"
+    if cached.exists() and cached.stat().st_mtime > sheet_path.stat().st_mtime:
+        return Image.open(cached)
+    print(f"  AI upscale {sheet_path.name} (2-3 min on CPU)…", flush=True)
+    big = upscale.upscale(img, 2)
+    CACHE.mkdir(parents=True, exist_ok=True)
+    big.save(cached)
+    return big
+
+
+def split(sheet_path, cols, rows, n, tolerance, ai=True):
+    img = remove_white(load_sheet(sheet_path, ai), tolerance)
     W, H = img.size
     small = img.getchannel("A").resize((W // SCALE, H // SCALE))
     small = small.point(lambda a: 255 if a > 32 else 0).filter(ImageFilter.MaxFilter(5))  # join beads, strings
@@ -82,19 +101,20 @@ def split(sheet_path, cols, rows, n, tolerance):
     return pieces
 
 
-def run(sheet_id, path, table, tolerance):
+def run(sheet_id, path, table, tolerance, ai=True):
     if sheet_id not in table:
         print(f"✗ {path.name}: no sheet called {sheet_id} (see --list)")
         return
     cols, rows, items = table[sheet_id]
-    pieces = split(path, cols, rows, len(items), tolerance)
+    pieces = split(path, cols, rows, len(items), tolerance, ai)
     for it, piece in zip(items, pieces):
         if piece is None:
             print(f"✗ {sheet_id} · {it['id']}: nothing found in its cell, regenerate the sheet")
             continue
         if not keeps_shadow(it):
             piece = strip_shadow(piece)
-            piece = piece.crop(piece.getbbox())
+        piece = tidy(piece)
+        piece = piece.crop(piece.getbbox())
         out = OUT / f"{it['id']}-v{next_version(it['id'])}.png"
         OUT.mkdir(parents=True, exist_ok=True)
         piece.save(out)
@@ -112,6 +132,7 @@ def main():
     ap.add_argument("image", nargs="?", type=Path, help="the sheet image when target is a sheet id")
     ap.add_argument("--tolerance", type=int, default=24)
     ap.add_argument("--list", action="store_true")
+    ap.add_argument("--no-ai", action="store_true", help="skip the Real-ESRGAN upscale")
     args = ap.parse_args()
 
     table = {sid: (cols, rows, items) for sid, cols, rows, items in sheets()}
@@ -128,9 +149,9 @@ def main():
         if not files:
             sys.exit(f"no images in {folder}")
         for p in files:
-            run(p.stem, p, table, args.tolerance)
+            run(p.stem, p, table, args.tolerance, not args.no_ai)
     elif args.image:
-        run(args.target, args.image, table, args.tolerance)
+        run(args.target, args.image, table, args.tolerance, not args.no_ai)
     else:
         sys.exit(f"{args.target} is not a folder; for one sheet pass: <sheet-id> <image>")
 

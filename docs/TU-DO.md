@@ -106,12 +106,20 @@ Món lệch: thêm `"fit": {"scale": 1.1, "dx": 0, "dy": -0.02}` vào món đó 
 **Không có API key (cách đang dùng): làm hàng loạt bằng sheet**
 1. Mở `prompts/closet/ALL-CHATGPT.md`: 12 sheet, mỗi sheet tối đa 4 món, phủ hết kho.
 2. Dán từng khối vào ChatGPT (chat mới mỗi 3 sheet), tải ảnh về, đặt tên theo mã sheet (`w3-1.png`…), bỏ vào `materials/chatgpt-designs/closet/`.
-3. Một lệnh cắt cả thư mục: xoá nền trắng, tách từng món, lưu `assets/closet/gen/`, ghi `items.json`, ướm lên Hǔhǔ ở `assets/closet/fit/`:
+3. (Một lần) cài model phóng to AI, Real-ESRGAN anime, chạy CPU:
+   ```
+   pip3 install -r requirements.txt
+   python3 scripts/upscale.py --setup
+   ```
+   Có model thì mỗi sheet được phóng 2× bằng AI trước khi cắt (2–3 phút/sheet, lưu tạm ở `tools/cache/`): nét hơn, hết vệt nén, mép mịn hơn. Bỏ qua bằng `--no-ai`.
+4. Một lệnh cắt cả thư mục: xoá nền trắng, tách từng món, lưu `assets/closet/gen/`, ghi `items.json`, ướm lên Hǔhǔ ở `assets/closet/fit/`:
    ```
    python3 scripts/split_sheet.py materials/chatgpt-designs/closet/
    ```
+   Tách nền: xoá nền trắng (kể cả lỗ kín trong quai, vòng), xoá bóng xanh navy kiểu sticker (trừ món navy/chàm), bỏ đốm sót, bít lỗ kim, làm mềm mép.
    Một món lẻ làm riêng: `python3 scripts/import_item.py <id> <ảnh>`.
-4. Xuất cả kho thành 1 file zip:
+   **Ảnh gốc nét nhất:** tải PNG gốc từ ChatGPT (nút tải về), đừng chụp màn hình hay gửi qua app chat (bị nén thành webp nhỏ).
+5. Xuất cả kho thành 1 file zip:
    ```
    pip3 install -r requirements.txt
    python3 scripts/export_closet.py

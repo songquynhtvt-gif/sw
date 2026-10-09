@@ -135,7 +135,53 @@ def strip_shadow(img):
     region |= (r < 90) & (b > r + 80) & (b > g + 50) & (a > 0)
     region |= grow(region, 1) & (b > r + 20) & (a > 0)  # blended blue fringe
     item = (a >= 128) & ~region
-    return Image.fromarray(dematte(arr[..., :3], item), "RGBA")
+    out = dematte(arr[..., :3], item).astype(np.float32)
+    # where the shadow touched the item: take colour from inside (no blue fringe), soft 1 px edge
+    inner_edge = item & grow(region, 1)
+    zone = inner_edge | (grow(item, 1) & ~item & region)
+    out[..., :3][zone] = interior_colour(arr[..., :3], item & ~inner_edge, zone)[zone]
+    soft = np.asarray(Image.fromarray(item.astype(np.uint8) * 255).filter(ImageFilter.GaussianBlur(0.8)))
+    out[..., 3][zone] = soft[zone]
+    return Image.fromarray(out.astype(np.uint8), "RGBA")
+
+
+def regions(mask):
+    """Connected areas of a boolean mask -> list of boolean masks (PIL flood fill, fast)."""
+    work = Image.fromarray(mask.astype(np.uint8) * 255)
+    out = []
+    ys, xs = np.nonzero(mask[::2, ::2])
+    for y, x in zip(ys * 2, xs * 2):
+        if work.getpixel((int(x), int(y))) != 255:
+            continue
+        ImageDraw.floodfill(work, (int(x), int(y)), 254, thresh=0)
+        r = np.asarray(work) == 254
+        out.append(r)
+        work.paste(1, mask=Image.fromarray(r.astype(np.uint8) * 255))
+    return out
+
+
+def tidy(img, speck=0.0015, pinhole=0.0008):
+    """Drop stray specks (shadow leftovers) and fill pinholes inside the item."""
+    arr = np.asarray(img).copy()
+    solid = arr[..., 3] >= 128
+    area = solid.sum()
+    if not area:
+        return img
+    for r in regions(solid):
+        if r.sum() < speck * area:
+            arr[..., 3][r] = 0
+    solid = arr[..., 3] >= 128
+    outside = Image.fromarray((~solid).astype(np.uint8) * 255)
+    framed = Image.new("L", (outside.width + 2, outside.height + 2), 255)
+    framed.paste(outside, (1, 1))
+    ImageDraw.floodfill(framed, (0, 0), 128, thresh=0)  # everything reachable from the border
+    enclosed = np.asarray(framed)[1:-1, 1:-1] == 255
+    smooth = np.asarray(img.convert("RGB").filter(ImageFilter.MedianFilter(7)))
+    for r in regions(enclosed):
+        if r.sum() < pinhole * area:  # real holes (inside a ring or handle) are much bigger
+            arr[..., :3][r] = smooth[r]
+            arr[..., 3][r] = 255
+    return Image.fromarray(arr, "RGBA")
 
 
 def main():
@@ -150,6 +196,7 @@ def main():
     img = remove_white(Image.open(args.image), args.tolerance)
     if not keeps_shadow(CLOSET_BY_ID[args.id]):
         img = strip_shadow(img)
+    img = tidy(img)
     img = img.crop(img.getbbox())
 
     OUT.mkdir(parents=True, exist_ok=True)
