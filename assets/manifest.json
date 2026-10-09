@@ -309,6 +309,190 @@
       "status": "gen",
       "candidate": "assets/char/gen/huhu-happy-singing.png",
       "note": ""
+    },
+    {
+      "id": "dudu-01-idle",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-01-idle.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-02-greeting",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-02-greeting.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-03-pass",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-03-pass.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-04-before-test",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-04-before-test.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-05-listening",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-05-listening.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-06-correct",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-06-correct.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-07-thinking",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-07-thinking.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-08-return-hu",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-08-return-hu.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-09-chua-duoc-story",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-09-chua-duoc-story.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-10-feeding",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-10-feeding.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-11-bowl-full",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-11-bowl-full.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-12-sleeping",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-12-sleeping.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-13-evolution",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-13-evolution.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-14-reading",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-14-reading.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-15-pointing",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-15-pointing.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-16-walking",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-16-walking.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-C1-front",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-C1-front.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-c2-arms-open",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-c2-arms-open.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-c2-grr-story",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-c2-grr-story.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-c2-jump",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-c2-jump.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-c2-lunge",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-c2-lunge.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-c2-pass-card",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-c2-pass-card.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
+    },
+    {
+      "id": "dudu-c2-wave",
+      "kind": "char",
+      "path": "assets/char/gen/dudu/dudu-c2-wave.png",
+      "screens": "see assets/char/gen/dudu/QA.md",
+      "status": "gen",
+      "note": "palette ≠ DESIGN.md, awaiting founder"
     }
   ]
 }
