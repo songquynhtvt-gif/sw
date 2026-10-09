@@ -57,6 +57,24 @@
       "expression": "peacefully asleep, eyes closed in soft arcs, smile line still visible",
       "prop": "none",
       "accent": "the ghost wisps are also sleepy, eyes as small closed arcs"
+    },
+    {
+      "id": "hold-one-paw",
+      "slot": "Tủ đồ base pose for held items (ống nhòm, cần câu, sáo, diều, giỏ). Item is added later as a layer at the raised paw. ALSO ATTACH image 5: assets/char/gen/huhu-front-idle.png (or the approved front-idle), so head and body line up with the closet anchors",
+      "pose": "Image 5 is his front idle pose: keep exactly its framing, head, face and body. Only the arms change. Standing upright facing the viewer, same size, same position, head and feet in exactly the same place, feet slightly apart, tail curving up behind his right leg. His right arm (on the viewer's left) is raised so the paw is at chest height, a little out to the side, closed in a loose round fist as if gripping a stick; the other arm relaxed at his side a little away from the body",
+      "expression": "calm friendly smile, mouth closed, both eyes open and looking straight at the viewer",
+      "prop": "none: the fist is empty, the held item is added later as a separate layer",
+      "accent": "none",
+      "rig": true
+    },
+    {
+      "id": "hold-two-paws",
+      "slot": "Tủ đồ base pose for items held with both paws (trống cơm, big baskets). Item is added later between the paws. ALSO ATTACH image 5: assets/char/gen/huhu-front-idle.png (or the approved front-idle), so head and body line up with the closet anchors",
+      "pose": "Image 5 is his front idle pose: keep exactly its framing, head, face and body. Only the arms change. Standing upright facing the viewer, same size, same position, head and feet in exactly the same place, feet slightly apart, tail curving up behind his right leg. Both arms bent forward, both paws in front of his belly at belly height, about one head-width apart, palms facing each other as if holding a small round drum",
+      "expression": "calm friendly smile, mouth closed, both eyes open and looking straight at the viewer",
+      "prop": "none: the paws hold nothing, the item is added later as a separate layer",
+      "accent": "none",
+      "rig": true
     }
   ],
   "bg": [

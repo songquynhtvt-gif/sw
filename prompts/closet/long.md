@@ -7,7 +7,7 @@
 
 ## Nón quai thao · `non-quai-thao`
 
-slot head · 150 bánh cam · need
+slot head · 150 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -26,7 +26,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Cánh diều sáo · `canh-dieu-sao`
 
-slot hand · 150 bánh cam · need · hand slot: held up on a stick
+slot hand · 150 bánh cam · gen · hand slot: held up on a stick
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -45,7 +45,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Áo choàng thổ cẩm · `ao-choang-tho-cam`
 
-slot neck · 150 bánh cam · need
+slot neck · 150 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.

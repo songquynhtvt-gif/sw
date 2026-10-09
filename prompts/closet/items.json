@@ -72,8 +72,8 @@
         }
       ],
       "fit": {
-        "scale": 1.2,
-        "dy": 0.03,
+        "scale": 1.24,
+        "dy": 0.005,
         "ears": "covered"
       }
     },
@@ -165,8 +165,8 @@
         }
       ],
       "fit": {
-        "scale": 0.9,
-        "dy": 0.04,
+        "scale": 1.07,
+        "dy": -0.005,
         "ears": "front"
       }
     },
@@ -232,7 +232,8 @@
       ],
       "fit": {
         "scale": 1.5
-      }
+      },
+      "pose": "hold-one-paw"
     },
     {
       "id": "trong-com",
@@ -260,7 +261,8 @@
           ],
           "verdict": "🟡 tassels on the strap ends · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "pose": "hold-two-paws"
     },
     {
       "id": "gio-xach-may",
@@ -289,7 +291,8 @@
           ],
           "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "pose": "hold-one-paw"
     },
     {
       "id": "banh-cam",
@@ -452,6 +455,7 @@
         }
       ],
       "fit": {
+        "scale": 1.12,
         "ears": "front"
       }
     },
@@ -546,6 +550,7 @@
         }
       ],
       "fit": {
+        "scale": 1.05,
         "ears": "covered"
       }
     },
@@ -578,6 +583,7 @@
         }
       ],
       "fit": {
+        "scale": 1.02,
         "ears": "covered"
       }
     },
@@ -611,7 +617,8 @@
       ],
       "fit": {
         "scale": 0.85
-      }
+      },
+      "pose": "hold-one-paw"
     },
     {
       "id": "tui-coi",
@@ -705,6 +712,7 @@
         }
       ],
       "fit": {
+        "scale": 1.0,
         "ears": "covered"
       }
     },
@@ -736,6 +744,8 @@
         }
       ],
       "fit": {
+        "scale": 1.05,
+        "dy": -0.005,
         "ears": "front"
       }
     },
@@ -800,7 +810,8 @@
       ],
       "fit": {
         "scale": 1.45
-      }
+      },
+      "pose": "hold-one-paw"
     },
     {
       "id": "mu-trum-trau",
@@ -832,7 +843,7 @@
       ],
       "fit": {
         "scale": 1.05,
-        "dy": 0.13,
+        "dy": 0.105,
         "ears": "covered"
       }
     },
@@ -895,6 +906,8 @@
         }
       ],
       "fit": {
+        "scale": 1.24,
+        "dy": 0.01,
         "ears": "covered"
       }
     },
@@ -927,7 +940,8 @@
       ],
       "fit": {
         "scale": 1.3
-      }
+      },
+      "pose": "hold-one-paw"
     },
     {
       "id": "bang-do-trang",
@@ -952,7 +966,8 @@
       "status": "need",
       "item": "a small glass jar with a cloth lid tied with string, three tiny fireflies inside drawn as small butter-yellow dots with ONE flat lighter shape around them, no blur",
       "colours": "clear glass with turquoise tint, butter #F7C844 fireflies",
-      "note": "proposed replacement for đèn ông sao"
+      "note": "proposed replacement for đèn ông sao",
+      "pose": "hold-one-paw"
     },
     {
       "id": "ao-choang-cham",
@@ -1008,8 +1023,8 @@
         }
       ],
       "fit": {
-        "scale": 0.95,
-        "dy": 0.05,
+        "scale": 0.92,
+        "dy": -0.005,
         "ears": "covered"
       }
     },
@@ -1043,7 +1058,7 @@
       "fit": {
         "scale": 0.5,
         "dx": 0.17,
-        "dy": 0.03,
+        "dy": 0.005,
         "ears": "front"
       }
     },
@@ -1139,7 +1154,7 @@
       ],
       "fit": {
         "scale": 1.35,
-        "dy": 0.1,
+        "dy": 0.075,
         "ears": "covered"
       }
     },
@@ -1173,7 +1188,8 @@
       ],
       "fit": {
         "scale": 1.2
-      }
+      },
+      "pose": "hold-one-paw"
     },
     {
       "id": "ao-choang-tho-cam",
@@ -1235,19 +1251,19 @@
         }
       ],
       "fit": {
-        "dy": 0.06,
-        "ears": "covered",
-        "scale": 1.18
+        "scale": 1.18,
+        "dy": 0.035,
+        "ears": "covered"
       }
     }
   ],
   "anchors": {
-    "_note": "Fractions of the pose image. head: item bottom edge sits at y, neck: item top edge at y, hand: item bottom at y. w = item width (head/neck) or h = item height (hand). Per-item tweak: add \"fit\": {\"scale\": 1.1, \"dx\": 0, \"dy\": -0.02} to the item.",
+    "_note": "Fractions of the pose image. head: item bottom edge sits at y, neck: item top edge at y, hand: item bottom at y. w = item width (head/neck) or h = item height (hand). Per-item tweak: add \"fit\": {\"scale\": 1.1, \"dx\": 0, \"dy\": -0.02} to the item. Placement reference: materials/references/closet/huhu-dressed-placement-ref.webp (hat brims at the top of the eyes, crowns on the forehead, scarves just under the smile). Items with a 'pose' need that Hǔhǔ pose (prompts/huhu/hold-*.md); until it exists the front-idle pose plus a drawn paw is used.",
     "huhu": {
       "pose": "assets/char/gen/huhu-front-idle.png",
       "head": {
         "x": 0.5,
-        "y": 0.27,
+        "y": 0.295,
         "w": 0.62
       },
       "neck": {

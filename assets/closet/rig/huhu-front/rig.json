@@ -13,7 +13,7 @@
   "anchors": {
     "head": {
       "x": 0.5,
-      "y": 0.27,
+      "y": 0.295,
       "w": 0.62
     },
     "neck": {
@@ -29,8 +29,8 @@
   },
   "items": {
     "non-la": {
-      "scale": 1.2,
-      "dy": 0.03,
+      "scale": 1.24,
+      "dy": 0.005,
       "ears": "covered"
     },
     "khan-ran": {
@@ -38,8 +38,8 @@
     },
     "no-buom": {},
     "vong-hoa": {
-      "scale": 0.9,
-      "dy": 0.04,
+      "scale": 1.07,
+      "dy": -0.005,
       "ears": "front"
     },
     "khan-quang-la": {
@@ -51,6 +51,7 @@
     "trong-com": {},
     "gio-xach-may": {},
     "mu-la": {
+      "scale": 1.12,
       "ears": "front"
     },
     "vong-hat-rung": {
@@ -59,9 +60,11 @@
     },
     "ao-toi-la": {},
     "mu-chop-la": {
+      "scale": 1.05,
       "ears": "covered"
     },
     "mu-coi-kinh": {
+      "scale": 1.02,
       "ears": "covered"
     },
     "ong-nhom-tre": {
@@ -75,9 +78,12 @@
       "dy": -0.04
     },
     "mu-thuyen-giay": {
+      "scale": 1.0,
       "ears": "covered"
     },
     "vong-hoa-sung": {
+      "scale": 1.05,
+      "dy": -0.005,
       "ears": "front"
     },
     "no-la-dua": {
@@ -88,13 +94,15 @@
     },
     "mu-trum-trau": {
       "scale": 1.05,
-      "dy": 0.13,
+      "dy": 0.105,
       "ears": "covered"
     },
     "mo-trau": {
       "scale": 0.5
     },
     "mu-rom": {
+      "scale": 1.24,
+      "dy": 0.01,
       "ears": "covered"
     },
     "sao-truc": {
@@ -109,14 +117,14 @@
       "ears": "front"
     },
     "khan-dong": {
-      "scale": 0.95,
-      "dy": 0.05,
+      "scale": 0.92,
+      "dy": -0.005,
       "ears": "covered"
     },
     "canh-mai": {
       "scale": 0.5,
       "dx": 0.17,
-      "dy": 0.03,
+      "dy": 0.005,
       "ears": "front"
     },
     "khanh-bac": {
@@ -127,7 +135,7 @@
     },
     "non-quai-thao": {
       "scale": 1.35,
-      "dy": 0.1,
+      "dy": 0.075,
       "ears": "covered"
     },
     "canh-dieu-sao": {
@@ -137,9 +145,9 @@
       "scale": 1.05
     },
     "bang-do-may": {
-      "dy": 0.06,
-      "ears": "covered",
-      "scale": 1.18
+      "scale": 1.18,
+      "dy": 0.035,
+      "ears": "covered"
     }
   }
 }

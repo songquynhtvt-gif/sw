@@ -7,7 +7,7 @@
 
 ## Nón lá · `non-la`
 
-slot head · 40 bánh cam · need
+slot head · 40 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -26,7 +26,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Khăn rằn · `khan-ran`
 
-slot neck · 40 bánh cam · need · from sheet-1 #3 (red bandana) with the swirl clouds replaced by the khăn rằn check
+slot neck · 40 bánh cam · gen · from sheet-1 #3 (red bandana) with the swirl clouds replaced by the khăn rằn check
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -45,7 +45,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Nơ bướm · `no-buom`
 
-slot neck · 40 bánh cam · need
+slot neck · 40 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -64,7 +64,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Vòng hoa · `vong-hoa`
 
-slot head · 40 bánh cam · need
+slot head · 40 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -83,7 +83,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Khăn quàng lá · `khan-quang-la`
 
-slot neck · 40 bánh cam · need · from sheet-1 #1 leaf cap, same leaf language
+slot neck · 40 bánh cam · gen · from sheet-1 #1 leaf cap, same leaf language
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -102,7 +102,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Diều giấy · `dieu-giay`
 
-slot hand · 80 bánh cam · need · hand slot: kite held up on a stick
+slot hand · 80 bánh cam · gen · hand slot: kite held up on a stick
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -121,7 +121,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Trống cơm · `trong-com`
 
-slot neck · 80 bánh cam · need
+slot neck · 80 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -140,7 +140,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Giỏ xách mây · `gio-xach-may`
 
-slot hand · 80 bánh cam · need · replaces ba lô gỗ (no back anchor)
+slot hand · 80 bánh cam · gen · replaces ba lô gỗ (no back anchor)
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -159,7 +159,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Bánh cam · `banh-cam`
 
-slot food · 40 bánh cam · need
+slot food · 40 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -178,7 +178,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Xôi gấc · `xoi-gac`
 
-slot food · 40 bánh cam · need
+slot food · 40 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -197,7 +197,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Chè · `che`
 
-slot food · 40 bánh cam · need
+slot food · 40 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
@@ -216,7 +216,7 @@ Do NOT: draw the tiger, a head, ears or any body part; draw several items or a s
 
 ## Bánh bò · `banh-bo`
 
-slot food · 40 bánh cam · need
+slot food · 40 bánh cam · gen
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.

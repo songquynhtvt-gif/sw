@@ -140,3 +140,15 @@ Hǔhǔ được chỉnh theo đồ, không dán đè:
 - Đồ cầm tay: `paw-holding.png` (bàn tay nắm, nét Hǔhǔ) đè lên cán.
 - Bóng đổ mờ của đồ lên lông.
 Số đo (cằm, tai, đầu, tay) trong `items.json` → `anchors.huhu.layers`, chỉ đúng cho pose `huhu-front-idle`; pose/companion khác cần đo lại.
+
+### Vị trí chuẩn (theo `materials/references/closet/huhu-dressed-placement-ref.webp`)
+Đo theo đỉnh đầu = 0, cằm (nét cười) = 1: mép mũ ngang mép trên của mắt (0.48), vòng hoa / khăn đóng trên trán (~0.3), khăn ngay dưới nét cười (1.04). Bề ngang mũ so với đầu: nón lá, mũ rơm 1.14 · mũ lá 1.03 · mũ cối 0.94 · khăn đóng 0.84.
+
+### Tư thế Hǔhǔ cho Tủ đồ
+| Tư thế | Dùng cho | Prompt |
+|---|---|---|
+| front-idle (đang có) | mũ, đồ cổ | `prompts/huhu/front-idle.md` |
+| hold-one-paw | ống nhòm, cần câu, sáo, diều, giỏ | `prompts/huhu/hold-one-paw.md` |
+| hold-two-paws | trống cơm | `prompts/huhu/hold-two-paws.md` |
+Món có `"pose"` trong `items.json` cần tư thế đó; khi chưa có thì dùng front-idle + bàn tay vẽ.
+Gen 2 tư thế mới: đính kèm 4 ảnh tham chiếu Hǔhǔ + ảnh 5 `huhu-front-idle.png` để đầu và thân trùng khung, rồi đo điểm neo tay.

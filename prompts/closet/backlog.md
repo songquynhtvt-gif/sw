@@ -7,7 +7,7 @@
 
 ## Băng đô mây · `bang-do-may`
 
-slot head · 80 bánh cam · idea · from sheet-1 #2 with the swirl curls and stars removed
+slot head · 80 bánh cam · gen · from sheet-1 #2 with the swirl curls and stars removed
 
 ```
 Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
