@@ -103,14 +103,15 @@ Món lệch: thêm `"fit": {"scale": 1.1, "dx": 0, "dy": -0.02}` vào món đó 
    ```
 5. Mỗi lần chạy được ghi vào `runs` của món trong `items.json`, file ra `assets/closet/gen/<id>-v<n>.png` (nền trong suốt sẵn, không cần cắt nền).
 
-**Không có API key (cách đang dùng):**
-1. Mở `prompts/closet/<wave>.md`, copy 1 khối prompt, dán vào ChatGPT (chat mới mỗi 3–4 món).
-2. Tải ảnh về, gửi Claude trong chat hoặc bỏ vào `materials/chatgpt-designs/closet/`.
-3. Nhập ảnh (tự xoá nền trắng, lưu bản gen, ghi vào `items.json`), rồi ướm:
+**Không có API key (cách đang dùng): làm hàng loạt bằng sheet**
+1. Mở `prompts/closet/ALL-CHATGPT.md`: 12 sheet, mỗi sheet tối đa 4 món, phủ hết kho.
+2. Dán từng khối vào ChatGPT (chat mới mỗi 3 sheet), tải ảnh về, đặt tên theo mã sheet (`w3-1.png`…), bỏ vào `materials/chatgpt-designs/closet/`.
+3. Một lệnh cắt cả thư mục: xoá nền trắng, tách từng món, lưu `assets/closet/gen/`, ghi `items.json`, ướm lên Hǔhǔ ở `assets/closet/fit/`:
    ```
-   python3 scripts/import_item.py mu-la materials/chatgpt-designs/closet/mu-la.png
-   python3 scripts/fit_preview.py --id mu-la
+   python3 scripts/split_sheet.py materials/chatgpt-designs/closet/
    ```
+   Một món lẻ làm riêng: `python3 scripts/import_item.py <id> <ảnh>`.
+
 Thêm món mới: thêm 1 object vào `items.json` → `python3 scripts/build_prompts.py`.
 
 Chi phí ước tính: 42 món × 2 biến thể ≈ 84 ảnh mỗi vòng (`--quality medium`).

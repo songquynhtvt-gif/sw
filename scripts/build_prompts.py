@@ -30,6 +30,8 @@ BG_TEMPLATE = block_after("**Mẫu (dán, điền 4 ô)")
 ICON_TEMPLATE = block_after("**Thêm icon mới:**")
 ITEM_MASTER = block_after("**ITEM MASTER**")
 ITEM_NEGATIVE = block_after("**ITEM NEGATIVE**")
+ITEM_SHEET = block_after("**ITEM SHEET**")
+SHEET_SIZE = 4
 
 
 def fence(text):
@@ -144,6 +146,57 @@ def item_prompt(item):
     return prompt + "\n\n" + ITEM_NEGATIVE
 
 
+def sheets():
+    """Group the catalogue into ChatGPT sheets of up to 4 items, per wave, in catalogue order.
+
+    Returns [(sheet_id, cols, rows, [items])]; split_sheet.py relies on the same order.
+    """
+    out = []
+    for wave in CLOSET["waves"]:
+        items = [i for i in CLOSET["items"] if i["wave"] == wave and i["status"] != "blocked"]
+        for k in range(0, len(items), SHEET_SIZE):
+            chunk = items[k:k + SHEET_SIZE]
+            cols = 1 if len(chunk) == 1 else 2
+            rows = (len(chunk) + cols - 1) // cols
+            out.append((f"{wave}-{k // SHEET_SIZE + 1}", cols, rows, chunk))
+    return out
+
+
+def sheet_prompt(cols, rows, items):
+    lines = "\n".join(f"{n}. {it['item']} ({CLOSET['slots'][it['slot']]['en']}). Colours: {it['colours']}."
+                       for n, it in enumerate(items, 1))
+    prompt = (
+        ITEM_SHEET.replace("[N]", str(len(items)))
+        .replace("[COLS]", str(cols))
+        .replace("[ROWS]", str(rows))
+        .replace("[ITEMS]", lines)
+    )
+    return prompt + "\n\n" + ITEM_NEGATIVE.replace("draw several items or a sheet; ", "")
+
+
+def closet_all():
+    all_sheets = sheets()
+    parts = [f"""# Tủ đồ · toàn bộ kho cho ChatGPT ({sum(len(s[3]) for s in all_sheets)} món, {len(all_sheets)} sheet)
+
+Không cần API key. Mỗi khối dưới đây = 1 ảnh có tối đa 4 món.
+
+1. Mở ChatGPT, **chat mới mỗi 3 sheet**. Dán nguyên 1 khối, chờ ra ảnh.
+2. Ảnh lỗi (thiếu món, món dính nhau, có chữ, có bóng navy) → bấm tạo lại, không sửa chồng quá 1–2 lần.
+3. Tải ảnh về, đặt tên đúng mã sheet, ví dụ `w3-1.png`, bỏ hết vào `materials/chatgpt-designs/closet/` (hoặc gửi thẳng cho Claude).
+4. Cắt + xoá nền + ướm lên Hǔhǔ, một lệnh cho cả thư mục:
+   ```
+   python3 scripts/split_sheet.py materials/chatgpt-designs/closet/
+   ```
+   → từng món ở `assets/closet/gen/<id>-v<n>.png`, ảnh ướm ở `assets/closet/fit/`.
+
+File này sinh tự động từ `prompts/closet/items.json` (`python3 scripts/build_prompts.py`), đừng sửa tay.
+"""]
+    for sid, cols, rows, items in all_sheets:
+        names = " · ".join(f"{n}. {it['name']} (`{it['id']}`)" for n, it in enumerate(items, 1))
+        parts.append(f"## `{sid}` · {CLOSET['waves'][sid.rsplit('-', 1)[0]]}\n\n{names}\n\n{fence(sheet_prompt(cols, rows, items))}\n")
+    return "\n".join(parts)
+
+
 def closet_wave(wave, items):
     parts = [f"""# Tủ đồ · {CLOSET['waves'][wave]}
 
@@ -176,6 +229,7 @@ def main():
         items = [i for i in CLOSET["items"] if i["wave"] == wave]
         if items:
             write(OUT / "closet" / f"{wave}.md", closet_wave(wave, items))
+    write(OUT / "closet" / "ALL-CHATGPT.md", closet_all())
 
 
 if __name__ == "__main__":

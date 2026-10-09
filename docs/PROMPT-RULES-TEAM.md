@@ -228,6 +228,19 @@ OUTPUT: the single item centred with 12% margin, fully transparent background, s
 Do NOT: draw the tiger, a head, ears or any body part; draw several items or a sheet; add a navy or coloured offset shadow, gloss, glow, gradients, 3D, blur or noisy texture; add four-point sparkles; use Chinese motifs (swirl clouds, dragons, tasselled lanterns, star lanterns, melon caps, round jade discs, red-and-gold imperial colours); draw maps with a red X, compasses or rolled scrolls; draw crowns, medals, trophies or gems; add text, letters or numbers; use mint green #BDDBA7 as the main colour.
 ```
 
+**ITEM SHEET** (làm hàng loạt trong ChatGPT: 1 ảnh = tối đa 4 món, nền trắng; `scripts/split_sheet.py` cắt ra từng món). Dán kèm ITEM NEGATIVE, bỏ vế "draw several items or a sheet":
+```
+Draw [N] DIFFERENT accessories for a cute chubby cartoon tiger cub, laid out as an invisible grid of [COLS] columns and [ROWS] rows on a plain pure white background. Each item sits alone in the centre of its own cell, all items drawn at a similar size, with wide white gaps between cells; nothing touches or crosses into another cell. Draw ONLY the items, never the tiger or any part of it. Order left to right, then top to bottom:
+
+[ITEMS]
+
+Every item: straight front view, exactly as it is worn or held. Head items leave gaps where two round ears poke through. Neck items have a gentle smile-shaped top edge and hang on the chest. Held items stand upright with the grip at the bottom-centre. Food and icons: one simple object.
+
+STYLE: thin dark sage outline #587E5C (never black), outer contour slightly thicker, inner lines thinner. Flat fills only, bright and clean, at most 2-3 colours plus cream #F5F4D0 per item. Simple chunky shapes that still read at 96 px. Vietnamese materials and craft: bamboo, rattan, straw, banana and palm leaf, cotton, indigo cloth, wood, silver.
+
+OUTPUT: square 1:1, plain pure white background, no grid lines, no labels, no numbers, no text, no border, no drop shadow, no sticker outline.
+```
+
 **QA tủ đồ:**
 
 | Mức | Điều kiện |

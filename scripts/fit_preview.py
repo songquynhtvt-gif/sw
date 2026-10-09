@@ -50,31 +50,26 @@ def place(base, art, slot, anchor, tweak, W, H, pad):
     base.alpha_composite(art, (round(x) + pad, round(y) + pad))
 
 
-def main():
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--id", nargs="+", required=True, help="item ids (one per slot)")
-    ap.add_argument("--file", nargs="+", type=Path, help="explicit PNG per id, same order")
-    ap.add_argument("--companion", default="huhu", choices=[k for k in CLOSET["anchors"] if not k.startswith("_")])
-    args = ap.parse_args()
-
+def try_on(ids, companion="huhu", files=None):
+    """Composite the given items onto the companion pose; returns the output path."""
     by_id = {i["id"]: i for i in CLOSET["items"]}
-    anchors = CLOSET["anchors"][args.companion]
-    if args.file and len(args.file) != len(args.id):
-        sys.exit("--file needs one path per --id")
+    anchors = CLOSET["anchors"][companion]
+    if files and len(files) != len(ids):
+        raise ValueError("one file per id")
 
     layers = []
-    for n, item_id in enumerate(args.id):
+    for n, item_id in enumerate(ids):
         it = by_id.get(item_id)
         if not it or it["slot"] not in LAYER:
-            sys.exit(f"{item_id}: unknown id or not wearable")
-        path = (ROOT / args.file[n]) if args.file else item_file(item_id)
+            raise ValueError(f"{item_id}: unknown id or not wearable")
+        path = (ROOT / files[n]) if files else item_file(item_id)
         if not path or not path.exists():
-            sys.exit(f"{item_id}: no PNG yet (run gen_closet.py first)")
+            raise ValueError(f"{item_id}: no PNG yet (run gen_closet.py or split_sheet.py first)")
         layers.append((LAYER[it["slot"]], it, path))
 
     slots = [it["slot"] for _, it, _ in layers]
     if len(slots) != len(set(slots)):
-        sys.exit("one item per slot")
+        raise ValueError("one item per slot")
 
     pose = Image.open(ROOT / anchors["pose"]).convert("RGBA")
     W, H = pose.size
@@ -86,8 +81,21 @@ def main():
     base = base.crop(base.getbbox())
 
     OUT.mkdir(parents=True, exist_ok=True)
-    out = OUT / f"{args.companion}-{'+'.join(args.id)}.png"
+    out = OUT / f"{companion}-{'+'.join(ids)}.png"
     base.save(out)
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--id", nargs="+", required=True, help="item ids (one per slot)")
+    ap.add_argument("--file", nargs="+", type=Path, help="explicit PNG per id, same order")
+    ap.add_argument("--companion", default="huhu", choices=[k for k in CLOSET["anchors"] if not k.startswith("_")])
+    args = ap.parse_args()
+    try:
+        out = try_on(args.id, args.companion, args.file)
+    except ValueError as e:
+        sys.exit(str(e))
     print(out.relative_to(ROOT))
 
 
