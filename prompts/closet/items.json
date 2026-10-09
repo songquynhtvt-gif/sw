@@ -599,10 +599,24 @@
       "wave": "w9",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a cosy cream hood with two short curved brown buffalo horns, two small green leaves at the sides and two round pom-pom ties",
       "colours": "cream, brown #8B5A2B horns, leaf #6CC36F",
-      "source": "sheet-1 #8 with the swirl cloud removed; horns now read as con trâu"
+      "source": "sheet-1 #8 with the swirl cloud removed; horns now read as con trâu",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/mu-trum-trau-v1.png"
+          ],
+          "verdict": "🔴 swirl cloud motif on the hood (rules §1): regenerate, add 'no swirls, no clouds' · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.05,
+        "dy": 0.13
+      }
     },
     {
       "id": "mo-trau",
@@ -610,9 +624,22 @@
       "wave": "w9",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a wooden buffalo bell (mõ trâu): a small carved wooden block bell with a clapper, hung from a rope around the neck",
-      "colours": "wood #C98A4B, rope #8B5A2B"
+      "colours": "wood #C98A4B, rope #8B5A2B",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/mo-trau-v1.png"
+          ],
+          "verdict": "🟡 bell shape reads like a metal cowbell; wood colour ok · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.5
+      }
     },
     {
       "id": "mu-rom",
@@ -620,9 +647,19 @@
       "wave": "w9",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a round woven straw hat with a wide brim and a leaf-green band, one small yellow rice-flower tucked in the band",
-      "colours": "straw #E8C46A, leaf #6CC36F band"
+      "colours": "straw #E8C46A, leaf #6CC36F band",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/mu-rom-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "sao-truc",
@@ -630,9 +667,22 @@
       "wave": "w9",
       "slot": "hand",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a short bamboo flute (sáo trúc) with round finger holes and a small coral cord tied near the end, held upright",
-      "colours": "bamboo #D9C27A, coral cord"
+      "colours": "bamboo #D9C27A, coral cord",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w9-1",
+          "files": [
+            "assets/closet/gen/sao-truc-v1.png"
+          ],
+          "verdict": "🟡 tassels on the cord · watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.3
+      }
     },
     {
       "id": "bang-do-trang",
