@@ -265,6 +265,7 @@ Stage 1 set: 4 tab icons (Kho Tàng Truyện, Bí Kíp, Phiêu Lưu Ký, Sư Ph�
 | Phụ kiện (80) | áo bà ba mini · đèn ông sao · diều giấy · trống cơm · ba lô gỗ |
 | Món khoái khẩu (40) | bánh cam · xôi gấc · chè · bánh bò |
 | Giữ chuỗi | Ngày Ngủ (50) · Hồi Sinh Chuỗi (150) |
+**Update 9/10 (founder):** anchors = head, neck, hand. Đèn ông sao and áo bà ba removed, ba lô gỗ → giỏ xách mây. Current list: `docs/TU-DO.md`.
 Remove from the AI item sheet: táo, đào, mochi, há cảo, mì, áo gile, huy chương, cúp, đá quý, vương miện, vé a/b/c, móc khóa đèn lồng.
 
 ### G6 · Story illustrations (flag only)

@@ -197,3 +197,43 @@ To keep them consistent, draw a 4x2 grid on plain white. Top-left cell: copy the
 - Đặt tên theo mã màn hoặc mã cảnh, ví dụ `ref/bg/onboard/N7-v2.png`, `ref/char/gen/25-holding-oil-lamp.png`.
 - Giữ bản gốc tải về (`*-source.png`). Dev xuất bản đã xử lý vào `hires/`.
 - Ghi kết quả QA và prompt đã dùng vào `ref/PROMPTS-MASTER.md` để lần sau không lặp lỗi.
+
+---
+
+## 7 · Tủ đồ (phụ kiện, món ăn)
+
+Catalogue: `prompts/closet/items.json`. Ý tưởng + review: `docs/TU-DO.md`.
+
+- **Một file master cho mỗi món**, vẽ theo **nét của Hǔhǔ** (viền sage, màu phẳng), nền **trong suốt**. Cùng file đó dùng cho lớp đeo lên nhân vật (neo đầu/cổ) và thẻ cửa hàng (bóng đổ của thẻ dựng bằng code).
+- **Không** vẽ nhân vật trong ảnh phụ kiện. **Không** bóng navy lệch kiểu sticker: bóng đó làm món đồ "dán" lên Hǔhǔ chứ không "mặc".
+- Nhìn **thẳng chính diện**, đúng tư thế khi đeo. Mũ chừa chỗ cho 2 tai tròn.
+- Đọc được ở **96 px** (ô thẻ cửa hàng): tối đa 2–3 màu + kem, hình khối đơn giản.
+- Luật cấm §1 áp hết. Riêng tủ đồ còn cấm: vương miện, huy chương, cúp, đá quý, mũ quả dưa, ngọc bích tròn kiểu Trung, áo choàng có mây xoắn hoặc tua rua. Màu bạc hà `#BDDBA7` không làm màu chính (màu hồn ma của Hǔhǔ).
+
+**ITEM MASTER** (script tự điền 4 ô):
+```
+Draw ONE wearable accessory or item for a cute chubby cartoon tiger cub. Draw ONLY the item, never the tiger or any part of it.
+
+ITEM: [ITEM]
+SLOT: [SLOT]
+COLOURS: [COLOURS]
+FIT: [FIT]
+
+STYLE: thin dark sage outline #587E5C (never black), outer contour slightly thicker, inner lines thinner. Flat fills only, bright and clean, at most 2-3 colours plus cream #F5F4D0. Simple chunky shapes that still read at 96 px. Vietnamese materials and craft: bamboo, rattan, straw, banana and palm leaf, cotton, indigo cloth, wood, silver.
+
+OUTPUT: the single item centred with 12% margin, fully transparent background, square 1:1, no character, no head, no mannequin, no text, no border, no drop shadow, no sticker outline.
+```
+**ITEM NEGATIVE** (luôn dán kèm):
+```
+Do NOT: draw the tiger, a head, ears or any body part; draw several items or a sheet; add a navy or coloured offset shadow, gloss, glow, gradients, 3D, blur or noisy texture; add four-point sparkles; use Chinese motifs (swirl clouds, dragons, tasselled lanterns, star lanterns, melon caps, round jade discs, red-and-gold imperial colours); draw maps with a red X, compasses or rolled scrolls; draw crowns, medals, trophies or gems; add text, letters or numbers; use mint green #BDDBA7 as the main colour.
+```
+
+**QA tủ đồ:**
+
+| Mức | Điều kiện |
+|---|---|
+| 🔴 | Có motif Trung, chữ, vương miện / đá quý, hoặc vẽ cả nhân vật |
+| 🟠 | Có bóng navy lệch, bóng loáng, 3D, viền đen |
+| 🟠 | Nghiêng, không chính diện, mũ không chừa chỗ tai |
+| 🟠 | Không đọc được ở 96 px |
+| 🟡 | Lệch tông nhẹ so với các món đã duyệt |
