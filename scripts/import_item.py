@@ -12,7 +12,8 @@ import argparse
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_prompts import CLOSET, ROOT  # noqa: E402
@@ -20,6 +21,7 @@ from gen_closet import OUT, log_run, next_version  # noqa: E402
 
 
 def remove_white(img, tolerance):
+    """Plain white background -> transparent, with soft de-matted edges (no white fringe)."""
     img = img.convert("RGBA")
     if img.getextrema()[3][0] < 255:  # already has transparency
         return img
@@ -31,14 +33,24 @@ def remove_white(img, tolerance):
     for xy in edge:
         if min(rgb.getpixel(xy)) >= 255 - tolerance:
             ImageDraw.floodfill(rgb, xy, key, thresh=tolerance)
-    mask = Image.new("L", (w, h), 255)
-    px, mp = rgb.load(), mask.load()
-    for y in range(h):
-        for x in range(w):
-            if px[x, y] == key:
-                mp[x, y] = 0
-    img.putalpha(mask)
-    return img
+    bg = np.all(np.asarray(rgb) == key, axis=2)
+
+    src = np.asarray(img.convert("RGB")).astype(np.float32)
+    alpha = np.where(bg, 0.0, 255.0)
+    # 2 px band of the item that touches the background: anti-aliased pixels blended with white.
+    # Alpha from how far the pixel is from white, then remove the white from its colour.
+    near_bg = np.asarray(Image.fromarray(bg.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(5))) > 0
+    band = near_bg & ~bg
+    darkness = 255.0 - src.min(axis=2)
+    # every item has the sage outline #587E5C on its edge: 255 - min(88,126,92) = 167 from white
+    a = np.clip(darkness / 167.0, 0.0, 1.0)
+    alpha[band] = a[band] * 255.0
+    safe = np.maximum(a, 1e-3)[..., None]
+    unblended = np.clip(255.0 - (255.0 - src) / safe, 0, 255)
+    src[band] = unblended[band]
+
+    out = np.dstack([src, alpha]).astype(np.uint8)
+    return Image.fromarray(out, "RGBA")
 
 
 def main():

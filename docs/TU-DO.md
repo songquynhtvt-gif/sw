@@ -111,6 +111,12 @@ Món lệch: thêm `"fit": {"scale": 1.1, "dx": 0, "dy": -0.02}` vào món đó 
    python3 scripts/split_sheet.py materials/chatgpt-designs/closet/
    ```
    Một món lẻ làm riêng: `python3 scripts/import_item.py <id> <ảnh>`.
+4. Xuất cả kho thành 1 file zip:
+   ```
+   pip3 install -r requirements.txt
+   python3 scripts/export_closet.py
+   ```
+   → `exports/tu-do-<ngày>.zip`: `png/<đợt>/<id>.png` (nền trong suốt, cạnh dài 2048 px, viền đã khử lem trắng) · `svg/<đợt>/<id>.svg` (vector, phóng bao nhiêu cũng nét) · `fit/huhu-<id>.png` · `catalogue.csv` · `contact-sheet.png` (xem nhanh cả kho).
 
 Thêm món mới: thêm 1 object vào `items.json` → `python3 scripts/build_prompts.py`.
 
