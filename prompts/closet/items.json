@@ -439,6 +439,14 @@
             "assets/closet/gen/mu-la-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/mu-la-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -460,6 +468,14 @@
             "assets/closet/gen/vong-hat-rung-v1.png"
           ],
           "verdict": "🟠 drawn as a full front-on ring, not a hanging U: regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/vong-hat-rung-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -485,6 +501,14 @@
             "assets/closet/gen/ao-toi-la-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/ao-toi-la-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -506,6 +530,14 @@
             "assets/closet/gen/mu-chop-la-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/mu-chop-la-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -651,6 +683,14 @@
             "assets/closet/gen/mu-thuyen-giay-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/mu-thuyen-giay-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -671,6 +711,14 @@
             "assets/closet/gen/vong-hoa-sung-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/vong-hoa-sung-v2.png"
+          ],
+          "verdict": ""
         }
       ]
     },
@@ -691,6 +739,14 @@
             "assets/closet/gen/no-la-dua-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/no-la-dua-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
@@ -715,6 +771,14 @@
             "assets/closet/gen/can-cau-tre-v1.png"
           ],
           "verdict": "🟢 clean cut-out, fits · watercolour texture, no sage outline (prompt ignored)"
+        },
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w7-1",
+          "files": [
+            "assets/closet/gen/can-cau-tre-v2.png"
+          ],
+          "verdict": ""
         }
       ],
       "fit": {
