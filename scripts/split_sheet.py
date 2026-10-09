@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_prompts import ROOT, sheets  # noqa: E402
 from fit_preview import LAYER, try_on  # noqa: E402
 from gen_closet import OUT, log_run, next_version  # noqa: E402
-from import_item import remove_white  # noqa: E402
+from import_item import keeps_shadow, remove_white, strip_shadow  # noqa: E402
 
 SCALE = 4          # find shapes on a 1/4 size mask, fast enough in pure Python
 MIN_SHARE = 0.0005  # shapes smaller than this share of the sheet are specks
@@ -92,6 +92,9 @@ def run(sheet_id, path, table, tolerance):
         if piece is None:
             print(f"✗ {sheet_id} · {it['id']}: nothing found in its cell, regenerate the sheet")
             continue
+        if not keeps_shadow(it):
+            piece = strip_shadow(piece)
+            piece = piece.crop(piece.getbbox())
         out = OUT / f"{it['id']}-v{next_version(it['id'])}.png"
         OUT.mkdir(parents=True, exist_ok=True)
         piece.save(out)

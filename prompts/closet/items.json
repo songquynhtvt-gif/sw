@@ -50,9 +50,23 @@
       "wave": "stage1",
       "slot": "head",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "a small Vietnamese conical palm-leaf hat (nón lá), pale straw with thin concentric rib lines, a coral chin ribbon tied in a small bow",
-      "colours": "straw #E8D9A8, coral #F07C62 ribbon, cream"
+      "colours": "straw #E8D9A8, coral #F07C62 ribbon, cream",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/non-la-v1.png"
+          ],
+          "verdict": "🟠 the chin bow hangs below the brim and covers the face when worn: regenerate with a short strap · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.2,
+        "dy": 0.03
+      }
     },
     {
       "id": "khan-ran",
@@ -60,10 +74,23 @@
       "wave": "stage1",
       "slot": "neck",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "a Southern Vietnamese checkered scarf (khăn rằn) in small navy and cream checks, folded into a triangle and tied in a knot at the front-left, two short ends sticking out",
       "colours": "navy #1B2A6B and cream checks",
-      "source": "sheet-1 #3 (red bandana) with the swirl clouds replaced by the khăn rằn check"
+      "source": "sheet-1 #3 (red bandana) with the swirl clouds replaced by the khăn rằn check",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/khan-ran-v1.png"
+          ],
+          "verdict": "🟠 navy offset shadow kept (same colour as the checks, cannot be removed safely): regenerate without shadow · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.95
+      }
     },
     {
       "id": "no-buom",
@@ -71,9 +98,19 @@
       "wave": "stage1",
       "slot": "neck",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "a chunky butterfly bow tie on a thin band, two rounded loops and a small knot",
-      "colours": "coral #F07C62, butter #F7C844 polka dots"
+      "colours": "coral #F07C62, butter #F7C844 polka dots",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/no-buom-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "vong-hoa",
@@ -81,9 +118,23 @@
       "wave": "stage1",
       "slot": "head",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "a flower crown ring of small five-petal flowers and leaves, worn flat around the top of the head",
-      "colours": "butter #F7C844 and coral #F07C62 flowers, leaf #6CC36F leaves"
+      "colours": "butter #F7C844 and coral #F07C62 flowers, leaf #6CC36F leaves",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-1",
+          "files": [
+            "assets/closet/gen/vong-hoa-v1.png"
+          ],
+          "verdict": "🟡 ring seen from above, sits ok · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.9,
+        "dy": 0.04
+      }
     },
     {
       "id": "khan-quang-la",
@@ -91,10 +142,23 @@
       "wave": "stage1",
       "slot": "neck",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "a scarf made of overlapping big green leaves with visible centre veins, wrapped once around the neck, two leaf tips hanging at the front",
       "colours": "leaf #6CC36F and dark leaf #3E8E4F, cream veins",
-      "source": "sheet-1 #1 leaf cap, same leaf language"
+      "source": "sheet-1 #1 leaf cap, same leaf language",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/khan-quang-la-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.85
+      }
     },
     {
       "id": "dieu-giay",
@@ -102,10 +166,23 @@
       "wave": "stage1",
       "slot": "hand",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a small diamond-shaped Vietnamese paper kite on a bamboo cross frame, held up on a short bamboo stick, with a short ribbon tail of three bows",
       "colours": "butter #F7C844 and coral #F07C62 panels, bamboo frame",
-      "note": "hand slot: kite held up on a stick"
+      "note": "hand slot: kite held up on a stick",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/dieu-giay-v1.png"
+          ],
+          "verdict": "🔴 swirl clouds on the kite (rules §1): regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 1.5
+      }
     },
     {
       "id": "trong-com",
@@ -113,9 +190,19 @@
       "wave": "stage1",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a small Vietnamese barrel drum (trống cơm) lying sideways on the chest, hung from a woven strap around the neck, laced with criss-cross cords",
-      "colours": "warm wood #C98A4B body, cream drum heads, coral #F07C62 cords"
+      "colours": "warm wood #C98A4B body, cream drum heads, coral #F07C62 cords",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/trong-com-v1.png"
+          ],
+          "verdict": "🟡 tassels on the strap ends · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "gio-xach-may",
@@ -123,10 +210,20 @@
       "wave": "stage1",
       "slot": "hand",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a small woven rattan handbag basket with a round arched handle and a wooden toggle on the lid, held by the handle",
       "colours": "rattan #D9B577, wood #8B5A2B toggle",
-      "note": "replaces ba lô gỗ (no back anchor)"
+      "note": "replaces ba lô gỗ (no back anchor)",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-2",
+          "files": [
+            "assets/closet/gen/gio-xach-may-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "banh-cam",
@@ -134,9 +231,19 @@
       "wave": "stage1",
       "slot": "food",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "one bánh cam: a round golden fried sesame ball with tiny cream sesame dots, must read as a Vietnamese sesame ball, not a coin or a cookie",
-      "colours": "golden #D9953B, cream sesame dots"
+      "colours": "golden #D9953B, cream sesame dots",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/banh-cam-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "xoi-gac",
@@ -144,9 +251,19 @@
       "wave": "stage1",
       "slot": "food",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "a small mound of red-orange gấc sticky rice on a piece of banana leaf, rounded dome shape with a few visible rice grain bumps",
-      "colours": "gấc red-orange #E0573A, leaf #6CC36F"
+      "colours": "gấc red-orange #E0573A, leaf #6CC36F",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/xoi-gac-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "che",
@@ -154,9 +271,19 @@
       "wave": "stage1",
       "slot": "food",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "a small clear glass of Vietnamese layered chè dessert: green, yellow mung bean and white coconut layers, a little spoon",
-      "colours": "leaf green, butter yellow, cream layers"
+      "colours": "leaf green, butter yellow, cream layers",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/che-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "banh-bo",
@@ -164,9 +291,19 @@
       "wave": "stage1",
       "slot": "food",
       "price": 40,
-      "status": "need",
+      "status": "gen",
       "item": "one small round puffy Vietnamese steamed rice cake (bánh bò), soft dome with a honeycomb top, pandan green",
-      "colours": "pandan green #8BC97A, cream"
+      "colours": "pandan green #8BC97A, cream",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet stage1-3",
+          "files": [
+            "assets/closet/gen/banh-bo-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "ngay-ngu",
@@ -194,10 +331,20 @@
       "wave": "w3",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a soft cap made of overlapping green leaves with visible veins, two small leaves sprouting on top",
       "colours": "leaf #6CC36F, dark leaf #3E8E4F, cream veins",
-      "source": "sheet-1 #1, kept as is"
+      "source": "sheet-1 #1, kept as is",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/mu-la-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "vong-hat-rung",
@@ -205,10 +352,24 @@
       "wave": "w3",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a necklace of round wooden and green seed beads on a twisted brown cord, a round wooden medallion carved with a two-leaf sprout, one small leaf beside it",
       "colours": "wood #C98A4B, leaf #6CC36F beads, cream beads",
-      "source": "sheet-1 #4, kept"
+      "source": "sheet-1 #4, kept",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/vong-hat-rung-v1.png"
+          ],
+          "verdict": "🟠 drawn as a full front-on ring, not a hanging U: regenerate · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.62,
+        "dy": -0.05
+      }
     },
     {
       "id": "ao-toi-la",
@@ -216,10 +377,20 @@
       "wave": "w3",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a short shoulder cape like a Vietnamese palm-leaf raincoat (áo tơi): layered rows of long dry palm leaves tied at the neck with a cord",
       "colours": "dry leaf #C9B26A, darker leaf lines #8F7A3A",
-      "source": "replaces the swirl capes on sheet-2"
+      "source": "replaces the swirl capes on sheet-2",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/ao-toi-la-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "mu-chop-la",
@@ -227,10 +398,20 @@
       "wave": "w3",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a soft pointed hat made of folded green leaves, the tip bending over, a band of tied bamboo strip around the base, a tiny leaf twig tucked in",
       "colours": "leaf #6CC36F, bamboo #E8D9A8 band",
-      "source": "sheet-1 #5 witch hat, reworked with leaves + bamboo band"
+      "source": "sheet-1 #5 witch hat, reworked with leaves + bamboo band",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w3-1",
+          "files": [
+            "assets/closet/gen/mu-chop-la-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "mu-coi-kinh",
@@ -238,10 +419,20 @@
       "wave": "w5",
       "slot": "head",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a small Vietnamese pith helmet (mũ cối) with a brown band and a pair of round aviator goggles resting on the front",
       "colours": "khaki cream #E8D9A8, brown #8B5A2B band, turquoise #2EC4B6 lenses",
-      "source": "sheet-2 #1, kept"
+      "source": "sheet-2 #1, kept",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/mu-coi-kinh-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ]
     },
     {
       "id": "ong-nhom-tre",
@@ -249,10 +440,23 @@
       "wave": "w5",
       "slot": "hand",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a short spyglass made of a bamboo tube with two rattan bands and a round lens, held upright",
       "colours": "bamboo #D9C27A, rattan bands, turquoise lens",
-      "source": "sheet-2 #10 with the compass removed"
+      "source": "sheet-2 #10 with the compass removed",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/ong-nhom-tre-v1.png"
+          ],
+          "verdict": "🟡 diagonal, not upright; fine in hand · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.85
+      }
     },
     {
       "id": "tui-coi",
@@ -260,9 +464,22 @@
       "wave": "w5",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a small woven sedge (cói) satchel on a long strap worn across the chest, the bag sits at the front-right with a leaf-shaped button",
-      "colours": "sedge #D9B577, leaf #6CC36F button"
+      "colours": "sedge #D9B577, leaf #6CC36F button",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/tui-coi-v1.png"
+          ],
+          "verdict": "🟢 clean cut-out, fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.8
+      }
     },
     {
       "id": "ong-tre-nuoc",
@@ -270,9 +487,23 @@
       "wave": "w5",
       "slot": "neck",
       "price": 80,
-      "status": "need",
+      "status": "gen",
       "item": "a bamboo-tube water flask with a wooden stopper hanging at the chest from a cord around the neck",
-      "colours": "bamboo green #8BC97A, wood stopper"
+      "colours": "bamboo green #8BC97A, wood stopper",
+      "runs": [
+        {
+          "date": "2026-10-09",
+          "model": "chatgpt sheet w5-1",
+          "files": [
+            "assets/closet/gen/ong-tre-nuoc-v1.png"
+          ],
+          "verdict": "🟡 diagonal, long cord · all sheet items: watercolour texture, no sage outline (prompt ignored)"
+        }
+      ],
+      "fit": {
+        "scale": 0.55,
+        "dy": -0.04
+      }
     },
     {
       "id": "mu-thuyen-giay",
