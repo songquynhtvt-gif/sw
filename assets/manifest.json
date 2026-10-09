@@ -7,7 +7,8 @@
       "path": "assets/char/approved/01-greeting-home.png",
       "screens": "Name, Home, Library",
       "status": "placeholder",
-      "note": "re-render >=1500px"
+      "note": "re-render >=1500px",
+      "candidate": "assets/char/gen/huhu-wave-greeting.png"
     },
     {
       "id": "huhu-02-levelup-pass",
@@ -15,7 +16,8 @@
       "path": "assets/char/approved/02-levelup-pass.png",
       "screens": "Placement result, Quiz result, Test result",
       "status": "placeholder",
-      "note": "re-render >=1500px"
+      "note": "re-render >=1500px",
+      "candidate": "assets/char/gen/huhu-jump-cheer.png"
     },
     {
       "id": "huhu-03-hehe-before-test",
@@ -39,7 +41,8 @@
       "path": "assets/char/approved/06-thinking.png",
       "screens": "Placement, Quiz, Level test",
       "status": "placeholder",
-      "note": "re-render >=1500px"
+      "note": "re-render >=1500px",
+      "candidate": "assets/char/gen/huhu-thinking.png"
     },
     {
       "id": "huhu-07-correct",
@@ -54,8 +57,9 @@
       "kind": "char",
       "path": "assets/char/approved/front-idle.png",
       "screens": "Companion pick",
-      "status": "need",
-      "note": ""
+      "status": "gen",
+      "note": "",
+      "candidate": "assets/char/gen/huhu-front-idle.png"
     },
     {
       "id": "huhu-found-the-map",
@@ -296,6 +300,15 @@
       "screens": "various",
       "status": "need",
       "note": "C2 cut-paper style"
+    },
+    {
+      "id": "huhu-happy-singing",
+      "kind": "char",
+      "path": "assets/char/approved/happy-singing.png",
+      "screens": "Karaoke, \"Tui biết rồi nha~\"",
+      "status": "gen",
+      "candidate": "assets/char/gen/huhu-happy-singing.png",
+      "note": ""
     }
   ]
 }
