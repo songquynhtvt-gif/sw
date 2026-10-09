@@ -37,10 +37,10 @@ app/             code (sau hi-fi)
 | Phase | | Status |
 |---|---|---|
 | 0, A | Brand lock + decisions | ✅ |
-| B | Figma foundation (variables, text styles, components) | ⬜ |
+| B | Figma foundation (variables, text styles, components) | ✅ in Figma file, unverified visually |
 | C | Asset matrix | 🟡 `assets/manifest.json` |
 | D | Audit Stitch lo-fi | ⬜ cần PNG trong `materials/stitch-layouts/` |
 | E | Copy deck | ⬜ cần PRODUCT.md |
-| F | 15 screens + states | ⬜ |
+| F | 15 screens + states | 🟡 plugin `figma/plugin/` builds 18 frames with placeholders; states not yet |
 | G | Produce assets | ⏸ |
 | H–J | Swap, motion/VO, handoff | ⬜ |
