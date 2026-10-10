@@ -1,0 +1,182 @@
+<title>Hǔhǔ Thay Đồ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@700;800&family=Lexend:wght@400;500;600&display=swap">
+<style>
+/* Layout: dress-up screen. Stage (Hǔhǔ, stacked layers) on the left, wardrobe panel with slot tabs and round item buttons on the right; stacks on phones. */
+:root {
+  --paper: #FBF4E4; --panel: #FFFDF6; --stage: #E9DFC8; --stage-2: #DCCFB2; --ink: #1B2A6B; --muted: #6A6F5E;
+  --forest: #3E6B48; --sage: #587E5C; --gold: #F5C542; --ring: #F5C542; --line: #E5DAC0;
+  --chip: #EFE6D0; --on: #3E6B48; --on-ink: #FFFDF6;
+  --d-head: #CFE7EE; --d-neck: #DDEFC9; --d-shoulders: #E6DDF3; --d-back: #F6E7C8; --d-hand: #F7DCD2; --d-feet: #D9E6DA;
+  --font-display: "Grandstander", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121915; --panel: #1A231D; --stage: #26302A; --stage-2: #1E2722; --ink: #ECEBDD; --muted: #A3AE9F;
+  --forest: #8DB693; --sage: #8DB693; --gold: #F5C542; --ring: #F5C542; --line: #2E3B32;
+  --chip: #243029; --on: #8DB693; --on-ink: #121915;
+  --d-head: #24404A; --d-neck: #2E4226; --d-shoulders: #3A3150; --d-back: #4A3E24; --d-hand: #4A2E28; --d-feet: #2A3A2D; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #121915; --panel: #1A231D; --stage: #26302A; --stage-2: #1E2722; --ink: #ECEBDD; --muted: #A3AE9F;
+  --forest: #8DB693; --sage: #8DB693; --gold: #F5C542; --ring: #F5C542; --line: #2E3B32;
+  --chip: #243029; --on: #8DB693; --on-ink: #121915;
+  --d-head: #24404A; --d-neck: #2E4226; --d-shoulders: #3A3150; --d-back: #4A3E24; --d-hand: #4A2E28; --d-feet: #2A3A2D; color-scheme: dark }
+html, body { height: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 15px; }
+.app { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 16px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 16px; height: 100vh; height: 100dvh; box-sizing: border-box; }
+.stage { position: relative; border-radius: 22px; background: radial-gradient(ellipse 26% 5% at 50% 84%, var(--stage-2) 0 98%, transparent 100%), var(--stage); overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; min-height: 0; }
+.stage header { padding: 18px 20px 0; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: 28px; margin: 0; color: var(--forest); line-height: 1.1; }
+.sub { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.figure { position: relative; min-height: 0; display: grid; place-items: center; }
+.rig { position: relative; height: 100%; max-height: 640px; aspect-ratio: var(--ar); max-width: 100%; }
+.rig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.side { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); display: grid; gap: 12px; }
+.round { width: 52px; height: 52px; border-radius: 50%; border: 0; background: var(--sage); color: #FFFDF6; display: grid; place-items: center; cursor: pointer; }
+.round svg { width: 24px; height: 24px; }
+.round:focus-visible, .tab:focus-visible, .item:focus-visible, .preset:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.wearing { padding: 0 20px 18px; display: flex; flex-wrap: wrap; gap: 6px; min-height: 30px; align-items: center; }
+.wearing .chip { font-size: 12px; background: var(--panel); border-radius: 99px; padding: 4px 10px; display: inline-flex; gap: 6px; align-items: center; }
+.wearing .chip button { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 14px; padding: 0; line-height: 1; }
+.wearing .total { margin-left: auto; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wearing .total b { color: var(--ink); }
+
+.panel { background: var(--panel); border-radius: 22px; border: 1px solid var(--line); display: grid; grid-template-rows: auto auto 1fr; min-height: 0; overflow: hidden; }
+.tabs { display: flex; gap: 6px; padding: 14px 14px 10px; overflow-x: auto; }
+.tab { flex: none; font: 600 14px var(--font-body); color: var(--ink); background: var(--chip); border: 0; border-radius: 14px; padding: 9px 14px; cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--on); color: var(--on-ink); }
+.presets { display: flex; gap: 6px; padding: 0 14px 10px; overflow-x: auto; }
+.preset { flex: none; font: 500 12px var(--font-body); color: var(--ink); background: transparent; border: 1.5px solid var(--line); border-radius: 99px; padding: 5px 11px; cursor: pointer; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 14px 10px; padding: 6px 14px 18px; overflow-y: auto; align-content: start; }
+.item { border: 0; background: none; padding: 0; cursor: pointer; display: grid; justify-items: center; gap: 6px; color: var(--ink); font: 500 12px var(--font-body); }
+.item .disc { width: 84px; height: 84px; border-radius: 50%; background: var(--disc, var(--chip)); display: grid; place-items: center; box-shadow: inset 0 0 0 3px transparent; transition: box-shadow .15s, transform .15s; }
+.item .disc img { width: 66%; height: 66%; object-fit: contain; }
+.item:hover .disc { transform: translateY(-2px); }
+.item[aria-pressed="true"] .disc { box-shadow: inset 0 0 0 4px var(--ring); }
+.item .name { text-align: center; line-height: 1.25; max-width: 96px; text-wrap: balance; }
+.item .price { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+@media (max-width: 820px) {
+  .app { grid-template-columns: 1fr; height: auto; }
+  .stage { min-height: 0; }
+  .figure { height: 56vh; }
+  .panel { height: 70vh; }
+}
+@media (prefers-reduced-motion: reduce) { .item .disc { transition: none; } .item:hover .disc { transform: none; } }
+</style>
+
+<div class="app">
+  <section class="stage" aria-label="Hǔhǔ">
+    <header>
+      <h1>Hǔhǔ Thay Đồ</h1>
+      <p class="sub">Chạm một món để Hǔhǔ mặc. Mỗi chỗ (đầu, cổ, vai, lưng, tay, chân) mặc một món; Hǔhǔ đổi dáng theo đồ.</p>
+    </header>
+    <div class="figure">
+      <div class="rig" id="rig"></div>
+      <div class="side">
+        <button class="round" id="reset" type="button" aria-label="Cởi hết đồ" title="Cởi hết đồ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        </button>
+        <button class="round" id="random" type="button" aria-label="Phối ngẫu nhiên" title="Phối ngẫu nhiên">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="wearing" id="wearing" aria-live="polite"></div>
+  </section>
+
+  <section class="panel" aria-label="Tủ đồ">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="presets" id="presets" aria-label="Bộ phối sẵn"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+</div>
+
+<script>
+const DATA = {"size": [716, 900], "items": [{"id": "mu-chin-tang-gio", "name": "Mũ Chín Tầng Gió", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "mu-trang-khuyet", "name": "Mũ Trăng Khuyết", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": true}, {"id": "mu-tan-bong-bay", "name": "Mũ Tán Bóng Bay", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "mu-mang-bay-dot", "name": "Mũ Măng Bảy Đốt", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "hoa-hai-mau", "name": "Hoa Hai Màu", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "vong-dom-dom", "name": "Vòng Đom Đóm", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "bang-do-trang", "name": "Băng Đô Trăng", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "cai-la", "name": "Cài Lá", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "bang-do-may", "name": "Băng Đô Mây", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": true}, {"id": "mu-trum-sung", "name": "Mũ Trùm Sừng", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": true}, {"id": "vuong-mien-vang", "name": "Vương Miện Vàng", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "no-canh-buom-dem", "name": "Nơ Cánh Bướm Đêm", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-nam-dong-song", "name": "Khăn Năm Dòng Sông", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "mat-day-vong-trang", "name": "Mặt Dây Vòng Trăng", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-la-biet-bay", "name": "Khăn Lá Biết Bay", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-gio", "name": "Khăn Gió", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-la-soc", "name": "Khăn Lá Sọc", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "binh-may-nho", "name": "Bình Mây Nhỏ", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "binh-ngoc-xanh", "name": "Bình Ngọc Xanh", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-do-may", "name": "Khăn Đỏ Mây", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "co-ao-la", "name": "Cổ Áo Lá", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "chuoi-hat-go", "name": "Chuỗi Hạt Gỗ", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "no-la", "name": "Nơ Lá", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "ao-choang-la", "name": "Áo Choàng Lá", "slot": "shoulders", "slotVi": "Vai", "z": 4, "covered": false}, {"id": "ao-choang-xanh", "name": "Áo Choàng Xanh", "slot": "shoulders", "slotVi": "Vai", "z": 4, "covered": false}, {"id": "canh-nho", "name": "Cánh Nhỏ", "slot": "back", "slotVi": "Lưng", "z": 0, "covered": false}, {"id": "gio-hat-mam", "name": "Giỏ Hạt Mầm", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "tui-la", "name": "Túi Lá", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "dieu-gio-chay", "name": "Diều Gió Chạy", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "dua-la", "name": "Đũa Lá", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "gang-tay-la", "name": "Găng Tay Lá", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "giay-la", "name": "Giày Lá", "slot": "feet", "slotVi": "Chân", "z": 3, "covered": false}], "outfits": [{"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]}, {"name": "Người canh trăng", "ids": ["mu-trang-khuyet", "mat-day-vong-trang", "ao-choang-xanh"]}, {"name": "Rừng thức dậy", "ids": ["mu-tan-bong-bay", "khan-la-biet-bay", "gio-hat-mam", "giay-la"]}, {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-hat-go", "tui-la"]}, {"name": "Hiệp sĩ măng", "ids": ["mu-mang-bay-dot", "ao-choang-la", "gang-tay-la", "giay-la"]}, {"name": "Tiên nhỏ", "ids": ["hoa-hai-mau", "no-la", "canh-nho", "dua-la"]}]};
+const SLOTS = [["all", "Tất cả"], ["head", "Đầu"], ["neck", "Cổ"], ["shoulders", "Vai"], ["back", "Lưng"], ["hand", "Tay"], ["feet", "Chân"]];
+const ORDER = ["head", "neck", "shoulders", "back", "hand", "feet"];
+const byId = Object.fromEntries(DATA.items.map(i => [i.id, i]));
+const DISC = { head: "var(--d-head)", neck: "var(--d-neck)", shoulders: "var(--d-shoulders)", back: "var(--d-back)", hand: "var(--d-hand)", feet: "var(--d-feet)" };
+const empty = () => Object.fromEntries(ORDER.map(s => [s, null]));
+let worn = empty();
+let tab = "all";
+try { const s = JSON.parse(localStorage.getItem("huhu-thay-do") || "null"); if (s) for (const k in worn) if (byId[s[k]]) worn[k] = s[k]; } catch (e) {}
+
+const rig = document.getElementById("rig");
+rig.style.setProperty("--ar", DATA.size[0] + " / " + DATA.size[1]);
+const cache = {};
+function layer(name) {
+  if (!cache[name]) { const im = new Image(); im.src = "layers/" + name + ".webp"; im.alt = ""; im.decoding = "async"; cache[name] = im; }
+  return cache[name];
+}
+
+function render() {
+  const on = ORDER.map(k => worn[k] && byId[worn[k]]).filter(Boolean).sort((x, y) => x.z - y.z);
+  const stack = on.filter(i => i.z === 0).map(i => i.id);
+  stack.push(on.some(i => i.covered) ? "body-noears" : "body");
+  for (const i of on) if (i.z > 0) stack.push(i.id + "-sh");
+  for (const i of on) if (i.z > 0) stack.push(i.id);
+  rig.replaceChildren(...stack.map(layer));
+
+  const w = document.getElementById("wearing"); w.textContent = "";
+  let total = 0;
+  for (const slot of ORDER) {
+    const it = worn[slot] && byId[worn[slot]]; if (!it) continue;
+    total += 1;
+    const c = document.createElement("span"); c.className = "chip";
+    c.append(it.slotVi + ": " + it.name);
+    const x = document.createElement("button"); x.type = "button"; x.textContent = "×"; x.setAttribute("aria-label", "Cởi " + it.name);
+    x.onclick = () => { worn[slot] = null; save(); render(); };
+    c.append(x); w.append(c);
+  }
+  if (!total) { const s = document.createElement("span"); s.className = "sub"; s.textContent = "Hǔhǔ chưa mặc gì."; w.append(s); }
+  else { const t = document.createElement("span"); t.className = "total"; t.innerHTML = "<b></b> món"; t.querySelector("b").textContent = total; w.append(t); }
+
+  document.querySelectorAll(".item").forEach(b => b.setAttribute("aria-pressed", worn[byId[b.dataset.id].slot] === b.dataset.id ? "true" : "false"));
+}
+function save() { try { localStorage.setItem("huhu-thay-do", JSON.stringify(worn)); } catch (e) {} }
+function toggle(id) { const s = byId[id].slot; worn[s] = worn[s] === id ? null : id; save(); render(); }
+
+function buildTabs() {
+  const el = document.getElementById("tabs");
+  for (const [k, label] of SLOTS) {
+    const b = document.createElement("button"); b.type = "button"; b.className = "tab"; b.role = "tab"; b.textContent = label;
+    b.setAttribute("aria-selected", k === tab ? "true" : "false");
+    b.onclick = () => { tab = k; el.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x === b ? "true" : "false")); buildGrid(); render(); };
+    el.append(b);
+  }
+}
+function buildGrid() {
+  const g = document.getElementById("grid"); g.textContent = "";
+  for (const it of DATA.items) {
+    if (tab !== "all" && it.slot !== tab) continue;
+    const b = document.createElement("button"); b.type = "button"; b.className = "item"; b.dataset.id = it.id;
+    b.innerHTML = '<span class="disc"><img alt="" loading="lazy"></span><span class="name"></span><span class="price"></span>';
+    b.style.setProperty("--disc", DISC[it.slot]);
+    b.querySelector("img").src = "thumbs/" + it.id + ".webp";
+    b.querySelector(".name").textContent = it.name;
+    b.querySelector(".price").textContent = it.slotVi;
+    b.onclick = () => toggle(it.id);
+    g.append(b);
+  }
+}
+function buildPresets() {
+  const el = document.getElementById("presets");
+  for (const o of DATA.outfits) {
+    const b = document.createElement("button"); b.type = "button"; b.className = "preset"; b.textContent = o.name;
+    b.onclick = () => { worn = empty(); for (const id of o.ids) worn[byId[id].slot] = id; save(); render(); };
+    el.append(b);
+  }
+}
+document.getElementById("reset").onclick = () => { worn = empty(); save(); render(); };
+document.getElementById("random").onclick = () => {
+  for (const s of ORDER) {
+    const pool = DATA.items.filter(i => i.slot === s);
+    worn[s] = Math.random() < (s === "head" || s === "neck" ? 0.85 : 0.4) ? pool[Math.floor(Math.random() * pool.length)].id : null;
+  }
+  save(); render();
+};
+buildTabs(); buildPresets(); buildGrid(); render();
+for (const name of ["body", "body-noears"]) layer(name);
+</script>
