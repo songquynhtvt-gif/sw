@@ -28,31 +28,31 @@ SLOT_VI = {"head": "Đầu", "neck": "Cổ", "shoulders": "Vai", "back": "Lưng"
 # file, id, name, slot, placement. Placement (fractions of the pose): x = centre, w = width,
 # and one of bottom / top / cy for the vertical edge. ears: front | covered. wrap: ring around the head.
 CATALOG = [
-    ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.50, w=.58, bottom=.275, ears="front")),
-    ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.50, w=.66, bottom=.285, ears="front")),
-    ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.50, w=.52, bottom=.275, ears="front")),
-    ("04", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.20, w=.20, cy=.20, ears="front", behind_ear=True)),
+    ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.50, w=.62, bottom=.285, ears="covered")),
+    ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.50, w=.68, bottom=.29, ears="covered")),
+    ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.50, w=.58, bottom=.285, ears="covered")),
+    ("04", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.24, w=.20, cy=.21, ears="front")),
     ("05", "vong-dom-dom", "Vòng Đom Đóm", "head", dict(x=.50, w=.62, bottom=.31, ears="front", wrap=.66)),
-    ("26", "cai-la", "Cài Lá", "head", dict(x=.79, w=.20, cy=.20, ears="front", behind_ear=True)),
-    ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.52, w=.66, top=.45)),
+    ("26", "cai-la", "Cài Lá", "head", dict(x=.76, w=.20, cy=.21, ears="front")),
+    ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.52, w=.62, top=.49, band=True)),
     ("08", "mat-day-vong-trang", "Mặt Dây Vòng Trăng", "neck", dict(x=.50, w=.30, top=.45)),
-    ("09", "khan-la-biet-bay", "Khăn Lá Biết Bay", "neck", dict(x=.50, w=.44, top=.46)),
-    ("15", "khan-gio", "Khăn Gió", "neck", dict(x=.52, w=.52, top=.45)),
-    ("17", "khan-la-soc", "Khăn Lá Sọc", "neck", dict(x=.50, w=.62, top=.46)),
-    ("23", "binh-ngoc-xanh", "Bình Ngọc Xanh", "neck", dict(x=.50, w=.20, top=.50)),
-    ("32", "chuoi-hat-go", "Chuỗi Hạt Gỗ", "neck", dict(x=.50, w=.40, top=.44)),
+    ("09", "khan-la-biet-bay", "Khăn Lá Biết Bay", "neck", dict(x=.50, w=.44, top=.50, band=True)),
+    ("15", "khan-gio", "Khăn Gió", "neck", dict(x=.52, w=.50, top=.50, band=True)),
+    ("17", "khan-la-soc", "Khăn Lá Sọc", "neck", dict(x=.50, w=.60, top=.50, band=True)),
+        ("32", "chuoi-hat-go", "Chuỗi Hạt Gỗ", "neck", dict(x=.50, w=.40, top=.44)),
     ("33", "no-la", "Nơ Lá", "neck", dict(x=.50, w=.42, top=.47)),
     ("10", "ao-choang-la", "Áo Choàng Lá", "shoulders", dict(x=.50, w=.64, top=.455)),
     ("16b", "canh-nho", "Cánh Nhỏ", "back", dict(x=.50, w=1.10, cy=.47)),
-    ("13", "gio-hat-mam", "Giỏ Hạt Mầm", "hand", dict(h=.30)),
-    ("12", "tui-la", "Túi Lá", "hand", dict(h=.26)),
-    ("21", "dieu-gio-chay", "Diều Gió Chạy", "hand", dict(h=.44)),
-    ("22", "dua-la", "Đũa Lá", "hand", dict(h=.40)),
-    ("18+19", "gang-tay-la", "Găng Tay Lá", "hand", dict(pair="paws", w=.19)),
-    ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", w=.29)),
+    ("13", "gio-hat-mam", "Giỏ Hạt Mầm", "hand", dict(h=.24, grip=(.50, .05))),
+    ("23", "binh-ngoc-xanh", "Bình Ngọc Xanh", "hand", dict(h=.21, grip=(.52, .06))),
+    ("12", "tui-la", "Túi Lá", "hand", dict(h=.23, grip=(.81, .07))),
+    ("21", "dieu-gio-chay", "Diều Gió Chạy", "hand", dict(h=.34, grip=(.05, .33), mirror=True, fly=(.08, .40))),
+    ("22", "dua-la", "Đũa Lá", "hand", dict(h=.42, grip=(.14, .80), mirror=True)),
+    ("18+19", "gang-tay-la", "Găng Tay Lá", "hand", dict(pair="paws", w=.115)),
+    ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", w=.26, h=.165)),
 ]
-PAWS = [(.237, .855), (.766, .855)]       # left / right paw centres on the pose
-FEET = [(.311, .992), (.672, .992)]       # foot centres x, sole y
+PAWS = [(.215, .855), (.787, .855)]       # left / right paw centres (fists tucked at the sides)
+FEET = [(.318, .997), (.645, .997)]       # foot centres x, sole y (feet are ~.25 W wide, ~.14 H tall)
 
 
 def load(name):
@@ -96,6 +96,24 @@ def erase(layer, mask):
     return layer
 
 
+def neck_band(art, geo, W, H, pad, canvas, body_a):
+    """A fabric band in the scarf's own colour, following the jaw line across the whole neck."""
+    a = np.asarray(art)
+    px = a[a[..., 3] > 200][:, :3].astype(int)
+    sat = px.max(1) - px.min(1)
+    colour = tuple(int(v) for v in np.median(px[sat >= np.percentile(sat, 60)], axis=0))
+    k = 4
+    band = Image.new("RGBA", (canvas[0] * k, canvas[1] * k))
+    d = ImageDraw.Draw(band)
+    pts = [((x * W + pad) * k, (y * H + pad + 0.018 * H) * k) for x, y in geo["chin"]]
+    pts = [(pts[0][0] - 0.06 * W * k, pts[0][1] - 0.02 * H * k)] + pts + [(pts[-1][0] + 0.06 * W * k, pts[-1][1] - 0.02 * H * k)]
+    d.line(pts, fill=fp.OUTLINE + (255,), width=round(0.062 * H * k), joint="curve")
+    d.line(pts, fill=colour + (255,), width=round(0.046 * H * k), joint="curve")
+    band = band.resize(canvas, Image.LANCZOS)
+    band.putalpha(ImageChops.multiply(band.getchannel("A"), body_a))
+    return band
+
+
 def main():
     anchors, base, W, H, pad, canvas = fp.setup("huhu")
     geo = anchors["layers"]
@@ -120,10 +138,10 @@ def main():
         elif p.get("pair") == "feet":
             pair = load(files)
             r = load("14-boot")                           # the front boot is the only complete one
-            r = r.resize((r.width, round(r.height * 0.66)), Image.LANCZOS)  # chibi legs: short shaft
             l = r.transpose(Image.FLIP_LEFT_RIGHT)
             layer = Image.new("RGBA", canvas)
             for art, (fx, fy) in zip((l, r), FEET):
+                art = art.resize((round(p["w"] * W), round(p["h"] * H)), Image.LANCZOS)  # exact foot size
                 layer.alpha_composite(put(canvas, art, fx, fy, "bottom", W, H, pad, width=p["w"]))
             thumb = pair
         else:
@@ -133,14 +151,32 @@ def main():
                 art = art.crop((0, 0, art.width, round(art.height * p["cut_below"])))
                 art = art.crop(art.getbbox())
             if slot == "hand":
-                a = anchors["hand"]
-                layer = put(canvas, art, a["x"], a["y"], "bottom", W, H, pad, height=p["h"])
-                layer.alpha_composite(fp.paw(canvas, a["x"] * W + pad, a["y"] * H + pad - W * 0.05, W))
+                px, py = PAWS[0]
+                h = p["h"] * H
+                art = art.resize((max(1, round(art.width * h / art.height)), max(1, round(h))), Image.LANCZOS)
+                gx, gy = p["grip"]
+                if p.get("mirror"):  # point long items away from the body
+                    art, gx = art.transpose(Image.FLIP_LEFT_RIGHT), 1 - gx
+                layer = Image.new("RGBA", canvas)
+                if p.get("fly"):  # kite flies up beside the head; a string runs from the paw to it
+                    fx, fy = p["fly"]
+                    kx, ky = fx * W + pad, fy * H + pad
+                    k = 4
+                    s = Image.new("RGBA", (canvas[0] * k, canvas[1] * k))
+                    ImageDraw.Draw(s).line([(px * W + pad) * k, (py * H + pad) * k, kx * k, ky * k],
+                                           fill=fp.OUTLINE + (255,), width=3 * k)
+                    layer.alpha_composite(s.resize(canvas, Image.LANCZOS))
+                    layer.alpha_composite(art, (round(kx - gx * art.width), round(ky - gy * art.height)))
+                else:
+                    layer.alpha_composite(art, (round(px * W + pad - gx * art.width), round(py * H + pad - gy * art.height)))
+                layer.alpha_composite(fp.paw(canvas, px * W + pad, py * H + pad, W))   # paw closes on the grip
             else:
                 edge = "bottom" if "bottom" in p else "top" if "top" in p else "cy"
                 if slot in ("neck", "shoulders"):
                     art = fp.bend(art, -0.028 * H)
                 layer = put(canvas, art, p["x"], p[edge], edge, W, H, pad, width=p["w"])
+                if p.get("band"):  # the scarf goes all the way round the neck, knot on top
+                    layer = Image.alpha_composite(neck_band(art, geo, W, H, pad, canvas, body_a), layer)
                 if slot in ("neck", "shoulders"):
                     erase(layer, masks["head"])          # tucked under the chin
                 if slot == "head" and p.get("wrap"):
@@ -150,10 +186,6 @@ def main():
                     behind = Image.new("L", canvas)
                     ImageDraw.Draw(behind).rectangle([0, 0, canvas[0], mid], fill=255)
                     erase(layer, ImageChops.multiply(ImageChops.multiply(behind, head_ell), body_a))
-                if slot == "head" and p.get("ears") == "front":
-                    erase(layer, masks["ears"])          # ears stay in front of small hats
-                if slot == "head" and p.get("behind_ear"):
-                    erase(layer, ImageChops.multiply(body_a, masks["ears"]))
         covered = slot == "head" and p.get("ears") == "covered"
         layers[iid] = layer
         layers[iid + "-sh"] = fp.shadow([layer], noears if covered else base, H)
