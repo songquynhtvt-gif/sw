@@ -1,11 +1,13 @@
 # Tủ đồ v2 · Dress-up preview sheet (ChatGPT, paste-ready)
 
-Nguồn món: `tudo-mythic-v2.md` §4.2–4.5. Attach: image 1 = `hires/huhu/00-idle-front.png`, image 2 = `hires/huhu/10-feeding-eating.png`.
+Nguồn món: `tudo-mythic-v2.md` §4.2–4.5. Attach: image 1 = `hires/huhu/00-idle-front.png`, image 2 = `hires/huhu/10-feeding-eating.png`, image 3 = `materials/references/closet/style-ref-v2.png` (style mẫu).
 Output là sheet xem trước. Lớp PNG trong suốt do pipeline (`split_sheet.py`, `fit_preview.py`, `export_closet_web.py`) làm, không xin ChatGPT.
 Nếu ô quá nhỏ, mất "điều lạ": tách 2 lần, cells 1–22 rồi cells 23–28.
 
 ```
-Create a DRESS-UP PREVIEW SHEET for Hǔhǔ, matching image 1 (base) and image 2 (held-item paws).
+Create a DRESS-UP PREVIEW SHEET for Hǔhǔ, matching image 1 (base), image 2 (held-item paws) and image 3 (STYLE REFERENCE).
+
+STYLE REFERENCE: image 3 shows the exact drawing style to copy: line weight and colour, flat fills with one small flat highlight, chunky rounded shapes, and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only: never its items, garments or patterns (they are old, rejected items). Keep the ghost wisps from image 1.
 
 BASE: Hǔhǔ exactly as in image 1, standing, front-facing: chubby cream tiger cub, sage stripes, orange eyes, dark purple mustache smile with 2 white fangs, short banded tail on the right, 2–3 mint ghost wisps with 2 white oval eyes (no mouth) floating near the head. Same size and position in every cell. Keep every body part; only add the item.
 

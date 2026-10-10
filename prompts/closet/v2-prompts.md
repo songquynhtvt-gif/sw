@@ -4,7 +4,8 @@ Nguồn: `tudo-mythic-v2.md` (founder 10/10). 17 món mới + 4 món ăn + 6 b�
 Quy trình: **Bước A** vẽ món đồ riêng (không có Hǔhǔ) → Claude tách nền làm lớp PNG. **Bước B** Hǔhǔ mặc từng món (thẻ bình chọn, màn TD-04). **Bước C** bộ phối.
 
 Luật chung:
-- Đính kèm: **ảnh 1** `hires/huhu/00-idle-front.png` · **ảnh 2** `hires/huhu/10-feeding-eating.png` · bước B/C thêm **ảnh 3 (4, 5)** = món đã duyệt ở bước A.
+- Đính kèm **luôn theo thứ tự**: **ảnh 1** `hires/huhu/00-idle-front.png` (nhận diện Hǔhǔ) · **ảnh 2** `hires/huhu/10-feeding-eating.png` (tay cầm + bánh cam) · **ảnh 3** `materials/references/closet/style-ref-v2.png` (**style mẫu**: nét, màu phẳng, cách đeo) · bước B/C thêm **ảnh 4 (5, 6)** = món đã duyệt ở bước A.
+- Ảnh 3 chỉ để chép style. Món trong đó là đồ v1 đã loại, prompt đã dặn không chép.
 - Mỗi khối = 1 lần dán. **Chat mới** cho mỗi khối bước A; bước B mở chat mới mỗi 3–4 món.
 - Hỏng thì tạo lại từ khối gốc, không sửa chồng quá 1–2 lần.
 - Tải **PNG gốc** (nút tải về), đặt tên theo mã: `A1.png`, `B-mu-trang-khuyet.png`… rồi gửi Claude.
@@ -17,7 +18,9 @@ Luật chung:
 ### A1 · Đầu (6) + Cổ (2)
 Ô: 1. Mũ Chín Tầng Gió · 2. Mũ Trăng Khuyết · 3. Mũ Tán Bóng Bay · 4. Mũ Măng Bảy Đốt · 5. Hoa Hai Màu · 6. Vòng Đom Đóm · 7. Khăn Năm Dòng Sông · 8. Mặt Dây Vòng Trăng
 ```
-Images 1 and 2 show Hǔhǔ, a finished cartoon character. Design NEW accessory objects for him in exactly his art style: flat 2D vector, clean dark outline (thicker outer contour, thinner inner lines), flat colour fills, at most one flat highlight shape per object, no gradients, no 3D, no glow halos, no texture noise.
+Images 1 and 2 show Hǔhǔ, a finished cartoon character. Image 3 is the STYLE REFERENCE for every object: copy exactly its line weight and colour (dark green outline, outer contour thicker, inner lines thinner), its flat fills with one small flat highlight, its chunky rounded shapes and its level of detail. Copy the STYLE only: do NOT copy any object, garment or pattern shown in image 3 (they are old, rejected items), and ignore that image 3 has no ghost wisps.
+
+Design NEW accessory objects for him in exactly this art style: flat 2D vector, clean dark outline (thicker outer contour, thinner inner lines), flat colour fills, at most one flat highlight shape per object, no gradients, no 3D, no glow halos, no texture noise.
 
 OUTPUT: a 4x2 grid on plain white, 8 cells, thin gutters, one object per cell, front view, centred, same visual size, readable at 48 px. Objects only: no character, no hands, no people, no text, no labels, no numbers.
 
@@ -41,7 +44,9 @@ Cells, left to right, top to bottom:
 ### A2 · Cổ / vai / túi (6) + Tay (2)
 Ô: 1. Khăn Lá Biết Bay · 2. Nơ Cánh Bướm Đêm · 3. Áo Choàng Vảy Đá · 4. Bình Mây Nhỏ · 5. Túi Mái Ngói · 6. Chuỗi Đá Bay · 7. Diều Gió Chạy · 8. Giỏ Hạt Mầm Nhảy
 ```
-Images 1 and 2 show Hǔhǔ, a finished cartoon character. Design NEW accessory objects for him in exactly his art style: flat 2D vector, clean dark outline (thicker outer contour, thinner inner lines), flat colour fills, at most one flat highlight shape per object, no gradients, no 3D, no glow halos, no texture noise.
+Images 1 and 2 show Hǔhǔ, a finished cartoon character. Image 3 is the STYLE REFERENCE for every object: copy exactly its line weight and colour (dark green outline, outer contour thicker, inner lines thinner), its flat fills with one small flat highlight, its chunky rounded shapes and its level of detail. Copy the STYLE only: do NOT copy any object, garment or pattern shown in image 3 (they are old, rejected items), and ignore that image 3 has no ghost wisps.
+
+Design NEW accessory objects for him in exactly this art style: flat 2D vector, clean dark outline (thicker outer contour, thinner inner lines), flat colour fills, at most one flat highlight shape per object, no gradients, no 3D, no glow halos, no texture noise.
 
 OUTPUT: a 4x2 grid on plain white, 8 cells, thin gutters, one object per cell, front view, centred, same visual size, readable at 48 px. Objects only: no character, no hands, no people, no text, no labels, no numbers.
 
@@ -65,7 +70,9 @@ Cells, left to right, top to bottom:
 ### A3 · Trống + món ăn (5, để trống ô 6)
 Ô: 1. Trống Sấm Con · 2. Bánh bò · 3. Chè · 4. Xôi gấc · 5. Bánh cam
 ```
-Images 1 and 2 show Hǔhǔ, a finished cartoon character. Design NEW accessory objects for him in exactly his art style: flat 2D vector, clean dark outline (thicker outer contour, thinner inner lines), flat colour fills, at most one flat highlight shape per object, no gradients, no 3D, no glow halos, no texture noise.
+Images 1 and 2 show Hǔhǔ, a finished cartoon character. Image 3 is the STYLE REFERENCE for every object: copy exactly its line weight and colour (dark green outline, outer contour thicker, inner lines thinner), its flat fills with one small flat highlight, its chunky rounded shapes and its level of detail. Copy the STYLE only: do NOT copy any object, garment or pattern shown in image 3 (they are old, rejected items), and ignore that image 3 has no ghost wisps.
+
+Design NEW accessory objects for him in exactly this art style: flat 2D vector, clean dark outline (thicker outer contour, thinner inner lines), flat colour fills, at most one flat highlight shape per object, no gradients, no 3D, no glow halos, no texture noise.
 
 OUTPUT: a 3x2 grid on plain white, 6 (leave cell 6 empty white) cells, thin gutters, one object per cell, front view, centred, same visual size, readable at 48 px. Objects only: no character, no hands, no people, no text, no labels, no numbers.
 
@@ -85,171 +92,171 @@ Cells, left to right, top to bottom:
 
 ---
 
-## Bước B · Hǔhǔ mặc từng món (1 khối / món, kèm ảnh 1 + ảnh 3)
+## Bước B · Hǔhǔ mặc từng món (1 khối / món, kèm ảnh 1 + 2 + 3 + ảnh 4 = món)
 
 ### B01 · Mũ Chín Tầng Gió · `mu-chin-tang-gio`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at head.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at head.
 Fit: sits snug between the ears, ribbons rise above. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible (unless the hat covers them). Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B02 · Mũ Trăng Khuyết · `mu-trang-khuyet`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at head.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at head.
 Fit: tilted slightly, resting on top between the ears. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible (unless the hat covers them). Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B03 · Mũ Tán Bóng Bay · `mu-tan-bong-bay`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at head.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at head.
 Fit: floats a finger-width above the head, a small flat oval shadow visible on the fur. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible (unless the hat covers them). Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B04 · Mũ Măng Bảy Đốt · `mu-mang-bay-dot`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at head.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at head.
 Fit: sits on top, ears poke out at the base. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible (unless the hat covers them). Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B05 · Hoa Hai Màu · `hoa-hai-mau`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at head.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at head.
 Fit: tucked behind his right ear. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible (unless the hat covers them). Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B06 · Vòng Đom Đóm · `vong-dom-dom`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at head.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at head.
 Fit: headband across the forehead, fireflies above. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible (unless the hat covers them). Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B07 · Khăn Năm Dòng Sông · `khan-nam-dong-song`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at neck.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at neck.
 Fit: wrapped once, 5 ends ripple sideways. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B08 · Mặt Dây Vòng Trăng · `mat-day-vong-trang`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at neck.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at neck.
 Fit: cord around the neck, pendant on the chest. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B09 · Khăn Lá Biết Bay · `khan-la-biet-bay`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at neck.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at neck.
 Fit: knotted at the front, leaves fly off to the side. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B10 · Nơ Cánh Bướm Đêm · `no-canh-buom-dem`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at neck.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at neck.
 Fit: centred under the chin. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B11 · Áo Choàng Vảy Đá · `ao-choang-vay-da`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at shoulders.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at shoulders.
 Fit: cape over both shoulders down to mid-back, NOT a skirt, NOT at the waist. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B12 · Bình Mây Nhỏ · `binh-may-nho`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at neck.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at neck.
 Fit: bottle hangs on the chest from a cord. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B13 · Túi Mái Ngói · `tui-mai-ngoi`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at a cross-body strap.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at a cross-body strap.
 Fit: strap across the chest, bag at the hip. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B14 · Chuỗi Đá Bay · `chuoi-da-bay`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at neck.
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at neck.
 Fit: necklace around the neck, stones float with gaps. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B15 · Diều Gió Chạy · `dieu-gio-chay`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at one paw (held beside his body).
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at one paw (held beside his body).
 Fit: holds the string in one paw, the kite flies up and to the right. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B16 · Giỏ Hạt Mầm Nhảy · `gio-hat-mam-nhay`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at one paw (held beside his body).
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at one paw (held beside his body).
 Fit: holds the handle beside his body, seeds jump out. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B17 · Trống Sấm Con · `trong-sam-con`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at both paws (held in front of his belly).
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at both paws (held in front of his belly).
 Fit: drum hangs at the belly on a strap, both paws on the drum. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B18 · Bánh bò · `banh-bo`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at both paws (held in front of his belly).
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at both paws (held in front of his belly).
 Fit: holds the food in front of the chest with both paws, as in image 2. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B19 · Chè · `che`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at both paws (held in front of his belly).
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at both paws (held in front of his belly).
 Fit: holds the bowl in front of the chest with both paws, as in image 2. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B20 · Xôi gấc · `xoi-gac`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at both paws (held in front of his belly).
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at both paws (held in front of his belly).
 Fit: holds it in front of the chest with both paws, as in image 2. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### B21 · Bánh cam · `banh-cam`
 ```
-Image 1 = Hǔhǔ base pose. Image 3 = the approved accessory. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 3 at both paws (held in front of his belly).
+Image 1 = Hǔhǔ base pose. Image 4 = the approved accessory. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing the accessory from image 4 at both paws (held in front of his belly).
 Fit: holds it in front of the chest with both paws, exactly as in image 2. The accessory keeps its exact shape, colours and its one impossible detail. Nothing covers his eyes, nose or mouth. Hǔhǔ's ears stay visible. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ---
 
-## Bước C · Bộ phối (kèm ảnh 1 + ảnh các món đã duyệt)
+## Bước C · Bộ phối (kèm ảnh 1 + 2 + 3 + ảnh 4, 5, 6 = các món đã duyệt)
 
 ### Nhà du hành mây
 ```
-Image 1 = Hǔhǔ base pose. Images 3, 4, 5 = the approved accessories. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Chín Tầng Gió (sits snug between the ears, ribbons rise above); Bình Mây Nhỏ (bottle hangs on the chest from a cord); Diều Gió Chạy (holds the string in one paw, the kite flies up and to the right).
+Image 1 = Hǔhǔ base pose. Images 4, 5, 6 = the approved accessories. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Chín Tầng Gió (sits snug between the ears, ribbons rise above); Bình Mây Nhỏ (bottle hangs on the chest from a cord); Diều Gió Chạy (holds the string in one paw, the kite flies up and to the right).
 Each accessory keeps its exact shape, colours and its one impossible detail, and looks identical to how it looks worn alone. Nothing overlaps or clips; nothing covers his eyes, nose or mouth. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### Người canh trăng
 ```
-Image 1 = Hǔhǔ base pose. Images 3, 4, 5 = the approved accessories. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Trăng Khuyết (tilted slightly, resting on top between the ears); Mặt Dây Vòng Trăng (cord around the neck, pendant on the chest); Nơ Cánh Bướm Đêm (centred under the chin).
+Image 1 = Hǔhǔ base pose. Images 4, 5, 6 = the approved accessories. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Trăng Khuyết (tilted slightly, resting on top between the ears); Mặt Dây Vòng Trăng (cord around the neck, pendant on the chest); Nơ Cánh Bướm Đêm (centred under the chin).
 Each accessory keeps its exact shape, colours and its one impossible detail, and looks identical to how it looks worn alone. Nothing overlaps or clips; nothing covers his eyes, nose or mouth. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### Rừng thức dậy
 ```
-Image 1 = Hǔhǔ base pose. Images 3, 4, 5 = the approved accessories. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Tán Bóng Bay (floats a finger-width above the head, a small flat oval shadow visible on the fur); Khăn Lá Biết Bay (knotted at the front, leaves fly off to the side); Giỏ Hạt Mầm Nhảy (holds the handle beside his body, seeds jump out).
+Image 1 = Hǔhǔ base pose. Images 4, 5, 6 = the approved accessories. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Tán Bóng Bay (floats a finger-width above the head, a small flat oval shadow visible on the fur); Khăn Lá Biết Bay (knotted at the front, leaves fly off to the side); Giỏ Hạt Mầm Nhảy (holds the handle beside his body, seeds jump out).
 Each accessory keeps its exact shape, colours and its one impossible detail, and looks identical to how it looks worn alone. Nothing overlaps or clips; nothing covers his eyes, nose or mouth. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### Thợ săn đom đóm
 ```
-Image 1 = Hǔhǔ base pose. Images 3, 4, 5 = the approved accessories. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Vòng Đom Đóm (headband across the forehead, fireflies above); Chuỗi Đá Bay (necklace around the neck, stones float with gaps); Túi Mái Ngói (strap across the chest, bag at the hip).
+Image 1 = Hǔhǔ base pose. Images 4, 5, 6 = the approved accessories. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Vòng Đom Đóm (headband across the forehead, fireflies above); Chuỗi Đá Bay (necklace around the neck, stones float with gaps); Túi Mái Ngói (strap across the chest, bag at the hip).
 Each accessory keeps its exact shape, colours and its one impossible detail, and looks identical to how it looks worn alone. Nothing overlaps or clips; nothing covers his eyes, nose or mouth. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### Hiệp sĩ đá
 ```
-Image 1 = Hǔhǔ base pose. Images 3, 4, 5 = the approved accessories. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Măng Bảy Đốt (sits on top, ears poke out at the base); Áo Choàng Vảy Đá (cape over both shoulders down to mid-back, NOT a skirt, NOT at the waist); Trống Sấm Con (drum hangs at the belly on a strap, both paws on the drum).
+Image 1 = Hǔhǔ base pose. Images 4, 5, 6 = the approved accessories. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Mũ Măng Bảy Đốt (sits on top, ears poke out at the base); Áo Choàng Vảy Đá (cape over both shoulders down to mid-back, NOT a skirt, NOT at the waist); Trống Sấm Con (drum hangs at the belly on a strap, both paws on the drum).
 Each accessory keeps its exact shape, colours and its one impossible detail, and looks identical to how it looks worn alone. Nothing overlaps or clips; nothing covers his eyes, nose or mouth. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
 ### Bến năm dòng
 ```
-Image 1 = Hǔhǔ base pose. Images 3, 4 = the approved accessories. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Hoa Hai Màu (tucked behind his right ear); Khăn Năm Dòng Sông (wrapped once, 5 ends ripple sideways).
+Image 1 = Hǔhǔ base pose. Images 4, 5 = the approved accessories. Image 3 = STYLE REFERENCE: match its line weight, flat fills and how items sit snugly on the body (hats hug the head, scarves sit under the chin, paws close around held items). Copy the style only, never its items or patterns, and keep the ghost wisps from image 1. Redraw Hǔhǔ EXACTLY as in image 1 — same pose, proportions, face, sage stripes, dark purple mustache line, white fangs, orange iris, 2–3 mint ghost wisps with 2 white oval eyes (no mouth), short banded tail — now wearing ALL of them together: Hoa Hai Màu (tucked behind his right ear); Khăn Năm Dòng Sông (wrapped once, 5 ends ripple sideways).
 Each accessory keeps its exact shape, colours and its one impossible detail, and looks identical to how it looks worn alone. Nothing overlaps or clips; nothing covers his eyes, nose or mouth. Plain cream #FBF4E4 background, soft flat oval ground shadow, no text, no extra props, no scenery, no sparkles.
 ```
 
