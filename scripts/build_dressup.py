@@ -28,9 +28,9 @@ SLOT_VI = {"head": "Đầu", "neck": "Cổ", "shoulders": "Vai", "back": "Lưng"
 # file, id, name, slot, placement. Placement (fractions of the pose): x = centre, w = width,
 # and one of bottom / top / cy for the vertical edge. ears: front | covered. wrap: ring around the head.
 CATALOG = [
-    ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.50, w=.62, bottom=.285, ears="covered")),
-    ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.50, w=.68, bottom=.29, ears="covered")),
-    ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.50, w=.58, bottom=.285, ears="covered")),
+    ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.495, w=.50, bottom=.255, ears="covered")),
+    ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.495, w=.54, bottom=.26, ears="covered")),
+    ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.495, w=.46, bottom=.255, ears="covered")),
     ("04", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.24, w=.20, cy=.21, ears="front")),
     ("05", "vong-dom-dom", "Vòng Đom Đóm", "head", dict(x=.50, w=.62, bottom=.31, ears="front", wrap=.66)),
     ("26", "cai-la", "Cài Lá", "head", dict(x=.76, w=.20, cy=.21, ears="front")),
@@ -48,10 +48,11 @@ CATALOG = [
     ("12", "tui-la", "Túi Lá", "hand", dict(h=.23, grip=(.81, .07))),
     ("21", "dieu-gio-chay", "Diều Gió Chạy", "hand", dict(h=.34, grip=(.05, .33), mirror=True, fly=(.08, .40))),
     ("22", "dua-la", "Đũa Lá", "hand", dict(h=.42, grip=(.14, .80), mirror=True)),
-    ("18+19", "gang-tay-la", "Găng Tay Lá", "hand", dict(pair="paws", w=.115)),
-    ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", w=.26, h=.165)),
+    ("18+19", "gang-tay-la", "Găng Tay Lá", "hand", dict(pair="paws", top=.70)),
+    ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", w=.27, h=.165)),
 ]
 PAWS = [(.215, .855), (.787, .855)]       # left / right paw centres (fists tucked at the sides)
+ARMS = [(.205, .80, .15, .26), (.744, .80, .70, .78)]  # a point inside each forearm strip, its x range
 FEET = [(.318, .997), (.645, .997)]       # foot centres x, sole y (feet are ~.25 W wide, ~.14 H tall)
 
 
@@ -96,6 +97,84 @@ def erase(layer, mask):
     return layer
 
 
+def palette(art):
+    """Main colours of the glove art: (body green, cuff cream, band gold)."""
+    a = np.asarray(art).reshape(-1, 4)
+    px = a[a[:, 3] > 200][:, :3].astype(int)
+    r, g, b = px.T
+    pick = lambda m: tuple(int(v) for v in np.median(px[m], axis=0))
+    return pick((g > r + 15) & (g < 170)), pick((r > 235) & (g > 225) & (b > 180)), pick((r > 220) & (b < 140))
+
+
+def worn_gloves(pose_a, pose_rgb, art, W, H, pad, canvas, top):
+    """Gloves as worn: only the outside shows. Each forearm strip below `top` (inside the body's
+    own outline) is filled with the glove; a cream cuff with a gold band is where the arm goes in."""
+    green, cream, gold = palette(art)
+    lum = pose_rgb.astype(int) @ np.array([299, 587, 114]) // 1000
+    inside = (pose_a > 200) & (lum > 100)            # fur and stripes, not the outline
+    inside[: round(top * H)] = False
+    inside[round(.866 * H):] = False                  # the hand ends where the foot starts
+    k = 4
+    hi = Image.new("RGBA", (canvas[0] * k, canvas[1] * k))
+    for sx, sy, xa, xb in ARMS:
+        box = inside.copy()
+        box[:, : round(xa * W)] = False
+        box[:, round(xb * W):] = False
+        work = Image.fromarray(box.astype(np.uint8) * 255).copy()
+        ImageDraw.floodfill(work, (round(sx * W), round(sy * H)), 128, thresh=0)
+        strip = np.asarray(work) == 128
+        ys, xs = np.nonzero(strip)
+        y0, y1 = ys.min(), ys.max()
+        m = Image.fromarray(strip.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(3))
+        m = m.resize((W * k, H * k), Image.LANCZOS).point(lambda v: v if v > 8 else 0)
+        fill = Image.new("RGBA", (W * k, H * k))
+        d = ImageDraw.Draw(fill)
+        d.rectangle([0, 0, W * k, H * k], fill=green + (255,))
+        c0, c1, c2 = y0 * k, (y0 + .020 * H) * k, (y0 + .029 * H) * k
+        d.rectangle([0, c0, W * k, c1], fill=cream + (255,))
+        d.rectangle([0, c1, W * k, c2], fill=gold + (255,))
+        lw = .004 * H * k
+        for y in (c1, c2):
+            d.line([(0, y), (W * k, y)], fill=fp.OUTLINE + (255,), width=round(lw * .7))
+        d.line([(0, c0 + lw / 2), (W * k, c0 + lw / 2)], fill=fp.OUTLINE + (255,), width=round(lw))
+        bx, by, br = xs.mean() * k, (c1 + c2) / 2, .011 * H * k
+        d.ellipse([bx - br, by - br, bx + br, by + br], fill=gold + (255,), outline=fp.OUTLINE + (255,), width=round(lw * .7))
+        fill.putalpha(ImageChops.multiply(fill.getchannel("A"), m))
+        hi.alpha_composite(fill, (pad * k, pad * k))
+    return hi.resize(canvas, Image.LANCZOS)
+
+
+def boot_worn(boot):
+    """Cut the boot opening and the back of its rim: on a foot the leg fills the opening, so only
+    the front rim shows, with the leg going in behind it."""
+    from import_item import regions
+    a = np.asarray(boot).astype(int)
+    r, g, b, al = a[..., 0], a[..., 1], a[..., 2], a[..., 3]
+    hole = (al > 200) & (g > r + 10) & (r + g + b < 420)
+    hole[round(boot.height * .3):] = False             # the opening is in the top part only
+    thin = np.asarray(Image.fromarray(hole.astype(np.uint8) * 255).filter(ImageFilter.MinFilter(7))) > 0
+    blobs = [m for m in regions(thin) if m.sum() > hole.size * .005]   # eroded: the rim splits them
+    top = min(blobs, key=lambda m: np.nonzero(m)[0].mean())    # the topmost green area
+    hole &= np.asarray(Image.fromarray(top.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(9))) > 0
+    ys, xs = np.nonzero(hole)
+    x0, x1 = xs.min(), xs.max()
+    cols = np.unique(xs)
+    low = np.array([ys[xs == x].max() for x in cols], float)
+    fit = np.poly1d(np.polyfit(cols, low, 2))          # smooth front lip of the opening
+    edge = fit(np.clip(np.arange(boot.width), x0, x1))
+    keep = (np.clip(np.arange(boot.height)[:, None] - edge[None, :], 0, 1) * 255).astype(np.uint8)  # soft edge
+    out = boot.copy()
+    out.putalpha(ImageChops.multiply(boot.getchannel("A"), Image.fromarray(keep)))
+    k = 4
+    line = Image.new("RGBA", (boot.width * k, boot.height * k))
+    lw = max(2, round(boot.height * .025)) * k
+    ImageDraw.Draw(line).line([(x * k, edge[x] * k + lw / 2) for x in range(boot.width)], fill=fp.OUTLINE + (255,), width=lw)
+    line = line.resize(boot.size, Image.LANCZOS)
+    line.putalpha(ImageChops.multiply(line.getchannel("A"), boot.getchannel("A")))
+    out.alpha_composite(line)
+    return out.crop(out.getbbox())
+
+
 def neck_band(art, geo, W, H, pad, canvas, body_a):
     """A fabric band in the scarf's own colour, following the jaw line across the whole neck."""
     a = np.asarray(art)
@@ -118,7 +197,9 @@ def main():
     anchors, base, W, H, pad, canvas = fp.setup("huhu")
     geo = anchors["layers"]
     masks = fp.part_masks(geo, W, H, pad, canvas)
-    noears = fp.ears_off(base, geo, W, H, pad)
+    # round skull for big hats: this ellipse meets the real head contour at .275, so no ear stubs stay
+    skull = dict(geo, head=dict(geo["head"], x=.50, rx=.303), ear_cut=.275)
+    noears = fp.ears_off(base, skull, W, H, pad)
     body_a = base.getchannel("A")
     # the ghost wisps float in front of everything: split them off the body (all but the largest blob)
     from import_item import regions
@@ -139,19 +220,19 @@ def main():
     for files, iid, name, slot, p in CATALOG:
         if p.get("pair") == "paws":
             l, r = load("18"), load("19")
-            layer = Image.new("RGBA", canvas)
-            for art, (px, py) in zip((l, r), PAWS):
-                layer.alpha_composite(put(canvas, art, px, py, "cy", W, H, pad, width=p["w"]))
+            pose = np.asarray(base.crop((pad, pad, pad + W, pad + H)))
+            layer = worn_gloves(pose[..., 3], pose[..., :3], l, W, H, pad, canvas, p["top"])
             thumb = Image.new("RGBA", (l.width + r.width + 20, max(l.height, r.height)))
             thumb.alpha_composite(l, (0, 0)); thumb.alpha_composite(r, (l.width + 20, 0))
         elif p.get("pair") == "feet":
             pair = load(files)
             r = load("14-boot")                           # the front boot is the only complete one
+            top = 1 - boot_worn(r).height / r.height       # share of the boot height cut away
+            r = boot_worn(r).resize((round(p["w"] * W), round(p["h"] * H * (1 - top))), Image.LANCZOS)  # exact foot size
             l = r.transpose(Image.FLIP_LEFT_RIGHT)
             layer = Image.new("RGBA", canvas)
             for art, (fx, fy) in zip((l, r), FEET):
-                art = art.resize((round(p["w"] * W), round(p["h"] * H)), Image.LANCZOS)  # exact foot size
-                layer.alpha_composite(put(canvas, art, fx, fy, "bottom", W, H, pad, width=p["w"]))
+                layer.alpha_composite(art, (round(fx * W + pad - art.width / 2), round(fy * H + pad - art.height)))
             thumb = pair
         else:
             art = load(files)
