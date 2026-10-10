@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageChops, ImageDraw
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fit_preview as fp  # noqa: E402
@@ -34,7 +34,7 @@ CATALOG = [
     ("04", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.24, w=.20, cy=.21, ears="front")),
     ("05", "vong-dom-dom", "Vòng Đom Đóm", "head", dict(x=.50, w=.62, bottom=.31, ears="front", wrap=.66)),
     ("26", "cai-la", "Cài Lá", "head", dict(x=.76, w=.20, cy=.21, ears="front")),
-    ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.52, w=.62, top=.49, band=True)),
+    ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.51, w=.46, top=.50, band=True)),
     ("08", "mat-day-vong-trang", "Mặt Dây Vòng Trăng", "neck", dict(x=.50, w=.30, top=.45)),
     ("09", "khan-la-biet-bay", "Khăn Lá Biết Bay", "neck", dict(x=.50, w=.44, top=.50, band=True)),
     ("15", "khan-gio", "Khăn Gió", "neck", dict(x=.52, w=.50, top=.50, band=True)),
@@ -107,8 +107,8 @@ def neck_band(art, geo, W, H, pad, canvas, body_a):
     d = ImageDraw.Draw(band)
     pts = [((x * W + pad) * k, (y * H + pad + 0.018 * H) * k) for x, y in geo["chin"]]
     pts = [(pts[0][0] - 0.06 * W * k, pts[0][1] - 0.02 * H * k)] + pts + [(pts[-1][0] + 0.06 * W * k, pts[-1][1] - 0.02 * H * k)]
-    d.line(pts, fill=fp.OUTLINE + (255,), width=round(0.062 * H * k), joint="curve")
-    d.line(pts, fill=colour + (255,), width=round(0.046 * H * k), joint="curve")
+    d.line(pts, fill=fp.OUTLINE + (255,), width=round(0.050 * H * k), joint="curve")
+    d.line(pts, fill=colour + (255,), width=round(0.036 * H * k), joint="curve")
     band = band.resize(canvas, Image.LANCZOS)
     band.putalpha(ImageChops.multiply(band.getchannel("A"), body_a))
     return band
@@ -120,12 +120,21 @@ def main():
     masks = fp.part_masks(geo, W, H, pad, canvas)
     noears = fp.ears_off(base, geo, W, H, pad)
     body_a = base.getchannel("A")
+    # the ghost wisps float in front of everything: split them off the body (all but the largest blob)
+    from import_item import regions
+    blobs = regions(np.asarray(body_a) > 128)
+    torso = max(blobs, key=lambda r: r.sum())
+    torso_img = Image.fromarray(torso.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(5))
+    wisp_mask = ImageChops.subtract(body_a, torso_img)
+    torso_a = ImageChops.multiply(body_a, torso_img)
     hd = geo["head"]
     head_ell = Image.new("L", canvas)
     cx, cy, rx, ry = hd["x"] * W + pad, hd["y"] * H + pad, hd["rx"] * W, hd["ry"] * H
     ImageDraw.Draw(head_ell).ellipse([cx - rx, cy - ry, cx + rx, cy + ry], fill=255)
 
-    layers = {"body": base, "body-noears": noears}
+    wisps = base.copy()
+    wisps.putalpha(ImageChops.multiply(base.getchannel("A"), wisp_mask))
+    layers = {"body": base, "body-noears": noears, "wisps": wisps}
     items = []
     for files, iid, name, slot, p in CATALOG:
         if p.get("pair") == "paws":
@@ -176,7 +185,7 @@ def main():
                     art = fp.bend(art, -0.028 * H)
                 layer = put(canvas, art, p["x"], p[edge], edge, W, H, pad, width=p["w"])
                 if p.get("band"):  # the scarf goes all the way round the neck, knot on top
-                    layer = Image.alpha_composite(neck_band(art, geo, W, H, pad, canvas, body_a), layer)
+                    layer = Image.alpha_composite(neck_band(art, geo, W, H, pad, canvas, torso_a), layer)
                 if slot in ("neck", "shoulders"):
                     erase(layer, masks["head"])          # tucked under the chin
                 if slot == "head" and p.get("wrap"):

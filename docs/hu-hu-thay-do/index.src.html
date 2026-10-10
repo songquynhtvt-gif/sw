@@ -117,6 +117,7 @@ function render() {
   stack.push(on.some(i => i.covered) ? "body-noears" : "body");
   for (const i of on) if (i.z > 0) stack.push(i.id + "-sh");
   for (const i of on) if (i.z > 0) stack.push(i.id);
+  stack.push("wisps");                       // ghost wisps always float in front
   rig.replaceChildren(...stack.map(layer));
 
   const w = document.getElementById("wearing"); w.textContent = "";
@@ -178,5 +179,5 @@ document.getElementById("random").onclick = () => {
   save(); render();
 };
 buildTabs(); buildPresets(); buildGrid(); render();
-for (const name of ["body", "body-noears"]) layer(name);
+for (const name of ["body", "body-noears", "wisps"]) layer(name);
 </script>
