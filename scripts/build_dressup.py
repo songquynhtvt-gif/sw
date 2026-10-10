@@ -28,31 +28,21 @@ SLOT_VI = {"head": "Đầu", "neck": "Cổ", "shoulders": "Vai", "back": "Lưng"
 # file, id, name, slot, placement. Placement (fractions of the pose): x = centre, w = width,
 # and one of bottom / top / cy for the vertical edge. ears: front | covered. wrap: ring around the head.
 CATALOG = [
-    ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.50, w=.46, bottom=.22, ears="front")),
-    ("01", "mu-trang-khuyet", "Mũ Trăng Khuyết", "head", dict(x=.50, w=.70, bottom=.46, ears="covered")),
-    ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.50, w=.52, bottom=.115, ears="front", float=True)),
-    ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.50, w=.36, bottom=.215, ears="front")),
+    ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.50, w=.58, bottom=.275, ears="front")),
+    ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.50, w=.66, bottom=.285, ears="front")),
+    ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.50, w=.52, bottom=.275, ears="front")),
     ("04", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.20, w=.20, cy=.20, ears="front", behind_ear=True)),
     ("05", "vong-dom-dom", "Vòng Đom Đóm", "head", dict(x=.50, w=.62, bottom=.31, ears="front", wrap=.66)),
-    ("24", "bang-do-trang", "Băng Đô Trăng", "head", dict(x=.50, w=.56, bottom=.27, ears="front")),
     ("26", "cai-la", "Cài Lá", "head", dict(x=.79, w=.20, cy=.20, ears="front", behind_ear=True)),
-    ("27", "bang-do-may", "Băng Đô Mây", "head", dict(x=.50, w=.78, bottom=.33, ears="covered", wrap=.55)),
-    ("29", "mu-trum-sung", "Mũ Trùm Sừng", "head", dict(x=.50, w=.78, bottom=.36, ears="covered", cut_below=.72)),
-    ("30", "vuong-mien-vang", "Vương Miện Vàng", "head", dict(x=.50, w=.48, bottom=.27, ears="front")),
-    ("06", "no-canh-buom-dem", "Nơ Cánh Bướm Đêm", "neck", dict(x=.50, w=.36, top=.46)),
     ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.52, w=.66, top=.45)),
     ("08", "mat-day-vong-trang", "Mặt Dây Vòng Trăng", "neck", dict(x=.50, w=.30, top=.45)),
     ("09", "khan-la-biet-bay", "Khăn Lá Biết Bay", "neck", dict(x=.50, w=.44, top=.46)),
     ("15", "khan-gio", "Khăn Gió", "neck", dict(x=.52, w=.52, top=.45)),
     ("17", "khan-la-soc", "Khăn Lá Sọc", "neck", dict(x=.50, w=.62, top=.46)),
-    ("20", "binh-may-nho", "Bình Mây Nhỏ", "neck", dict(x=.50, w=.16, top=.50)),
     ("23", "binh-ngoc-xanh", "Bình Ngọc Xanh", "neck", dict(x=.50, w=.20, top=.50)),
-    ("25", "khan-do-may", "Khăn Đỏ Mây", "neck", dict(x=.50, w=.60, top=.45)),
-    ("31", "co-ao-la", "Cổ Áo Lá", "neck", dict(x=.50, w=.60, top=.45)),
     ("32", "chuoi-hat-go", "Chuỗi Hạt Gỗ", "neck", dict(x=.50, w=.40, top=.44)),
     ("33", "no-la", "Nơ Lá", "neck", dict(x=.50, w=.42, top=.47)),
     ("10", "ao-choang-la", "Áo Choàng Lá", "shoulders", dict(x=.50, w=.64, top=.455)),
-    ("28", "ao-choang-xanh", "Áo Choàng Xanh", "shoulders", dict(x=.50, w=.76, top=.46)),
     ("16b", "canh-nho", "Cánh Nhỏ", "back", dict(x=.50, w=1.10, cy=.47)),
     ("13", "gio-hat-mam", "Giỏ Hạt Mầm", "hand", dict(h=.30)),
     ("12", "tui-la", "Túi Lá", "hand", dict(h=.26)),
@@ -124,7 +114,6 @@ def main():
             l, r = load("18"), load("19")
             layer = Image.new("RGBA", canvas)
             for art, (px, py) in zip((l, r), PAWS):
-                art = art.transpose(Image.FLIP_TOP_BOTTOM)  # paws hang down: cuff up, fingers down
                 layer.alpha_composite(put(canvas, art, px, py, "cy", W, H, pad, width=p["w"]))
             thumb = Image.new("RGBA", (l.width + r.width + 20, max(l.height, r.height)))
             thumb.alpha_composite(l, (0, 0)); thumb.alpha_composite(r, (l.width + 20, 0))
@@ -190,7 +179,7 @@ def main():
         t.save(OUT / "thumbs" / f"{e['id']}.webp", quality=90)
     outfits = [
         {"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]},
-        {"name": "Người canh trăng", "ids": ["mu-trang-khuyet", "mat-day-vong-trang", "ao-choang-xanh"]},
+        {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "canh-nho"]},
         {"name": "Rừng thức dậy", "ids": ["mu-tan-bong-bay", "khan-la-biet-bay", "gio-hat-mam", "giay-la"]},
         {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-hat-go", "tui-la"]},
         {"name": "Hiệp sĩ măng", "ids": ["mu-mang-bay-dot", "ao-choang-la", "gang-tay-la", "giay-la"]},
