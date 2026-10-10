@@ -72,9 +72,12 @@
         }
       ],
       "fit": {
-        "scale": 1.24,
-        "dy": 0.005,
-        "ears": "covered"
+        "scale": 1.26,
+        "dy": 0.0,
+        "ears": "covered",
+        "cut": {
+          "below": 0.62
+        }
       }
     },
     {
@@ -135,7 +138,10 @@
           ],
           "verdict": "🟢 clean cut-out (AI 2x), fits · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
-      ]
+      ],
+      "fit": {
+        "scale": 0.78
+      }
     },
     {
       "id": "vong-hoa",
@@ -165,8 +171,8 @@
         }
       ],
       "fit": {
-        "scale": 1.07,
-        "dy": -0.005,
+        "scale": 0.95,
+        "dy": 0.08,
         "ears": "front"
       }
     },
@@ -262,7 +268,10 @@
           "verdict": "🟡 tassels on the strap ends · all sheet items: watercolour texture, no sage outline (prompt ignored)"
         }
       ],
-      "pose": "hold-two-paws"
+      "pose": "hold-two-paws",
+      "fit": {
+        "scale": 0.72
+      }
     },
     {
       "id": "gio-xach-may",
@@ -456,7 +465,8 @@
       ],
       "fit": {
         "scale": 1.12,
-        "ears": "front"
+        "ears": "front",
+        "dy": 0.045
       }
     },
     {
@@ -551,7 +561,8 @@
       ],
       "fit": {
         "scale": 1.05,
-        "ears": "covered"
+        "ears": "covered",
+        "dy": 0.035
       }
     },
     {
@@ -584,7 +595,8 @@
       ],
       "fit": {
         "scale": 1.02,
-        "ears": "covered"
+        "ears": "covered",
+        "dy": 0.02
       }
     },
     {
@@ -744,8 +756,8 @@
         }
       ],
       "fit": {
-        "scale": 1.05,
-        "dy": -0.005,
+        "scale": 1.0,
+        "dy": 0.055,
         "ears": "front"
       }
     },
@@ -907,7 +919,7 @@
       ],
       "fit": {
         "scale": 1.24,
-        "dy": 0.01,
+        "dy": 0.035,
         "ears": "covered"
       }
     },
@@ -1153,9 +1165,13 @@
         }
       ],
       "fit": {
-        "scale": 1.35,
-        "dy": 0.075,
-        "ears": "covered"
+        "scale": 1.3,
+        "dy": 0.205,
+        "ears": "covered",
+        "cut": {
+          "below": 0.6,
+          "keep_sides": 0.2
+        }
       }
     },
     {

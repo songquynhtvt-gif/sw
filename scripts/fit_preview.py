@@ -44,6 +44,14 @@ def item_file(item_id):
 def place(art, slot, anchor, tweak, W, H, pad, canvas):
     """The item on its own transparent canvas, positioned at its anchor."""
     art = art.crop(art.getbbox())  # trim transparent margin
+    cut_cfg = tweak.get("cut")  # drop what hangs below a hat's brim (it would cover the face)
+    if cut_cfg:
+        y0 = round(art.height * cut_cfg["below"])
+        side = round(art.width * cut_cfg.get("keep_sides", 0))
+        mask = Image.new("L", art.size, 255)
+        ImageDraw.Draw(mask).rectangle([side, y0, art.width - 1 - side, art.height], fill=0)
+        art.putalpha(ImageChops.multiply(art.getchannel("A"), mask))
+        art = art.crop(art.getbbox())
     scale = tweak.get("scale", 1.0)
     if slot == "hand":
         h = anchor["h"] * H * scale
