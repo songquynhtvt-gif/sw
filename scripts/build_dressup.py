@@ -35,7 +35,7 @@ CATALOG = [
     ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.495, w=.54, bottom=.26, ears="behind")),
     ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.495, w=.46, bottom=.255, ears="behind")),
     ("04", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.24, w=.20, cy=.21, ears="front")),
-    ("05", "vong-dom-dom", "Vòng Đom Đóm", "head", dict(x=.50, w=.62, bottom=.31, ears="front", wrap=.66)),
+    ("05", "vong-dom-dom", "Vòng Đom Đóm", "head", dict(x=.50, w=.62, bottom=.285, ears="front", wrap=.66)),
     ("26", "cai-la", "Cài Lá", "head", dict(x=.76, w=.20, cy=.21, ears="front")),
     ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.51, w=.46, top=.50, band=True)),
     ("08", "mat-day-vong-trang", "Mặt Dây Vòng Trăng", "neck", dict(x=.50, w=.30, top=.45)),
@@ -78,22 +78,22 @@ MASCOTS = {
                  chin=[(.19, .42), (.33, .462), (.50, .478), (.67, .462), (.81, .42)],
                  skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.9, fly=(.10, .26),
                  grip_mask=[(.455, .62, .052, .072), (.545, .62, .052, .072)],
-                 fit={"vong-dom-dom": dict(dy=.07)},
+                 fit={"vong-dom-dom": dict(dy=-.035, scale=.9)},
                  gloves=[dict(seed=(.44, .63), rows=(.50, .72), cols=(.37, .505), cuff="left"),
                          dict(seed=(.56, .63), rows=(.50, .72), cols=(.495, .63), cuff="right")],
                  feet=[.31, .70], foot_rows=(.875, .96),
-                 torso=[(.50, .50), (.50, .76)], torso_bottom=.84, drop_white=False,
+                 torso=[(.50, .50), (.50, .76)], torso_bottom=.80, drop_white=False,
                  arms=[((.25, .60), None), ((.75, .60), None)], arm_rows=(.44, .72)),
     "dudu": dict(name="Dudu", pose="assets/char/gen/dudu/dudu-dressup-base.png", ink=(91, 28, 3),
                  head=(.548, .215, .58), neck=(.55, .52, .58), back=(.55, .64, .62),
                  chin=[(.29, .44), (.36, .50), (.43, .565), (.50, .53), (.58, .515), (.68, .49), (.80, .44)],
                  skull=(.548, .36, .272, .24), grip=(.20, .60), grip_kind="mask", hand_scale=1.7, fly=(.08, .30),
                  grip_mask=[(.197, .603, .074, .08)],
-                 fit={"vong-dom-dom": dict(dy=.055), "hoa-hai-mau": dict(dx=.04, dy=.03), "cai-la": dict(dx=-.02, dy=.02)},
+                 fit={"vong-dom-dom": dict(dy=-.005), "hoa-hai-mau": dict(dx=.04, dy=.03), "cai-la": dict(dx=-.02, dy=.02)},
                  gloves=[dict(seed=(.17, .60), rows=(.50, .70), cols=(.10, .272), cuff="right"),
                          dict(seed=(.82, .78), rows=(.715, .84), cols=(.74, .90), cuff="top")],
                  feet=[.405, .65], foot_rows=(.87, .94),
-                 torso=[(.55, .70)], torso_bottom=.86, drop_white=False,
+                 torso=[(.55, .70)], torso_bottom=.80, drop_white=False,
                  arms=[((.33, .64), (.27, .45)), ((.80, .62), (.72, .92))], arm_rows=(.48, .84),
                  own=[("dudu-own-hat", "non-la-dudu", "Nón Lá Của Dudu", "head"),
                       ("dudu-own-bamboo", "gay-tre", "Gậy Tre", "hand")]),
@@ -236,6 +236,76 @@ def texture_into(region, art, W, H, pad, canvas, grow=(0, 0, 0, 0)):
     layer.putalpha(ImageChops.multiply(layer.getchannel("A"), m))
     out = Image.new("RGBA", canvas)
     out.alpha_composite(layer, (pad, pad))
+    return out
+
+
+def leaf(base, tip, width, n=24):
+    """A pointed leaf polygon from base to tip (pixels), widest a third of the way along."""
+    (bx, by), (tx, ty) = base, tip
+    dx, dy = tx - bx, ty - by
+    ln = max(1e-6, (dx * dx + dy * dy) ** .5)
+    nx, ny = -dy / ln, dx / ln
+    side = []
+    for i in range(n + 1):
+        t = i / n
+        w = width / 2 * np.sin(np.pi * t ** .8)
+        side.append((t, w))
+    a = [(bx + dx * t + nx * w, by + dy * t + ny * w) for t, w in side]
+    b = [(bx + dx * t - nx * w, by + dy * t - ny * w) for t, w in side[::-1]]
+    return a + b
+
+
+def leaf_top(torso, arms, art, M, W, H, pad, canvas, body_a):
+    """The leaf cape as worn: a top drawn inside the companion's own outline (torso and sleeves),
+    two big collar leaves from a gold bead under the chin and a hem of leaf tips (green and cream)."""
+    a = np.asarray(art).reshape(-1, 4)
+    px = a[a[:, 3] > 200][:, :3].astype(int)
+    r, g, b = px.T
+    gr = px[g > r + 15]
+    lum = gr @ np.array([299, 587, 114]) // 1000
+    med = lambda m: tuple(int(v) for v in np.median(m, axis=0)) + (255,)
+    light, mid, dark = med(gr[lum > np.percentile(lum, 70)]), med(gr), med(gr[lum < np.percentile(lum, 30)])
+    _, cream, gold = palette(art)
+    cream, gold, ink = cream + (255,), gold + (255,), M["ink"] + (255,)
+    k = 3
+    big = lambda m: Image.fromarray(m.astype(np.uint8) * 255).resize((W * k, H * k), Image.LANCZOS)
+    region = torso | arms
+    img = Image.new("RGBA", (W * k, H * k))
+    img.paste(mid, mask=big(torso))
+    img.paste(dark, mask=big(arms & ~torso))           # sleeves a shade darker
+    d = ImageDraw.Draw(img)
+    lw = .0045 * H * k
+    ys, xs = np.nonzero(torso)
+    x0, x1, y1 = xs.min(), xs.max(), ys.max()
+    tw = x1 - x0
+    # hem: leaf tips along the torso's bottom edge, hanging a little over the body below
+    hem = Image.new("RGBA", img.size)
+    hd = ImageDraw.Draw(hem)
+    cols = np.arange(x0, x1 + 1)
+    bottom = np.array([ys[xs == c].max() if (xs == c).any() else y1 for c in cols])
+    n = max(4, round(tw / (.07 * H)))
+    for i in range(n):
+        cx = x0 + (i + .5) * tw / n
+        by = bottom[min(len(bottom) - 1, int(cx - x0))]
+        hd.polygon([(u * k, v * k) for u, v in leaf((cx, by - .055 * H), (cx, by + .03 * H), tw / n * 1.15)],
+                   fill=cream if i % 2 else light, outline=ink, width=round(lw))
+    # collar: two big leaves from the bead under the chin, and the bead
+    cxs, cys = zip(*M["chin"])
+    ncx = (M["neck"][0]) * W
+    ncy = np.interp(M["neck"][0], cxs, cys) * H + .01 * H
+    L = .30 * tw
+    for sgn in (-1, 1):
+        d.polygon([(u * k, v * k) for u, v in leaf((ncx, ncy), (ncx + sgn * L * .95, ncy + L * .55), L * .55)],
+                  fill=light, outline=ink, width=round(lw))
+        d.line([(ncx * k, ncy * k), ((ncx + sgn * L * .8) * k, (ncy + L * .47) * k)], fill=dark, width=round(lw * .8))
+    m = big(region).filter(ImageFilter.MaxFilter(3))
+    img.putalpha(ImageChops.multiply(img.getchannel("A"), m))
+    img.alpha_composite(Image.composite(hem, Image.new("RGBA", img.size), body_a))
+    br = .02 * H * k
+    d = ImageDraw.Draw(img)
+    d.ellipse([ncx * k - br, ncy * k - br, ncx * k + br, ncy * k + br], fill=gold, outline=ink, width=round(lw))
+    out = Image.new("RGBA", canvas)
+    out.alpha_composite(img.resize((W, H), Image.LANCZOS), (pad, pad))
     return out
 
 
@@ -445,12 +515,11 @@ def build(mid, RW, RH):
                 body = fill_region(pose, M["torso"], chin, M["torso_bottom"], drop_white=M["drop_white"])
                 arms = fill_region(pose, [a[0] for a in M["arms"]], M["arm_rows"][0], M["arm_rows"][1], [a[1] for a in M["arms"]])
                 body &= np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0
-                region = body | arms
-                under = Image.new("RGBA", (W, H), palette(art)[0] + (255,))   # no body shows through the hem gaps
-                under.putalpha(Image.fromarray(region.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(3)))
-                layer = Image.new("RGBA", canvas)
-                layer.alpha_composite(under, (pad, pad))
-                layer.alpha_composite(texture_into(region, art, W, H, pad, canvas, (.02, .05, .02, .03)))
+                for g in M["gloves"]:                 # sleeves stop where the hands start
+                    arms &= ~fill_region(pose, [g["seed"]], g["rows"][0], g["rows"][1], [g["cols"]])
+                fur_a = Image.fromarray((np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0).astype(np.uint8) * 255)
+                layer = leaf_top(body, arms, art, M, W, H, pad, canvas,
+                                 fur_a.resize((W * 3, H * 3)))
             elif slot == "hand":
                 h = p["h"] * RH * M["hand_scale"]
                 art = art.resize((max(1, round(art.width * h / art.height)), max(1, round(h))), Image.LANCZOS)
