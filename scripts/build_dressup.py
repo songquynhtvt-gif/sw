@@ -55,6 +55,7 @@ CATALOG = [
     ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", top=.85)),
 ]
 GEN = fp.ROOT / "assets/char/gen"
+FITTED = fp.ROOT / "assets/closet/v3/fitted"   # <companion>/<item id>.png: art drawn to fit that body (prompts/closet/fitted-wearables.md)
 # Per companion geometry, fractions of its own pose.
 #   head / neck / back: slot frames (x, y, width) -> Hǔhǔ placements are scaled into them
 #   chin: jaw line (left to right) - neck items are erased above it, tops start below it
@@ -78,7 +79,7 @@ MASCOTS = {
                  chin=[(.19, .42), (.33, .462), (.50, .478), (.67, .462), (.81, .42)],
                  skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.9, fly=(.10, .26),
                  grip_mask=[(.455, .62, .052, .072), (.545, .62, .052, .072)],
-                 fit={"vong-dom-dom": dict(dy=-.035, scale=.9)},
+                 fit={"vong-dom-dom": dict(dy=-.035, scale=.9)}, paws_front=True,
                  gloves=[dict(seed=(.44, .63), rows=(.50, .72), cols=(.37, .505), cuff="left"),
                          dict(seed=(.56, .63), rows=(.50, .72), cols=(.495, .63), cuff="right")],
                  feet=[.31, .70], foot_rows=(.875, .96),
@@ -225,87 +226,23 @@ def fill_region(pose, seeds, y0, y1, x_ranges=None, drop_white=False):
     return out
 
 
-def texture_into(region, art, W, H, pad, canvas, grow=(0, 0, 0, 0)):
-    """Stretch the art over the region's box (grown by fractions l, t, r, b) and keep it inside the region."""
+def worn_art(art, region, chin_y, W, H, pad, canvas, fur, bottom=None):
+    """A garment picture laid on the body: as wide as the region it covers (aspect kept), its top
+    just under the chin, trimmed to the companion's silhouette."""
     ys, xs = np.nonzero(region)
-    x0, x1, y0, y1 = xs.min() - grow[0] * W, xs.max() + grow[2] * W, ys.min() - grow[1] * H, ys.max() + grow[3] * H
-    tex = art.resize((round(x1 - x0), round(y1 - y0)), Image.LANCZOS)
-    m = Image.fromarray(region.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(3))
+    x0, x1 = xs.min(), xs.max()
+    w = (x1 - x0) * 1.04
+    h = art.height * w / art.width
+    bottom = ys.max() if bottom is None else bottom
+    if h > bottom - chin_y:                         # it stops where the feet start: squash a little,
+        h = bottom - chin_y                         # then narrow it if it would need more than that
+        w = min(w, art.width * h / art.height * 1.3)
+    art = art.resize((round(w), round(h)), Image.LANCZOS)
     layer = Image.new("RGBA", (W, H))
-    layer.alpha_composite(tex, (round(x0), round(y0)))
-    layer.putalpha(ImageChops.multiply(layer.getchannel("A"), m))
+    layer.alpha_composite(art, (round((x0 + x1) / 2 - w / 2), round(chin_y)))
+    layer.putalpha(ImageChops.multiply(layer.getchannel("A"), fur))
     out = Image.new("RGBA", canvas)
     out.alpha_composite(layer, (pad, pad))
-    return out
-
-
-def leaf(base, tip, width, n=24):
-    """A pointed leaf polygon from base to tip (pixels), widest a third of the way along."""
-    (bx, by), (tx, ty) = base, tip
-    dx, dy = tx - bx, ty - by
-    ln = max(1e-6, (dx * dx + dy * dy) ** .5)
-    nx, ny = -dy / ln, dx / ln
-    side = []
-    for i in range(n + 1):
-        t = i / n
-        w = width / 2 * np.sin(np.pi * t ** .8)
-        side.append((t, w))
-    a = [(bx + dx * t + nx * w, by + dy * t + ny * w) for t, w in side]
-    b = [(bx + dx * t - nx * w, by + dy * t - ny * w) for t, w in side[::-1]]
-    return a + b
-
-
-def leaf_top(torso, arms, art, M, W, H, pad, canvas, body_a):
-    """The leaf cape as worn: a top drawn inside the companion's own outline (torso and sleeves),
-    two big collar leaves from a gold bead under the chin and a hem of leaf tips (green and cream)."""
-    a = np.asarray(art).reshape(-1, 4)
-    px = a[a[:, 3] > 200][:, :3].astype(int)
-    r, g, b = px.T
-    gr = px[g > r + 15]
-    lum = gr @ np.array([299, 587, 114]) // 1000
-    med = lambda m: tuple(int(v) for v in np.median(m, axis=0)) + (255,)
-    light, mid, dark = med(gr[lum > np.percentile(lum, 70)]), med(gr), med(gr[lum < np.percentile(lum, 30)])
-    _, cream, gold = palette(art)
-    cream, gold, ink = cream + (255,), gold + (255,), M["ink"] + (255,)
-    k = 3
-    big = lambda m: Image.fromarray(m.astype(np.uint8) * 255).resize((W * k, H * k), Image.LANCZOS)
-    region = torso | arms
-    img = Image.new("RGBA", (W * k, H * k))
-    img.paste(mid, mask=big(torso))
-    img.paste(dark, mask=big(arms & ~torso))           # sleeves a shade darker
-    d = ImageDraw.Draw(img)
-    lw = .0045 * H * k
-    ys, xs = np.nonzero(torso)
-    x0, x1, y1 = xs.min(), xs.max(), ys.max()
-    tw = x1 - x0
-    # hem: leaf tips along the torso's bottom edge, hanging a little over the body below
-    hem = Image.new("RGBA", img.size)
-    hd = ImageDraw.Draw(hem)
-    cols = np.arange(x0, x1 + 1)
-    bottom = np.array([ys[xs == c].max() if (xs == c).any() else y1 for c in cols])
-    n = max(4, round(tw / (.07 * H)))
-    for i in range(n):
-        cx = x0 + (i + .5) * tw / n
-        by = bottom[min(len(bottom) - 1, int(cx - x0))]
-        hd.polygon([(u * k, v * k) for u, v in leaf((cx, by - .055 * H), (cx, by + .03 * H), tw / n * 1.15)],
-                   fill=cream if i % 2 else light, outline=ink, width=round(lw))
-    # collar: two big leaves from the bead under the chin, and the bead
-    cxs, cys = zip(*M["chin"])
-    ncx = (M["neck"][0]) * W
-    ncy = np.interp(M["neck"][0], cxs, cys) * H + .01 * H
-    L = .30 * tw
-    for sgn in (-1, 1):
-        d.polygon([(u * k, v * k) for u, v in leaf((ncx, ncy), (ncx + sgn * L * .95, ncy + L * .55), L * .55)],
-                  fill=light, outline=ink, width=round(lw))
-        d.line([(ncx * k, ncy * k), ((ncx + sgn * L * .8) * k, (ncy + L * .47) * k)], fill=dark, width=round(lw * .8))
-    m = big(region).filter(ImageFilter.MaxFilter(3))
-    img.putalpha(ImageChops.multiply(img.getchannel("A"), m))
-    img.alpha_composite(Image.composite(hem, Image.new("RGBA", img.size), body_a))
-    br = .02 * H * k
-    d = ImageDraw.Draw(img)
-    d.ellipse([ncx * k - br, ncy * k - br, ncx * k + br, ncy * k + br], fill=gold, outline=ink, width=round(lw))
-    out = Image.new("RGBA", canvas)
-    out.alpha_composite(img.resize((W, H), Image.LANCZOS), (pad, pad))
     return out
 
 
@@ -500,26 +437,43 @@ def build(mid, RW, RH):
             thumb.alpha_composite(l, (0, 0)); thumb.alpha_composite(r, (l.width + 20, 0))
         elif p.get("pair") == "feet":
             boot = boot_worn(load("14-boot"), ink)    # the front boot is the only complete one
+            fitted = FITTED / mid / f"{iid}.png"     # one boot (the right foot) drawn for this companion
             layer = Image.new("RGBA", canvas)
             top, seed_y = M["foot_rows"]
-            for fx in M["feet"]:                      # the boot takes the foot's own shape
+            for n, fx in enumerate(M["feet"]):        # the boot takes the foot's own shape
                 foot = fill_region(pose, [(fx, seed_y)], top, 1.0, [(fx - .13, fx + .13)])
-                layer.alpha_composite(front_boot(foot, boot, W, H, pad, canvas, ink))
+                if fitted.exists():
+                    fb = Image.open(fitted).convert("RGBA")
+                    fb = fb.crop(fb.getbbox())
+                    if n == 0:
+                        fb = fb.transpose(Image.FLIP_LEFT_RIGHT)
+                    ys_, xs_ = np.nonzero(foot)
+                    w = (xs_.max() - xs_.min()) * 1.08
+                    fb = fb.resize((round(w), round(fb.height * w / fb.width)), Image.LANCZOS)
+                    layer.alpha_composite(fb, (round(pad + (xs_.min() + xs_.max()) / 2 - w / 2), round(pad + ys_.max() + .006 * H - fb.height)))
+                else:
+                    layer.alpha_composite(front_boot(foot, boot, W, H, pad, canvas, ink))
             thumb = load(files)
         else:
             art = load(files)
             thumb = art
-            if p.get("worn") == "top":                # a top covers the torso and both arms
+            if p.get("worn") == "top":                # a top over the torso (and the arms, if its art has sleeves)
                 cx, cy = zip(*M["chin"])
                 chin = lambda x: (np.interp(x / W, cx, cy) + .012) * H
-                body = fill_region(pose, M["torso"], chin, M["torso_bottom"], drop_white=M["drop_white"])
+                fur_np = np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0
+                body = fill_region(pose, M["torso"], chin, M["torso_bottom"], drop_white=M["drop_white"]) & fur_np
                 arms = fill_region(pose, [a[0] for a in M["arms"]], M["arm_rows"][0], M["arm_rows"][1], [a[1] for a in M["arms"]])
-                body &= np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0
-                for g in M["gloves"]:                 # sleeves stop where the hands start
-                    arms &= ~fill_region(pose, [g["seed"]], g["rows"][0], g["rows"][1], [g["cols"]])
-                fur_a = Image.fromarray((np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0).astype(np.uint8) * 255)
-                layer = leaf_top(body, arms, art, M, W, H, pad, canvas,
-                                 fur_a.resize((W * 3, H * 3)))
+                fitted = FITTED / mid / f"{iid}.png"     # art drawn for this companion's body, if there is one
+                if fitted.exists():
+                    art = Image.open(fitted).convert("RGBA")
+                    art = art.crop(art.getbbox())
+                fur = Image.fromarray(fur_np.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(5))
+                y0 = np.interp(M["neck"][0], cx, cy) * H - .01 * H
+                layer = worn_art(art, body | arms, y0, W, H, pad, canvas, fur,     # over the shoulders and arms
+                                 M["foot_rows"][0] * H)
+                erase(layer, head_mask)
+                if M.get("paws_front"):              # folded arms stay in front of the top
+                    hold(layer)
             elif slot == "hand":
                 h = p["h"] * RH * M["hand_scale"]
                 art = art.resize((max(1, round(art.width * h / art.height)), max(1, round(h))), Image.LANCZOS)
