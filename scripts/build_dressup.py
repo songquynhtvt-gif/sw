@@ -506,15 +506,22 @@ def build(mid, RW, RH):
 
 def main():
     RW, RH = Image.open(fp.ROOT / MASCOTS[REF]["pose"]).size
-    for f in (OUT / "thumbs").glob("*.webp"):
-        f.unlink()
+    only = sys.argv[1:]
+    if not only:
+        for f in (OUT / "thumbs").glob("*.webp"):
+            f.unlink()
     for old in ("layers",):                         # the single-companion layout (before Wuwu and Dudu)
         for f in (OUT / old).glob("*.webp"):
             f.unlink()
         if (OUT / old).exists():
             (OUT / old).rmdir()
-    only = sys.argv[1:]
-    mascots = [build(m, RW, RH) for m in MASCOTS if not only or m in only]
+    done = {}
+    if only and (OUT / "data.json").exists():       # rebuilding some companions: keep the others
+        done = {m["id"]: m for m in json.loads((OUT / "data.json").read_text(encoding="utf-8"))["mascots"]}
+    for m in MASCOTS:
+        if not only or m in only:
+            done[m] = build(m, RW, RH)
+    mascots = [done[m] for m in MASCOTS if m in done]
     outfits = [
         {"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]},
         {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "canh-nho"]},

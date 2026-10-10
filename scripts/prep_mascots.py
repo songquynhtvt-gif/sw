@@ -99,7 +99,10 @@ def dudu():
     base = Image.new("RGBA", src.size)
     for cx, ang in ((.865, -28), (.245, 28)):     # floppy ears hanging from the head sides
         base.alpha_composite(ellipse_layer(src.size, ((cx - .062) * W, .275 * H, (cx + .062) * W, .465 * H), ear, ink, lw, ang))
-    base.alpha_composite(ellipse_layer(src.size, (.276 * W, .12 * H, .82 * W, .60 * H), fur, ink, lw))  # head dome
+    dome_l = ellipse_layer(src.size, (.276 * W, .12 * H, .82 * W, .60 * H), fur, ink, lw)  # head dome
+    top = Image.fromarray((np.clip((.335 * H - ys) / 3, 0, 1) * 255).astype(np.uint8))  # only above the face
+    dome_l.putalpha(ImageChops.multiply(dome_l.getchannel("A"), top))
+    base.alpha_composite(dome_l)
     fist = Image.new("RGBA", (W * 4, H * 4))           # closes the fist outline where the stick crossed it
     ImageDraw.Draw(fist).rounded_rectangle([.128 * W * 4, .53 * H * 4, .268 * W * 4, .684 * H * 4], radius=.045 * W * 4,
                                            fill=fur + (255,), outline=ink + (255,), width=round(lw * 4))
