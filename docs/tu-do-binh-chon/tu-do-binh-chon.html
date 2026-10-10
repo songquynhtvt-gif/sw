@@ -1,0 +1,277 @@
+<title>Bình chọn Tủ đồ Hǔhǔ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800&family=Lexend:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky team summary + filter strip, then a responsive grid of item cards (A/B images side by side, đáp án, three vote buttons). */
+:root {
+  --paper: #FBF4E4; --card: #FFFDF6; --well: #F6EEDB; --ink: #1B2A6B; --muted: #5F6B63; --line: #E3D9C0;
+  --forest: #3E6B48; --sage: #587E5C; --gold: #F5C542;
+  --keep: #2F7D4A; --keep-bg: #E3F2E1; --regen: #A8640A; --regen-bg: #FBEBC8; --drop: #B8413A; --drop-bg: #F9DFDA;
+  --font-display: "Grandstander", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121915; --card: #1A231D; --well: #222D25; --ink: #ECEBDD; --muted: #A2AEA4; --line: #2D3A31;
+  --forest: #8DB693; --sage: #8DB693; --gold: #F5C542;
+  --keep: #7FD08A; --keep-bg: #1F3A26; --regen: #F5C542; --regen-bg: #3A3016; --drop: #F2907C; --drop-bg: #3F2420;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #121915; --card: #1A231D; --well: #222D25; --ink: #ECEBDD; --muted: #A2AEA4; --line: #2D3A31;
+  --forest: #8DB693; --sage: #8DB693; --gold: #F5C542;
+  --keep: #7FD08A; --keep-bg: #1F3A26; --regen: #F5C542; --regen-bg: #3A3016; --drop: #F2907C; --drop-bg: #3F2420;
+  color-scheme: dark }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 64px; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin: 0; color: var(--forest); text-wrap: balance; }
+.lede { max-width: 68ch; color: var(--muted); margin: 10px 0 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; font-size: 13px; color: var(--muted); }
+.legend b { color: var(--ink); font-weight: 600; }
+.tag { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; font-family: var(--font-display); font-weight: 800; font-size: 13px; background: var(--ink); color: var(--paper); margin-right: 6px; vertical-align: -5px; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); margin-top: 20px; padding-block: 12px; display: grid; gap: 10px; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.stat { font-size: 13px; color: var(--muted); }
+.stat strong { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink); margin-right: 4px; }
+.me { margin-left: auto; font-size: 13px; color: var(--muted); }
+.progress { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.progress > i { display: block; height: 100%; width: 0; background: var(--gold); transition: width .3s; }
+.filters { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+.filters button { flex: none; font: 500 13px var(--font-body); color: var(--ink); background: transparent; border: 1.5px solid var(--line); border-radius: 99px; padding: 5px 12px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.notice { font-size: 13px; padding: 10px 12px; border-radius: 10px; background: var(--regen-bg); color: var(--ink); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 18px; margin-top: 18px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.pics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pic { position: relative; border-radius: 10px; overflow: hidden; background: var(--well); aspect-ratio: 1; max-width: 100%; }
+.pic img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pic .tag { position: absolute; top: 6px; left: 6px; margin: 0; }
+.head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.head h2 { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 0; line-height: 1.2; }
+.meta { font-size: 12px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+.answer { display: grid; grid-template-columns: auto 1fr; gap: 8px; align-items: start; font-size: 13px; }
+.pill { font-size: 12px; font-weight: 600; border-radius: 99px; padding: 2px 10px; white-space: nowrap; }
+.pill.keep { background: var(--keep-bg); color: var(--keep); }
+.pill.regen { background: var(--regen-bg); color: var(--regen); }
+.pill.drop { background: var(--drop-bg); color: var(--drop); }
+.answer p { margin: 0; color: var(--muted); }
+.votes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.vote { font: 600 13px var(--font-body); border-radius: 10px; border: 1.5px solid var(--line); background: transparent; color: var(--ink); padding: 8px 6px; cursor: pointer; display: grid; gap: 2px; justify-items: center; font-variant-numeric: tabular-nums; }
+.vote small { font-weight: 500; color: var(--muted); font-size: 12px; }
+.vote:hover:not(:disabled) { border-color: var(--sage); }
+.vote:focus-visible, .filters button:focus-visible, .note:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.vote:disabled { cursor: default; opacity: .75; }
+.vote.on.keep { background: var(--keep-bg); border-color: var(--keep); color: var(--keep); }
+.vote.on.regen { background: var(--regen-bg); border-color: var(--regen); color: var(--regen); }
+.vote.on.drop { background: var(--drop-bg); border-color: var(--drop); color: var(--drop); }
+.who { font-size: 12px; color: var(--muted); min-height: 1.5em; }
+.who span + span::before { content: " · "; }
+.note { width: 100%; box-sizing: border-box; font: 400 13px var(--font-body); color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 7px 10px; }
+.notes { font-size: 12px; color: var(--muted); display: grid; gap: 2px; }
+.notes b { color: var(--ink); font-weight: 600; }
+.empty { color: var(--muted); padding: 40px 0; text-align: center; }
+@media (max-width: 560px) { .me { margin-left: 0; width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .progress > i { transition: none; } }
+</style>
+
+<div class="wrap">
+  <h1>Bình chọn Tủ đồ Hǔhǔ</h1>
+  <p class="lede">32 món + 8 bộ phối. Mỗi thẻ có đáp án đề xuất và lý do. Mỗi người chọn <b>Giữ</b>, <b>Gen lại</b> hoặc <b>Bỏ</b> cho từng thẻ; phiếu lưu chung, ai cũng thấy kết quả, mỗi người chỉ sửa phiếu của mình.</p>
+  <div class="legend">
+    <span><span class="tag">A</span><b>Bản ChatGPT</b>: Hǔhǔ vẽ sẵn đang mặc, tham chiếu dáng và vị trí</span>
+    <span><span class="tag">B</span><b>Bản ghép</b>: asset đã cắt mặc lên Hǔhǔ, đây là bản dùng trong app</span>
+  </div>
+
+  <div class="bar">
+    <div class="stats" id="stats">
+      <span class="stat"><strong id="s-people">0</strong>người đã chọn</span>
+      <span class="stat"><strong id="s-keep">–</strong>giữ theo team</span>
+      <span class="stat"><strong id="s-regen">–</strong>gen lại</span>
+      <span class="stat"><strong id="s-drop">–</strong>bỏ</span>
+      <span class="stat"><strong id="s-agree">–</strong>khớp đáp án</span>
+      <span class="me" id="me">Bạn đã chọn 0/40</span>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+    <div class="filters" role="group" aria-label="Lọc">
+      <button type="button" data-f="all" aria-pressed="true">Tất cả</button>
+      <button type="button" data-f="item" aria-pressed="false">Món</button>
+      <button type="button" data-f="outfit" aria-pressed="false">Bộ phối</button>
+      <button type="button" data-f="regen" aria-pressed="false">Đáp án: gen lại</button>
+      <button type="button" data-f="todo" aria-pressed="false">Bạn chưa chọn</button>
+      <button type="button" data-f="split" aria-pressed="false">Team lệch đáp án</button>
+    </div>
+    <div class="notice" id="notice" hidden></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>Không có thẻ nào trong bộ lọc này.</p>
+</div>
+
+<script>
+const CARDS = [{"id": "non-la", "name": "Nón lá", "rec": "regen", "why": "Bản B: quai buông che mặt khi đội. Gen lại, lấy kiểu quai thắt dưới cằm ở bản A làm mẫu.", "kind": "item", "wave": "Stage 1", "price": 40, "slot": "Đầu"}, {"id": "khan-ran", "name": "Khăn rằn", "rec": "regen", "why": "Bóng navy trùng màu ô caro nên không xoá được. Gen lại không bóng.", "kind": "item", "wave": "Stage 1", "price": 40, "slot": "Cổ"}, {"id": "no-buom", "name": "Nơ bướm", "rec": "keep", "why": "Tách sạch, đeo vừa cổ.", "kind": "item", "wave": "Stage 1", "price": 40, "slot": "Cổ"}, {"id": "vong-hoa", "name": "Vòng hoa", "rec": "keep", "why": "Tách sạch, nằm gọn trên trán.", "kind": "item", "wave": "Stage 1", "price": 40, "slot": "Đầu"}, {"id": "khan-quang-la", "name": "Khăn quàng lá", "rec": "keep", "why": "Tách sạch, ôm cổ đẹp.", "kind": "item", "wave": "Stage 1", "price": 40, "slot": "Cổ"}, {"id": "dieu-giay", "name": "Diều giấy", "rec": "regen", "why": "Có hoạ tiết mây xoắn, phạm luật cấm motif Trung.", "kind": "item", "wave": "Stage 1", "price": 80, "slot": "Tay"}, {"id": "trong-com", "name": "Trống cơm", "rec": "keep", "why": "Có tua rua (nhẹ). Cần tư thế 2 tay ôm để mặc đẹp như bản A.", "kind": "item", "wave": "Stage 1", "price": 80, "slot": "Cổ"}, {"id": "gio-xach-may", "name": "Giỏ xách mây", "rec": "keep", "why": "Tách sạch. Cần tư thế 1 tay cầm.", "kind": "item", "wave": "Stage 1", "price": 80, "slot": "Tay"}, {"id": "mu-la", "name": "Mũ lá", "rec": "keep", "why": "Tách sạch, tai ló ra qua mũ.", "kind": "item", "wave": "Tuần 3 · Rừng lá", "price": 80, "slot": "Đầu"}, {"id": "vong-hat-rung", "name": "Vòng hạt rừng", "rec": "regen", "why": "Vẽ thành vòng tròn nhìn thẳng, không buông thành chữ U khi đeo.", "kind": "item", "wave": "Tuần 3 · Rừng lá", "price": 80, "slot": "Cổ"}, {"id": "ao-toi-la", "name": "Áo tơi lá", "rec": "keep", "why": "Tách sạch, phủ vai vừa.", "kind": "item", "wave": "Tuần 3 · Rừng lá", "price": 80, "slot": "Cổ"}, {"id": "mu-chop-la", "name": "Mũ chóp lá", "rec": "keep", "why": "Dáng hơi giống mũ phù thuỷ nhưng lá + đai tre vẫn đúng chất.", "kind": "item", "wave": "Tuần 3 · Rừng lá", "price": 80, "slot": "Đầu"}, {"id": "mu-coi-kinh", "name": "Mũ cối kính bay", "rec": "keep", "why": "Tách sạch, ôm đầu tốt.", "kind": "item", "wave": "Tuần 5 · Thám hiểm", "price": 80, "slot": "Đầu"}, {"id": "ong-nhom-tre", "name": "Ống nhòm tre", "rec": "keep", "why": "Tách sạch. Hình nằm chéo, cầm vẫn ổn.", "kind": "item", "wave": "Tuần 5 · Thám hiểm", "price": 80, "slot": "Tay"}, {"id": "tui-coi", "name": "Túi cói", "rec": "keep", "why": "Tách sạch.", "kind": "item", "wave": "Tuần 5 · Thám hiểm", "price": 80, "slot": "Cổ"}, {"id": "ong-tre-nuoc", "name": "Ống tre đựng nước", "rec": "keep", "why": "Hình nằm chéo, dây dài. Dùng được.", "kind": "item", "wave": "Tuần 5 · Thám hiểm", "price": 80, "slot": "Cổ"}, {"id": "mu-thuyen-giay", "name": "Mũ thuyền giấy", "rec": "keep", "why": "Tách sạch, đúng chất tuổi thơ.", "kind": "item", "wave": "Tuần 7 · Sông nước", "price": 80, "slot": "Đầu"}, {"id": "vong-hoa-sung", "name": "Vòng hoa súng", "rec": "keep", "why": "Tách sạch.", "kind": "item", "wave": "Tuần 7 · Sông nước", "price": 80, "slot": "Đầu"}, {"id": "no-la-dua", "name": "Nơ lá dừa", "rec": "keep", "why": "Tách sạch.", "kind": "item", "wave": "Tuần 7 · Sông nước", "price": 80, "slot": "Cổ"}, {"id": "can-cau-tre", "name": "Cần câu tre", "rec": "keep", "why": "Tách sạch. Cần tư thế 1 tay cầm.", "kind": "item", "wave": "Tuần 7 · Sông nước", "price": 80, "slot": "Tay"}, {"id": "mu-trum-trau", "name": "Mũ trùm sừng trâu", "rec": "regen", "why": "Còn hoạ tiết mây xoắn trên mũ.", "kind": "item", "wave": "Tuần 9 · Đồng quê", "price": 80, "slot": "Đầu"}, {"id": "mo-trau", "name": "Mõ trâu", "rec": "keep", "why": "Dáng giống chuông đồng hơn mõ gỗ, màu gỗ ổn.", "kind": "item", "wave": "Tuần 9 · Đồng quê", "price": 80, "slot": "Cổ"}, {"id": "mu-rom", "name": "Mũ rơm", "rec": "keep", "why": "Tách sạch, ôm đầu tốt.", "kind": "item", "wave": "Tuần 9 · Đồng quê", "price": 80, "slot": "Đầu"}, {"id": "sao-truc", "name": "Sáo trúc", "rec": "keep", "why": "Có tua rua ở dây (nhẹ).", "kind": "item", "wave": "Tuần 9 · Đồng quê", "price": 80, "slot": "Tay"}, {"id": "khan-dong", "name": "Khăn đóng", "rec": "regen", "why": "Bóng navy trùng màu khăn nên không xoá được. Gen lại không bóng.", "kind": "item", "wave": "Tuần 13 · Tết", "price": 80, "slot": "Đầu"}, {"id": "canh-mai", "name": "Cành mai cài", "rec": "keep", "why": "Tách sạch, cài lệch một bên.", "kind": "item", "wave": "Tuần 13 · Tết", "price": 80, "slot": "Đầu"}, {"id": "khanh-bac", "name": "Khánh bạc", "rec": "keep", "why": "Hơi giống khóa trường mệnh Trung Quốc. Cần founder xác nhận.", "kind": "item", "wave": "Tuần 13 · Tết", "price": 80, "slot": "Cổ"}, {"id": "tui-gam", "name": "Túi gấm", "rec": "keep", "why": "Có tua rua, tông đỏ-vàng nhẹ. Dùng được.", "kind": "item", "wave": "Tuần 13 · Tết", "price": 80, "slot": "Cổ"}, {"id": "non-quai-thao", "name": "Nón quai thao", "rec": "regen", "why": "Khăn buông võng che mặt. Gen lại, lấy bản A làm mẫu.", "kind": "item", "wave": "Để dành", "price": 150, "slot": "Đầu"}, {"id": "canh-dieu-sao", "name": "Cánh diều sáo", "rec": "regen", "why": "Có hoạ tiết mây xoắn.", "kind": "item", "wave": "Để dành", "price": 150, "slot": "Tay"}, {"id": "ao-choang-tho-cam", "name": "Áo choàng thổ cẩm", "rec": "keep", "why": "Tách sạch, hoạ tiết thổ cẩm đẹp.", "kind": "item", "wave": "Để dành", "price": 150, "slot": "Cổ"}, {"id": "bang-do-may", "name": "Băng đô mây", "rec": "keep", "why": "Giữ làm món dự phòng.", "kind": "item", "wave": "Dự phòng", "price": 80, "slot": "Đầu"}, {"id": "outfit-1", "name": "Đi rừng", "rec": "keep", "why": "Giữ bộ, sau khi gen lại vòng hạt.", "kind": "outfit", "parts": ["Mũ lá", "Vòng hạt rừng", "Ống nhòm tre"]}, {"id": "outfit-2", "name": "Nhà thám hiểm", "rec": "keep", "why": "Cả 3 món đều đạt.", "kind": "outfit", "parts": ["Mũ cối kính bay", "Túi cói", "Ống nhòm tre"]}, {"id": "outfit-3", "name": "Miền Tây", "rec": "keep", "why": "Giữ bộ, sau khi gen lại nón lá và khăn rằn.", "kind": "outfit", "parts": ["Nón lá", "Khăn rằn", "Cần câu tre"]}, {"id": "outfit-4", "name": "Sông nước", "rec": "keep", "why": "Cả 3 món đều đạt.", "kind": "outfit", "parts": ["Mũ thuyền giấy", "Nơ lá dừa", "Cần câu tre"]}, {"id": "outfit-5", "name": "Đồng quê", "rec": "keep", "why": "Cả 3 món đều đạt.", "kind": "outfit", "parts": ["Mũ rơm", "Mõ trâu", "Sáo trúc"]}, {"id": "outfit-6", "name": "Tết", "rec": "keep", "why": "Đạt, chờ founder xác nhận khánh bạc.", "kind": "outfit", "parts": ["Cành mai cài", "Khánh bạc", "Giỏ xách mây"]}, {"id": "outfit-7", "name": "Hội làng", "rec": "keep", "why": "Giữ bộ, sau khi gen lại diều giấy.", "kind": "outfit", "parts": ["Vòng hoa", "Trống cơm", "Diều giấy"]}, {"id": "outfit-8", "name": "Kinh Bắc", "rec": "keep", "why": "Giữ bộ, sau khi gen lại nón quai thao và diều sáo.", "kind": "outfit", "parts": ["Nón quai thao", "Áo choàng thổ cẩm", "Cánh diều sáo"]}];
+const LABEL = { keep: "Giữ", regen: "Gen lại", drop: "Bỏ" };
+const OPTS = ["keep", "regen", "drop"];
+
+let db = null, user = null, myId = null, canWrite = false;
+let mine = { picks: {}, notes: {} };
+let all = {};            // voterId -> {picks, notes}
+let names = {};          // voterId -> display name
+let filter = "all";
+try { filter = localStorage.getItem("tudo-filter") || "all"; } catch (e) {}
+
+const grid = document.getElementById("grid");
+const $ = (id) => document.getElementById(id);
+
+function tally(id) {
+  const t = { keep: [], regen: [], drop: [] };
+  for (const [vid, v] of Object.entries(all)) {
+    const p = v.picks && v.picks[id];
+    if (t[p]) t[p].push(vid);
+  }
+  return t;
+}
+function majority(t) {
+  let best = null, n = 0, tie = false;
+  for (const o of OPTS) {
+    if (t[o].length > n) { best = o; n = t[o].length; tie = false; }
+    else if (t[o].length === n && n > 0) tie = true;
+  }
+  return tie ? null : best;
+}
+
+function build() {
+  grid.textContent = "";
+  for (const c of CARDS) {
+    const el = document.createElement("article");
+    el.className = "card"; el.id = "card-" + c.id; el.dataset.id = c.id;
+    const meta = c.kind === "item" ? `${c.wave} · ${c.price} bánh cam · ${c.slot}` : c.parts.join(" + ");
+    el.innerHTML = `
+      <div class="pics">
+        <div class="pic"><span class="tag">A</span><img loading="lazy" alt="" src="img/${c.id}-a.webp"></div>
+        <div class="pic"><span class="tag">B</span><img loading="lazy" alt="" src="img/${c.id}-b.webp"></div>
+      </div>
+      <div class="head"><h2></h2><span class="meta"></span></div>
+      <div class="answer"><span class="pill ${c.rec}">Đáp án: ${LABEL[c.rec]}</span><p></p></div>
+      <div class="votes">${OPTS.map(o => `<button type="button" class="vote ${o}" data-o="${o}">${LABEL[o]}<small>0</small></button>`).join("")}</div>
+      <div class="who"></div>
+      <input class="note" id="note-${c.id}" type="text" maxlength="200" placeholder="Ghi chú (không bắt buộc)">
+      <div class="notes"></div>`;
+    el.querySelector("h2").textContent = c.name;
+    el.querySelector(".meta").textContent = meta;
+    el.querySelector(".answer p").textContent = c.why;
+    el.querySelectorAll("img")[0].alt = c.name + ", bản ChatGPT";
+    el.querySelectorAll("img")[1].alt = c.name + ", bản ghép";
+    el.querySelectorAll(".vote").forEach(b => b.addEventListener("click", () => pick(c.id, b.dataset.o)));
+    const note = el.querySelector(".note");
+    note.addEventListener("change", () => setNote(c.id, note.value.trim()));
+    grid.appendChild(el);
+  }
+}
+
+async function render() {
+  const ids = Object.keys(all);
+  if (user && ids.length) {
+    try { const ps = await user.profiles(ids); for (const id of ids) names[id] = (ps[id] && ps[id].name) || "Ai đó"; } catch (e) {}
+  }
+  let keep = 0, regen = 0, drop = 0, agree = 0, decided = 0, shown = 0;
+  for (const c of CARDS) {
+    const el = $("card-" + c.id);
+    const t = tally(c.id), maj = majority(t);
+    if (maj) { decided++; if (maj === "keep") keep++; if (maj === "regen") regen++; if (maj === "drop") drop++; if (maj === c.rec) agree++; }
+    const my = mine.picks[c.id];
+    el.querySelectorAll(".vote").forEach(b => {
+      const o = b.dataset.o;
+      b.classList.toggle("on", my === o);
+      b.setAttribute("aria-pressed", my === o ? "true" : "false");
+      b.disabled = !canWrite;
+      b.querySelector("small").textContent = t[o].length;
+    });
+    const who = el.querySelector(".who"); who.textContent = "";
+    for (const o of OPTS) for (const vid of t[o]) {
+      const s = document.createElement("span");
+      s.textContent = (vid === myId ? "Bạn" : (names[vid] || "Ai đó")) + ": " + LABEL[o];
+      who.appendChild(s);
+    }
+    const note = el.querySelector(".note");
+    note.hidden = !canWrite;
+    if (document.activeElement !== note) note.value = mine.notes[c.id] || "";
+    const notes = el.querySelector(".notes"); notes.textContent = "";
+    for (const [vid, v] of Object.entries(all)) {
+      const n = v.notes && v.notes[c.id];
+      if (!n || vid === myId) continue;
+      const row = document.createElement("div");
+      const b = document.createElement("b"); b.textContent = (names[vid] || "Ai đó") + ": ";
+      row.append(b, document.createTextNode(n)); notes.appendChild(row);
+    }
+    const show = filter === "all" || (filter === "item" && c.kind === "item") || (filter === "outfit" && c.kind === "outfit")
+      || (filter === "regen" && c.rec === "regen") || (filter === "todo" && !my) || (filter === "split" && maj && maj !== c.rec);
+    el.hidden = !show; if (show) shown++;
+  }
+  $("empty").hidden = shown > 0;
+  $("s-people").textContent = Object.values(all).filter(v => v.picks && Object.keys(v.picks).length).length;
+  $("s-keep").textContent = decided ? keep : "–";
+  $("s-regen").textContent = decided ? regen : "–";
+  $("s-drop").textContent = decided ? drop : "–";
+  $("s-agree").textContent = decided ? `${agree}/${decided}` : "–";
+  const done = Object.keys(mine.picks).length;
+  $("me").textContent = canWrite ? `Bạn đã chọn ${done}/${CARDS.length}` : "Chế độ chỉ xem";
+  $("prog").style.width = (done / CARDS.length * 100) + "%";
+}
+
+let saving = Promise.resolve();
+function save() {
+  if (!db || !myId) return;
+  const body = { picks: { ...mine.picks }, notes: { ...mine.notes }, at: new Date().toISOString() };
+  saving = saving.then(() => db.doc("votes/" + myId).set(body)).catch(e => {
+    if (e && e.code === "invalid_argument") { canWrite = false; showNotice("Bạn chỉ có quyền xem, nên phiếu không lưu được. Nhờ người tạo trang cấp quyền Contributor."); render(); }
+    else showNotice("Chưa lưu được phiếu, thử bấm lại sau ít giây.");
+  });
+}
+function pick(id, o) {
+  if (!canWrite) return;
+  if (mine.picks[id] === o) delete mine.picks[id]; else mine.picks[id] = o;
+  all[myId] = { picks: { ...mine.picks }, notes: { ...mine.notes } };
+  render(); save();
+}
+function setNote(id, text) {
+  if (!canWrite) return;
+  if (text) mine.notes[id] = text; else delete mine.notes[id];
+  all[myId] = { picks: { ...mine.picks }, notes: { ...mine.notes } };
+  render(); save();
+}
+function showNotice(t) { const n = $("notice"); n.textContent = t; n.hidden = false; }
+
+document.querySelectorAll(".filters button").forEach(b => {
+  b.setAttribute("aria-pressed", b.dataset.f === filter ? "true" : "false");
+  b.addEventListener("click", () => {
+    filter = b.dataset.f;
+    try { localStorage.setItem("tudo-filter", filter); } catch (e) {}
+    document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    render();
+  });
+});
+
+build(); render();
+
+(async () => {
+  if (!window.claude || !window.claude.use) { showNotice("Mở trang này trên claude.ai để bình chọn. Đáp án đề xuất vẫn xem được."); return; }
+  [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+  if (!db) { showNotice("Đăng nhập claude.ai để bình chọn. Đáp án đề xuất vẫn xem được."); return; }
+  myId = user ? await user.id() : null;
+  const w = user ? await user.can("data.write") : null;
+  canWrite = !!myId && w !== false;
+  if (myId && w === false) showNotice("Bạn đang ở quyền chỉ xem: thấy được kết quả nhưng chưa bình chọn được.");
+  db.collection("votes").onSnapshot(snap => {
+    const next = {};
+    for (const d of snap.docs) if (d.exists) next[d.id] = d.data() || {};
+    if (myId && next[myId] && !snap.metadata.hasPendingWrites) {
+      mine = { picks: { ...(next[myId].picks || {}) }, notes: { ...(next[myId].notes || {}) } };
+    }
+    if (myId) next[myId] = { picks: { ...mine.picks }, notes: { ...mine.notes } };
+    all = next;
+    render();
+  }, () => showNotice("Mất kết nối tới kết quả bình chọn. Tải lại trang để thử lại."));
+})();
+</script>
