@@ -61,7 +61,8 @@ GEN = fp.ROOT / "assets/char/gen"
 #   skull: ellipse (x, y, rx, ry) for rings; grip: where held items are held
 #   grip_mask: ellipses (x, y, rx, ry) of the companion's own paws, redrawn over held items
 #   gloves: per hand, a seed inside it, its row / column range and which side the cuff is on
-#   feet: foot centre x values; top garment: torso seed, bottom row, arm seeds and rows
+#   feet: foot centre x values; top garment: torso seeds, bottom row, arm seeds and rows
+#   hand_scale: held items' size against Hǔhǔ's; fit: per item touch-ups (dx, dy, scale)
 MASCOTS = {
     "huhu": dict(name="Hǔhǔ", pose="assets/char/gen/huhu-front-idle.png", ink=(46, 83, 59),
                  head=(.495, .255, .606), neck=(.498, .548, .648), back=(.50, .47, .62),
@@ -73,20 +74,22 @@ MASCOTS = {
                  torso=[(.50, .70)], torso_bottom=.865, drop_white=True,
                  arms=[((.205, .80), (.15, .26)), ((.744, .80), (.70, .78))], arm_rows=(.60, .866)),
     "wuwu": dict(name="Wuwu", pose="assets/char/gen/wuwu/wuwu-dressup-base.png", ink=(11, 34, 61),
-                 head=(.50, .18, .50), neck=(.50, .478, .62), back=(.50, .58, .70),
+                 head=(.50, .19, .64), neck=(.50, .478, .72), back=(.50, .58, .80),
                  chin=[(.19, .42), (.33, .462), (.50, .478), (.67, .462), (.81, .42)],
-                 skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.3, fly=(.10, .26),
+                 skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.9, fly=(.10, .26),
                  grip_mask=[(.455, .62, .052, .072), (.545, .62, .052, .072)],
+                 fit={"vong-dom-dom": dict(dy=.07)},
                  gloves=[dict(seed=(.44, .63), rows=(.50, .72), cols=(.37, .505), cuff="left"),
                          dict(seed=(.56, .63), rows=(.50, .72), cols=(.495, .63), cuff="right")],
                  feet=[.31, .70], foot_rows=(.875, .96),
                  torso=[(.50, .50), (.50, .76)], torso_bottom=.84, drop_white=False,
                  arms=[((.25, .60), None), ((.75, .60), None)], arm_rows=(.44, .72)),
     "dudu": dict(name="Dudu", pose="assets/char/gen/dudu/dudu-dressup-base.png", ink=(91, 28, 3),
-                 head=(.548, .225, .544), neck=(.55, .52, .51), back=(.55, .64, .55),
+                 head=(.548, .215, .58), neck=(.55, .52, .58), back=(.55, .64, .62),
                  chin=[(.29, .44), (.36, .50), (.43, .565), (.50, .53), (.58, .515), (.68, .49), (.80, .44)],
-                 skull=(.548, .36, .272, .24), grip=(.20, .60), grip_kind="mask", hand_scale=1.2, fly=(.08, .30),
+                 skull=(.548, .36, .272, .24), grip=(.20, .60), grip_kind="mask", hand_scale=1.7, fly=(.08, .30),
                  grip_mask=[(.197, .603, .074, .08)],
+                 fit={"vong-dom-dom": dict(dy=.055), "hoa-hai-mau": dict(dx=.04, dy=.03), "cai-la": dict(dx=-.02, dy=.02)},
                  gloves=[dict(seed=(.17, .60), rows=(.50, .70), cols=(.10, .272), cuff="right"),
                          dict(seed=(.82, .78), rows=(.715, .84), cols=(.74, .90), cuff="top")],
                  feet=[.405, .65], foot_rows=(.87, .94),
@@ -442,7 +445,12 @@ def build(mid, RW, RH):
                 body = fill_region(pose, M["torso"], chin, M["torso_bottom"], drop_white=M["drop_white"])
                 arms = fill_region(pose, [a[0] for a in M["arms"]], M["arm_rows"][0], M["arm_rows"][1], [a[1] for a in M["arms"]])
                 body &= np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0
-                layer = texture_into(body | arms, art, W, H, pad, canvas, (.02, .05, .02, .03))
+                region = body | arms
+                under = Image.new("RGBA", (W, H), palette(art)[0] + (255,))   # no body shows through the hem gaps
+                under.putalpha(Image.fromarray(region.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(3)))
+                layer = Image.new("RGBA", canvas)
+                layer.alpha_composite(under, (pad, pad))
+                layer.alpha_composite(texture_into(region, art, W, H, pad, canvas, (.02, .05, .02, .03)))
             elif slot == "hand":
                 h = p["h"] * RH * M["hand_scale"]
                 art = art.resize((max(1, round(art.width * h / art.height)), max(1, round(h))), Image.LANCZOS)
@@ -466,7 +474,9 @@ def build(mid, RW, RH):
                 if slot == "neck":
                     art = fp.bend(art, -0.028 * RH * fr.k)
                 X, Y = fr.pt(p["x"], p[edge])
-                layer = put_px(canvas, art, X, Y, edge, p["w"] * RW * fr.k, pad)
+                f = M.get("fit", {}).get(iid, {})       # per companion touch-ups (fractions of its pose)
+                X, Y = X + f.get("dx", 0) * W, Y + f.get("dy", 0) * H
+                layer = put_px(canvas, art, X, Y, edge, p["w"] * RW * fr.k * f.get("scale", 1), pad)
                 if p.get("band"):  # the scarf goes all the way round the neck, knot on top
                     layer = Image.alpha_composite(neck_band(art, M["chin"], W, H, pad, canvas, torso_a, ink, fr.k * RH / 825), layer)
                 if slot == "neck":
