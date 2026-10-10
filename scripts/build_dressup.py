@@ -54,6 +54,9 @@ CATALOG = [
     ("18+19", "gang-tay-la", "Găng Tay Lá", "hand", dict(pair="paws", top=.70)),
     ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", top=.85)),
 ]
+# 🔴 in the v2 scoring (tudo-mythic-v2 §8): kept in CATALOG for reference, not built or shown
+HIDDEN = {"binh-ngoc-xanh", "ao-choang-la", "khan-gio", "khan-la-soc", "no-la", "cai-la",
+          "chuoi-hat-go", "gang-tay-la", "giay-la", "tui-la"}
 GEN = fp.ROOT / "assets/char/gen"
 FITTED = fp.ROOT / "assets/closet/v3/fitted"   # <companion>/<item id>.png: art drawn to fit that body (prompts/closet/fitted-wearables.md)
 # Per companion geometry, fractions of its own pose.
@@ -420,7 +423,7 @@ def build(mid, RW, RH):
 
     layers = {"body": base, "wisps": wisps}
     items = []
-    catalog = list(CATALOG) + [(f, i, n, s, dict(own=f)) for f, i, n, s in M.get("own", [])]
+    catalog = [c for c in CATALOG if c[1] not in HIDDEN] + [(f, i, n, s, dict(own=f)) for f, i, n, s in M.get("own", [])]
     for files, iid, name, slot, p in catalog:
         thumb = None
         if p.get("own"):                            # the companion's own item, cut from its original pose
@@ -555,6 +558,8 @@ def main():
         if not only or m in only:
             done[m] = build(m, RW, RH)
     mascots = [done[m] for m in MASCOTS if m in done]
+    for m in mascots:
+        m["items"] = [i for i in m["items"] if i["id"] not in HIDDEN]
     outfits = [
         {"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]},
         {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "canh-nho"]},
@@ -564,6 +569,8 @@ def main():
         {"name": "Tiên nhỏ", "ids": ["hoa-hai-mau", "no-la", "canh-nho", "dua-la"]},
         {"name": "Dudu thường ngày", "ids": ["non-la-dudu", "gay-tre"]},
     ]
+    outfits = [dict(o, ids=[i for i in o["ids"] if i not in HIDDEN]) for o in outfits]
+    outfits = [o for o in outfits if len(o["ids"]) >= 2]
     (OUT / "data.json").write_text(json.dumps({"mascots": mascots, "outfits": outfits}, ensure_ascii=False),
                                    encoding="utf-8")
 

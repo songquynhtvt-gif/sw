@@ -73,7 +73,7 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: 28px; margin
   <section class="stage" aria-label="Bạn nhỏ">
     <header>
       <h1 id="title">Hǔhǔ Thay Đồ</h1>
-      <p class="sub" id="sub">Chạm một món để mặc. Mỗi chỗ (đầu, cổ, vai, lưng, tay, chân) mặc một món; đồ ôm theo dáng từng bạn.</p>
+      <p class="sub" id="sub">Chạm một món để mặc. Mỗi chỗ (đầu, cổ, lưng, tay) mặc một món; đồ ôm theo dáng từng bạn.</p>
       <div class="who" id="who" role="group" aria-label="Chọn bạn nhỏ"></div>
     </header>
     <div class="figure">
@@ -167,7 +167,9 @@ function buildWho() {
 }
 function buildTabs() {
   const el = document.getElementById("tabs");
+  const used = new Set(DATA.mascots.flatMap(m => m.items.map(i => i.slot)));
   for (const [k, label] of SLOTS) {
+    if (k !== "all" && !used.has(k)) continue;      // no tab for a slot with nothing in it
     const b = document.createElement("button"); b.type = "button"; b.className = "tab"; b.role = "tab"; b.textContent = label;
     b.setAttribute("aria-selected", k === tab ? "true" : "false");
     b.onclick = () => { tab = k; el.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x === b ? "true" : "false")); buildGrid(); render(); };
