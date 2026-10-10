@@ -76,7 +76,7 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 
 
 <div class="wrap">
   <h1>Bình chọn Tủ đồ Hǔhǔ</h1>
-  <p class="lede">32 món + 8 bộ phối. Mỗi thẻ có đáp án đề xuất và lý do. Mỗi người bấm <b>Chọn</b> hoặc <b>Không chọn</b> cho từng thẻ; phiếu lưu chung, ai cũng thấy kết quả, mỗi người chỉ sửa phiếu của mình.</p>
+  <p class="lede">21 món + 8 bộ phối. Mỗi thẻ có đáp án đề xuất và lý do. Mỗi người bấm <b>Chọn</b> hoặc <b>Không chọn</b> cho từng thẻ; phiếu lưu chung, ai cũng thấy kết quả, mỗi người chỉ sửa phiếu của mình.</p>
 
   <div class="bar">
     <div class="stats" id="stats">
@@ -139,7 +139,7 @@ function build() {
   for (const c of CARDS) {
     const el = document.createElement("article");
     el.className = "card"; el.id = "card-" + c.id; el.dataset.id = c.id;
-    const meta = c.kind === "item" ? `${c.wave} · ${c.price} bánh cam · ${c.slot}` : c.parts.join(" + ");
+    const meta = c.meta;
     el.innerHTML = `
       <div class="pic"><img loading="lazy" alt="" src="img/${c.id}-a.webp"></div>
       <div class="head"><h2></h2><span class="meta"></span></div>
