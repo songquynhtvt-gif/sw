@@ -42,7 +42,7 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 
 .filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .notice { font-size: 13px; padding: 10px 12px; border-radius: 10px; background: var(--regen-bg); color: var(--ink); }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 18px; margin-top: 18px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 18px; margin-top: 18px; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .pic { position: relative; border-radius: 10px; overflow: hidden; background: var(--well); aspect-ratio: 1; max-width: 100%; }
@@ -53,19 +53,17 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 
 .meta { font-size: 12px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
 .answer { display: grid; grid-template-columns: auto 1fr; gap: 8px; align-items: start; font-size: 13px; }
 .pill { font-size: 12px; font-weight: 600; border-radius: 99px; padding: 2px 10px; white-space: nowrap; }
-.pill.keep { background: var(--keep-bg); color: var(--keep); }
-.pill.regen { background: var(--regen-bg); color: var(--regen); }
-.pill.drop { background: var(--drop-bg); color: var(--drop); }
+.pill.pick { background: var(--keep-bg); color: var(--keep); }
+.pill.skip { background: var(--drop-bg); color: var(--drop); }
 .answer p { margin: 0; color: var(--muted); }
-.votes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.votes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
 .vote { font: 600 13px var(--font-body); border-radius: 10px; border: 1.5px solid var(--line); background: transparent; color: var(--ink); padding: 8px 6px; cursor: pointer; display: grid; gap: 2px; justify-items: center; font-variant-numeric: tabular-nums; }
 .vote small { font-weight: 500; color: var(--muted); font-size: 12px; }
 .vote:hover:not(:disabled) { border-color: var(--sage); }
 .vote:focus-visible, .filters button:focus-visible, .note:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .vote:disabled { cursor: default; opacity: .75; }
-.vote.on.keep { background: var(--keep-bg); border-color: var(--keep); color: var(--keep); }
-.vote.on.regen { background: var(--regen-bg); border-color: var(--regen); color: var(--regen); }
-.vote.on.drop { background: var(--drop-bg); border-color: var(--drop); color: var(--drop); }
+.vote.on.pick { background: var(--keep-bg); border-color: var(--keep); color: var(--keep); }
+.vote.on.skip { background: var(--drop-bg); border-color: var(--drop); color: var(--drop); }
 .who { font-size: 12px; color: var(--muted); min-height: 1.5em; }
 .who span + span::before { content: " · "; }
 .note { width: 100%; box-sizing: border-box; font: 400 13px var(--font-body); color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 7px 10px; }
@@ -78,18 +76,13 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 
 
 <div class="wrap">
   <h1>Bình chọn Tủ đồ Hǔhǔ</h1>
-  <p class="lede">32 món + 8 bộ phối. Mỗi thẻ có đáp án đề xuất và lý do. Mỗi người chọn <b>Giữ</b>, <b>Gen lại</b> hoặc <b>Bỏ</b> cho từng thẻ; phiếu lưu chung, ai cũng thấy kết quả, mỗi người chỉ sửa phiếu của mình.</p>
-  <div class="legend">
-    <span><span class="tag">A</span><b>Bản ChatGPT</b>: Hǔhǔ vẽ sẵn đang mặc, tham chiếu dáng và vị trí</span>
-    <span><span class="tag">B</span><b>Bản ghép</b>: asset đã cắt mặc lên Hǔhǔ, đây là bản dùng trong app</span>
-  </div>
+  <p class="lede">32 món + 8 bộ phối. Mỗi thẻ có đáp án đề xuất và lý do. Mỗi người bấm <b>Chọn</b> hoặc <b>Không chọn</b> cho từng thẻ; phiếu lưu chung, ai cũng thấy kết quả, mỗi người chỉ sửa phiếu của mình.</p>
 
   <div class="bar">
     <div class="stats" id="stats">
       <span class="stat"><strong id="s-people">0</strong>người đã chọn</span>
-      <span class="stat"><strong id="s-keep">–</strong>giữ theo team</span>
-      <span class="stat"><strong id="s-regen">–</strong>gen lại</span>
-      <span class="stat"><strong id="s-drop">–</strong>bỏ</span>
+      <span class="stat"><strong id="s-pick">–</strong>team chọn</span>
+      <span class="stat"><strong id="s-skip">–</strong>không chọn</span>
       <span class="stat"><strong id="s-agree">–</strong>khớp đáp án</span>
       <span class="me" id="me">Bạn đã chọn 0/40</span>
     </div>
@@ -98,7 +91,7 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 
       <button type="button" data-f="all" aria-pressed="true">Tất cả</button>
       <button type="button" data-f="item" aria-pressed="false">Món</button>
       <button type="button" data-f="outfit" aria-pressed="false">Bộ phối</button>
-      <button type="button" data-f="regen" aria-pressed="false">Đáp án: gen lại</button>
+      <button type="button" data-f="skip" aria-pressed="false">Đáp án: không chọn</button>
       <button type="button" data-f="todo" aria-pressed="false">Bạn chưa chọn</button>
       <button type="button" data-f="split" aria-pressed="false">Team lệch đáp án</button>
     </div>
@@ -111,8 +104,8 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 
 
 <script>
 const CARDS = __DATA__;
-const LABEL = { keep: "Giữ", regen: "Gen lại", drop: "Bỏ" };
-const OPTS = ["keep", "regen", "drop"];
+const LABEL = { pick: "Chọn", skip: "Không chọn" };
+const OPTS = ["pick", "skip"];
 
 let db = null, user = null, myId = null, canWrite = false;
 let mine = { picks: {}, notes: {} };
@@ -125,7 +118,7 @@ const grid = document.getElementById("grid");
 const $ = (id) => document.getElementById(id);
 
 function tally(id) {
-  const t = { keep: [], regen: [], drop: [] };
+  const t = { pick: [], skip: [] };
   for (const [vid, v] of Object.entries(all)) {
     const p = v.picks && v.picks[id];
     if (t[p]) t[p].push(vid);
@@ -148,10 +141,7 @@ function build() {
     el.className = "card"; el.id = "card-" + c.id; el.dataset.id = c.id;
     const meta = c.kind === "item" ? `${c.wave} · ${c.price} bánh cam · ${c.slot}` : c.parts.join(" + ");
     el.innerHTML = `
-      <div class="pics">
-        <div class="pic"><span class="tag">A</span><img loading="lazy" alt="" src="img/${c.id}-a.webp"></div>
-        <div class="pic"><span class="tag">B</span><img loading="lazy" alt="" src="img/${c.id}-b.webp"></div>
-      </div>
+      <div class="pic"><img loading="lazy" alt="" src="img/${c.id}-a.webp"></div>
       <div class="head"><h2></h2><span class="meta"></span></div>
       <div class="answer"><span class="pill ${c.rec}">Đáp án: ${LABEL[c.rec]}</span><p></p></div>
       <div class="votes">${OPTS.map(o => `<button type="button" class="vote ${o}" data-o="${o}">${LABEL[o]}<small>0</small></button>`).join("")}</div>
@@ -161,8 +151,7 @@ function build() {
     el.querySelector("h2").textContent = c.name;
     el.querySelector(".meta").textContent = meta;
     el.querySelector(".answer p").textContent = c.why;
-    el.querySelectorAll("img")[0].alt = c.name + ", bản ChatGPT";
-    el.querySelectorAll("img")[1].alt = c.name + ", bản ghép";
+    el.querySelector("img").alt = "Hǔhǔ mặc " + c.name;
     el.querySelectorAll(".vote").forEach(b => b.addEventListener("click", () => pick(c.id, b.dataset.o)));
     const note = el.querySelector(".note");
     note.addEventListener("change", () => setNote(c.id, note.value.trim()));
@@ -175,11 +164,11 @@ async function render() {
   if (user && ids.length) {
     try { const ps = await user.profiles(ids); for (const id of ids) names[id] = (ps[id] && ps[id].name) || "Ai đó"; } catch (e) {}
   }
-  let keep = 0, regen = 0, drop = 0, agree = 0, decided = 0, shown = 0;
+  let pickN = 0, skipN = 0, agree = 0, decided = 0, shown = 0;
   for (const c of CARDS) {
     const el = $("card-" + c.id);
     const t = tally(c.id), maj = majority(t);
-    if (maj) { decided++; if (maj === "keep") keep++; if (maj === "regen") regen++; if (maj === "drop") drop++; if (maj === c.rec) agree++; }
+    if (maj) { decided++; if (maj === "pick") pickN++; else skipN++; if (maj === c.rec) agree++; }
     const my = mine.picks[c.id];
     el.querySelectorAll(".vote").forEach(b => {
       const o = b.dataset.o;
@@ -206,14 +195,13 @@ async function render() {
       row.append(b, document.createTextNode(n)); notes.appendChild(row);
     }
     const show = filter === "all" || (filter === "item" && c.kind === "item") || (filter === "outfit" && c.kind === "outfit")
-      || (filter === "regen" && c.rec === "regen") || (filter === "todo" && !my) || (filter === "split" && maj && maj !== c.rec);
+      || (filter === "skip" && c.rec === "skip") || (filter === "todo" && !my) || (filter === "split" && maj && maj !== c.rec);
     el.hidden = !show; if (show) shown++;
   }
   $("empty").hidden = shown > 0;
   $("s-people").textContent = Object.values(all).filter(v => v.picks && Object.keys(v.picks).length).length;
-  $("s-keep").textContent = decided ? keep : "–";
-  $("s-regen").textContent = decided ? regen : "–";
-  $("s-drop").textContent = decided ? drop : "–";
+  $("s-pick").textContent = decided ? pickN : "–";
+  $("s-skip").textContent = decided ? skipN : "–";
   $("s-agree").textContent = decided ? `${agree}/${decided}` : "–";
   const done = Object.keys(mine.picks).length;
   $("me").textContent = canWrite ? `Bạn đã chọn ${done}/${CARDS.length}` : "Chế độ chỉ xem";
