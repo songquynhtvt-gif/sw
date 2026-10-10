@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-"""Build the Hǔhǔ dress-up page layers from the v3 object sheet (assets/closet/v3/items/NN.png).
+"""Build the dress-up page layers (Hǔhǔ, Wuwu, Dudu) from the v3 object sheet (assets/closet/v3/items/NN.png).
 
-Every item becomes one pose-framed layer with the body interaction baked in, so the page only
-stacks layers by z (back < body < shadow < feet < shoulders < neck < head < hand):
-  - rings (wreath, headbands) lose the part that sits behind the head top
-  - small hats keep the ears in front (hat pixels over the ears are removed)
-  - big hats ("covered") switch the body to the no-ears variant
-  - neck / shoulder items are tucked under the chin (pixels over the head removed)
-  - held items get a closed paw; gloves and boots are split per paw / foot
-Output: docs/hu-hu-thay-do/{layers,thumbs}/*.webp + data.json
+Every item becomes one pose-framed layer per companion with the body interaction baked in, so the
+page only stacks layers by z (back < body < shadow < feet < shoulders < neck < head < hand):
+  - placements are written for Hǔhǔ and carried to the others through slot frames
+    (head: brim point + skull width, neck: chin centre + jaw width, back: torso centre + width)
+  - hats sit between / in front of the ears; rings lose the part behind the head top
+  - neck items are tucked under the chin (pixels over the head removed); scarves wrap the neck
+  - worn items show only their outside: tops fill the torso and arms, gloves the hands,
+    boots the feet, each inside the companion's own outline
+  - held items sit in the paw: a drawn paw (Hǔhǔ) or the companion's own paws redrawn on top
+Base poses: Hǔhǔ front idle; Wuwu / Dudu from scripts/prep_mascots.py.
+Output: docs/hu-hu-thay-do/<companion>/layers/*.webp, thumbs/*.webp, data.json
 """
 import json
 import sys
@@ -25,8 +28,8 @@ OUT = fp.ROOT / "docs/hu-hu-thay-do"
 Z = {"back": 0, "feet": 3, "shoulders": 4, "neck": 5, "head": 6, "hand": 7}
 SLOT_VI = {"head": "Đầu", "neck": "Cổ", "shoulders": "Vai", "back": "Lưng", "hand": "Tay", "feet": "Chân"}
 
-# file, id, name, slot, placement. Placement (fractions of the pose): x = centre, w = width,
-# and one of bottom / top / cy for the vertical edge. ears: front | covered. wrap: ring around the head.
+# file, id, name, slot, placement. Placement (fractions of Hǔhǔ's pose): x = centre, w = width,
+# and one of bottom / top / cy for the vertical edge. wrap: ring around the head.
 CATALOG = [
     ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.495, w=.50, bottom=.255, ears="behind")),
     ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.495, w=.54, bottom=.26, ears="behind")),
@@ -51,9 +54,48 @@ CATALOG = [
     ("18+19", "gang-tay-la", "Găng Tay Lá", "hand", dict(pair="paws", top=.70)),
     ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", top=.85)),
 ]
-PAWS = [(.215, .855), (.787, .855)]       # left / right paw centres (fists tucked at the sides)
-ARMS = [(.205, .80, .15, .26), (.744, .80, .70, .78)]  # a point inside each forearm strip, its x range
-FEET = [(.318, .997), (.645, .997)]       # foot centres x, sole y (feet are ~.25 W wide, ~.14 H tall)
+GEN = fp.ROOT / "assets/char/gen"
+# Per companion geometry, fractions of its own pose.
+#   head / neck / back: slot frames (x, y, width) -> Hǔhǔ placements are scaled into them
+#   chin: jaw line (left to right) - neck items are erased above it, tops start below it
+#   skull: ellipse (x, y, rx, ry) for rings; grip: where held items are held
+#   grip_mask: ellipses (x, y, rx, ry) of the companion's own paws, redrawn over held items
+#   gloves: per hand, a seed inside it, its row / column range and which side the cuff is on
+#   feet: foot centre x values; top garment: torso seed, bottom row, arm seeds and rows
+MASCOTS = {
+    "huhu": dict(name="Hǔhǔ", pose="assets/char/gen/huhu-front-idle.png", ink=(46, 83, 59),
+                 head=(.495, .255, .606), neck=(.498, .548, .648), back=(.50, .47, .62),
+                 chin=[(.174, .509), (.311, .536), (.498, .548), (.685, .536), (.822, .509)],
+                 skull=(.492, .376, .311, .251), grip=(.215, .855), grip_kind="paw", hand_scale=1.0, fly=(.08, .40),
+                 gloves=[dict(seed=(.205, .80), rows=(.70, .866), cols=(.15, .26), cuff="top"),
+                         dict(seed=(.744, .80), rows=(.70, .866), cols=(.70, .78), cuff="top")],
+                 feet=[.318, .645], foot_rows=(.85, .94),
+                 torso=[(.50, .70)], torso_bottom=.865, drop_white=True,
+                 arms=[((.205, .80), (.15, .26)), ((.744, .80), (.70, .78))], arm_rows=(.60, .866)),
+    "wuwu": dict(name="Wuwu", pose="assets/char/gen/wuwu/wuwu-dressup-base.png", ink=(11, 34, 61),
+                 head=(.50, .18, .50), neck=(.50, .478, .62), back=(.50, .58, .70),
+                 chin=[(.19, .42), (.33, .462), (.50, .478), (.67, .462), (.81, .42)],
+                 skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.3, fly=(.10, .26),
+                 grip_mask=[(.455, .62, .052, .072), (.545, .62, .052, .072)],
+                 gloves=[dict(seed=(.44, .63), rows=(.50, .72), cols=(.37, .505), cuff="left"),
+                         dict(seed=(.56, .63), rows=(.50, .72), cols=(.495, .63), cuff="right")],
+                 feet=[.31, .70], foot_rows=(.875, .96),
+                 torso=[(.50, .50), (.50, .76)], torso_bottom=.84, drop_white=False,
+                 arms=[((.25, .60), None), ((.75, .60), None)], arm_rows=(.44, .72)),
+    "dudu": dict(name="Dudu", pose="assets/char/gen/dudu/dudu-dressup-base.png", ink=(91, 28, 3),
+                 head=(.548, .225, .544), neck=(.55, .52, .51), back=(.55, .64, .55),
+                 chin=[(.29, .44), (.36, .50), (.43, .565), (.50, .53), (.58, .515), (.68, .49), (.80, .44)],
+                 skull=(.548, .36, .272, .24), grip=(.20, .60), grip_kind="mask", hand_scale=1.2, fly=(.08, .30),
+                 grip_mask=[(.197, .603, .074, .08)],
+                 gloves=[dict(seed=(.17, .60), rows=(.50, .70), cols=(.10, .272), cuff="right"),
+                         dict(seed=(.82, .78), rows=(.715, .84), cols=(.74, .90), cuff="top")],
+                 feet=[.405, .65], foot_rows=(.87, .94),
+                 torso=[(.55, .70)], torso_bottom=.86, drop_white=False,
+                 arms=[((.33, .64), (.27, .45)), ((.80, .62), (.72, .92))], arm_rows=(.48, .84),
+                 own=[("dudu-own-hat", "non-la-dudu", "Nón Lá Của Dudu", "head"),
+                      ("dudu-own-bamboo", "gay-tre", "Gậy Tre", "hand")]),
+}
+REF = "huhu"
 
 
 def load(name):
@@ -106,39 +148,42 @@ def palette(art):
     return pick((g > r + 15) & (g < 170)), pick((r > 235) & (g > 225) & (b > 180)), pick((r > 220) & (b < 140))
 
 
-def worn_gloves(pose_a, pose_rgb, art, W, H, pad, canvas, top):
-    """Gloves as worn: only the outside shows. Each forearm strip below `top` (inside the body's
-    own outline) is filled with the glove; a cream cuff with a gold band is where the arm goes in."""
+def worn_gloves(pose, art, M, W, H, pad, canvas):
+    """Gloves as worn: only the outside shows. Each hand (inside the companion's own outline) is
+    filled with the glove; a cream cuff with a gold band is where the arm goes in."""
     green, cream, gold = palette(art)
-    lum = pose_rgb.astype(int) @ np.array([299, 587, 114]) // 1000
-    inside = (pose_a > 200) & (lum > 100)            # fur and stripes, not the outline
-    inside[: round(top * H)] = False
-    inside[round(.866 * H):] = False                  # the hand ends where the foot starts
+    ink = M["ink"] + (255,)
     k = 4
     hi = Image.new("RGBA", (canvas[0] * k, canvas[1] * k))
-    for sx, sy, xa, xb in ARMS:
-        box = inside.copy()
-        box[:, : round(xa * W)] = False
-        box[:, round(xb * W):] = False
-        work = Image.fromarray(box.astype(np.uint8) * 255).copy()
-        ImageDraw.floodfill(work, (round(sx * W), round(sy * H)), 128, thresh=0)
-        strip = np.asarray(work) == 128
-        ys, xs = np.nonzero(strip)
-        y0, y1 = ys.min(), ys.max()
-        m = Image.fromarray(strip.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(3))
+    for g in M["gloves"]:
+        hand = fill_region(pose, [g["seed"]], g["rows"][0], g["rows"][1], [g["cols"]])
+        ys, xs = np.nonzero(hand)
+        x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+        m = Image.fromarray(hand.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(3))
         m = m.resize((W * k, H * k), Image.LANCZOS).point(lambda v: v if v > 8 else 0)
-        fill = Image.new("RGBA", (W * k, H * k))
+        fill = Image.new("RGBA", (W * k, H * k), green + (255,))
         d = ImageDraw.Draw(fill)
-        d.rectangle([0, 0, W * k, H * k], fill=green + (255,))
-        c0, c1, c2 = y0 * k, (y0 + .020 * H) * k, (y0 + .029 * H) * k
-        d.rectangle([0, c0, W * k, c1], fill=cream + (255,))
-        d.rectangle([0, c1, W * k, c2], fill=gold + (255,))
         lw = .004 * H * k
-        for y in (c1, c2):
-            d.line([(0, y), (W * k, y)], fill=fp.OUTLINE + (255,), width=round(lw * .7))
-        d.line([(0, c0 + lw / 2), (W * k, c0 + lw / 2)], fill=fp.OUTLINE + (255,), width=round(lw))
-        bx, by, br = xs.mean() * k, (c1 + c2) / 2, .011 * H * k
-        d.ellipse([bx - br, by - br, bx + br, by + br], fill=gold + (255,), outline=fp.OUTLINE + (255,), width=round(lw * .7))
+        c1, c2 = .020 * H, .029 * H                    # cuff depth, gold band depth (from the open end)
+        if g["cuff"] == "top":
+            band = lambda a, b: [0, (y0 + a) * k, W * k, (y0 + b) * k]
+            edge = [(0, y0 * k + lw / 2), (W * k, y0 * k + lw / 2)]
+            bead = (xs.mean(), y0 + (c1 + c2) / 2)
+        else:
+            sx = x0 if g["cuff"] == "left" else x1
+            sg = 1 if g["cuff"] == "left" else -1
+            band = lambda a, b: [min(sx + sg * a, sx + sg * b) * k, 0, max(sx + sg * a, sx + sg * b) * k, H * k]
+            edge = [(sx * k + sg * lw / 2, 0), (sx * k + sg * lw / 2, H * k)]
+            bead = (sx + sg * (c1 + c2) / 2, ys.mean())
+        d.rectangle(band(0, c1), fill=cream + (255,))
+        d.rectangle(band(c1, c2), fill=gold + (255,))
+        for a in (c1, c2):
+            r = band(a, a)
+            d.line([(r[0], r[1]), (r[2], r[3])] if g["cuff"] == "top" else [(r[0], 0), (r[0], H * k)], fill=ink, width=round(lw * .7))
+        d.line(edge, fill=ink, width=round(lw))
+        br = .011 * H * k
+        bx, by = bead[0] * k, bead[1] * k
+        d.ellipse([bx - br, by - br, bx + br, by + br], fill=gold + (255,), outline=ink, width=round(lw * .7))
         fill.putalpha(ImageChops.multiply(fill.getchannel("A"), m))
         hi.alpha_composite(fill, (pad * k, pad * k))
     return hi.resize(canvas, Image.LANCZOS)
@@ -162,8 +207,15 @@ def fill_region(pose, seeds, y0, y1, x_ranges=None, drop_white=False):
             xa, xb = x_ranges[n]
             box[:, : round(xa * W)] = False
             box[:, round(xb * W):] = False
+        px, py = round(sx * W), round(sy * H)
+        if not box[py, px]:                           # seed on a line: start from the nearest fur pixel
+            yy, xx = np.nonzero(box[max(0, py - 40):py + 40, max(0, px - 40):px + 40])
+            if not len(yy):
+                continue
+            n = np.argmin((yy - min(py, 40)) ** 2 + (xx - min(px, 40)) ** 2)
+            px, py = max(0, px - 40) + xx[n], max(0, py - 40) + yy[n]
         work = Image.fromarray(box.astype(np.uint8) * 255).copy()
-        ImageDraw.floodfill(work, (round(sx * W), round(sy * H)), 128, thresh=0)
+        ImageDraw.floodfill(work, (int(px), int(py)), 128, thresh=0)
         got = np.asarray(work) == 128
         shut = Image.fromarray(got.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(9)).filter(ImageFilter.MinFilter(9))
         out |= got | ((np.asarray(shut) > 0) & (a[..., 3] > 200) & (lum > 60))   # close thin creases (toe lines)
@@ -184,7 +236,7 @@ def texture_into(region, art, W, H, pad, canvas, grow=(0, 0, 0, 0)):
     return out
 
 
-def front_boot(region, art, W, H, pad, canvas):
+def front_boot(region, art, W, H, pad, canvas, ink=fp.OUTLINE):
     """A front-view boot in the boot art's colours, drawn inside the foot's own outline:
     green shaft, cream toe cap, blue sole along the bottom contour, cream rim and gold bead on top."""
     a = np.asarray(art).reshape(-1, 4)
@@ -193,7 +245,7 @@ def front_boot(region, art, W, H, pad, canvas):
     pick = lambda m: tuple(int(v) for v in np.median(px[m], axis=0)) + (255,)
     green, cream = pick((g > r + 15) & (g < 170)), pick((r > 235) & (g > 225) & (b > 180))
     gold, blue = pick((r > 220) & (b < 140)), pick(b > r + 50)
-    ink = fp.OUTLINE + (255,)
+    ink = ink + (255,)
     ys, xs = np.nonzero(region)
     x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
     k = 4
@@ -232,7 +284,7 @@ def front_boot(region, art, W, H, pad, canvas):
     return out
 
 
-def boot_worn(boot):
+def boot_worn(boot, ink=fp.OUTLINE):
     """Cut the boot opening and the back of its rim: on a foot the leg fills the opening, so only
     the front rim shows, with the leg going in behind it."""
     from import_item import regions
@@ -256,14 +308,14 @@ def boot_worn(boot):
     k = 4
     line = Image.new("RGBA", (boot.width * k, boot.height * k))
     lw = max(2, round(boot.height * .025)) * k
-    ImageDraw.Draw(line).line([(x * k, edge[x] * k + lw / 2) for x in range(boot.width)], fill=fp.OUTLINE + (255,), width=lw)
+    ImageDraw.Draw(line).line([(x * k, edge[x] * k + lw / 2) for x in range(boot.width)], fill=ink + (255,), width=lw)
     line = line.resize(boot.size, Image.LANCZOS)
     line.putalpha(ImageChops.multiply(line.getchannel("A"), boot.getchannel("A")))
     out.alpha_composite(line)
     return out.crop(out.getbbox())
 
 
-def neck_band(art, geo, W, H, pad, canvas, body_a):
+def neck_band(art, chin, W, H, pad, canvas, body_a, ink=fp.OUTLINE, k_s=1.0):
     """A fabric band in the scarf's own colour, following the jaw line across the whole neck."""
     a = np.asarray(art)
     px = a[a[..., 3] > 200][:, :3].astype(int)
@@ -272,129 +324,197 @@ def neck_band(art, geo, W, H, pad, canvas, body_a):
     k = 4
     band = Image.new("RGBA", (canvas[0] * k, canvas[1] * k))
     d = ImageDraw.Draw(band)
-    pts = [((x * W + pad) * k, (y * H + pad + 0.018 * H) * k) for x, y in geo["chin"]]
-    pts = [(pts[0][0] - 0.06 * W * k, pts[0][1] - 0.02 * H * k)] + pts + [(pts[-1][0] + 0.06 * W * k, pts[-1][1] - 0.02 * H * k)]
-    d.line(pts, fill=fp.OUTLINE + (255,), width=round(0.050 * H * k), joint="curve")
-    d.line(pts, fill=colour + (255,), width=round(0.036 * H * k), joint="curve")
+    u = 825 * k_s                                    # Hǔhǔ's pose height, scaled to this companion
+    pts = [((x * W + pad) * k, (y * H + pad + 0.018 * u) * k) for x, y in chin]
+    pts = [(pts[0][0] - 0.06 * u * k, pts[0][1] - 0.02 * u * k)] + pts + [(pts[-1][0] + 0.06 * u * k, pts[-1][1] - 0.02 * u * k)]
+    d.line(pts, fill=ink + (255,), width=round(0.050 * u * k), joint="curve")
+    d.line(pts, fill=colour + (255,), width=round(0.036 * u * k), joint="curve")
     band = band.resize(canvas, Image.LANCZOS)
     band.putalpha(ImageChops.multiply(band.getchannel("A"), body_a))
     return band
 
 
-def main():
-    anchors, base, W, H, pad, canvas = fp.setup("huhu")
-    geo = anchors["layers"]
-    masks = fp.part_masks(geo, W, H, pad, canvas)
-    # round skull for big hats: this ellipse meets the real head contour at .275, so no ear stubs stay
-    skull = dict(geo, head=dict(geo["head"], x=.50, rx=.303), ear_cut=.275)
-    noears = fp.ears_off(base, skull, W, H, pad)
+def load_pose(M):
+    pose = Image.open(fp.ROOT / M["pose"]).convert("RGBA")
+    W, H = pose.size
+    pad = H // 2  # room for tall hats and long hand items
+    canvas = (W + 2 * pad, H + 2 * pad)
+    base = Image.new("RGBA", canvas)
+    base.alpha_composite(pose, (pad, pad))
+    return base, W, H, pad, canvas
+
+
+class Frame:
+    """Carries a Hǔhǔ placement into a companion's slot frame (same spot on the body, scaled)."""
+    def __init__(self, M, slot, ref, RW, RH, W, H):
+        fx, fy, fw = ref[slot]
+        tx, ty, tw = M[slot]
+        self.k = tw * W / (fw * RW)
+        self.f, self.t, self.RW, self.RH, self.W, self.H = (fx, fy), (tx, ty), RW, RH, W, H
+
+    def pt(self, x, y):  # Hǔhǔ fractions -> companion pose pixels
+        return (self.t[0] * self.W + (x - self.f[0]) * self.RW * self.k,
+                self.t[1] * self.H + (y - self.f[1]) * self.RH * self.k)
+
+
+def put_px(canvas, art, X, Y, edge, w, pad):
+    h = art.height * w / art.width
+    art = art.resize((max(1, round(w)), max(1, round(h))), Image.LANCZOS)
+    py = {"bottom": Y - h, "top": Y, "cy": Y - h / 2}[edge]
+    layer = Image.new("RGBA", canvas)
+    layer.alpha_composite(art, (round(X - w / 2 + pad), round(py + pad)))
+    return layer
+
+
+def ellipses(canvas, ells, W, H, pad):
+    m = Image.new("L", canvas)
+    d = ImageDraw.Draw(m)
+    for x, y, rx, ry in ells:
+        cx, cy = x * W + pad, y * H + pad
+        d.ellipse([cx - rx * W, cy - ry * H, cx + rx * W, cy + ry * H], fill=255)
+    return m.filter(ImageFilter.GaussianBlur(1.2))
+
+
+def build(mid, RW, RH):
+    M = MASCOTS[mid]
+    ref = MASCOTS[REF]
+    base, W, H, pad, canvas = load_pose(M)
+    pose = np.asarray(base.crop((pad, pad, pad + W, pad + H)))
+    ink = M["ink"]
     body_a = base.getchannel("A")
     # the ghost wisps float in front of everything: split them off the body (all but the largest blob)
     from import_item import regions
-    blobs = regions(np.asarray(body_a) > 128)
-    torso = max(blobs, key=lambda r: r.sum())
+    torso = max(regions(np.asarray(body_a) > 128), key=lambda r: r.sum())
     torso_img = Image.fromarray(torso.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(5))
-    wisp_mask = ImageChops.subtract(body_a, torso_img)
     torso_a = ImageChops.multiply(body_a, torso_img)
-    hd = geo["head"]
-    head_ell = Image.new("L", canvas)
-    cx, cy, rx, ry = hd["x"] * W + pad, hd["y"] * H + pad, hd["rx"] * W, hd["ry"] * H
-    ImageDraw.Draw(head_ell).ellipse([cx - rx, cy - ry, cx + rx, cy + ry], fill=255)
-
     wisps = base.copy()
-    wisps.putalpha(ImageChops.multiply(base.getchannel("A"), wisp_mask))
-    layers = {"body": base, "body-noears": noears, "wisps": wisps}
+    wisps.putalpha(ImageChops.multiply(body_a, ImageChops.subtract(body_a, torso_img)))
+    chin_px = [(x * W + pad, y * H + pad) for x, y in M["chin"]]
+    head_mask = Image.new("L", canvas)              # everything above the jaw line
+    ImageDraw.Draw(head_mask).polygon([(0, 0), (canvas[0], 0), (canvas[0], chin_px[-1][1])] + chin_px[::-1] + [(0, chin_px[0][1])], fill=255)
+    head_mask = head_mask.filter(ImageFilter.GaussianBlur(1.2))
+    sx, sy, srx, sry = M["skull"]
+    head_ell = Image.new("L", canvas)
+    ImageDraw.Draw(head_ell).ellipse([(sx - srx) * W + pad, (sy - sry) * H + pad, (sx + srx) * W + pad, (sy + sry) * H + pad], fill=255)
+    frames = {s: Frame(M, s, ref, RW, RH, W, H) for s in ("head", "neck", "back")}
+    grip = M["grip"]
+    gx_px, gy_px = grip[0] * W + pad, grip[1] * H + pad
+    paws = ellipses(canvas, M.get("grip_mask", []), W, H, pad)
+
+    def hold(layer):                                # the paw closes over what it holds
+        if M["grip_kind"] == "paw":
+            layer.alpha_composite(fp.paw(canvas, gx_px, gy_px, W))
+        else:
+            layer.alpha_composite(fp.cut(base, ImageChops.multiply(paws, torso_img)))
+        return layer
+
+    layers = {"body": base, "wisps": wisps}
     items = []
-    for files, iid, name, slot, p in CATALOG:
-        if p.get("pair") == "paws":
+    catalog = list(CATALOG) + [(f, i, n, s, dict(own=f)) for f, i, n, s in M.get("own", [])]
+    for files, iid, name, slot, p in catalog:
+        thumb = None
+        if p.get("own"):                            # the companion's own item, cut from its original pose
+            own = Image.open(GEN / mid / f"{files}.png").convert("RGBA")
+            layer = Image.new("RGBA", canvas)
+            layer.alpha_composite(own, (pad, pad))
+            if slot == "hand":
+                hold(layer)
+            thumb = own.crop(own.getbbox())
+        elif p.get("pair") == "paws":
             l, r = load("18"), load("19")
-            pose = np.asarray(base.crop((pad, pad, pad + W, pad + H)))
-            layer = worn_gloves(pose[..., 3], pose[..., :3], l, W, H, pad, canvas, p["top"])
+            layer = worn_gloves(pose, l, M, W, H, pad, canvas)
             thumb = Image.new("RGBA", (l.width + r.width + 20, max(l.height, r.height)))
             thumb.alpha_composite(l, (0, 0)); thumb.alpha_composite(r, (l.width + 20, 0))
         elif p.get("pair") == "feet":
-            pair = load(files)
-            r = boot_worn(load("14-boot"))                 # the front boot is the only complete one
-            l = r.transpose(Image.FLIP_LEFT_RIGHT)
-            pose = np.asarray(base.crop((pad, pad, pad + W, pad + H)))
+            boot = boot_worn(load("14-boot"), ink)    # the front boot is the only complete one
             layer = Image.new("RGBA", canvas)
-            for art, (fx, fy) in zip((l, r), FEET):          # the boot takes the foot's own shape
-                foot = fill_region(pose, [(fx, .94)], p["top"], 1.0, [(fx - .16, fx + .16)])
-                layer.alpha_composite(front_boot(foot, art, W, H, pad, canvas))
-            thumb = pair
+            top, seed_y = M["foot_rows"]
+            for fx in M["feet"]:                      # the boot takes the foot's own shape
+                foot = fill_region(pose, [(fx, seed_y)], top, 1.0, [(fx - .13, fx + .13)])
+                layer.alpha_composite(front_boot(foot, boot, W, H, pad, canvas, ink))
+            thumb = load(files)
         else:
             art = load(files)
             thumb = art
-            if p.get("cut_below"):  # keep only the part above this fraction (hood lining would hide the face)
-                art = art.crop((0, 0, art.width, round(art.height * p["cut_below"])))
-                art = art.crop(art.getbbox())
-            if p.get("worn") == "top":                   # a top covers the torso and both arms
-                pose = np.asarray(base.crop((pad, pad, pad + W, pad + H)))
-                cx, cy = zip(*geo["chin"])
+            if p.get("worn") == "top":                # a top covers the torso and both arms
+                cx, cy = zip(*M["chin"])
                 chin = lambda x: (np.interp(x / W, cx, cy) + .012) * H
-                torso = fill_region(pose, [(.50, .70)], chin, .865, drop_white=True)
-                arms = fill_region(pose, [a[:2] for a in ARMS], .60, .866, [a[2:] for a in ARMS])
-                torso &= np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0
-                layer = texture_into(torso | arms, art, W, H, pad, canvas, (.02, .05, .02, .03))
+                body = fill_region(pose, M["torso"], chin, M["torso_bottom"], drop_white=M["drop_white"])
+                arms = fill_region(pose, [a[0] for a in M["arms"]], M["arm_rows"][0], M["arm_rows"][1], [a[1] for a in M["arms"]])
+                body &= np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0
+                layer = texture_into(body | arms, art, W, H, pad, canvas, (.02, .05, .02, .03))
             elif slot == "hand":
-                px, py = PAWS[0]
-                h = p["h"] * H
+                h = p["h"] * RH * M["hand_scale"]
                 art = art.resize((max(1, round(art.width * h / art.height)), max(1, round(h))), Image.LANCZOS)
                 gx, gy = p["grip"]
                 if p.get("mirror"):  # point long items away from the body
                     art, gx = art.transpose(Image.FLIP_LEFT_RIGHT), 1 - gx
                 layer = Image.new("RGBA", canvas)
                 if p.get("fly"):  # kite flies up beside the head; a string runs from the paw to it
-                    fx, fy = p["fly"]
-                    kx, ky = fx * W + pad, fy * H + pad
+                    kx, ky = M["fly"][0] * W + pad, M["fly"][1] * H + pad
                     k = 4
                     s = Image.new("RGBA", (canvas[0] * k, canvas[1] * k))
-                    ImageDraw.Draw(s).line([(px * W + pad) * k, (py * H + pad) * k, kx * k, ky * k],
-                                           fill=fp.OUTLINE + (255,), width=3 * k)
+                    ImageDraw.Draw(s).line([gx_px * k, gy_px * k, kx * k, ky * k], fill=ink + (255,), width=3 * k)
                     layer.alpha_composite(s.resize(canvas, Image.LANCZOS))
                     layer.alpha_composite(art, (round(kx - gx * art.width), round(ky - gy * art.height)))
                 else:
-                    layer.alpha_composite(art, (round(px * W + pad - gx * art.width), round(py * H + pad - gy * art.height)))
-                layer.alpha_composite(fp.paw(canvas, px * W + pad, py * H + pad, W))   # paw closes on the grip
+                    layer.alpha_composite(art, (round(gx_px - gx * art.width), round(gy_px - gy * art.height)))
+                hold(layer)
             else:
+                fr = frames["back" if slot in ("back", "shoulders") else slot]
                 edge = "bottom" if "bottom" in p else "top" if "top" in p else "cy"
                 if slot == "neck":
-                    art = fp.bend(art, -0.028 * H)
-                layer = put(canvas, art, p["x"], p[edge], edge, W, H, pad, width=p["w"])
+                    art = fp.bend(art, -0.028 * RH * fr.k)
+                X, Y = fr.pt(p["x"], p[edge])
+                layer = put_px(canvas, art, X, Y, edge, p["w"] * RW * fr.k, pad)
                 if p.get("band"):  # the scarf goes all the way round the neck, knot on top
-                    layer = Image.alpha_composite(neck_band(art, geo, W, H, pad, canvas, torso_a), layer)
-                if slot in ("neck", "shoulders"):
-                    erase(layer, masks["head"])          # tucked under the chin
+                    layer = Image.alpha_composite(neck_band(art, M["chin"], W, H, pad, canvas, torso_a, ink, fr.k * RH / 825), layer)
+                if slot == "neck":
+                    erase(layer, head_mask)          # tucked under the chin
                 if slot == "head" and p.get("wrap"):
                     a = np.asarray(layer.getchannel("A")) > 0
                     ys = np.nonzero(a.any(1))[0]
-                    mid = ys[0] + (ys[-1] - ys[0]) * p["wrap"]  # ring's back half sits above this line
+                    mid_y = ys[0] + (ys[-1] - ys[0]) * p["wrap"]  # ring's back half sits above this line
                     behind = Image.new("L", canvas)
-                    ImageDraw.Draw(behind).rectangle([0, 0, canvas[0], mid], fill=255)
+                    ImageDraw.Draw(behind).rectangle([0, 0, canvas[0], mid_y], fill=255)
                     erase(layer, ImageChops.multiply(ImageChops.multiply(behind, head_ell), body_a))
-        covered = slot == "head" and p.get("ears") == "covered"
         layers[iid] = layer
-        layers[iid + "-sh"] = fp.shadow([layer], noears if covered else base, H)
-        items.append({"id": iid, "name": name, "slot": slot, "slotVi": SLOT_VI[slot], "z": Z[slot],
-                      "covered": covered, "_thumb": thumb})
+        layers[iid + "-sh"] = fp.shadow([layer], base, H)
+        items.append({"id": iid, "name": name, "slot": slot, "slotVi": SLOT_VI[slot], "z": Z[slot], "_thumb": thumb})
 
     box = None
     for img in layers.values():
-        b = img.getbbox()
+        b = img.getchannel("A").point(lambda v: 255 if v > 6 else 0).getbbox()
         if b:
             box = b if box is None else (min(box[0], b[0]), min(box[1], b[1]), max(box[2], b[2]), max(box[3], b[3]))
-    for d in ("layers", "thumbs"):
-        (OUT / d).mkdir(parents=True, exist_ok=True)
-        for f in (OUT / d).glob("*.webp"):
-            f.unlink()
-    scale = 900 / (box[3] - box[1])
-    size = (round((box[2] - box[0]) * scale), 900)
+    out = OUT / mid / "layers"
+    out.mkdir(parents=True, exist_ok=True)
+    for f in out.glob("*.webp"):
+        f.unlink()
+    size = (round((box[2] - box[0]) * 900 / (box[3] - box[1])), 900)
     for name, img in layers.items():
-        img.crop(box).resize(size, Image.LANCZOS).save(OUT / "layers" / f"{name}.webp", quality=88, method=6)
+        img.crop(box).resize(size, Image.LANCZOS).save(out / f"{name}.webp", quality=88, method=6)
+    thumbs = OUT / "thumbs"
+    thumbs.mkdir(parents=True, exist_ok=True)
     for e in items:
         t = e.pop("_thumb")
         t.thumbnail((200, 200), Image.LANCZOS)
-        t.save(OUT / "thumbs" / f"{e['id']}.webp", quality=90)
+        t.save(thumbs / f"{e['id']}.webp", quality=90)
+    print(mid, len(items), "items", size)
+    return {"id": mid, "name": M["name"], "size": size, "items": items}
+
+
+def main():
+    RW, RH = Image.open(fp.ROOT / MASCOTS[REF]["pose"]).size
+    for f in (OUT / "thumbs").glob("*.webp"):
+        f.unlink()
+    for old in ("layers",):                         # the single-companion layout (before Wuwu and Dudu)
+        for f in (OUT / old).glob("*.webp"):
+            f.unlink()
+        if (OUT / old).exists():
+            (OUT / old).rmdir()
+    only = sys.argv[1:]
+    mascots = [build(m, RW, RH) for m in MASCOTS if not only or m in only]
     outfits = [
         {"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]},
         {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "canh-nho"]},
@@ -402,10 +522,10 @@ def main():
         {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-hat-go", "tui-la"]},
         {"name": "Hiệp sĩ măng", "ids": ["mu-mang-bay-dot", "ao-choang-la", "gang-tay-la", "giay-la"]},
         {"name": "Tiên nhỏ", "ids": ["hoa-hai-mau", "no-la", "canh-nho", "dua-la"]},
+        {"name": "Dudu thường ngày", "ids": ["non-la-dudu", "gay-tre"]},
     ]
-    (OUT / "data.json").write_text(json.dumps({"size": size, "items": items, "outfits": outfits},
-                                              ensure_ascii=False), encoding="utf-8")
-    print(len(items), "items", size)
+    (OUT / "data.json").write_text(json.dumps({"mascots": mascots, "outfits": outfits}, ensure_ascii=False),
+                                   encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-<title>Hǔhǔ Thay Đồ</title>
+<title>Thay Đồ Bạn Nhỏ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@700;800&family=Lexend:wght@400;500;600&display=swap">
@@ -29,6 +29,10 @@ body { background: var(--paper); color: var(--ink); font-family: var(--font-body
 .stage header { padding: 18px 20px 0; }
 h1 { font-family: var(--font-display); font-weight: 800; font-size: 28px; margin: 0; color: var(--forest); line-height: 1.1; }
 .sub { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.who { display: inline-flex; gap: 4px; margin-top: 10px; background: var(--panel); border-radius: 99px; padding: 4px; }
+.who button { font: 600 14px var(--font-body); color: var(--ink); background: transparent; border: 0; border-radius: 99px; padding: 7px 16px; cursor: pointer; }
+.who button[aria-pressed="true"] { background: var(--on); color: var(--on-ink); }
+.who button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .figure { position: relative; min-height: 0; display: grid; place-items: center; }
 .rig { position: relative; height: 100%; max-height: 640px; aspect-ratio: var(--ar); max-width: 100%; }
 .rig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
@@ -66,10 +70,11 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: 28px; margin
 </style>
 
 <div class="app">
-  <section class="stage" aria-label="Hǔhǔ">
+  <section class="stage" aria-label="Bạn nhỏ">
     <header>
-      <h1>Hǔhǔ Thay Đồ</h1>
-      <p class="sub">Chạm một món để Hǔhǔ mặc. Mỗi chỗ (đầu, cổ, vai, lưng, tay, chân) mặc một món; Hǔhǔ đổi dáng theo đồ.</p>
+      <h1 id="title">Hǔhǔ Thay Đồ</h1>
+      <p class="sub" id="sub">Chạm một món để mặc. Mỗi chỗ (đầu, cổ, vai, lưng, tay, chân) mặc một món; đồ ôm theo dáng từng bạn.</p>
+      <div class="who" id="who" role="group" aria-label="Chọn bạn nhỏ"></div>
     </header>
     <div class="figure">
       <div class="rig" id="rig"></div>
@@ -93,28 +98,41 @@ h1 { font-family: var(--font-display); font-weight: 800; font-size: 28px; margin
 </div>
 
 <script>
-const DATA = {"size": [833, 900], "items": [{"id": "mu-chin-tang-gio", "name": "Mũ Chín Tầng Gió", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "mu-tan-bong-bay", "name": "Mũ Tán Bóng Bay", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "mu-mang-bay-dot", "name": "Mũ Măng Bảy Đốt", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "hoa-hai-mau", "name": "Hoa Hai Màu", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "vong-dom-dom", "name": "Vòng Đom Đóm", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "cai-la", "name": "Cài Lá", "slot": "head", "slotVi": "Đầu", "z": 6, "covered": false}, {"id": "khan-nam-dong-song", "name": "Khăn Năm Dòng Sông", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "mat-day-vong-trang", "name": "Mặt Dây Vòng Trăng", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-la-biet-bay", "name": "Khăn Lá Biết Bay", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-gio", "name": "Khăn Gió", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "khan-la-soc", "name": "Khăn Lá Sọc", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "chuoi-hat-go", "name": "Chuỗi Hạt Gỗ", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "no-la", "name": "Nơ Lá", "slot": "neck", "slotVi": "Cổ", "z": 5, "covered": false}, {"id": "ao-choang-la", "name": "Áo Choàng Lá", "slot": "shoulders", "slotVi": "Vai", "z": 4, "covered": false}, {"id": "canh-nho", "name": "Cánh Nhỏ", "slot": "back", "slotVi": "Lưng", "z": 0, "covered": false}, {"id": "gio-hat-mam", "name": "Giỏ Hạt Mầm", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "binh-ngoc-xanh", "name": "Bình Ngọc Xanh", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "tui-la", "name": "Túi Lá", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "dieu-gio-chay", "name": "Diều Gió Chạy", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "dua-la", "name": "Đũa Lá", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "gang-tay-la", "name": "Găng Tay Lá", "slot": "hand", "slotVi": "Tay", "z": 7, "covered": false}, {"id": "giay-la", "name": "Giày Lá", "slot": "feet", "slotVi": "Chân", "z": 3, "covered": false}], "outfits": [{"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]}, {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "canh-nho"]}, {"name": "Rừng thức dậy", "ids": ["mu-tan-bong-bay", "khan-la-biet-bay", "gio-hat-mam", "giay-la"]}, {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-hat-go", "tui-la"]}, {"name": "Hiệp sĩ măng", "ids": ["mu-mang-bay-dot", "ao-choang-la", "gang-tay-la", "giay-la"]}, {"name": "Tiên nhỏ", "ids": ["hoa-hai-mau", "no-la", "canh-nho", "dua-la"]}]};
+const DATA = {"mascots": [{"id": "huhu", "name": "Hǔhǔ", "size": [833, 900], "items": [{"id": "mu-chin-tang-gio", "name": "Mũ Chín Tầng Gió", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "mu-tan-bong-bay", "name": "Mũ Tán Bóng Bay", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "mu-mang-bay-dot", "name": "Mũ Măng Bảy Đốt", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "hoa-hai-mau", "name": "Hoa Hai Màu", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "vong-dom-dom", "name": "Vòng Đom Đóm", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "cai-la", "name": "Cài Lá", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "khan-nam-dong-song", "name": "Khăn Năm Dòng Sông", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "mat-day-vong-trang", "name": "Mặt Dây Vòng Trăng", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-la-biet-bay", "name": "Khăn Lá Biết Bay", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-gio", "name": "Khăn Gió", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-la-soc", "name": "Khăn Lá Sọc", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "chuoi-hat-go", "name": "Chuỗi Hạt Gỗ", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "no-la", "name": "Nơ Lá", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "ao-choang-la", "name": "Áo Choàng Lá", "slot": "shoulders", "slotVi": "Vai", "z": 4}, {"id": "canh-nho", "name": "Cánh Nhỏ", "slot": "back", "slotVi": "Lưng", "z": 0}, {"id": "gio-hat-mam", "name": "Giỏ Hạt Mầm", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "binh-ngoc-xanh", "name": "Bình Ngọc Xanh", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "tui-la", "name": "Túi Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "dieu-gio-chay", "name": "Diều Gió Chạy", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "dua-la", "name": "Đũa Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "gang-tay-la", "name": "Găng Tay Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "giay-la", "name": "Giày Lá", "slot": "feet", "slotVi": "Chân", "z": 3}]}, {"id": "wuwu", "name": "Wuwu", "size": [955, 900], "items": [{"id": "mu-chin-tang-gio", "name": "Mũ Chín Tầng Gió", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "mu-tan-bong-bay", "name": "Mũ Tán Bóng Bay", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "mu-mang-bay-dot", "name": "Mũ Măng Bảy Đốt", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "hoa-hai-mau", "name": "Hoa Hai Màu", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "vong-dom-dom", "name": "Vòng Đom Đóm", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "cai-la", "name": "Cài Lá", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "khan-nam-dong-song", "name": "Khăn Năm Dòng Sông", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "mat-day-vong-trang", "name": "Mặt Dây Vòng Trăng", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-la-biet-bay", "name": "Khăn Lá Biết Bay", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-gio", "name": "Khăn Gió", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-la-soc", "name": "Khăn Lá Sọc", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "chuoi-hat-go", "name": "Chuỗi Hạt Gỗ", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "no-la", "name": "Nơ Lá", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "ao-choang-la", "name": "Áo Choàng Lá", "slot": "shoulders", "slotVi": "Vai", "z": 4}, {"id": "canh-nho", "name": "Cánh Nhỏ", "slot": "back", "slotVi": "Lưng", "z": 0}, {"id": "gio-hat-mam", "name": "Giỏ Hạt Mầm", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "binh-ngoc-xanh", "name": "Bình Ngọc Xanh", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "tui-la", "name": "Túi Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "dieu-gio-chay", "name": "Diều Gió Chạy", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "dua-la", "name": "Đũa Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "gang-tay-la", "name": "Găng Tay Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "giay-la", "name": "Giày Lá", "slot": "feet", "slotVi": "Chân", "z": 3}]}, {"id": "dudu", "name": "Dudu", "size": [874, 900], "items": [{"id": "mu-chin-tang-gio", "name": "Mũ Chín Tầng Gió", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "mu-tan-bong-bay", "name": "Mũ Tán Bóng Bay", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "mu-mang-bay-dot", "name": "Mũ Măng Bảy Đốt", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "hoa-hai-mau", "name": "Hoa Hai Màu", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "vong-dom-dom", "name": "Vòng Đom Đóm", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "cai-la", "name": "Cài Lá", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "khan-nam-dong-song", "name": "Khăn Năm Dòng Sông", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "mat-day-vong-trang", "name": "Mặt Dây Vòng Trăng", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-la-biet-bay", "name": "Khăn Lá Biết Bay", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-gio", "name": "Khăn Gió", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "khan-la-soc", "name": "Khăn Lá Sọc", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "chuoi-hat-go", "name": "Chuỗi Hạt Gỗ", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "no-la", "name": "Nơ Lá", "slot": "neck", "slotVi": "Cổ", "z": 5}, {"id": "ao-choang-la", "name": "Áo Choàng Lá", "slot": "shoulders", "slotVi": "Vai", "z": 4}, {"id": "canh-nho", "name": "Cánh Nhỏ", "slot": "back", "slotVi": "Lưng", "z": 0}, {"id": "gio-hat-mam", "name": "Giỏ Hạt Mầm", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "binh-ngoc-xanh", "name": "Bình Ngọc Xanh", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "tui-la", "name": "Túi Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "dieu-gio-chay", "name": "Diều Gió Chạy", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "dua-la", "name": "Đũa Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "gang-tay-la", "name": "Găng Tay Lá", "slot": "hand", "slotVi": "Tay", "z": 7}, {"id": "giay-la", "name": "Giày Lá", "slot": "feet", "slotVi": "Chân", "z": 3}, {"id": "non-la-dudu", "name": "Nón Lá Của Dudu", "slot": "head", "slotVi": "Đầu", "z": 6}, {"id": "gay-tre", "name": "Gậy Tre", "slot": "hand", "slotVi": "Tay", "z": 7}]}], "outfits": [{"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]}, {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "canh-nho"]}, {"name": "Rừng thức dậy", "ids": ["mu-tan-bong-bay", "khan-la-biet-bay", "gio-hat-mam", "giay-la"]}, {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-hat-go", "tui-la"]}, {"name": "Hiệp sĩ măng", "ids": ["mu-mang-bay-dot", "ao-choang-la", "gang-tay-la", "giay-la"]}, {"name": "Tiên nhỏ", "ids": ["hoa-hai-mau", "no-la", "canh-nho", "dua-la"]}, {"name": "Dudu thường ngày", "ids": ["non-la-dudu", "gay-tre"]}]};
 const SLOTS = [["all", "Tất cả"], ["head", "Đầu"], ["neck", "Cổ"], ["shoulders", "Vai"], ["back", "Lưng"], ["hand", "Tay"], ["feet", "Chân"]];
 const ORDER = ["head", "neck", "shoulders", "back", "hand", "feet"];
-const byId = Object.fromEntries(DATA.items.map(i => [i.id, i]));
 const DISC = { head: "var(--d-head)", neck: "var(--d-neck)", shoulders: "var(--d-shoulders)", back: "var(--d-back)", hand: "var(--d-hand)", feet: "var(--d-feet)" };
+const KEY = "huhu-thay-do-v2";
 const empty = () => Object.fromEntries(ORDER.map(s => [s, null]));
-let worn = empty();
-let tab = "all";
-try { const s = JSON.parse(localStorage.getItem("huhu-thay-do") || "null"); if (s) for (const k in worn) if (byId[s[k]]) worn[k] = s[k]; } catch (e) {}
+let store = {};
+try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) {}
+let M, byId, worn, tab = "all";
 
 const rig = document.getElementById("rig");
-rig.style.setProperty("--ar", DATA.size[0] + " / " + DATA.size[1]);
 const cache = {};
 function layer(name) {
-  if (!cache[name]) { const im = new Image(); im.src = "layers/" + name + ".webp"; im.alt = ""; im.decoding = "async"; cache[name] = im; }
-  return cache[name];
+  const src = M.id + "/layers/" + name + ".webp";
+  if (!cache[src]) { const im = new Image(); im.src = src; im.alt = ""; im.decoding = "async"; cache[src] = im; }
+  return cache[src];
+}
+function pick(id) {
+  M = DATA.mascots.find(m => m.id === id) || DATA.mascots[0];
+  byId = Object.fromEntries(M.items.map(i => [i.id, i]));
+  worn = empty();
+  const s = store[M.id] || {};
+  for (const k in worn) if (byId[s[k]]) worn[k] = s[k];
+  store.who = M.id;
+  rig.style.setProperty("--ar", M.size[0] + " / " + M.size[1]);
+  document.getElementById("title").textContent = M.name + " Thay Đồ";
+  document.querySelectorAll("#who button").forEach(b => b.setAttribute("aria-pressed", b.dataset.id === M.id ? "true" : "false"));
+  buildPresets(); buildGrid(); render(); save();
+  for (const name of ["body", "wisps"]) layer(name);
 }
 
 function render() {
   const on = ORDER.map(k => worn[k] && byId[worn[k]]).filter(Boolean).sort((x, y) => x.z - y.z);
   const stack = on.filter(i => i.z === 0).map(i => i.id);
-  stack.push(on.some(i => i.covered) ? "body-noears" : "body");
+  stack.push("body");
   for (const i of on) if (i.z > 0) stack.push(i.id + "-sh");
   for (const i of on) if (i.z > 0) stack.push(i.id);
   stack.push("wisps");                       // ghost wisps always float in front
@@ -131,14 +149,22 @@ function render() {
     x.onclick = () => { worn[slot] = null; save(); render(); };
     c.append(x); w.append(c);
   }
-  if (!total) { const s = document.createElement("span"); s.className = "sub"; s.textContent = "Hǔhǔ chưa mặc gì."; w.append(s); }
+  if (!total) { const s = document.createElement("span"); s.className = "sub"; s.textContent = M.name + " chưa mặc gì."; w.append(s); }
   else { const t = document.createElement("span"); t.className = "total"; t.innerHTML = "<b></b> món"; t.querySelector("b").textContent = total; w.append(t); }
 
   document.querySelectorAll(".item").forEach(b => b.setAttribute("aria-pressed", worn[byId[b.dataset.id].slot] === b.dataset.id ? "true" : "false"));
 }
-function save() { try { localStorage.setItem("huhu-thay-do", JSON.stringify(worn)); } catch (e) {} }
+function save() { store[M.id] = worn; try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
 function toggle(id) { const s = byId[id].slot; worn[s] = worn[s] === id ? null : id; save(); render(); }
 
+function buildWho() {
+  const el = document.getElementById("who");
+  for (const m of DATA.mascots) {
+    const b = document.createElement("button"); b.type = "button"; b.dataset.id = m.id; b.textContent = m.name;
+    b.onclick = () => pick(m.id);
+    el.append(b);
+  }
+}
 function buildTabs() {
   const el = document.getElementById("tabs");
   for (const [k, label] of SLOTS) {
@@ -150,7 +176,7 @@ function buildTabs() {
 }
 function buildGrid() {
   const g = document.getElementById("grid"); g.textContent = "";
-  for (const it of DATA.items) {
+  for (const it of M.items) {
     if (tab !== "all" && it.slot !== tab) continue;
     const b = document.createElement("button"); b.type = "button"; b.className = "item"; b.dataset.id = it.id;
     b.innerHTML = '<span class="disc"><img alt="" loading="lazy"></span><span class="name"></span><span class="price"></span>';
@@ -163,8 +189,9 @@ function buildGrid() {
   }
 }
 function buildPresets() {
-  const el = document.getElementById("presets");
+  const el = document.getElementById("presets"); el.textContent = "";
   for (const o of DATA.outfits) {
+    if (!o.ids.every(id => byId[id])) continue;      // e.g. Dudu's own hat and stick
     const b = document.createElement("button"); b.type = "button"; b.className = "preset"; b.textContent = o.name;
     b.onclick = () => { worn = empty(); for (const id of o.ids) worn[byId[id].slot] = id; save(); render(); };
     el.append(b);
@@ -173,11 +200,10 @@ function buildPresets() {
 document.getElementById("reset").onclick = () => { worn = empty(); save(); render(); };
 document.getElementById("random").onclick = () => {
   for (const s of ORDER) {
-    const pool = DATA.items.filter(i => i.slot === s);
+    const pool = M.items.filter(i => i.slot === s);
     worn[s] = Math.random() < (s === "head" || s === "neck" ? 0.85 : 0.4) ? pool[Math.floor(Math.random() * pool.length)].id : null;
   }
   save(); render();
 };
-buildTabs(); buildPresets(); buildGrid(); render();
-for (const name of ["body", "body-noears", "wisps"]) layer(name);
+buildWho(); buildTabs(); pick(store.who || "huhu");
 </script>
