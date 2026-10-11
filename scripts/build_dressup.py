@@ -28,8 +28,26 @@ OUT = fp.ROOT / "docs/hu-hu-thay-do"
 Z = {"back": 0, "feet": 3, "shoulders": 4, "neck": 5, "head": 6, "hand": 7}
 SLOT_VI = {"head": "Đầu", "neck": "Cổ", "shoulders": "Vai", "back": "Lưng", "hand": "Tay", "feet": "Chân"}
 
+# Ready-made placements by kind of object (fractions of Hǔhǔ's pose), so a new item is one line:
+#   ("v5:s1-03", "id", "Tên", "hand", K["bag"]),   tweak with dict(K["bag"], h=.3) if it needs it.
+K = {
+    "hat": dict(kind="hat", x=.495, w=.54, bottom=.262, ears="behind"),           # sits on the head, ears behind
+    "flower": dict(kind="flower", x=.25, w=.22, cy=.22, ears="front"),           # tucked at the ear
+    "ring": dict(kind="ring", x=.50, w=.62, bottom=.285, ears="front", wrap=.66),  # wreath / headband round the head
+    "scarf": dict(kind="scarf", x=.51, w=.46, top=.50, band=True),               # wraps the neck
+    "pendant": dict(kind="pendant", x=.50, w=.24, top=.525),                     # hangs on the chest
+    "necklace": dict(kind="necklace", x=.50, w=.42, top=.50),
+    "cape": dict(kind="cape", worn="top"),                                       # shoulders to hips (or fitted art)
+    "wings": dict(kind="wings", x=.50, w=1.10, cy=.47),                          # behind the back
+    "bag": dict(kind="bag", h=.26, grip=(.50, .04)),                             # held by a top handle / strap
+    "bottle": dict(kind="bottle", h=.20, grip=(.50, .12)),                       # held by the neck / cord
+    "book": dict(kind="book", h=.24, grip=(.42, .86)),                           # held at the bottom edge
+    "stick": dict(kind="stick", h=.38, grip=(.25, .85), mirror=True),            # wand / staff, held low
+    "kite": dict(kind="kite", h=.34, grip=(.42, .45), mirror=True, fly=True),    # flies beside the head on a string
+}
 # file, id, name, slot, placement. Placement (fractions of Hǔhǔ's pose): x = centre, w = width,
 # and one of bottom / top / cy for the vertical edge. wrap: ring around the head.
+# File "NN" = assets/closet/v3/items/NN.png, "v4:s2-05" = assets/closet/v4/items/s2-05.png, and so on.
 CATALOG = [
     ("v4:s2-05", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.495, w=.52, bottom=.262, ears="behind")),
     ("v4:s3-06", "mu-la-bon-mua", "Mũ Lá Đổi Màu", "head", dict(x=.495, w=.60, bottom=.262, ears="behind")),
@@ -48,22 +66,22 @@ CATALOG = [
         ("32", "chuoi-hat-go", "Chuỗi Hạt Gỗ", "neck", dict(x=.50, w=.40, top=.44)),
     ("33", "no-la", "Nơ Lá", "neck", dict(x=.50, w=.42, top=.47)),
     ("10", "ao-choang-la", "Áo Choàng Lá", "shoulders", dict(worn="top")),
-    ("v4:s3-03", "ao-choang-vay-da", "Áo Choàng Vảy Đá", "shoulders", dict(worn="top")),
-    ("v4:s3-07", "ao-choang-buom-dem", "Áo Choàng Bướm Đêm", "shoulders", dict(worn="top")),
+    ("v4:s3-03", "ao-choang-vay-da", "Áo Choàng Vảy Đá", "shoulders", K["cape"]),
+    ("v4:s3-07", "ao-choang-buom-dem", "Áo Choàng Bướm Đêm", "shoulders", K["cape"]),
     ("16b", "canh-nho", "Cánh Nhỏ", "back", dict(x=.50, w=1.10, cy=.47)),
     ("13", "gio-hat-mam", "Giỏ Hạt Mầm", "hand", dict(h=.24, grip=(.50, .05))),
     ("v4:s3-01", "tui-hat-mam", "Túi Hạt Mầm", "hand", dict(h=.30, grip=(.50, .62))),
     ("v4:s2-01", "binh-dom-dom", "Bình Đom Đóm", "hand", dict(h=.20, grip=(.50, .12))),
-    ("v4:s2-08", "tui-mai-ngoi", "Túi Mái Ngói", "hand", dict(h=.26, grip=(.55, .04))),
-    ("v4:s2-02", "sach-buom-dem", "Sổ Bản Đồ Bướm", "hand", dict(h=.24, grip=(.42, .86))),
-    ("v4:s2-03", "gay-gio", "Gậy Gió Núi", "hand", dict(h=.40, grip=(.30, .82), mirror=True)),
-    ("v4:s3-02", "gay-trang", "Gậy Trăng Lặn", "hand", dict(h=.38, grip=(.20, .86), mirror=True)),
-    ("v4:s2-04", "ong-tre", "Đốt Trúc Biết Bay", "hand", dict(h=.40, grip=(.45, .72), mirror=True)),
-    ("v4:s3-04", "dieu-la", "Diều Gió Chạy", "hand", dict(h=.34, grip=(.42, .45), mirror=True, fly=(.08, .40))),
+    ("v4:s2-08", "tui-mai-ngoi", "Túi Mái Ngói", "hand", dict(K["bag"], grip=(.55, .04))),
+    ("v4:s2-02", "sach-buom-dem", "Sổ Bản Đồ Bướm", "hand", K["book"]),
+    ("v4:s2-03", "gay-gio", "Gậy Gió Núi", "hand", dict(K["stick"], h=.40, grip=(.30, .82))),
+    ("v4:s3-02", "gay-trang", "Gậy Trăng Lặn", "hand", dict(K["stick"], grip=(.20, .86))),
+    ("v4:s2-04", "ong-tre", "Đốt Trúc Biết Bay", "hand", dict(K["stick"], h=.40, grip=(.45, .72))),
+    ("v4:s3-04", "dieu-la", "Diều Gió Chạy", "hand", K["kite"]),
     ("23", "binh-ngoc-xanh", "Bình Ngọc Xanh", "hand", dict(h=.21, grip=(.52, .06))),
     ("12", "tui-la", "Túi Lá", "hand", dict(h=.23, grip=(.81, .07))),
     ("21", "dieu-gio-chay", "Diều Gió Chạy", "hand", dict(h=.34, grip=(.05, .33), mirror=True, fly=(.08, .40))),
-    ("22", "dua-la", "Đũa Lá", "hand", dict(h=.42, grip=(.14, .80), mirror=True)),
+    ("22", "dua-la", "Đũa Lá", "hand", dict(K["stick"], h=.42, grip=(.14, .80))),
     ("18+19", "gang-tay-la", "Găng Tay Lá", "hand", dict(pair="paws", top=.70)),
     ("14", "giay-la", "Giày Lá", "feet", dict(pair="feet", top=.85)),
 ]
@@ -152,8 +170,8 @@ MASCOTS = {
                  skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.9, fly=(.10, .26),
                  grip_mask=[(.455, .62, .052, .072), (.545, .62, .052, .072)],
                  fit={"vong-dom-dom": dict(dy=-.035, scale=.9),   # long held items would cover the face
-                      "gay-gio": dict(scale=.55), "gay-trang": dict(scale=.55), "ong-tre": dict(scale=.55),
-                      "dua-la": dict(scale=.6), "sach-buom-dem": dict(scale=.7)}, paws_front=True,
+                      "sach-buom-dem": dict(scale=.7)}, paws_front=True,
+                 kind_fit={"stick": dict(scale=.55), "book": dict(scale=.7)},
                  gloves=[dict(seed=(.44, .63), rows=(.50, .72), cols=(.37, .505), cuff="left"),
                          dict(seed=(.56, .63), rows=(.50, .72), cols=(.495, .63), cuff="right")],
                  feet=[.31, .70], foot_rows=(.875, .96),
@@ -323,6 +341,25 @@ def worn_art(art, fur_np, top_y, shoulder_y, bottom_y, W, H, pad, canvas, fur, s
     return out
 
 
+def fitted_top(art, region, top_y, max_y, W, H, pad, canvas, fur):
+    """Art drawn for this body (sleeves follow its arms): as wide as torso + arms, top under the chin,
+    its own proportions kept (never past the feet)."""
+    ys, xs = np.nonzero(region)
+    x0, x1 = xs.min(), xs.max()
+    w = (x1 - x0) * 1.06
+    h = art.height * w / art.width
+    if top_y + h > max_y:
+        h = max_y - top_y
+        w = art.width * h / art.height
+    art = art.resize((round(w), round(h)), Image.LANCZOS)
+    layer = Image.new("RGBA", (W, H))
+    layer.alpha_composite(art, (round((x0 + x1) / 2 - w / 2), round(top_y)))
+    layer.putalpha(ImageChops.multiply(layer.getchannel("A"), fur))
+    out = Image.new("RGBA", canvas)
+    out.alpha_composite(layer, (pad, pad))
+    return out
+
+
 def front_boot(region, art, W, H, pad, canvas, ink=fp.OUTLINE):
     """A front-view boot in the boot art's colours, drawn inside the foot's own outline:
     green shaft, cream toe cap, blue sole along the bottom contour, cream rim and gold bead on top."""
@@ -462,7 +499,9 @@ def ellipses(canvas, ells, W, H, pad):
     return m.filter(ImageFilter.GaussianBlur(1.2))
 
 
-def build(mid, RW, RH):
+def build(mid, RW, RH, only=None, prev=None):
+    """All layers of one companion. only: just these item ids, framed like the last full build
+    (prev = its data.json entry); returns None when one of them would not fit that frame."""
     M = MASCOTS[mid]
     ref = MASCOTS[REF]
     base, W, H, pad, canvas = load_pose(M)
@@ -498,6 +537,8 @@ def build(mid, RW, RH):
     layers = {"body": base, "wisps": wisps}
     items = []
     catalog = [c for c in CATALOG if c[1] not in HIDDEN] + [(f, i, n, s, dict(own=f)) for f, i, n, s in M.get("own", [])]
+    if only:
+        catalog = [c for c in catalog if c[1] in only]
     for files, iid, name, slot, p in catalog:
         thumb = None
         if p.get("own"):                            # the companion's own item, cut from its original pose
@@ -540,19 +581,23 @@ def build(mid, RW, RH):
                 fur_np = np.asarray(torso_img.crop((pad, pad, pad + W, pad + H))) > 0
                 body = fill_region(pose, M["torso"], chin, M["torso_bottom"], drop_white=M["drop_white"]) & fur_np
                 arms = fill_region(pose, [a[0] for a in M["arms"]], M["arm_rows"][0], M["arm_rows"][1], [a[1] for a in M["arms"]])
-                fitted = FITTED / mid / f"{iid}.png"     # art drawn for this companion's body, if there is one
-                if fitted.exists():
-                    art = Image.open(fitted).convert("RGBA")
-                    art = art.crop(art.getbbox())
+                fitted = FITTED / mid / f"{iid}.png"     # art drawn for this companion's body (with sleeves)
                 fur = Image.fromarray(fur_np.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(5))
                 y0 = np.interp(M["neck"][0], cx, cy) * H - .02 * H
-                layer = worn_art(art, fur_np, y0, M["shoulder"] * H, (M["hip"] + .03) * H, W, H, pad, canvas, fur,
-                                 M.get("shoulder_span", (0, 1)))
+                if fitted.exists():
+                    from import_item import remove_white
+                    art = remove_white(Image.open(fitted), 14)
+                    art = art.crop(art.getbbox())
+                    layer = fitted_top(art, body | arms, y0, M["foot_rows"][0] * H, W, H, pad, canvas, fur)
+                else:
+                    layer = worn_art(art, fur_np, y0, M["shoulder"] * H, (M["hip"] + .03) * H, W, H, pad, canvas, fur,
+                                     M.get("shoulder_span", (0, 1)))
                 erase(layer, head_mask)
                 if M.get("paws_front"):              # folded arms stay in front of the top
                     hold(layer)
             elif slot == "hand":
-                h = p["h"] * RH * M["hand_scale"] * M.get("fit", {}).get(iid, {}).get("scale", 1)
+                f = M.get("fit", {}).get(iid) or M.get("kind_fit", {}).get(p.get("kind"), {})
+                h = p["h"] * RH * M["hand_scale"] * f.get("scale", 1)
                 art = art.resize((max(1, round(art.width * h / art.height)), max(1, round(h))), Image.LANCZOS)
                 gx, gy = p["grip"]
                 if p.get("mirror"):  # point long items away from the body
@@ -574,7 +619,7 @@ def build(mid, RW, RH):
                 if slot == "neck":
                     art = fp.bend(art, -0.028 * RH * fr.k)
                 X, Y = fr.pt(p["x"], p[edge])
-                f = M.get("fit", {}).get(iid, {})       # per companion touch-ups (fractions of its pose)
+                f = M.get("fit", {}).get(iid) or M.get("kind_fit", {}).get(p.get("kind"), {})   # per companion touch-ups
                 X, Y = X + f.get("dx", 0) * W, Y + f.get("dy", 0) * H
                 layer = put_px(canvas, art, X, Y, edge, p["w"] * RW * fr.k * f.get("scale", 1), pad)
                 if p.get("band"):  # the scarf goes all the way round the neck, knot on top
@@ -600,8 +645,17 @@ def build(mid, RW, RH):
             box = b if box is None else (min(box[0], b[0]), min(box[1], b[1]), max(box[2], b[2]), max(box[3], b[3]))
     out = OUT / mid / "layers"
     out.mkdir(parents=True, exist_ok=True)
-    for f in out.glob("*.webp"):
-        f.unlink()
+    if only:                                        # keep the last frame so the other layers still line up
+        pb = tuple(prev["box"])
+        if box[0] < pb[0] or box[1] < pb[1] or box[2] > pb[2] or box[3] > pb[3]:
+            print(mid, "new items reach outside the frame: full rebuild")
+            return None
+        box = pb
+        for k in ("body", "wisps"):
+            layers.pop(k)
+    else:
+        for f in out.glob("*.webp"):
+            f.unlink()
     size = (round((box[2] - box[0]) * 900 / (box[3] - box[1])), 900)
     for name, img in layers.items():
         img.crop(box).resize(size, Image.LANCZOS).save(out / f"{name}.webp", quality=88, method=6)
@@ -612,13 +666,28 @@ def build(mid, RW, RH):
         t.thumbnail((200, 200), Image.LANCZOS)
         t.save(thumbs / f"{e['id']}.webp", quality=90)
     print(mid, len(items), "items", size)
-    return {"id": mid, "name": M["name"], "size": size, "items": items}
+    if only:                                        # merge into the last build, in catalog order
+        order = [c[1] for c in CATALOG] + [o[1] for o in M.get("own", [])]
+        merged = {i["id"]: i for i in prev["items"]}
+        merged.update({i["id"]: i for i in items})
+        items = sorted(merged.values(), key=lambda i: order.index(i["id"]) if i["id"] in order else 999)
+    return {"id": mid, "name": M["name"], "size": size, "box": list(box), "items": items}
 
 
 def main():
+    """python3 scripts/build_dressup.py                      everything (~5 min)
+       python3 scripts/build_dressup.py wuwu                 one companion
+       python3 scripts/build_dressup.py --items id1,id2      only these items, all companions (~20 s each)
+    Then the page is rebuilt too: docs/hu-hu-thay-do/hu-hu-thay-do.html"""
     RW, RH = Image.open(fp.ROOT / MASCOTS[REF]["pose"]).size
-    only = sys.argv[1:]
-    if not only:
+    args = sys.argv[1:]
+    items_only = None
+    if "--items" in args:
+        k = args.index("--items")
+        items_only = set(args[k + 1].split(","))
+        args = args[:k] + args[k + 2:]
+    only = args
+    if not only and not items_only:
         for f in (OUT / "thumbs").glob("*.webp"):
             f.unlink()
     for old in ("layers",):                         # the single-companion layout (before Wuwu and Dudu)
@@ -629,9 +698,21 @@ def main():
     done = {}
     if only and (OUT / "data.json").exists():       # rebuilding some companions: keep the others
         done = {m["id"]: m for m in json.loads((OUT / "data.json").read_text(encoding="utf-8"))["mascots"]}
-    for m in MASCOTS:
-        if not only or m in only:
-            done[m] = build(m, RW, RH)
+    if items_only:
+        prev = {m["id"]: m for m in json.loads((OUT / "data.json").read_text(encoding="utf-8"))["mascots"]}
+        unknown = items_only - {c[1] for c in CATALOG} - {o[1] for M in MASCOTS.values() for o in M.get("own", [])}
+        if unknown:
+            sys.exit(f"not in CATALOG: {sorted(unknown)}")
+        done = dict(prev)
+        for m in MASCOTS:
+            if only and m not in only:
+                continue
+            got = build(m, RW, RH, items_only, prev.get(m)) if "box" in prev.get(m, {}) else None
+            done[m] = got or build(m, RW, RH)
+    else:
+        for m in MASCOTS:
+            if not only or m in only:
+                done[m] = build(m, RW, RH)
     mascots = [done[m] for m in MASCOTS if m in done]
     for m in mascots:
         m["items"] = [i for i in m["items"] if i["id"] not in HIDDEN]
@@ -655,6 +736,12 @@ def main():
             i["region"], i["about"] = REGION_OF.get(i["id"]), ABOUT.get(i["id"], "")
     (OUT / "data.json").write_text(json.dumps({"mascots": mascots, "outfits": outfits, "regions": regions}, ensure_ascii=False),
                                    encoding="utf-8")
+    page = (OUT / "index.src.html").read_text(encoding="utf-8")
+    data = (OUT / "data.json").read_text(encoding="utf-8").replace("</", "<\\/")
+    (OUT / "hu-hu-thay-do.html").write_text(page.replace("__DATA__", data), encoding="utf-8")
+    missing = [i["id"] for m in mascots for i in m["items"] if not i.get("region")]
+    if missing:
+        print("no land (REGION_OF) yet:", sorted(set(missing)))
 
 
 if __name__ == "__main__":
