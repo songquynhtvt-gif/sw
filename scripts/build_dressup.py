@@ -31,22 +31,35 @@ SLOT_VI = {"head": "Đầu", "neck": "Cổ", "shoulders": "Vai", "back": "Lưng"
 # file, id, name, slot, placement. Placement (fractions of Hǔhǔ's pose): x = centre, w = width,
 # and one of bottom / top / cy for the vertical edge. wrap: ring around the head.
 CATALOG = [
-    ("00", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.495, w=.50, bottom=.255, ears="behind")),
+    ("v4:s2-05", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.495, w=.52, bottom=.262, ears="behind")),
+    ("v4:s3-06", "mu-la-bon-mua", "Mũ Lá Bốn Mùa", "head", dict(x=.495, w=.60, bottom=.262, ears="behind")),
     ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.495, w=.54, bottom=.26, ears="behind")),
     ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.495, w=.46, bottom=.255, ears="behind")),
-    ("04", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.24, w=.20, cy=.21, ears="front")),
+    ("v4:s3-05", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.25, w=.22, cy=.22, ears="front")),
     ("05", "vong-dom-dom", "Vòng Đom Đóm", "head", dict(x=.50, w=.62, bottom=.285, ears="front", wrap=.66)),
     ("26", "cai-la", "Cài Lá", "head", dict(x=.76, w=.20, cy=.21, ears="front")),
     ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.51, w=.46, top=.50, band=True)),
-    ("08", "mat-day-vong-trang", "Mặt Dây Vòng Trăng", "neck", dict(x=.50, w=.30, top=.45)),
+    ("v4:s2-07", "mat-day-vong-trang", "Mặt Dây Vòng Trăng", "neck", dict(x=.50, w=.24, top=.525)),
+    ("v4:s2-06", "chuoi-da-bay", "Chuỗi Đá Bay", "neck", dict(x=.50, w=.42, top=.50)),
+    ("v4:s3-08", "binh-sam", "Bình Sấm", "neck", dict(x=.50, w=.24, top=.525)),
     ("09", "khan-la-biet-bay", "Khăn Lá Biết Bay", "neck", dict(x=.50, w=.44, top=.50, band=True)),
     ("15", "khan-gio", "Khăn Gió", "neck", dict(x=.52, w=.50, top=.50, band=True)),
     ("17", "khan-la-soc", "Khăn Lá Sọc", "neck", dict(x=.50, w=.60, top=.50, band=True)),
         ("32", "chuoi-hat-go", "Chuỗi Hạt Gỗ", "neck", dict(x=.50, w=.40, top=.44)),
     ("33", "no-la", "Nơ Lá", "neck", dict(x=.50, w=.42, top=.47)),
     ("10", "ao-choang-la", "Áo Choàng Lá", "shoulders", dict(worn="top")),
+    ("v4:s3-03", "ao-choang-vay-da", "Áo Choàng Vảy Đá", "shoulders", dict(worn="top")),
+    ("v4:s3-07", "ao-choang-buom-dem", "Áo Choàng Bướm Đêm", "shoulders", dict(worn="top")),
     ("16b", "canh-nho", "Cánh Nhỏ", "back", dict(x=.50, w=1.10, cy=.47)),
     ("13", "gio-hat-mam", "Giỏ Hạt Mầm", "hand", dict(h=.24, grip=(.50, .05))),
+    ("v4:s3-01", "tui-hat-mam", "Túi Hạt Mầm", "hand", dict(h=.30, grip=(.50, .62))),
+    ("v4:s2-01", "binh-dom-dom", "Bình Đom Đóm", "hand", dict(h=.20, grip=(.50, .12))),
+    ("v4:s2-08", "tui-mai-ngoi", "Túi Mái Ngói", "hand", dict(h=.26, grip=(.55, .04))),
+    ("v4:s2-02", "sach-buom-dem", "Sách Bướm Đêm", "hand", dict(h=.24, grip=(.42, .86))),
+    ("v4:s2-03", "gay-gio", "Gậy Gió", "hand", dict(h=.40, grip=(.30, .82), mirror=True)),
+    ("v4:s3-02", "gay-trang", "Gậy Trăng", "hand", dict(h=.38, grip=(.20, .86), mirror=True)),
+    ("v4:s2-04", "ong-tre", "Ống Tre", "hand", dict(h=.40, grip=(.45, .72), mirror=True)),
+    ("v4:s3-04", "dieu-la", "Diều Lá", "hand", dict(h=.34, grip=(.42, .45), mirror=True, fly=(.08, .40))),
     ("23", "binh-ngoc-xanh", "Bình Ngọc Xanh", "hand", dict(h=.21, grip=(.52, .06))),
     ("12", "tui-la", "Túi Lá", "hand", dict(h=.23, grip=(.81, .07))),
     ("21", "dieu-gio-chay", "Diều Gió Chạy", "hand", dict(h=.34, grip=(.05, .33), mirror=True, fly=(.08, .40))),
@@ -56,7 +69,8 @@ CATALOG = [
 ]
 # 🔴 in the v2 scoring (tudo-mythic-v2 §8): kept in CATALOG for reference, not built or shown
 HIDDEN = {"binh-ngoc-xanh", "ao-choang-la", "khan-gio", "khan-la-soc", "no-la", "cai-la",
-          "chuoi-hat-go", "gang-tay-la", "giay-la", "tui-la"}
+          "chuoi-hat-go", "gang-tay-la", "giay-la", "tui-la",
+          "gio-hat-mam", "dieu-gio-chay"}               # replaced by the v4 Túi Hạt Mầm / Diều Lá
 GEN = fp.ROOT / "assets/char/gen"
 FITTED = fp.ROOT / "assets/closet/v3/fitted"   # <companion>/<item id>.png: art drawn to fit that body (prompts/closet/fitted-wearables.md)
 # Per companion geometry, fractions of its own pose.
@@ -82,7 +96,9 @@ MASCOTS = {
                  chin=[(.19, .42), (.33, .462), (.50, .478), (.67, .462), (.81, .42)],
                  skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.9, fly=(.10, .26),
                  grip_mask=[(.455, .62, .052, .072), (.545, .62, .052, .072)],
-                 fit={"vong-dom-dom": dict(dy=-.035, scale=.9)}, paws_front=True,
+                 fit={"vong-dom-dom": dict(dy=-.035, scale=.9),   # long held items would cover the face
+                      "gay-gio": dict(scale=.55), "gay-trang": dict(scale=.55), "ong-tre": dict(scale=.55),
+                      "dua-la": dict(scale=.6)}, paws_front=True,
                  gloves=[dict(seed=(.44, .63), rows=(.50, .72), cols=(.37, .505), cuff="left"),
                          dict(seed=(.56, .63), rows=(.50, .72), cols=(.495, .63), cuff="right")],
                  feet=[.31, .70], foot_rows=(.875, .96),
@@ -106,7 +122,8 @@ REF = "huhu"
 
 
 def load(name):
-    im = Image.open(ITEMS / f"{name}.png").convert("RGBA")
+    src = (ITEMS.parent.parent / "v4/items" / f"{name[3:]}.png") if name.startswith("v4:") else ITEMS / f"{name}.png"
+    im = Image.open(src).convert("RGBA")
     return im.crop(im.getbbox())
 
 
@@ -478,7 +495,7 @@ def build(mid, RW, RH):
                 if M.get("paws_front"):              # folded arms stay in front of the top
                     hold(layer)
             elif slot == "hand":
-                h = p["h"] * RH * M["hand_scale"]
+                h = p["h"] * RH * M["hand_scale"] * M.get("fit", {}).get(iid, {}).get("scale", 1)
                 art = art.resize((max(1, round(art.width * h / art.height)), max(1, round(h))), Image.LANCZOS)
                 gx, gy = p["grip"]
                 if p.get("mirror"):  # point long items away from the body
@@ -561,12 +578,13 @@ def main():
     for m in mascots:
         m["items"] = [i for i in m["items"] if i["id"] not in HIDDEN]
     outfits = [
-        {"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "khan-gio", "dieu-gio-chay"]},
-        {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "canh-nho"]},
-        {"name": "Rừng thức dậy", "ids": ["mu-tan-bong-bay", "khan-la-biet-bay", "gio-hat-mam", "giay-la"]},
-        {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-hat-go", "tui-la"]},
-        {"name": "Hiệp sĩ măng", "ids": ["mu-mang-bay-dot", "ao-choang-la", "gang-tay-la", "giay-la"]},
-        {"name": "Tiên nhỏ", "ids": ["hoa-hai-mau", "no-la", "canh-nho", "dua-la"]},
+        {"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "binh-sam", "gay-gio"]},
+        {"name": "Người canh trăng", "ids": ["mat-day-vong-trang", "ao-choang-buom-dem", "gay-trang"]},
+        {"name": "Rừng thức dậy", "ids": ["mu-la-bon-mua", "khan-la-biet-bay", "tui-hat-mam"]},
+        {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-da-bay", "binh-dom-dom"]},
+        {"name": "Hiệp sĩ đá", "ids": ["mu-mang-bay-dot", "ao-choang-vay-da", "ong-tre"]},
+        {"name": "Bến năm dòng", "ids": ["hoa-hai-mau", "khan-nam-dong-song", "dieu-la"]},
+        {"name": "Phố mái ngói", "ids": ["mu-tan-bong-bay", "tui-mai-ngoi", "sach-buom-dem"]},
         {"name": "Dudu thường ngày", "ids": ["non-la-dudu", "gay-tre"]},
     ]
     outfits = [dict(o, ids=[i for i in o["ids"] if i not in HIDDEN]) for o in outfits]
