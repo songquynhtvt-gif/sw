@@ -23,6 +23,7 @@ S = 4  # find shapes on a 1/S size mask
 
 def cut(img, cols, rows):
     """RGBA sheet laid out as a cols x rows grid -> list of RGBA objects in reading order.
+    cols may be a list (objects per row) when rows hold different numbers of objects.
     Each drawn shape goes to the cell its centre falls in, so loose parts stay with their object."""
     W, H = img.size
     small = img.getchannel("A").resize((W // S, H // S)).point(lambda a: 255 if a > 32 else 0)
@@ -33,8 +34,9 @@ def cut(img, cols, rows):
         ys, xs = np.nonzero(r)
         if not len(xs):
             continue
-        c = min(cols - 1, int((xs.mean() - x_lo) / (x_hi - x_lo) * cols))
         rw = min(rows - 1, int((ys.mean() - y_lo) / (y_hi - y_lo) * rows))
+        n = cols[rw] if isinstance(cols, list) else cols
+        c = min(n - 1, int((xs.mean() - x_lo) / (x_hi - x_lo) * n))
         cells[(rw, c)] = cells[(rw, c)] | r if (rw, c) in cells else r
     alpha = img.getchannel("A")
     out = []
@@ -67,7 +69,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("sheet", type=Path)
     ap.add_argument("out", type=Path)
-    ap.add_argument("--grid", required=True, help="columns x rows, e.g. 6x3")
+    ap.add_argument("--grid", required=True, help="columns x rows, e.g. 6x3, or objects per row, e.g. 5,4,4")
     ap.add_argument("--prefix", default="item")
     ap.add_argument("--upscaled", type=Path, help="the sheet already upscaled (skips Real-ESRGAN)")
     ap.add_argument("--tolerance", type=int, default=14)
@@ -79,7 +81,11 @@ def main():
         big = upscale.upscale(Image.open(a.sheet).convert("RGB"), 4)
         if a.upscaled:
             big.save(a.upscaled)
-    cols, rows = (int(v) for v in a.grid.lower().split("x"))
+    if "," in a.grid:
+        cols = [int(v) for v in a.grid.split(",")]
+        rows = len(cols)
+    else:
+        cols, rows = (int(v) for v in a.grid.lower().split("x"))
     objs, cells = cut(remove_white(big, a.tolerance), cols, rows)
     a.out.mkdir(parents=True, exist_ok=True)
     for k, pc in enumerate(objs):
