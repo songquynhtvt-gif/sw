@@ -32,7 +32,7 @@ SLOT_VI = {"head": "Đầu", "neck": "Cổ", "shoulders": "Vai", "back": "Lưng"
 # and one of bottom / top / cy for the vertical edge. wrap: ring around the head.
 CATALOG = [
     ("v4:s2-05", "mu-chin-tang-gio", "Mũ Chín Tầng Gió", "head", dict(x=.495, w=.52, bottom=.262, ears="behind")),
-    ("v4:s3-06", "mu-la-bon-mua", "Mũ Lá Bốn Mùa", "head", dict(x=.495, w=.60, bottom=.262, ears="behind")),
+    ("v4:s3-06", "mu-la-bon-mua", "Mũ Lá Đổi Màu", "head", dict(x=.495, w=.60, bottom=.262, ears="behind")),
     ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.495, w=.54, bottom=.26, ears="behind")),
     ("03", "mu-mang-bay-dot", "Mũ Măng Bảy Đốt", "head", dict(x=.495, w=.46, bottom=.255, ears="behind")),
     ("v4:s3-05", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(x=.25, w=.22, cy=.22, ears="front")),
@@ -41,7 +41,7 @@ CATALOG = [
     ("07", "khan-nam-dong-song", "Khăn Năm Dòng Sông", "neck", dict(x=.51, w=.46, top=.50, band=True)),
     ("v4:s2-07", "mat-day-vong-trang", "Mặt Dây Vòng Trăng", "neck", dict(x=.50, w=.24, top=.525)),
     ("v4:s2-06", "chuoi-da-bay", "Chuỗi Đá Bay", "neck", dict(x=.50, w=.42, top=.50)),
-    ("v4:s3-08", "binh-sam", "Bình Sấm", "neck", dict(x=.50, w=.24, top=.525)),
+    ("v4:s3-08", "binh-sam", "Bình Sấm Con", "neck", dict(x=.50, w=.24, top=.525)),
     ("09", "khan-la-biet-bay", "Khăn Lá Biết Bay", "neck", dict(x=.50, w=.44, top=.50, band=True)),
     ("15", "khan-gio", "Khăn Gió", "neck", dict(x=.52, w=.50, top=.50, band=True)),
     ("17", "khan-la-soc", "Khăn Lá Sọc", "neck", dict(x=.50, w=.60, top=.50, band=True)),
@@ -55,11 +55,11 @@ CATALOG = [
     ("v4:s3-01", "tui-hat-mam", "Túi Hạt Mầm", "hand", dict(h=.30, grip=(.50, .62))),
     ("v4:s2-01", "binh-dom-dom", "Bình Đom Đóm", "hand", dict(h=.20, grip=(.50, .12))),
     ("v4:s2-08", "tui-mai-ngoi", "Túi Mái Ngói", "hand", dict(h=.26, grip=(.55, .04))),
-    ("v4:s2-02", "sach-buom-dem", "Sách Bướm Đêm", "hand", dict(h=.24, grip=(.42, .86))),
-    ("v4:s2-03", "gay-gio", "Gậy Gió", "hand", dict(h=.40, grip=(.30, .82), mirror=True)),
-    ("v4:s3-02", "gay-trang", "Gậy Trăng", "hand", dict(h=.38, grip=(.20, .86), mirror=True)),
-    ("v4:s2-04", "ong-tre", "Ống Tre", "hand", dict(h=.40, grip=(.45, .72), mirror=True)),
-    ("v4:s3-04", "dieu-la", "Diều Lá", "hand", dict(h=.34, grip=(.42, .45), mirror=True, fly=(.08, .40))),
+    ("v4:s2-02", "sach-buom-dem", "Sổ Bản Đồ Bướm", "hand", dict(h=.24, grip=(.42, .86))),
+    ("v4:s2-03", "gay-gio", "Gậy Gió Núi", "hand", dict(h=.40, grip=(.30, .82), mirror=True)),
+    ("v4:s3-02", "gay-trang", "Gậy Trăng Lặn", "hand", dict(h=.38, grip=(.20, .86), mirror=True)),
+    ("v4:s2-04", "ong-tre", "Đốt Trúc Biết Bay", "hand", dict(h=.40, grip=(.45, .72), mirror=True)),
+    ("v4:s3-04", "dieu-la", "Diều Gió Chạy", "hand", dict(h=.34, grip=(.42, .45), mirror=True, fly=(.08, .40))),
     ("23", "binh-ngoc-xanh", "Bình Ngọc Xanh", "hand", dict(h=.21, grip=(.52, .06))),
     ("12", "tui-la", "Túi Lá", "hand", dict(h=.23, grip=(.81, .07))),
     ("21", "dieu-gio-chay", "Diều Gió Chạy", "hand", dict(h=.34, grip=(.05, .33), mirror=True, fly=(.08, .40))),
@@ -70,7 +70,59 @@ CATALOG = [
 # 🔴 in the v2 scoring (tudo-mythic-v2 §8): kept in CATALOG for reference, not built or shown
 HIDDEN = {"binh-ngoc-xanh", "ao-choang-la", "khan-gio", "khan-la-soc", "no-la", "cai-la",
           "chuoi-hat-go", "gang-tay-la", "giay-la", "tui-la",
-          "gio-hat-mam", "dieu-gio-chay"}               # replaced by the v4 Túi Hạt Mầm / Diều Lá
+          "gio-hat-mam", "dieu-gio-chay",               # replaced by v4 art
+          # not ok in the reviews: Christmas-tree hat, scarf without its flying leaves, angel wings,
+          # faces on the fireflies / seeds (no eyes or faces on objects)
+          "mu-mang-bay-dot", "khan-la-biet-bay", "canh-nho", "binh-dom-dom", "tui-hat-mam"}
+
+# Every item comes from one of the 13 lands (Brief v13.4 §09B, founder 10/10).
+REGION_OF = {
+    "sach-buom-dem": "C0", "vong-dom-dom": "C1", "non-la-dudu": "C1", "gay-tre": "C1",
+    "mu-tan-bong-bay": "C2", "ao-choang-buom-dem": "C2", "khan-nam-dong-song": "C3",
+    "gay-trang": "C4", "ong-tre": "C5", "chuoi-da-bay": "C6",
+    "mu-chin-tang-gio": "C7", "binh-sam": "C7", "gay-gio": "C7", "ao-choang-vay-da": "C8",
+    "mat-day-vong-trang": "C9", "dieu-la": "C10", "dua-la": "C10", "tui-mai-ngoi": "C11",
+    "hoa-hai-mau": "C12", "mu-la-bon-mua": "C12",
+}
+# What the item is, one line, tied to its land.
+ABOUT = {
+    "sach-buom-dem": "Sổ ông bà cố để lại: lật trang nào, bướm đêm bay ra trang đó.",
+    "vong-dom-dom": "Đom đóm của xóm tre bay vòng quanh đầu, như những ngọn đèn nhỏ.",
+    "non-la-dudu": "Chiếc nón quen thuộc mà Chó Đội Nón nhận ra ngay.",
+    "gay-tre": "Gậy tre đi đường của Dudu, chặt từ con đường tre trong xóm.",
+    "mu-tan-bong-bay": "Tán cây bé xíu lơ lửng trên đầu, nhặt được lúc chơi trốn tìm với Hổ Tinh.",
+    "ao-choang-buom-dem": "Áo choàng màu đêm, bướm trắng đậu quanh gấu áo như những đôi mắt trong lá.",
+    "khan-nam-dong-song": "Năm dải khăn chảy như năm nhánh sông, một đầu thành chú cá nhỏ.",
+    "gay-trang": "Mảnh trăng Ngư Tinh trả lại sau khi lặn xuống rồi nổi lên.",
+    "ong-tre": "Đốt trúc thứ bảy, đốt mà Hùng Tinh đếm cùng bé, tự nhảy lên khỏi thân.",
+    "chuoi-da-bay": "Năm hòn đá nhỏ lơ lửng, không bao giờ chạm nhau, như Hầu Tinh nhảy đá.",
+    "mu-chin-tang-gio": "Chín tầng vải như chín tầng gió, dải gió bay ngược lên trời.",
+    "binh-sam": "Một tia sấm nhỏ trên đỉnh núi gió, nhốt trong bình.",
+    "gay-gio": "Gió núi quấn quanh cây gậy, nơi Đại Bàng Tinh tập hạ cánh.",
+    "ao-choang-vay-da": "Vảy đá xếp lớp, một đường vàng uốn lượn như dấu Chằn Tinh để lại.",
+    "mat-day-vong-trang": "Vực nước nhỏ trong mặt dây, bóng trăng nằm yên giữa vòng sóng.",
+    "dieu-la": "Diều lá chạy đua với gió trên đồng cỏ của Thỏ Tinh.",
+    "dua-la": "Đũa lá vẫy gió, dải lụa bay theo như tai Thỏ Tinh.",
+    "tui-mai-ngoi": "Nắp túi là mái ngói nhỏ, dấu chân vàng chạy vào ô cửa sổ như Chuột Tinh.",
+    "hoa-hai-mau": "Mỗi cánh hoa hai màu, như hoa trong vườn ảo ảnh cứ đổi màu mãi.",
+    "mu-la-bon-mua": "Bốn chiếc lá bốn màu: mưa, nắng, thu, xanh. Mũ đổi màu như vườn hoa ảo ảnh.",
+}
+# Brief v13.4 §09B: land, English name, keeper, story (bé's view).
+REGIONS = {
+    "C0": ("Nhà Nhỏ Bên Đồi", "Little House on the Hill", "", "Bé tìm thấy bản đồ cũ của ông bà cố trong nhà. Tấm bản đồ có những vùng đất lạ. Bé chọn bạn đồng hành và bắt đầu chuyến đi."),
+    "C1": ("Xóm Tre Đèn Sáng", "Bamboo Lantern Hamlet", "🐕 Chó Đội Nón", "Bé đến một ngôi làng nhỏ. Chó nhận ra chiếc nón quen thuộc và dẫn bé đi qua con đường tre khi những chiếc đèn lần lượt sáng lên."),
+    "C2": ("Rừng Ngàn Mắt", "Forest of a Thousand Eyes", "🐯 Hổ Tinh", "Trong khu rừng, bé nhìn thấy những đôi mắt sáng giữa tán lá. Hổ bật mí đó chỉ là những người bạn đang chơi trốn tìm."),
+    "C3": ("Bến Năm Dòng", "Five-Stream Wharf", "🐊 Sấu Năm Chèo", "Bé đến một bến nước nơi dòng sông chia thành nhiều nhánh. Sấu xuất hiện và khoe điều đặc biệt nhất của mình: năm chiếc chân."),
+    "C4": ("Vịnh Nuốt Trăng", "Moon-Swallowing Bay", "🐟 Ngư Tinh", "Bé đến biển vào một đêm trăng. Ngư Tinh xuất hiện dưới mặt nước và chơi đùa với bóng trăng trên lưng mình."),
+    "C5": ("Rừng Thất Trúc", "Seven-Node Bamboo Forest", "🐻 Hùng Tinh", "Bé gặp Hùng Tinh giữa rừng trúc. Hùng Tinh rất yêu một cây trúc đặc biệt và cùng bé đếm đủ bảy đốt trên thân cây."),
+    "C6": ("Rừng Đá Nhảy", "Jumping Stone Forest", "🐒 Hầu Tinh", "Bé nghe tiếng động trong rừng rồi gặp Hầu Tinh. Hầu Tinh đưa bé xem cách mình nhảy từ tảng đá này sang tảng đá khác."),
+    "C7": ("Đỉnh Chín Tầng Gió", "Nine-Wind Peak", "🦅 Đại Bàng Tinh", "Bé leo lên một ngọn núi đầy gió và gặp Đại Bàng Tinh. Đại Bàng bay rất giỏi nhưng vẫn đang tập cách hạ cánh thật đẹp."),
+    "C8": ("Thung Lũng Vảy Đá", "Stone-Scale Valley", "🐍 Chằn Tinh", "Bé nhìn thấy những dấu dài uốn quanh các tảng đá. Chằn Tinh xuất hiện và tiết lộ đó là dấu mình để lại."),
+    "C9": ("Vực Ngân Nguyệt", "Silver Moon Gorge", "🐉 Thuồng Luồng", "Bé đến một vực nước sáng dưới ánh trăng. Thuồng Luồng nhút nhát xuất hiện và dẫn bé xem nơi mình thích bơi nhất."),
+    "C10": ("Đồng Cỏ Gió Chạy", "Wind-Racing Meadow", "🐰 Thỏ Tinh", "Bé gặp Thỏ Tinh trên một đồng cỏ rộng. Thỏ chạy nhanh đến mức tưởng như đang chạy đua với gió."),
+    "C11": ("Phố Mái Ngói", "Tiled-Roof Street", "🐭 Chuột Tinh", "Khi trời tối, bé nghe tiếng động trên những mái nhà. Chuột Tinh xuất hiện và chơi trò trốn tìm trên mái ngói."),
+    "C12": ("Vườn Hoa Ảo Ảnh", "Mirage Flower Garden", "🦊 Cáo Quỷ", "Ở điểm cuối bản đồ, bé gặp Cáo Quỷ trong một khu vườn kỳ lạ. Những bông hoa liên tục đổi màu và hình dạng."),
+}
 GEN = fp.ROOT / "assets/char/gen"
 FITTED = fp.ROOT / "assets/closet/v3/fitted"   # <companion>/<item id>.png: art drawn to fit that body (prompts/closet/fitted-wearables.md)
 # Per companion geometry, fractions of its own pose.
@@ -80,9 +132,12 @@ FITTED = fp.ROOT / "assets/closet/v3/fitted"   # <companion>/<item id>.png: art 
 #   grip_mask: ellipses (x, y, rx, ry) of the companion's own paws, redrawn over held items
 #   gloves: per hand, a seed inside it, its row / column range and which side the cuff is on
 #   feet: foot centre x values; top garment: torso seeds, bottom row, arm seeds and rows
+#   hip: where tops end. Checked against the proportion guides (11 Oct, form 1, head top -> ground):
+#     Hǔhǔ eyes .28 chin .43 shoulders .50 hips .77 knees .88 · Wuwu .18 .41 .45 .75 .88 ·
+#     Dudu .18 .39 .42 .78 .87 (hat brims sit halfway between head top and eyes)
 #   hand_scale: held items' size against Hǔhǔ's; fit: per item touch-ups (dx, dy, scale)
 MASCOTS = {
-    "huhu": dict(name="Hǔhǔ", pose="assets/char/gen/huhu-front-idle.png", ink=(46, 83, 59),
+    "huhu": dict(name="Hǔhǔ", hip=.80, pose="assets/char/gen/huhu-front-idle.png", ink=(46, 83, 59),
                  head=(.495, .255, .606), neck=(.498, .548, .648), back=(.50, .47, .62),
                  chin=[(.174, .509), (.311, .536), (.498, .548), (.685, .536), (.822, .509)],
                  skull=(.492, .376, .311, .251), grip=(.215, .855), grip_kind="paw", hand_scale=1.0, fly=(.08, .40),
@@ -91,21 +146,21 @@ MASCOTS = {
                  feet=[.318, .645], foot_rows=(.85, .94),
                  torso=[(.50, .70)], torso_bottom=.865, drop_white=True,
                  arms=[((.205, .80), (.15, .26)), ((.744, .80), (.70, .78))], arm_rows=(.60, .866)),
-    "wuwu": dict(name="Wuwu", pose="assets/char/gen/wuwu/wuwu-dressup-base.png", ink=(11, 34, 61),
+    "wuwu": dict(name="Wuwu", hip=.785, pose="assets/char/gen/wuwu/wuwu-dressup-base.png", ink=(11, 34, 61),
                  head=(.50, .19, .64), neck=(.50, .478, .72), back=(.50, .58, .80),
                  chin=[(.19, .42), (.33, .462), (.50, .478), (.67, .462), (.81, .42)],
                  skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.9, fly=(.10, .26),
                  grip_mask=[(.455, .62, .052, .072), (.545, .62, .052, .072)],
                  fit={"vong-dom-dom": dict(dy=-.035, scale=.9),   # long held items would cover the face
                       "gay-gio": dict(scale=.55), "gay-trang": dict(scale=.55), "ong-tre": dict(scale=.55),
-                      "dua-la": dict(scale=.6)}, paws_front=True,
+                      "dua-la": dict(scale=.6), "sach-buom-dem": dict(scale=.7)}, paws_front=True,
                  gloves=[dict(seed=(.44, .63), rows=(.50, .72), cols=(.37, .505), cuff="left"),
                          dict(seed=(.56, .63), rows=(.50, .72), cols=(.495, .63), cuff="right")],
                  feet=[.31, .70], foot_rows=(.875, .96),
                  torso=[(.50, .50), (.50, .76)], torso_bottom=.80, drop_white=False,
                  arms=[((.25, .60), None), ((.75, .60), None)], arm_rows=(.44, .72)),
-    "dudu": dict(name="Dudu", pose="assets/char/gen/dudu/dudu-dressup-base.png", ink=(91, 28, 3),
-                 head=(.548, .215, .58), neck=(.55, .52, .58), back=(.55, .64, .62),
+    "dudu": dict(name="Dudu", hip=.796, pose="assets/char/gen/dudu/dudu-dressup-base.png", ink=(91, 28, 3),
+                 head=(.548, .225, .58), neck=(.55, .52, .58), back=(.55, .64, .62),
                  chin=[(.29, .44), (.36, .50), (.43, .565), (.50, .53), (.58, .515), (.68, .49), (.80, .44)],
                  skull=(.548, .36, .272, .24), grip=(.20, .60), grip_kind="mask", hand_scale=1.7, fly=(.08, .30),
                  grip_mask=[(.197, .603, .074, .08)],
@@ -489,8 +544,8 @@ def build(mid, RW, RH):
                     art = art.crop(art.getbbox())
                 fur = Image.fromarray(fur_np.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(5))
                 y0 = np.interp(M["neck"][0], cx, cy) * H - .01 * H
-                layer = worn_art(art, body | arms, y0, W, H, pad, canvas, fur,     # over the shoulders and arms
-                                 M["foot_rows"][0] * H)
+                layer = worn_art(art, body | arms, y0, W, H, pad, canvas, fur,     # shoulders to hips
+                                 M["hip"] * H)
                 erase(layer, head_mask)
                 if M.get("paws_front"):              # folded arms stay in front of the top
                     hold(layer)
@@ -533,7 +588,8 @@ def build(mid, RW, RH):
                     erase(layer, ImageChops.multiply(ImageChops.multiply(behind, head_ell), body_a))
         layers[iid] = layer
         layers[iid + "-sh"] = fp.shadow([layer], base, H)
-        items.append({"id": iid, "name": name, "slot": slot, "slotVi": SLOT_VI[slot], "z": Z[slot], "_thumb": thumb})
+        items.append({"id": iid, "name": name, "slot": slot, "slotVi": SLOT_VI[slot], "z": Z[slot],
+                      "region": REGION_OF.get(iid), "about": ABOUT.get(iid, ""), "_thumb": thumb})
 
     box = None
     for img in layers.values():
@@ -579,17 +635,23 @@ def main():
         m["items"] = [i for i in m["items"] if i["id"] not in HIDDEN]
     outfits = [
         {"name": "Nhà du hành gió", "ids": ["mu-chin-tang-gio", "binh-sam", "gay-gio"]},
-        {"name": "Người canh trăng", "ids": ["mat-day-vong-trang", "ao-choang-buom-dem", "gay-trang"]},
-        {"name": "Rừng thức dậy", "ids": ["mu-la-bon-mua", "khan-la-biet-bay", "tui-hat-mam"]},
-        {"name": "Thợ săn đom đóm", "ids": ["vong-dom-dom", "chuoi-da-bay", "binh-dom-dom"]},
-        {"name": "Hiệp sĩ đá", "ids": ["mu-mang-bay-dot", "ao-choang-vay-da", "ong-tre"]},
+        {"name": "Người canh trăng", "ids": ["vong-dom-dom", "mat-day-vong-trang", "gay-trang"]},
+        {"name": "Rừng ngàn mắt", "ids": ["mu-tan-bong-bay", "ao-choang-buom-dem", "sach-buom-dem"]},
+        {"name": "Hiệp sĩ đá", "ids": ["ao-choang-vay-da", "chuoi-da-bay", "ong-tre"]},
         {"name": "Bến năm dòng", "ids": ["hoa-hai-mau", "khan-nam-dong-song", "dieu-la"]},
-        {"name": "Phố mái ngói", "ids": ["mu-tan-bong-bay", "tui-mai-ngoi", "sach-buom-dem"]},
+        {"name": "Phố mái ngói", "ids": ["mu-la-bon-mua", "tui-mai-ngoi", "dua-la"]},
         {"name": "Dudu thường ngày", "ids": ["non-la-dudu", "gay-tre"]},
     ]
     outfits = [dict(o, ids=[i for i in o["ids"] if i not in HIDDEN]) for o in outfits]
     outfits = [o for o in outfits if len(o["ids"]) >= 2]
-    (OUT / "data.json").write_text(json.dumps({"mascots": mascots, "outfits": outfits}, ensure_ascii=False),
+    regions = {k: dict(zip(("name", "en", "keeper", "story"), v)) for k, v in REGIONS.items()}
+    for m in mascots:                              # names / lands may change without a rebuild of the layers
+        by = {c[1]: c for c in CATALOG}
+        for i in m["items"]:
+            if i["id"] in by:
+                i["name"] = by[i["id"]][2]
+            i["region"], i["about"] = REGION_OF.get(i["id"]), ABOUT.get(i["id"], "")
+    (OUT / "data.json").write_text(json.dumps({"mascots": mascots, "outfits": outfits, "regions": regions}, ensure_ascii=False),
                                    encoding="utf-8")
 
 
