@@ -132,12 +132,12 @@ FITTED = fp.ROOT / "assets/closet/v3/fitted"   # <companion>/<item id>.png: art 
 #   grip_mask: ellipses (x, y, rx, ry) of the companion's own paws, redrawn over held items
 #   gloves: per hand, a seed inside it, its row / column range and which side the cuff is on
 #   feet: foot centre x values; top garment: torso seeds, bottom row, arm seeds and rows
-#   hip: where tops end. Checked against the proportion guides (11 Oct, form 1, head top -> ground):
+#   shoulder / hip: tops span the body width at the shoulder row and end at the hips. Checked against the proportion guides (11 Oct, form 1, head top -> ground):
 #     Hǔhǔ eyes .28 chin .43 shoulders .50 hips .77 knees .88 · Wuwu .18 .41 .45 .75 .88 ·
 #     Dudu .18 .39 .42 .78 .87 (hat brims sit halfway between head top and eyes)
 #   hand_scale: held items' size against Hǔhǔ's; fit: per item touch-ups (dx, dy, scale)
 MASCOTS = {
-    "huhu": dict(name="Hǔhǔ", hip=.80, pose="assets/char/gen/huhu-front-idle.png", ink=(46, 83, 59),
+    "huhu": dict(name="Hǔhǔ", hip=.80, shoulder=.60, pose="assets/char/gen/huhu-front-idle.png", ink=(46, 83, 59),
                  head=(.495, .255, .606), neck=(.498, .548, .648), back=(.50, .47, .62),
                  chin=[(.174, .509), (.311, .536), (.498, .548), (.685, .536), (.822, .509)],
                  skull=(.492, .376, .311, .251), grip=(.215, .855), grip_kind="paw", hand_scale=1.0, fly=(.08, .40),
@@ -146,7 +146,7 @@ MASCOTS = {
                  feet=[.318, .645], foot_rows=(.85, .94),
                  torso=[(.50, .70)], torso_bottom=.865, drop_white=True,
                  arms=[((.205, .80), (.15, .26)), ((.744, .80), (.70, .78))], arm_rows=(.60, .866)),
-    "wuwu": dict(name="Wuwu", hip=.785, pose="assets/char/gen/wuwu/wuwu-dressup-base.png", ink=(11, 34, 61),
+    "wuwu": dict(name="Wuwu", hip=.785, shoulder=.53, pose="assets/char/gen/wuwu/wuwu-dressup-base.png", ink=(11, 34, 61),
                  head=(.50, .19, .64), neck=(.50, .478, .72), back=(.50, .58, .80),
                  chin=[(.19, .42), (.33, .462), (.50, .478), (.67, .462), (.81, .42)],
                  skull=(.50, .30, .31, .22), grip=(.50, .62), grip_kind="mask", hand_scale=1.9, fly=(.10, .26),
@@ -159,12 +159,12 @@ MASCOTS = {
                  feet=[.31, .70], foot_rows=(.875, .96),
                  torso=[(.50, .50), (.50, .76)], torso_bottom=.80, drop_white=False,
                  arms=[((.25, .60), None), ((.75, .60), None)], arm_rows=(.44, .72)),
-    "dudu": dict(name="Dudu", hip=.796, pose="assets/char/gen/dudu/dudu-dressup-base.png", ink=(91, 28, 3),
-                 head=(.548, .225, .58), neck=(.55, .52, .58), back=(.55, .64, .62),
+    "dudu": dict(name="Dudu", hip=.796, shoulder=.56, shoulder_span=(.30, .90), pose="assets/char/gen/dudu/dudu-dressup-base.png", ink=(91, 28, 3),
+                 head=(.548, .25, .58), neck=(.55, .52, .58), back=(.55, .64, .62),
                  chin=[(.29, .44), (.36, .50), (.43, .565), (.50, .53), (.58, .515), (.68, .49), (.80, .44)],
                  skull=(.548, .36, .272, .24), grip=(.20, .60), grip_kind="mask", hand_scale=1.7, fly=(.08, .30),
                  grip_mask=[(.197, .603, .074, .08)],
-                 fit={"vong-dom-dom": dict(dy=-.005), "hoa-hai-mau": dict(dx=.04, dy=.03), "cai-la": dict(dx=-.02, dy=.02)},
+                 fit={"vong-dom-dom": dict(dy=-.02), "hoa-hai-mau": dict(dx=.04, dy=.03), "cai-la": dict(dx=-.02, dy=.02)},
                  gloves=[dict(seed=(.17, .60), rows=(.50, .70), cols=(.10, .272), cuff="right"),
                          dict(seed=(.82, .78), rows=(.715, .84), cols=(.74, .90), cuff="top")],
                  feet=[.405, .65], foot_rows=(.87, .94),
@@ -301,20 +301,22 @@ def fill_region(pose, seeds, y0, y1, x_ranges=None, drop_white=False):
     return out
 
 
-def worn_art(art, region, chin_y, W, H, pad, canvas, fur, bottom=None):
-    """A garment picture laid on the body: as wide as the region it covers (aspect kept), its top
-    just under the chin, trimmed to the companion's silhouette."""
-    ys, xs = np.nonzero(region)
-    x0, x1 = xs.min(), xs.max()
-    w = (x1 - x0) * 1.04
-    h = art.height * w / art.width
-    bottom = ys.max() if bottom is None else bottom
-    if h > bottom - chin_y:                         # it stops where the feet start: squash a little,
-        h = bottom - chin_y                         # then narrow it if it would need more than that
-        w = min(w, art.width * h / art.height * 1.3)
+def worn_art(art, fur_np, top_y, shoulder_y, bottom_y, W, H, pad, canvas, fur, span=(0, 1)):
+    """A garment picture laid on the body, sized to the companion's own measurements
+    (proportion guides, 11 Oct): as wide as the body at the shoulder line, from just under the
+    chin down to the hips; trimmed to the silhouette so it never spills past the outline."""
+    row = np.nonzero(fur_np[round(shoulder_y)])[0]
+    row = row[(row >= span[0] * W) & (row <= span[1] * W)]   # an arm held out is not the shoulders
+    x0, x1 = row.min(), row.max()
+    w = (x1 - x0) * 1.10
+    h = bottom_y - top_y
+    if h / w > art.height / art.width * 1.35:      # keep the design's shape: at most a little stretch
+        h = w * art.height / art.width * 1.35
+    elif h / w < art.height / art.width / 1.35:
+        h = w * art.height / art.width / 1.35
     art = art.resize((round(w), round(h)), Image.LANCZOS)
     layer = Image.new("RGBA", (W, H))
-    layer.alpha_composite(art, (round((x0 + x1) / 2 - w / 2), round(chin_y)))
+    layer.alpha_composite(art, (round((x0 + x1) / 2 - w / 2), round(top_y)))
     layer.putalpha(ImageChops.multiply(layer.getchannel("A"), fur))
     out = Image.new("RGBA", canvas)
     out.alpha_composite(layer, (pad, pad))
@@ -543,9 +545,9 @@ def build(mid, RW, RH):
                     art = Image.open(fitted).convert("RGBA")
                     art = art.crop(art.getbbox())
                 fur = Image.fromarray(fur_np.astype(np.uint8) * 255).filter(ImageFilter.MaxFilter(5))
-                y0 = np.interp(M["neck"][0], cx, cy) * H - .01 * H
-                layer = worn_art(art, body | arms, y0, W, H, pad, canvas, fur,     # shoulders to hips
-                                 M["hip"] * H)
+                y0 = np.interp(M["neck"][0], cx, cy) * H - .02 * H
+                layer = worn_art(art, fur_np, y0, M["shoulder"] * H, (M["hip"] + .03) * H, W, H, pad, canvas, fur,
+                                 M.get("shoulder_span", (0, 1)))
                 erase(layer, head_mask)
                 if M.get("paws_front"):              # folded arms stay in front of the top
                     hold(layer)
