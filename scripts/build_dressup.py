@@ -108,7 +108,8 @@ ACTIVE = {"tui-hat-mam", "vong-dom-dom", "sach-buom-dem", "khan-nam-dong-song", 
 ACTIVE |= {c[1] for c in CATALOG if c[0].startswith("v5:s2-")
            and (ITEMS.parent.parent / "v5/items" / f"{c[0][3:]}.png").exists()}
 # v5 sheet 2 against the rules: lanterns of any kind; nothing may cover the eyes
-HIDDEN_V5 = {"den-tre", "kinh-dom-dom"}
+HIDDEN_V5 = {"den-tre", "kinh-dom-dom",
+             "guong-trang"}                 # dropped by the founder (11 Oct)
 # 🔴 in the v2 scoring (tudo-mythic-v2 §8): kept in CATALOG for reference, not built or shown
 HIDDEN = {"binh-ngoc-xanh", "ao-choang-la", "khan-gio", "khan-la-soc", "no-la", "cai-la",
           "chuoi-hat-go", "gang-tay-la", "giay-la", "tui-la",
