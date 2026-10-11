@@ -63,6 +63,20 @@ CATALOG = [
     ("v5:s1-11", "dieu-la", "Diều Gió Chạy", "hand", K["kite"]),
     ("v5:s1-12", "tui-mai-ngoi", "Túi Mái Ngói", "hand", dict(K["bag"], h=.28, grip=(.18, .08))),
     ("v5:s1-13", "hoa-hai-mau", "Hoa Hai Màu", "head", dict(K["flower"], w=.24)),
+    # v5 sheet 2 (bell, lantern, glasses, ...): shown once assets/closet/v5/items/s2-NN.png exist
+    ("v5:s2-01", "chuong-la", "Chuông Lá Nhà Đồi", "hand", dict(K["bag"], h=.26, grip=(.62, .06))),
+    ("v5:s2-02", "den-tre", "Đèn Tre", "hand", dict(K["bag"], h=.30, grip=(.5, .04))),
+    ("v5:s2-03", "kinh-dom-dom", "Kính Đom Đóm", "head", dict(K["hat"], w=.62, bottom=.40)),
+    ("v5:s2-04", "binh-suoi", "Bình Suối Năm Dòng", "neck", dict(K["pendant"], w=.28)),
+    ("v5:s2-05", "vo-so-trang", "Vỏ Sò Nuốt Trăng", "hand", dict(K["bag"], h=.24, grip=(.5, .80))),
+    ("v5:s2-06", "sao-truc", "Sáo Trúc Bảy Lỗ", "hand", dict(K["stick"], h=.36, grip=(.35, .75))),
+    ("v5:s2-07", "vong-da-nhay", "Vòng Đá Nhảy", "neck", dict(K["necklace"], w=.46)),
+    ("v5:s2-08", "chong-chong-gio", "Chong Chóng Gió", "hand", dict(K["stick"], h=.40, grip=(.10, .92))),
+    ("v5:s2-09", "tui-da-sen", "Túi Đá Nở Sen", "hand", dict(K["bag"], h=.28, grip=(.5, .45))),
+    ("v5:s2-10", "guong-trang", "Gương Ngân Nguyệt", "hand", dict(K["stick"], h=.36, grip=(.6, .90))),
+    ("v5:s2-11", "vong-co-gio", "Vòng Cỏ Gió", "head", K["ring"]),
+    ("v5:s2-12", "chia-khoa-mai-ngoi", "Chìa Khoá Mái Ngói", "hand", dict(K["stick"], h=.34, grip=(.3, .80))),
+    ("v5:s2-13", "guong-hoa", "Gương Hoa Ảo Ảnh", "hand", dict(K["stick"], h=.36, grip=(.3, .92))),
     # older art, kept for reference (not shown)
     ("v4:s3-06", "mu-la-bon-mua", "Mũ Lá Đổi Màu", "head", dict(x=.495, w=.60, bottom=.262, ears="behind")),
     ("02", "mu-tan-bong-bay", "Mũ Tán Bóng Bay", "head", dict(x=.495, w=.54, bottom=.26, ears="behind")),
@@ -91,6 +105,10 @@ CATALOG = [
 ACTIVE = {"tui-hat-mam", "vong-dom-dom", "sach-buom-dem", "khan-nam-dong-song", "mu-trang-khuyet", "ong-tre",
           "chuoi-da-bay", "mu-chin-tang-gio", "ao-choang-vay-da", "mat-day-vong-trang", "dieu-la",
           "tui-mai-ngoi", "hoa-hai-mau"}     # + each companion's own items (Dudu's nón lá, gậy tre)
+ACTIVE |= {c[1] for c in CATALOG if c[0].startswith("v5:s2-")
+           and (ITEMS.parent.parent / "v5/items" / f"{c[0][3:]}.png").exists()}
+# v5 sheet 2 against the rules: lanterns of any kind; nothing may cover the eyes
+HIDDEN_V5 = {"den-tre", "kinh-dom-dom"}
 # 🔴 in the v2 scoring (tudo-mythic-v2 §8): kept in CATALOG for reference, not built or shown
 HIDDEN = {"binh-ngoc-xanh", "ao-choang-la", "khan-gio", "khan-la-soc", "no-la", "cai-la",
           "chuoi-hat-go", "gang-tay-la", "giay-la", "tui-la",
@@ -101,6 +119,9 @@ HIDDEN = {"binh-ngoc-xanh", "ao-choang-la", "khan-gio", "khan-la-soc", "no-la", 
 
 # Every item comes from one of the 13 lands (Brief v13.4 §09B, founder 10/10).
 REGION_OF = {
+    "chuong-la": "C0", "den-tre": "C1", "kinh-dom-dom": "C2", "binh-suoi": "C3", "vo-so-trang": "C4",
+    "sao-truc": "C5", "vong-da-nhay": "C6", "chong-chong-gio": "C7", "tui-da-sen": "C8", "guong-trang": "C9",
+    "vong-co-gio": "C10", "chia-khoa-mai-ngoi": "C11", "guong-hoa": "C12",
     "tui-hat-mam": "C0", "sach-buom-dem": "C2", "mu-trang-khuyet": "C4", "vong-dom-dom": "C1", "non-la-dudu": "C1", "gay-tre": "C1",
     "mu-tan-bong-bay": "C2", "ao-choang-buom-dem": "C2", "khan-nam-dong-song": "C3",
     "gay-trang": "C4", "ong-tre": "C5", "chuoi-da-bay": "C6",
@@ -110,6 +131,17 @@ REGION_OF = {
 }
 # What the item is, one line, tied to its land.
 ABOUT = {
+    "chuong-la": "Chuông nhỏ treo cửa nhà bên đồi, lá non mọc ra mỗi khi chuông reo.",
+    "binh-suoi": "Bình nước nhỏ, mở nút là năm dòng suối phun lên như bến năm dòng.",
+    "vo-so-trang": "Vỏ sò giữ lại một mảnh trăng mà Ngư Tinh làm rơi xuống vịnh.",
+    "sao-truc": "Sáo làm từ cây trúc bảy đốt của Hùng Tinh, thổi lên là lá trúc bay theo.",
+    "vong-da-nhay": "Những hòn đá nhỏ nhảy lách tách quanh cổ, như Hầu Tinh nhảy đá.",
+    "chong-chong-gio": "Chong chóng tự quay không cần thổi: gió trên đỉnh núi chín tầng cứ chạy theo nó.",
+    "tui-da-sen": "Túi đá xám từ thung lũng vảy đá, trên miệng túi một bông sen đá vừa nở.",
+    "guong-trang": "Gương soi chỉ hiện vực nước dưới trăng, nơi Thuồng Luồng thích bơi nhất.",
+    "vong-co-gio": "Vòng cỏ đồng cỏ gió chạy, những sợi cỏ bay mãi theo một cơn gió không ngừng.",
+    "chia-khoa-mai-ngoi": "Chìa khoá có mái ngói nhỏ, mở được ô cửa nơi Chuột Tinh trốn.",
+    "guong-hoa": "Gương hoa: soi vào thấy bông hoa trong vườn ảo ảnh đổi màu.",
     "tui-hat-mam": "Túi hạt giống mang từ nhà bên đồi: mở ra là hạt nhảy lên, nảy mầm giữa không trung.",
     "sach-buom-dem": "Sách vẽ khu rừng đêm: mở ra là bướm đêm bay khỏi trang, như những đôi mắt sáng giữa lá.",
     "mu-trang-khuyet": "Mũ đêm có vầng trăng khuyết, hai giọt nước vàng treo lơ lửng như bóng trăng Ngư Tinh làm rơi.",
@@ -545,7 +577,7 @@ def build(mid, RW, RH, only=None, prev=None):
 
     layers = {"body": base, "wisps": wisps}
     items = []
-    catalog = [c for c in CATALOG if c[1] in ACTIVE and c[1] not in HIDDEN] + [(f, i, n, s, dict(own=f)) for f, i, n, s in M.get("own", [])]
+    catalog = [c for c in CATALOG if c[1] in ACTIVE and c[1] not in HIDDEN | HIDDEN_V5] + [(f, i, n, s, dict(own=f)) for f, i, n, s in M.get("own", [])]
     if only:
         catalog = [c for c in catalog if c[1] in only]
     for files, iid, name, slot, p in catalog:
