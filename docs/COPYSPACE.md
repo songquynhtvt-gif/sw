@@ -4,6 +4,10 @@
 
 ## Bìa truyện
 
+**File bàn giao cho designer: `mapping/covers/cover_slots.json`** (tạo bằng `python3 scripts/export_slots.py out/covers/covers.json mapping/covers/cover_slots.json`). Chỉ có vị trí khung tên, không có kiểu chữ:
+- `templates[]`: khung chung của mỗi khổ bìa (`bbox` [x, y, w, h] tỉ lệ 0..1, gốc trên-trái; `anchor` giữa cạnh trên). `covers` = danh sách bìa dùng ĐÚNG khung này (nhóm identical, căn một lần cho cả nhóm).
+- `covers[]`: `placement` = `identical` (đúng khung chung) | `shifted` (cùng cỡ, dời chỗ vì nền ở khung chung có hình) | `replace` (bìa in sẵn tên tiếng Anh, khung = vùng tên cũ); `bbox`, `bbox_px` (px ảnh gốc), `anchor`, `backing` (`none` | `panel`: nền nhiều hoạ tiết, cần nền lót dưới chữ), `cover_text_flag`, `note` (lý do).
+
 ```bash
 python3 scripts/covers.py --status Approve     # -> out/covers/covers.json + overlay/
 python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang (3.311 cuốn)

@@ -566,16 +566,10 @@ def draw(it, slot, ts, alt, path):
     f_h, f_p = font(px), font(py_px)
     forest, cream = (14, 74, 58, 255), (253, 249, 240, 255)
     if ts["style"] == "replace":
-        # mô phỏng designer xoá chữ Anh: phủ vùng tên bằng màu nền quanh viền vùng đó
-        arr = np.asarray(im.convert("RGB"))
-        X0, Y0, X1, Y1 = int(x0), int(y0), min(arr.shape[1] - 1, int(x1)), min(arr.shape[0] - 1, int(y1))
-        ring = np.concatenate([arr[Y0, X0:X1], arr[Y1, X0:X1], arr[Y0:Y1, X0], arr[Y0:Y1, X1]])
-        fill = tuple(int(v) for v in np.median(ring, 0)) + (255,)
-        patch = Image.new("RGBA", (X1 - X0, Y1 - Y0), fill)
-        im.paste(patch, (X0, Y0))
-        ox, oy, ink, stroke = x0, y0 + (y1 - y0 - ts["lines"] * LINE_H(px) - (EN["line"] if it["_sub"] else 0)) / 2, cream, C1["stroke_px"]
-        per = -(-len(chars) // max(1, ts["lines"]))
-        ox = (x0 + x1) / 2 - per * px / 2
+        # chỉ khoanh vùng tên in sẵn, không vẽ đè lên tranh (designer tự xử lý chữ Anh)
+        d.rectangle([x0, y0, x1, y1], outline=(230, 120, 40, 255), width=4)
+        ox, oy, ink, stroke, per = x0, y0, cream, 0, 1
+        chars, pys = [], []
     elif ts["style"] == "panel":
         panel_bg = im.crop((int(x0), int(y0), int(x1), int(y1))).filter(ImageFilter.GaussianBlur(PANEL["blur_px"]))
         white = Image.new("RGBA", panel_bg.size, (255, 255, 255, int(255 * PANEL["white_alpha"])))
@@ -586,7 +580,7 @@ def draw(it, slot, ts, alt, path):
     else:
         ox, oy, ink, stroke = x0 + C1["stroke_px"], y0 + C1["stroke_px"], cream, C1["stroke_px"]
         per = len(chars)
-    if not hanzi_chars(it["_title"]):      # tên chính tiếng Anh: xuống dòng theo từ, đo bằng font thật
+    if not hanzi_chars(it["_title"]) and ts["style"] != "replace":      # tên chính tiếng Anh: xuống dòng theo từ, đo bằng font thật
         maxw = (x1 - x0) - 2 * (PANEL["pad"][1] if ts["style"] == "panel" else C1["stroke_px"])
         rows, cur = [], ""
         for wd in it["_title"].split():
@@ -610,7 +604,7 @@ def draw(it, slot, ts, alt, path):
             cx = (x0 + x1) / 2
         d.text((cx, top + py_px * 1.3), ch, font=f_h, anchor="ma",
                fill=ink, stroke_width=stroke, stroke_fill=forest)
-    if it["_sub"]:
+    if it["_sub"] and ts["style"] != "replace":
         y_en = oy + (-(-len(chars) // per)) * LINE_H(px) + 2
         d.text(((x0 + x1) / 2, y_en), it["_sub"], font=font(EN["px"]), anchor="ma",
                fill=ink, stroke_width=3 if stroke else 0, stroke_fill=forest)
