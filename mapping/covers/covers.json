@@ -1,5 +1,5 @@
 {
- "schema": "covers/v2",
+ "schema": "covers/v3",
  "params": {
   "en": {
    "px": 16,
@@ -33,7 +33,7 @@
    "ink": "#0E4A3A",
    "max_lines": 2
   },
-  "calm_min": 0.85,
+  "calm_min": 0.95,
   "edge_t": 0.12,
   "edge_max": 0.05,
   "luma_std_max": 0.18
@@ -3496,38 +3496,46 @@
     ],
     "calm_coarse": 0.03,
     "style": "panel",
-    "source": "fixed",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.201): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (100% ô bận, 12% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3305,
+     0.7898,
      0.0271,
-     0.339,
-     0.0773
+     0.1831,
+     0.1193
     ],
+    "room_bbox": [
+     0.783,
+     0.0271,
+     0.1899,
+     0.1193
+    ],
+    "anchor_name": "top-right",
+    "covers_art": false,
     "anchor": {
-     "x": 0.5,
+     "x": 0.8813,
      "y": 0.0271,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 28,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.0,
-     "edge_density": 0.123,
-     "luma_std": 0.195,
+     "calm_coarse": 0.98,
+     "edge_density": 0.0,
+     "luma_std": 0.016,
      "luma_p5_p50_p95": [
-      0.018,
-      0.036,
-      0.502
+      0.427,
+      0.448,
+      0.481
      ],
-     "fill_contrast_p5": 1.81,
-     "stroke_contrast_p5": 1.1,
-     "pair_contrast_p5": 3.94,
-     "panel_contrast_min": 8.75
+     "fill_contrast_p5": 1.88,
+     "stroke_contrast_p5": 4.64,
+     "pair_contrast_p5": 4.64,
+     "panel_contrast_min": 9.26
     }
    },
    "baked_text": {
@@ -3656,32 +3664,40 @@
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "chỗ cố định đè lên hình (8% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống",
     "text_box": [
-     0.3271,
+     0.35,
      0.0271,
-     0.3458,
-     0.0725
+     0.3,
+     0.0664
     ],
+    "room_bbox": [
+     0.2752,
+     0.0271,
+     0.4496,
+     0.0664
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.9,
-     "edge_density": 0.008,
-     "luma_std": 0.064,
+     "calm_coarse": 0.95,
+     "edge_density": 0.007,
+     "luma_std": 0.058,
      "luma_p5_p50_p95": [
-      0.986,
+      0.987,
       1.0,
       1.0
      ],
      "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 10.06,
-     "pair_contrast_p5": 10.06,
+     "stroke_contrast_p5": 10.07,
+     "pair_contrast_p5": 10.07,
      "panel_contrast_min": 9.09
     }
    },
@@ -3790,6 +3806,14 @@
      0.1966,
      0.0784
     ],
+    "room_bbox": [
+     0.6453,
+     0.0293,
+     0.251,
+     0.0784
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.7708,
      "y": 0.0293,
@@ -3920,22 +3944,30 @@
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "chỗ cố định đè lên hình (8% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống",
     "text_box": [
-     0.3271,
+     0.35,
      0.0271,
-     0.3458,
-     0.0725
+     0.3,
+     0.0664
     ],
+    "room_bbox": [
+     0.316,
+     0.0271,
+     0.368,
+     0.0664
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
+     "calm_coarse": 0.95,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -4054,6 +4086,14 @@
      0.4185,
      0.2716
     ],
+    "room_bbox": [
+     0.2899,
+     0.1453,
+     0.4185,
+     0.2716
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
      "x": 0.4991,
      "y": 0.1453,
@@ -4062,7 +4102,7 @@
     "font_px": 96,
     "lines": 2,
     "legibility": {
-     "calm_coarse": 0.26,
+     "calm_coarse": 0.2,
      "edge_density": 0.091,
      "luma_std": 0.407,
      "luma_p5_p50_p95": [
@@ -4195,39 +4235,47 @@
      0.125
     ],
     "calm_coarse": 0.78,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "fixed",
     "shift_px": [
-     36,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (22% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (19% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3119,
+     0.3984,
      0.0271,
-     0.4373,
-     0.0705
+     0.2034,
+     0.1275
     ],
+    "room_bbox": [
+     0.3644,
+     0.0271,
+     0.2714,
+     0.1275
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
-     "x": 0.5306,
+     "x": 0.5001,
      "y": 0.0271,
      "align": "center"
     },
-    "font_px": 42,
-    "lines": 1,
+    "font_px": 32,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.85,
-     "edge_density": 0.019,
-     "luma_std": 0.107,
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.016,
      "luma_p5_p50_p95": [
-      0.809,
-      0.833,
-      0.866
+      0.822,
+      0.846,
+      0.871
      ],
-     "fill_contrast_p5": 1.09,
-     "stroke_contrast_p5": 8.35,
-     "pair_contrast_p5": 8.36,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.08,
+     "stroke_contrast_p5": 8.47,
+     "pair_contrast_p5": 8.47,
+     "panel_contrast_min": 9.75
     }
    },
    "baked_text": {
@@ -4266,38 +4314,46 @@
     ],
     "calm_coarse": 0.28,
     "style": "panel",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -237,
+     258
     ],
-    "reason": "tranh có hình ngay chỗ chữ (72% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.193): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (71% ô bận, 6% cạnh hoạ tiết); dời -237px ngang, +258px dọc tới chỗ trống trong phần ba trên: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.2763,
-     0.0271,
-     0.4475,
-     0.0773
+     0.078,
+     0.2458,
+     0.2169,
+     0.1153
     ],
+    "room_bbox": [
+     0.078,
+     0.2458,
+     0.2169,
+     0.1153
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.5,
-     "y": 0.0271,
+     "x": 0.1865,
+     "y": 0.2458,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 26,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.28,
-     "edge_density": 0.054,
-     "luma_std": 0.189,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.032,
      "luma_p5_p50_p95": [
-      0.179,
-      0.462,
-      0.741
+      0.136,
+      0.171,
+      0.24
      ],
-     "fill_contrast_p5": 1.26,
-     "stroke_contrast_p5": 2.22,
-     "pair_contrast_p5": 3.28,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 3.45,
+     "stroke_contrast_p5": 1.8,
+     "pair_contrast_p5": 3.45,
+     "panel_contrast_min": 8.89
     }
    },
    "baked_text": {
@@ -4405,6 +4461,14 @@
      0.4203,
      0.0725
     ],
+    "room_bbox": [
+     0.2762,
+     0.0271,
+     0.4475,
+     0.0725
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
@@ -4475,6 +4539,14 @@
      0.8158,
      0.3539
     ],
+    "room_bbox": [
+     0.1091,
+     0.063,
+     0.8158,
+     0.3539
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
      "x": 0.517,
      "y": 0.063,
@@ -4483,7 +4555,7 @@
     "font_px": 96,
     "lines": 2,
     "legibility": {
-     "calm_coarse": 0.22,
+     "calm_coarse": 0.18,
      "edge_density": 0.026,
      "luma_std": 0.26,
      "luma_p5_p50_p95": [
@@ -4638,6 +4710,14 @@
      0.4203,
      0.0725
     ],
+    "room_bbox": [
+     0.2762,
+     0.0271,
+     0.4475,
+     0.0725
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
@@ -4704,27 +4784,35 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     398,
+     387,
      24
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.386)); dời +398px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (83% ô bận, 8% cạnh hoạ tiết); dời +387px ngang, +24px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.7186,
+     0.7085,
      0.0991,
-     0.1966,
-     0.1912
+     0.1881,
+     0.1876
     ],
+    "room_bbox": [
+     0.7085,
+     0.0991,
+     0.1881,
+     0.1876
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.8169,
+     "x": 0.8025,
      "y": 0.0991,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 42,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.92,
-     "edge_density": 0.0,
-     "luma_std": 0.003,
+     "calm_coarse": 0.95,
+     "edge_density": 0.002,
+     "luma_std": 0.038,
      "luma_p5_p50_p95": [
       0.957,
       0.961,
@@ -4733,7 +4821,7 @@
      "fill_contrast_p5": 1.01,
      "stroke_contrast_p5": 9.78,
      "pair_contrast_p5": 9.78,
-     "panel_contrast_min": 10.07
+     "panel_contrast_min": 9.13
     }
    },
    "baked_text": {
@@ -4866,38 +4954,46 @@
     ],
     "calm_coarse": 0.7,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -160,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (33% ô bận)); dời -160px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (37% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.1898,
-     0.0566,
+     0.0271,
+     0.0567,
      0.3085,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.3221,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.344,
-     "y": 0.0566,
+     "x": 0.1814,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
-     "edge_density": 0.007,
-     "luma_std": 0.045,
+     "calm_coarse": 0.99,
+     "edge_density": 0.011,
+     "luma_std": 0.032,
      "luma_p5_p50_p95": [
+      0.199,
       0.213,
-      0.262,
-      0.311
+      0.271
      ],
-     "fill_contrast_p5": 2.77,
-     "stroke_contrast_p5": 2.55,
-     "pair_contrast_p5": 3.12,
-     "panel_contrast_min": 8.97
+     "fill_contrast_p5": 3.12,
+     "stroke_contrast_p5": 2.42,
+     "pair_contrast_p5": 3.16,
+     "panel_contrast_min": 8.96
     }
    },
    "baked_text": {
@@ -4993,35 +5089,43 @@
     ],
     "calm_coarse": 0.61,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -112,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (39% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.253)); dời -112px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (36% ô bận, 8% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.2305,
-     0.0566,
+     0.0271,
+     0.0567,
      0.3085,
-     0.1516
+     0.1515
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.3221,
+     0.1515
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.3848,
-     "y": 0.0566,
+     "x": 0.1814,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.94,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.012,
+     "luma_std": 0.01,
      "luma_p5_p50_p95": [
       0.889,
-      0.908,
-      0.931
+      0.907,
+      0.923
      ],
-     "fill_contrast_p5": 1.02,
+     "fill_contrast_p5": 1.03,
      "stroke_contrast_p5": 9.12,
      "pair_contrast_p5": 9.12,
      "panel_contrast_min": 9.97
@@ -5063,37 +5167,45 @@
     ],
     "calm_coarse": 0.3,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (82% ô bận); nền nhiều hoạ tiết (14% điểm là cạnh); nền loang sáng tối (lệch 0.223): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3639,
+     0.2508,
      0.0566,
-     0.2305,
-     0.1614
+     0.122,
+     0.2336
     ],
+    "room_bbox": [
+     0.2508,
+     0.0566,
+     0.122,
+     0.2336
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.3118,
      "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.14,
-     "edge_density": 0.156,
-     "luma_std": 0.226,
+     "calm_coarse": 0.49,
+     "edge_density": 0.038,
+     "luma_std": 0.111,
      "luma_p5_p50_p95": [
-      0.02,
+      0.292,
       0.617,
-      0.639
+      0.627
      ],
-     "fill_contrast_p5": 1.45,
-     "stroke_contrast_p5": 1.45,
-     "pair_contrast_p5": 3.63,
+     "fill_contrast_p5": 1.48,
+     "stroke_contrast_p5": 3.32,
+     "pair_contrast_p5": 3.88,
      "panel_contrast_min": 8.74
     }
    },
@@ -5200,27 +5312,35 @@
     ],
     "calm_coarse": 0.44,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -228,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (62% ô bận)); dời -228px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (67% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.1288,
-     0.0566,
-     0.3153,
-     0.1827
+     0.0271,
+     0.0567,
+     0.3458,
+     0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.3458,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.2864,
-     "y": 0.0566,
+     "x": 0.2,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 40,
+    "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.9,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -5281,37 +5401,45 @@
     ],
     "calm_coarse": 0.11,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (87% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.384): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3233,
-     0.0567,
-     0.3119,
-     0.2011
+     0.6678,
+     0.1204,
+     0.2627,
+     0.2726
     ],
+    "room_bbox": [
+     0.6678,
+     0.1204,
+     0.2627,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.7991,
+     "y": 0.1204,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.13,
-     "edge_density": 0.059,
-     "luma_std": 0.377,
+     "calm_coarse": 0.47,
+     "edge_density": 0.081,
+     "luma_std": 0.273,
      "luma_p5_p50_p95": [
-      0.01,
-      0.203,
+      0.093,
+      1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 1.95,
-     "pair_contrast_p5": 3.83,
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 2.05,
+     "pair_contrast_p5": 4.82,
      "panel_contrast_min": 8.74
     }
    },
@@ -5401,6 +5529,14 @@
      0.3085,
      0.1912
     ],
+    "room_bbox": [
+     0.3182,
+     0.0567,
+     0.3221,
+     0.1912
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.4793,
      "y": 0.0567,
@@ -5472,38 +5608,46 @@
     ],
     "calm_coarse": 0.03,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.33): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.317,
-     0.0275,
-     0.3661,
-     0.0978
+     0.4034,
+     0.8072,
+     0.3,
+     0.1325
     ],
+    "room_bbox": [
+     0.4034,
+     0.8072,
+     0.3,
+     0.1325
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.5,
-     "y": 0.0275,
+     "x": 0.5534,
+     "y": 0.8072,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.03,
-     "edge_density": 0.071,
-     "luma_std": 0.339,
+     "calm_coarse": 0.8,
+     "edge_density": 0.002,
+     "luma_std": 0.03,
      "luma_p5_p50_p95": [
-      0.175,
-      0.706,
+      1.0,
+      1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 2.19,
-     "pair_contrast_p5": 3.36,
-     "panel_contrast_min": 8.92
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 8.87
     }
    },
    "baked_text": {
@@ -5542,38 +5686,46 @@
     ],
     "calm_coarse": 0.07,
     "style": "panel",
-    "source": "fixed",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (89% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.276): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (86% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3504,
-     0.0565,
-     0.2576,
-     0.1611
+     0.8237,
+     0.6777,
+     0.1492,
+     0.2657
     ],
+    "room_bbox": [
+     0.8237,
+     0.6777,
+     0.1492,
+     0.2657
+    ],
+    "anchor_name": "bottom-right",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0565,
+     "x": 0.8983,
+     "y": 0.6777,
      "align": "center"
     },
     "font_px": 32,
-    "lines": 1,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.11,
-     "edge_density": 0.074,
-     "luma_std": 0.249,
+     "calm_coarse": 0.97,
+     "edge_density": 0.0,
+     "luma_std": 0.034,
      "luma_p5_p50_p95": [
-      0.304,
-      1.0,
-      1.0
+      0.799,
+      0.836,
+      0.909
      ],
      "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 3.44,
-     "pair_contrast_p5": 4.0,
-     "panel_contrast_min": 8.74
+     "stroke_contrast_p5": 8.25,
+     "pair_contrast_p5": 8.25,
+     "panel_contrast_min": 9.86
     }
    },
    "baked_text": {
@@ -5651,22 +5803,30 @@
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "chỗ cố định đè lên hình (8% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống",
     "text_box": [
-     0.3995,
+     0.413,
      0.0567,
-     0.1593,
-     0.1912
+     0.1322,
+     0.1742
     ],
+    "room_bbox": [
+     0.379,
+     0.0567,
+     0.2002,
+     0.1742
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.4791,
      "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 36,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.92,
+     "calm_coarse": 0.96,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -5722,38 +5882,46 @@
     ],
     "calm_coarse": 0.63,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (32% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3911,
+     0.4644,
      0.0564,
-     0.1763,
-     0.2004
+     0.1585,
+     0.2716
     ],
+    "room_bbox": [
+     0.4644,
+     0.0564,
+     0.1585,
+     0.2716
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
+     "x": 0.5436,
      "y": 0.0564,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.57,
-     "edge_density": 0.007,
+     "calm_coarse": 0.6,
+     "edge_density": 0.011,
      "luma_std": 0.039,
      "luma_p5_p50_p95": [
-      0.06,
-      0.109,
-      0.173
+      0.036,
+      0.093,
+      0.155
      ],
-     "fill_contrast_p5": 4.49,
-     "stroke_contrast_p5": 1.09,
-     "pair_contrast_p5": 4.49,
-     "panel_contrast_min": 8.78
+     "fill_contrast_p5": 4.88,
+     "stroke_contrast_p5": 1.05,
+     "pair_contrast_p5": 4.88,
+     "panel_contrast_min": 8.75
     }
    },
    "baked_text": {
@@ -5798,38 +5966,46 @@
     ],
     "calm_coarse": 0.09,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (88% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.316): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3911,
-     0.0567,
-     0.1763,
-     0.2011
+     0.8712,
+     0.0566,
+     0.1017,
+     0.2726
     ],
+    "room_bbox": [
+     0.8712,
+     0.0566,
+     0.1017,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.922,
+     "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.1,
-     "edge_density": 0.054,
-     "luma_std": 0.306,
+     "calm_coarse": 0.12,
+     "edge_density": 0.01,
+     "luma_std": 0.136,
      "luma_p5_p50_p95": [
-      0.089,
-      0.161,
-      0.926
+      0.094,
+      0.445,
+      0.553
      ],
-     "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 1.35,
-     "pair_contrast_p5": 3.69,
-     "panel_contrast_min": 8.77
+     "fill_contrast_p5": 1.66,
+     "stroke_contrast_p5": 1.4,
+     "pair_contrast_p5": 3.3,
+     "panel_contrast_min": 8.79
     }
    },
    "baked_text": {
@@ -5879,37 +6055,45 @@
     ],
     "calm_coarse": 0.07,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (96% ô bận); nền nhiều hoạ tiết (28% điểm là cạnh); nền loang sáng tối (lệch 0.337): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3233,
-     0.0567,
-     0.3119,
-     0.2011
+     0.0271,
+     0.6195,
+     0.2822,
+     0.2726
     ],
+    "room_bbox": [
+     0.0271,
+     0.6195,
+     0.2822,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.1682,
+     "y": 0.6195,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.04,
-     "edge_density": 0.281,
-     "luma_std": 0.336,
+     "calm_coarse": 0.36,
+     "edge_density": 0.091,
+     "luma_std": 0.184,
      "luma_p5_p50_p95": [
-      0.042,
-      0.939,
-      1.0
+      0.176,
+      0.644,
+      0.948
      ],
-     "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 1.23,
-     "pair_contrast_p5": 4.03,
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 2.2,
+     "pair_contrast_p5": 4.54,
      "panel_contrast_min": 8.74
     }
    },
@@ -6040,21 +6224,29 @@
     ],
     "calm_coarse": 0.52,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -393,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (32% ô bận)); dời -393px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (33% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.0475,
-     0.0566,
+     0.0271,
+     0.0567,
      0.1966,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.2238,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.1458,
-     "y": 0.0566,
+     "x": 0.1254,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
@@ -6062,15 +6254,15 @@
     "legibility": {
      "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.013,
+     "luma_std": 0.011,
      "luma_p5_p50_p95": [
-      0.963,
+      0.978,
       1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.02,
-     "stroke_contrast_p5": 9.84,
-     "pair_contrast_p5": 9.84,
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 9.98,
+     "pair_contrast_p5": 9.98,
      "panel_contrast_min": 10.03
     }
    },
@@ -6200,21 +6392,29 @@
     ],
     "calm_coarse": 0.59,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -79,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (40% ô bận)); dời -79px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (37% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn bottom-left, chỗ đó trống",
     "text_box": [
-     0.3322,
-     0.0566,
+     0.0271,
+     0.7522,
      0.1593,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.7522,
+     0.2409,
+     0.1912
+    ],
+    "anchor_name": "bottom-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4118,
-     "y": 0.0566,
+     "x": 0.1067,
+     "y": 0.7522,
      "align": "center"
     },
     "font_px": 44,
@@ -6224,14 +6424,14 @@
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.684,
-      0.684,
-      0.684
+      0.328,
+      0.328,
+      0.328
      ],
-     "fill_contrast_p5": 1.36,
-     "stroke_contrast_p5": 7.13,
-     "pair_contrast_p5": 7.13,
-     "panel_contrast_min": 9.74
+     "fill_contrast_p5": 2.65,
+     "stroke_contrast_p5": 3.67,
+     "pair_contrast_p5": 3.67,
+     "panel_contrast_min": 9.22
     }
    },
    "baked_text": {
@@ -6306,39 +6506,47 @@
      0.25
     ],
     "calm_coarse": 0.24,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (94% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.362): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (95% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.3639,
+     0.0271,
      0.0565,
-     0.2305,
-     0.2007
+     0.1881,
+     0.1611
     ],
+    "room_bbox": [
+     0.0271,
+     0.0565,
+     0.1881,
+     0.1611
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.1211,
      "y": 0.0565,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 30,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.07,
-     "edge_density": 0.057,
-     "luma_std": 0.333,
+     "calm_coarse": 0.98,
+     "edge_density": 0.0,
+     "luma_std": 0.005,
      "luma_p5_p50_p95": [
-      0.039,
-      0.312,
-      0.959
+      1.0,
+      1.0,
+      1.0
      ],
      "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 1.06,
-     "pair_contrast_p5": 3.51,
-     "panel_contrast_min": 8.76
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 9.95
     }
    },
    "baked_text": {
@@ -6412,38 +6620,46 @@
     ],
     "calm_coarse": 0.15,
     "style": "panel",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     3,
+     366
     ],
-    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.285): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (79% ô bận, 6% cạnh hoạ tiết); dời +3px ngang, +366px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3862,
-     0.0567,
-     0.186,
-     0.2011
+     0.3831,
+     0.7044,
+     0.1966,
+     0.1912
     ],
+    "room_bbox": [
+     0.3831,
+     0.7044,
+     0.1966,
+     0.1912
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.4814,
+     "y": 0.7044,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.23,
-     "edge_density": 0.06,
-     "luma_std": 0.286,
+     "calm_coarse": 0.94,
+     "edge_density": 0.013,
+     "luma_std": 0.058,
      "luma_p5_p50_p95": [
-      0.008,
-      0.757,
-      0.856
+      0.325,
+      0.405,
+      0.495
      ],
-     "fill_contrast_p5": 1.1,
-     "stroke_contrast_p5": 1.56,
-     "pair_contrast_p5": 5.23,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.83,
+     "stroke_contrast_p5": 3.64,
+     "pair_contrast_p5": 3.64,
+     "panel_contrast_min": 9.05
     }
    },
    "baked_text": {
@@ -6489,38 +6705,46 @@
     ],
     "calm_coarse": 0.61,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (46% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3776,
+     0.8102,
      0.0565,
-     0.2034,
-     0.2007
+     0.1593,
+     0.2721
     ],
+    "room_bbox": [
+     0.8102,
+     0.0565,
+     0.1593,
+     0.2721
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
+     "x": 0.8899,
      "y": 0.0565,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.53,
-     "edge_density": 0.03,
-     "luma_std": 0.149,
+     "calm_coarse": 0.71,
+     "edge_density": 0.023,
+     "luma_std": 0.112,
      "luma_p5_p50_p95": [
-      0.585,
-      0.933,
+      0.843,
+      0.96,
       0.997
      ],
-     "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 6.17,
-     "pair_contrast_p5": 6.42,
-     "panel_contrast_min": 8.81
+     "fill_contrast_p5": 1.0,
+     "stroke_contrast_p5": 8.67,
+     "pair_contrast_p5": 8.67,
+     "panel_contrast_min": 8.99
     }
    },
    "baked_text": {
@@ -6587,39 +6811,47 @@
      0.25
     ],
     "calm_coarse": 0.33,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -228,
+     414
     ],
-    "reason": "tranh có hình ngay chỗ chữ (69% ô bận); nền loang sáng tối (lệch 0.247): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (66% ô bận, 4% cạnh hoạ tiết); dời -228px ngang, +414px dọc tới chỗ trống ở phần ba dưới",
     "text_box": [
-     0.3369,
-     0.0568,
+     0.1288,
+     0.7908,
      0.2847,
-     0.1617
+     0.1348
     ],
+    "room_bbox": [
+     0.1288,
+     0.7908,
+     0.2847,
+     0.1348
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0568,
+     "x": 0.2712,
+     "y": 0.7908,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 36,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.34,
-     "edge_density": 0.051,
-     "luma_std": 0.258,
+     "calm_coarse": 0.96,
+     "edge_density": 0.003,
+     "luma_std": 0.055,
      "luma_p5_p50_p95": [
-      0.328,
-      0.994,
-      1.0
+      0.525,
+      0.525,
+      0.525
      ],
-     "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 3.67,
-     "pair_contrast_p5": 3.67,
-     "panel_contrast_min": 9.05
+     "fill_contrast_p5": 1.74,
+     "stroke_contrast_p5": 5.58,
+     "pair_contrast_p5": 5.58,
+     "panel_contrast_min": 8.77
     }
    },
    "baked_text": {
@@ -6662,39 +6894,47 @@
      0.25
     ],
     "calm_coarse": 0.54,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
+     -79,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (40% ô bận); nền loang sáng tối (lệch 0.246): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (46% ô bận, 4% cạnh hoạ tiết); dời -79px ngang, +0px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.4046,
+     0.3322,
      0.0565,
-     0.1492,
-     0.2007
+     0.1322,
+     0.1749
     ],
+    "room_bbox": [
+     0.3322,
+     0.0565,
+     0.1322,
+     0.1749
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.3983,
      "y": 0.0565,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 36,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.6,
-     "edge_density": 0.037,
-     "luma_std": 0.235,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.017,
      "luma_p5_p50_p95": [
-      0.22,
+      0.828,
       0.844,
-      0.845
+      0.844
      ],
      "fill_contrast_p5": 1.12,
-     "stroke_contrast_p5": 2.62,
-     "pair_contrast_p5": 3.34,
-     "panel_contrast_min": 8.82
+     "stroke_contrast_p5": 8.53,
+     "pair_contrast_p5": 8.53,
+     "panel_contrast_min": 9.61
     }
    },
    "baked_text": {
@@ -6824,38 +7064,46 @@
     ],
     "calm_coarse": 0.5,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -9,
-     24
+     0,
+     0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (24% ô bận)); dời -9px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (19% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.3729,
-     0.0991,
+     0.0271,
+     0.0567,
      0.1966,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.251,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4712,
-     "y": 0.0991,
+     "x": 0.1254,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.001,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.936,
-      0.936,
-      0.936
+      0.061,
+      0.061,
+      0.061
      ],
-     "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 9.58,
-     "pair_contrast_p5": 9.58,
-     "panel_contrast_min": 9.99
+     "fill_contrast_p5": 9.03,
+     "stroke_contrast_p5": 1.07,
+     "pair_contrast_p5": 9.03,
+     "panel_contrast_min": 8.83
     }
    },
    "baked_text": {
@@ -6964,22 +7212,30 @@
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "chỗ cố định đè lên hình (7% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống",
     "text_box": [
-     0.3436,
+     0.3614,
      0.0567,
-     0.2712,
-     0.1912
+     0.2356,
+     0.1784
     ],
+    "room_bbox": [
+     0.3614,
+     0.0567,
+     0.2356,
+     0.1784
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.4792,
      "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.91,
+     "calm_coarse": 0.96,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -7093,38 +7349,46 @@
     ],
     "calm_coarse": 0.76,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -156,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (37% ô bận)); dời -156px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (40% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.2305,
+     0.0271,
      0.0566,
      0.2339,
-     0.1911
+     0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0566,
+     0.3291,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.3475,
+     "x": 0.1441,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.028,
+     "luma_std": 0.027,
      "luma_p5_p50_p95": [
-      0.816,
-      0.864,
-      0.906
+      0.808,
+      0.854,
+      0.897
      ],
-     "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 8.41,
-     "pair_contrast_p5": 8.41,
-     "panel_contrast_min": 9.75
+     "fill_contrast_p5": 1.06,
+     "stroke_contrast_p5": 8.33,
+     "pair_contrast_p5": 8.33,
+     "panel_contrast_min": 9.55
     }
    },
    "baked_text": {
@@ -7228,39 +7492,47 @@
      0.25
     ],
     "calm_coarse": 0.26,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (87% ô bận); nền nhiều hoạ tiết (10% điểm là cạnh); nền loang sáng tối (lệch 0.282): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (91% ô bận, 10% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.3504,
+     0.0271,
      0.0567,
-     0.2576,
-     0.2011
+     0.2678,
+     0.1784
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.2678,
+     0.1784
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.161,
      "y": 0.0567,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.07,
-     "edge_density": 0.096,
-     "luma_std": 0.303,
+     "calm_coarse": 0.97,
+     "edge_density": 0.0,
+     "luma_std": 0.001,
      "luma_p5_p50_p95": [
-      0.004,
+      1.0,
       1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.02,
-     "stroke_contrast_p5": 1.92,
-     "pair_contrast_p5": 5.24,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.09
     }
    },
    "baked_text": {
@@ -7363,39 +7635,47 @@
      0.25
     ],
     "calm_coarse": 0.26,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.239): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (66% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống",
     "text_box": [
-     0.3639,
-     0.0564,
-     0.2305,
-     0.2004
+     0.7729,
+     0.7785,
+     0.2,
+     0.1651
     ],
+    "room_bbox": [
+     0.6505,
+     0.7785,
+     0.3224,
+     0.1651
+    ],
+    "anchor_name": "bottom-right",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0564,
+     "x": 0.8729,
+     "y": 0.7785,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.26,
-     "edge_density": 0.047,
-     "luma_std": 0.203,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.008,
      "luma_p5_p50_p95": [
-      0.035,
-      0.047,
-      0.747
+      0.029,
+      0.034,
+      0.04
      ],
-     "fill_contrast_p5": 1.25,
-     "stroke_contrast_p5": 1.02,
-     "pair_contrast_p5": 5.47,
-     "panel_contrast_min": 8.75
+     "fill_contrast_p5": 11.05,
+     "stroke_contrast_p5": 1.15,
+     "pair_contrast_p5": 11.05,
+     "panel_contrast_min": 8.77
     }
    },
    "baked_text": {
@@ -7468,38 +7748,46 @@
     ],
     "calm_coarse": 0.24,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     377,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (76% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.303)); dời +377px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (74% ô bận, 7% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống",
     "text_box": [
-     0.7186,
+     0.8136,
      0.0546,
      0.1593,
-     0.1844
+     0.1843
     ],
+    "room_bbox": [
+     0.7048,
+     0.0546,
+     0.2681,
+     0.1843
+    ],
+    "anchor_name": "top-right",
+    "covers_art": false,
     "anchor": {
-     "x": 0.7982,
+     "x": 0.8932,
      "y": 0.0546,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.96,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.053,
+     "luma_std": 0.029,
      "luma_p5_p50_p95": [
-      0.763,
-      0.854,
-      0.925
+      0.841,
+      0.894,
+      0.937
      ],
-     "fill_contrast_p5": 1.02,
-     "stroke_contrast_p5": 7.9,
-     "pair_contrast_p5": 7.9,
-     "panel_contrast_min": 9.67
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 8.65,
+     "pair_contrast_p5": 8.65,
+     "panel_contrast_min": 9.85
     }
    },
    "baked_text": {
@@ -7627,37 +7915,45 @@
     ],
     "calm_coarse": 0.54,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -101,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (87% ô bận); nền loang sáng tối (lệch 0.283)); dời -101px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (88% ô bận, 5% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.3322,
-     0.0566,
+     0.0271,
+     0.0567,
      0.122,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.326,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.3932,
-     "y": 0.0566,
+     "x": 0.0881,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.85,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.016,
+     "luma_std": 0.014,
      "luma_p5_p50_p95": [
-      0.757,
-      0.78,
-      0.809
+      0.759,
+      0.781,
+      0.803
      ],
-     "fill_contrast_p5": 1.16,
-     "stroke_contrast_p5": 7.84,
-     "pair_contrast_p5": 7.84,
+     "fill_contrast_p5": 1.17,
+     "stroke_contrast_p5": 7.86,
+     "pair_contrast_p5": 7.86,
      "panel_contrast_min": 9.79
     }
    },
@@ -7748,6 +8044,14 @@
      0.3153,
      0.1827
     ],
+    "room_bbox": [
+     0.3148,
+     0.0567,
+     0.3289,
+     0.1827
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.4793,
      "y": 0.0567,
@@ -7815,27 +8119,35 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     324,
-     48
+     337,
+     36
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (91% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +324px ngang, +48px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (94% ô bận, 8% cạnh hoạ tiết); dời +337px ngang, +36px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.6373,
-     0.1416,
-     0.2339,
-     0.1912
+     0.6475,
+     0.1204,
+     0.1932,
+     0.1752
     ],
+    "room_bbox": [
+     0.6475,
+     0.1204,
+     0.1932,
+     0.1752
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.7542,
-     "y": 0.1416,
+     "x": 0.7441,
+     "y": 0.1204,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 36,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
-     "edge_density": 0.001,
-     "luma_std": 0.011,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.002,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -7844,7 +8156,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 9.91
+     "panel_contrast_min": 10.11
     }
    },
    "baked_text": {
@@ -7948,37 +8260,45 @@
     ],
     "calm_coarse": 0.43,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -373,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (51% ô bận); nền loang sáng tối (lệch 0.208)); dời -373px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (50% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
      0.0271,
-     0.0566,
-     0.2712,
-     0.1912
+     0.0567,
+     0.2593,
+     0.1869
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.2593,
+     0.1869
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.1627,
-     "y": 0.0566,
+     "x": 0.1568,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 42,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.85,
+     "calm_coarse": 0.96,
      "edge_density": 0.016,
-     "luma_std": 0.024,
+     "luma_std": 0.025,
      "luma_p5_p50_p95": [
-      0.417,
+      0.416,
       0.442,
       0.46
      ],
      "fill_contrast_p5": 1.96,
-     "stroke_contrast_p5": 4.54,
-     "pair_contrast_p5": 4.54,
+     "stroke_contrast_p5": 4.53,
+     "pair_contrast_p5": 4.53,
      "panel_contrast_min": 9.08
     }
    },
@@ -8083,39 +8403,47 @@
      0.25
     ],
     "calm_coarse": 0.57,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (42% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (43% ô bận, 5% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống",
     "text_box": [
-     0.3504,
-     0.0567,
-     0.2576,
-     0.2011
+     0.7186,
+     0.7692,
+     0.2542,
+     0.1742
     ],
+    "room_bbox": [
+     0.7186,
+     0.7692,
+     0.2542,
+     0.1742
+    ],
+    "anchor_name": "bottom-right",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.8457,
+     "y": 0.7692,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 36,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.6,
-     "edge_density": 0.062,
-     "luma_std": 0.151,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.723,
+      1.0,
       1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 7.51,
-     "pair_contrast_p5": 8.08,
-     "panel_contrast_min": 8.76
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
     }
    },
    "baked_text": {
@@ -8217,38 +8545,46 @@
     ],
     "calm_coarse": 0.5,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -369,
-     48
+     0,
+     0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận)); dời -369px ngang, +48px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (43% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn bottom-left, chỗ đó trống",
     "text_box": [
-     0.0678,
-     0.1416,
+     0.0271,
+     0.7522,
      0.1966,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.7522,
+     0.2238,
+     0.1912
+    ],
+    "anchor_name": "bottom-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.1661,
-     "y": 0.1416,
+     "x": 0.1254,
+     "y": 0.7522,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.038,
+     "luma_std": 0.042,
      "luma_p5_p50_p95": [
-      0.724,
-      0.782,
-      0.85
+      0.739,
+      0.829,
+      0.876
      ],
-     "fill_contrast_p5": 1.11,
-     "stroke_contrast_p5": 7.52,
-     "pair_contrast_p5": 7.52,
-     "panel_contrast_min": 9.58
+     "fill_contrast_p5": 1.08,
+     "stroke_contrast_p5": 7.66,
+     "pair_contrast_p5": 7.66,
+     "panel_contrast_min": 9.6
     }
    },
    "baked_text": {
@@ -8324,30 +8660,38 @@
      0.25
     ],
     "calm_coarse": 0.63,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "anchor",
     "shift_px": [
-     177,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.251)); dời +177px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (43% ô bận, 8% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.4746,
-     0.0566,
-     0.3085,
-     0.1912
+     0.0271,
+     0.0567,
+     0.1606,
+     0.3058
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.1742,
+     0.3058
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.6288,
-     "y": 0.0566,
+     "x": 0.1074,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
-    "lines": 1,
+    "font_px": 32,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.85,
+     "calm_coarse": 0.97,
      "edge_density": 0.008,
-     "luma_std": 0.062,
+     "luma_std": 0.057,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -8356,7 +8700,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 8.79
+     "panel_contrast_min": 8.77
     }
    },
    "baked_text": {
@@ -8402,38 +8746,46 @@
     ],
     "calm_coarse": 0.07,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3776,
-     0.0567,
-     0.2034,
-     0.2011
+     0.0271,
+     0.0566,
+     0.1305,
+     0.2726
     ],
+    "room_bbox": [
+     0.0271,
+     0.0566,
+     0.1305,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.0924,
+     "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.0,
-     "edge_density": 0.018,
-     "luma_std": 0.164,
+     "calm_coarse": 0.27,
+     "edge_density": 0.039,
+     "luma_std": 0.12,
      "luma_p5_p50_p95": [
-      0.305,
-      0.512,
-      0.794
+      0.186,
+      0.326,
+      0.6
      ],
-     "fill_contrast_p5": 1.18,
-     "stroke_contrast_p5": 3.45,
-     "pair_contrast_p5": 3.52,
-     "panel_contrast_min": 8.77
+     "fill_contrast_p5": 1.54,
+     "stroke_contrast_p5": 2.29,
+     "pair_contrast_p5": 3.16,
+     "panel_contrast_min": 8.78
     }
    },
    "baked_text": {
@@ -8564,38 +8916,46 @@
     ],
     "calm_coarse": 0.41,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -324,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (19% điểm là cạnh)); dời -324px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (70% ô bận, 19% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.0881,
-     0.0566,
+     0.0271,
+     0.0567,
      0.2339,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.2611,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.205,
-     "y": 0.0566,
+     "x": 0.1441,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
-     "edge_density": 0.04,
-     "luma_std": 0.051,
+     "calm_coarse": 0.99,
+     "edge_density": 0.0,
+     "luma_std": 0.005,
      "luma_p5_p50_p95": [
       0.465,
       0.476,
-      0.508
+      0.484
      ],
-     "fill_contrast_p5": 1.79,
+     "fill_contrast_p5": 1.87,
      "stroke_contrast_p5": 5.0,
      "pair_contrast_p5": 5.0,
-     "panel_contrast_min": 8.82
+     "panel_contrast_min": 9.39
     }
    },
    "baked_text": {
@@ -8638,38 +8998,46 @@
     ],
     "calm_coarse": 0.06,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh); nền loang sáng tối (lệch 0.255): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.4057,
-     0.0567,
-     0.147,
-     0.2011
+     0.4746,
+     0.6088,
+     0.1475,
+     0.2726
     ],
+    "room_bbox": [
+     0.4746,
+     0.6088,
+     0.1475,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.5484,
+     "y": 0.6088,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.0,
-     "edge_density": 0.175,
-     "luma_std": 0.255,
+     "calm_coarse": 0.17,
+     "edge_density": 0.003,
+     "luma_std": 0.102,
      "luma_p5_p50_p95": [
-      0.07,
-      0.459,
-      0.858
+      0.571,
+      0.788,
+      0.895
      ],
-     "fill_contrast_p5": 1.1,
-     "stroke_contrast_p5": 1.22,
-     "pair_contrast_p5": 3.48,
-     "panel_contrast_min": 8.75
+     "fill_contrast_p5": 1.06,
+     "stroke_contrast_p5": 6.03,
+     "pair_contrast_p5": 6.03,
+     "panel_contrast_min": 9.03
     }
    },
    "baked_text": {
@@ -8711,39 +9079,47 @@
      0.25
     ],
     "calm_coarse": 0.33,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     42,
+     108
     ],
-    "reason": "tranh có hình ngay chỗ chữ (60% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (61% ô bận, 2% cạnh hoạ tiết); dời +42px ngang, +108px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.4182,
-     0.0567,
-     0.122,
-     0.2011
+     0.4542,
+     0.2478,
+     0.0966,
+     0.1699
     ],
+    "room_bbox": [
+     0.4542,
+     0.2478,
+     0.0966,
+     0.1699
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.5025,
+     "y": 0.2478,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 34,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.5,
-     "edge_density": 0.022,
-     "luma_std": 0.119,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.014,
      "luma_p5_p50_p95": [
-      0.615,
-      0.705,
-      0.923
+      0.679,
+      0.704,
+      0.714
      ],
-     "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 6.46,
-     "pair_contrast_p5": 6.46,
-     "panel_contrast_min": 9.08
+     "fill_contrast_p5": 1.31,
+     "stroke_contrast_p5": 7.08,
+     "pair_contrast_p5": 7.08,
+     "panel_contrast_min": 9.62
     }
    },
    "baked_text": {
@@ -8843,38 +9219,46 @@
     ],
     "calm_coarse": 0.54,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     19,
-     24
+     0,
+     0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (27% ô bận)); dời +19px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (22% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.4339,
-     0.0991,
+     0.0271,
+     0.0567,
      0.122,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.326,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4949,
-     "y": 0.0991,
+     "x": 0.0881,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.9,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.007,
+     "luma_std": 0.039,
      "luma_p5_p50_p95": [
-      0.451,
-      0.461,
-      0.473
+      0.78,
+      0.856,
+      0.906
      ],
-     "fill_contrast_p5": 1.91,
-     "stroke_contrast_p5": 4.87,
-     "pair_contrast_p5": 4.87,
-     "panel_contrast_min": 9.37
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 8.07,
+     "pair_contrast_p5": 8.07,
+     "panel_contrast_min": 9.71
     }
    },
    "baked_text": {
@@ -9001,38 +9385,46 @@
     ],
     "calm_coarse": 0.3,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     285,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.243)); dời +285px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (100% ô bận, 12% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.678,
-     0.0566,
+     0.0271,
+     0.0567,
      0.0847,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.2751,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.7204,
-     "y": 0.0566,
+     "x": 0.0694,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.002,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.951,
-      0.951,
-      0.958
+      1.0,
+      1.0,
+      1.0
      ],
-     "fill_contrast_p5": 1.0,
-     "stroke_contrast_p5": 9.72,
-     "pair_contrast_p5": 9.72,
-     "panel_contrast_min": 10.06
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
     }
    },
    "baked_text": {
@@ -9136,30 +9528,38 @@
      0.25
     ],
     "calm_coarse": 0.85,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "fixed",
     "shift_px": [
-     80,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời +80px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (19% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3932,
-     0.0566,
-     0.3085,
-     0.1912
+     0.3938,
+     0.0567,
+     0.1708,
+     0.3058
     ],
+    "room_bbox": [
+     0.3938,
+     0.0567,
+     0.1708,
+     0.3058
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
-     "x": 0.5474,
-     "y": 0.0566,
+     "x": 0.4792,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
-    "lines": 1,
+    "font_px": 32,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.95,
+     "calm_coarse": 0.96,
      "edge_density": 0.001,
-     "luma_std": 0.028,
+     "luma_std": 0.027,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -9243,39 +9643,47 @@
      0.25
     ],
     "calm_coarse": 0.48,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -373,
+     300
     ],
-    "reason": "tranh có hình ngay chỗ chữ (57% ô bận); nền loang sáng tối (lệch 0.358): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (57% ô bận, 1% cạnh hoạ tiết); dời -373px ngang, +300px dọc tới chỗ trống ở phần ba dưới",
     "text_box": [
-     0.3639,
-     0.0567,
-     0.2305,
-     0.2011
+     0.0271,
+     0.5876,
+     0.2,
+     0.1664
     ],
+    "room_bbox": [
+     0.0271,
+     0.5876,
+     0.2,
+     0.1664
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.1271,
+     "y": 0.5876,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.4,
-     "edge_density": 0.012,
-     "luma_std": 0.351,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.019,
      "luma_p5_p50_p95": [
-      0.025,
-      0.78,
-      0.925
+      0.137,
+      0.175,
+      0.207
      ],
-     "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 1.11,
-     "pair_contrast_p5": 7.35,
-     "panel_contrast_min": 8.75
+     "fill_contrast_p5": 3.88,
+     "stroke_contrast_p5": 1.82,
+     "pair_contrast_p5": 3.88,
+     "panel_contrast_min": 8.89
     }
    },
    "baked_text": {
@@ -9382,36 +9790,44 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     -63,
+     -135,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời -63px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (21% ô bận, 2% cạnh hoạ tiết); dời -135px ngang, +0px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.2712,
+     0.2102,
      0.0566,
      0.3085,
      0.1912
     ],
+    "room_bbox": [
+     0.2034,
+     0.0566,
+     0.3221,
+     0.1912
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4254,
+     "x": 0.3644,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.85,
-     "edge_density": 0.018,
-     "luma_std": 0.105,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.018,
      "luma_p5_p50_p95": [
-      0.834,
+      0.839,
       0.878,
       0.897
      ],
      "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 8.59,
-     "pair_contrast_p5": 8.62,
-     "panel_contrast_min": 8.76
+     "stroke_contrast_p5": 8.63,
+     "pair_contrast_p5": 8.63,
+     "panel_contrast_min": 9.78
     }
    },
    "baked_text": {
@@ -9501,6 +9917,14 @@
      0.3153,
      0.1827
     ],
+    "room_bbox": [
+     0.3148,
+     0.0567,
+     0.3289,
+     0.1827
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.4793,
      "y": 0.0567,
@@ -9623,38 +10047,46 @@
     ],
     "calm_coarse": 0.37,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -324,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (74% ô bận); nền loang sáng tối (lệch 0.43)); dời -324px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (70% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.0881,
-     0.0566,
+     0.0271,
+     0.0567,
      0.2339,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.3019,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.205,
-     "y": 0.0566,
+     "x": 0.1441,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.93,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.019,
+     "luma_std": 0.018,
      "luma_p5_p50_p95": [
       0.837,
       0.872,
-      0.901
+      0.896
      ],
-     "fill_contrast_p5": 1.05,
+     "fill_contrast_p5": 1.06,
      "stroke_contrast_p5": 8.62,
      "pair_contrast_p5": 8.62,
-     "panel_contrast_min": 9.79
+     "panel_contrast_min": 9.84
     }
    },
    "baked_text": {
@@ -9760,38 +10192,46 @@
     ],
     "calm_coarse": 0.26,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     373,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (84% ô bận); nền nhiều hoạ tiết (29% điểm là cạnh); nền loang sáng tối (lệch 0.324)); dời +373px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (90% ô bận, 29% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống",
     "text_box": [
-     0.6373,
-     0.0566,
+     0.6576,
+     0.0567,
      0.3153,
      0.1827
     ],
+    "room_bbox": [
+     0.6576,
+     0.0567,
+     0.3153,
+     0.1827
+    ],
+    "anchor_name": "top-right",
+    "covers_art": false,
     "anchor": {
-     "x": 0.795,
-     "y": 0.0566,
+     "x": 0.8153,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 40,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.9,
-     "edge_density": 0.002,
-     "luma_std": 0.029,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.008,
      "luma_p5_p50_p95": [
-      0.781,
+      0.787,
       0.812,
       0.812
      ],
      "fill_contrast_p5": 1.16,
-     "stroke_contrast_p5": 8.07,
-     "pair_contrast_p5": 8.07,
-     "panel_contrast_min": 8.74
+     "stroke_contrast_p5": 8.13,
+     "pair_contrast_p5": 8.13,
+     "panel_contrast_min": 9.83
     }
    },
    "baked_text": {
@@ -9835,39 +10275,47 @@
      0.25
     ],
     "calm_coarse": 0.2,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     86,
+     66
     ],
-    "reason": "tranh có hình ngay chỗ chữ (68% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh); nền loang sáng tối (lệch 0.308): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (66% ô bận, 11% cạnh hoạ tiết); dời +86px ngang, +66px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.3911,
-     0.0567,
-     0.1763,
-     0.2011
+     0.4542,
+     0.1735,
+     0.1797,
+     0.1841
     ],
+    "room_bbox": [
+     0.4542,
+     0.1735,
+     0.1797,
+     0.1841
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.5441,
+     "y": 0.1735,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 40,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.4,
-     "edge_density": 0.095,
-     "luma_std": 0.288,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.162,
+      1.0,
       1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 2.06,
-     "pair_contrast_p5": 3.81,
-     "panel_contrast_min": 8.76
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.13
     }
    },
    "baked_text": {
@@ -9906,38 +10354,46 @@
     ],
     "calm_coarse": 0.04,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3776,
-     0.0564,
-     0.2034,
-     0.1608
+     0.1593,
+     0.4374,
+     0.1017,
+     0.2328
     ],
+    "room_bbox": [
+     0.1593,
+     0.4374,
+     0.1017,
+     0.2328
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0564,
+     "x": 0.2102,
+     "y": 0.4374,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.0,
-     "edge_density": 0.113,
-     "luma_std": 0.105,
+     "calm_coarse": 0.79,
+     "edge_density": 0.006,
+     "luma_std": 0.018,
      "luma_p5_p50_p95": [
-      0.038,
-      0.055,
-      0.307
+      0.043,
+      0.048,
+      0.057
      ],
-     "fill_contrast_p5": 2.8,
+     "fill_contrast_p5": 9.3,
      "stroke_contrast_p5": 1.01,
-     "pair_contrast_p5": 3.23,
-     "panel_contrast_min": 8.75
+     "pair_contrast_p5": 9.3,
+     "panel_contrast_min": 8.77
     }
    },
    "baked_text": {
@@ -10012,38 +10468,46 @@
     ],
     "calm_coarse": 0.76,
     "style": "c1",
-    "source": "shifted",
+    "source": "fixed",
     "shift_px": [
-     36,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (20% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (10% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống",
     "text_box": [
-     0.3932,
-     0.0566,
-     0.2339,
-     0.1912
+     0.3725,
+     0.0567,
+     0.2136,
+     0.1827
     ],
+    "room_bbox": [
+     0.3725,
+     0.0567,
+     0.2136,
+     0.1827
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
-     "x": 0.5102,
-     "y": 0.0566,
+     "x": 0.4793,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 40,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
+     "calm_coarse": 0.95,
      "edge_density": 0.0,
-     "luma_std": 0.051,
+     "luma_std": 0.06,
      "luma_p5_p50_p95": [
-      0.761,
-      0.867,
-      0.928
+      0.729,
+      0.86,
+      0.925
      ],
-     "fill_contrast_p5": 1.02,
-     "stroke_contrast_p5": 7.88,
-     "pair_contrast_p5": 7.88,
-     "panel_contrast_min": 9.64
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 7.57,
+     "pair_contrast_p5": 7.57,
+     "panel_contrast_min": 9.38
     }
    },
    "baked_text": {
@@ -10118,37 +10582,45 @@
     ],
     "calm_coarse": 0.83,
     "style": "c1",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
+     -95,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "chỗ cố định đè lên hình (16% ô bận, 0% cạnh hoạ tiết); dời -95px ngang, +0px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.3623,
-     0.0567,
+     0.2814,
+     0.0566,
      0.2339,
      0.1912
     ],
+    "room_bbox": [
+     0.2814,
+     0.0566,
+     0.2339,
+     0.1912
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.3983,
+     "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
+     "calm_coarse": 0.96,
      "edge_density": 0.0,
-     "luma_std": 0.061,
+     "luma_std": 0.03,
      "luma_p5_p50_p95": [
-      0.498,
-      0.563,
-      0.686
+      0.495,
+      0.541,
+      0.593
      ],
-     "fill_contrast_p5": 1.36,
-     "stroke_contrast_p5": 5.32,
-     "pair_contrast_p5": 5.32,
+     "fill_contrast_p5": 1.55,
+     "stroke_contrast_p5": 5.29,
+     "pair_contrast_p5": 5.29,
      "panel_contrast_min": 9.37
     }
    },
@@ -10194,38 +10666,46 @@
     ],
     "calm_coarse": 0.19,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (84% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3911,
-     0.0567,
-     0.1763,
-     0.2011
+     0.8102,
+     0.1947,
+     0.1568,
+     0.2726
     ],
+    "room_bbox": [
+     0.8102,
+     0.1947,
+     0.1568,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.8886,
+     "y": 0.1947,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.17,
-     "edge_density": 0.04,
-     "luma_std": 0.155,
+     "calm_coarse": 0.73,
+     "edge_density": 0.029,
+     "luma_std": 0.063,
      "luma_p5_p50_p95": [
-      0.027,
-      0.346,
-      0.449
+      0.366,
+      0.416,
+      0.469
      ],
-     "fill_contrast_p5": 2.0,
-     "stroke_contrast_p5": 1.08,
-     "pair_contrast_p5": 3.56,
-     "panel_contrast_min": 8.76
+     "fill_contrast_p5": 1.93,
+     "stroke_contrast_p5": 4.04,
+     "pair_contrast_p5": 4.04,
+     "panel_contrast_min": 8.88
     }
    },
    "baked_text": {
@@ -10300,39 +10780,47 @@
      0.25
     ],
     "calm_coarse": 0.54,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
+     -110,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (54% ô bận); nền loang sáng tối (lệch 0.317): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (55% ô bận, 5% cạnh hoạ tiết); dời -110px ngang, +0px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.3639,
+     0.2508,
      0.0566,
-     0.2305,
-     0.2011
+     0.2119,
+     0.1699
     ],
+    "room_bbox": [
+     0.2508,
+     0.0566,
+     0.2119,
+     0.1699
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.3568,
      "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 34,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.48,
-     "edge_density": 0.054,
-     "luma_std": 0.321,
+     "calm_coarse": 0.97,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.174,
+      0.892,
       0.892,
       0.892
      ],
      "fill_contrast_p5": 1.06,
-     "stroke_contrast_p5": 2.18,
-     "pair_contrast_p5": 3.23,
-     "panel_contrast_min": 8.74
+     "stroke_contrast_p5": 9.15,
+     "pair_contrast_p5": 9.15,
+     "panel_contrast_min": 10.04
     }
    },
    "baked_text": {
@@ -10378,38 +10866,46 @@
     ],
     "calm_coarse": 0.09,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3776,
-     0.0567,
-     0.2034,
-     0.2011
+     0.0271,
+     0.0566,
+     0.1551,
+     0.2726
     ],
+    "room_bbox": [
+     0.0271,
+     0.0566,
+     0.1551,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.1046,
+     "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.0,
-     "edge_density": 0.053,
-     "luma_std": 0.19,
+     "calm_coarse": 0.54,
+     "edge_density": 0.006,
+     "luma_std": 0.05,
      "luma_p5_p50_p95": [
-      0.259,
-      0.721,
-      0.887
+      0.799,
+      0.888,
+      0.924
      ],
-     "fill_contrast_p5": 1.07,
-     "stroke_contrast_p5": 3.0,
-     "pair_contrast_p5": 3.6,
-     "panel_contrast_min": 8.81
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 8.24,
+     "pair_contrast_p5": 8.24,
+     "panel_contrast_min": 8.91
     }
    },
    "baked_text": {
@@ -10540,38 +11036,46 @@
     ],
     "calm_coarse": 0.48,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -179,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (63% ô bận); nền loang sáng tối (lệch 0.217)); dời -179px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (66% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.2102,
-     0.0566,
+     0.0271,
+     0.0567,
      0.2339,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.3291,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.3272,
-     "y": 0.0566,
+     "x": 0.1441,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
-     "edge_density": 0.001,
-     "luma_std": 0.007,
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.009,
      "luma_p5_p50_p95": [
-      0.04,
-      0.053,
-      0.063
+      0.037,
+      0.057,
+      0.064
      ],
-     "fill_contrast_p5": 8.86,
+     "fill_contrast_p5": 8.73,
      "stroke_contrast_p5": 1.01,
-     "pair_contrast_p5": 8.86,
-     "panel_contrast_min": 8.74
+     "pair_contrast_p5": 8.73,
+     "panel_contrast_min": 8.78
     }
    },
    "baked_text": {
@@ -10701,38 +11205,46 @@
     ],
     "calm_coarse": 0.61,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -154,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận)); dời -154px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (45% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.2508,
-     0.0566,
+     0.0271,
+     0.0567,
      0.1966,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.3326,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.3491,
-     "y": 0.0566,
+     "x": 0.1254,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.96,
-     "edge_density": 0.012,
-     "luma_std": 0.045,
+     "calm_coarse": 1.0,
+     "edge_density": 0.008,
+     "luma_std": 0.041,
      "luma_p5_p50_p95": [
-      0.855,
-      0.949,
-      0.98
+      0.868,
+      0.95,
+      0.981
      ],
      "fill_contrast_p5": 1.0,
-     "stroke_contrast_p5": 8.79,
-     "pair_contrast_p5": 8.79,
-     "panel_contrast_min": 9.4
+     "stroke_contrast_p5": 8.91,
+     "pair_contrast_p5": 8.91,
+     "panel_contrast_min": 9.34
     }
    },
    "baked_text": {
@@ -10799,39 +11311,47 @@
      0.25
     ],
     "calm_coarse": 0.37,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -240,
+     132
     ],
-    "reason": "tranh có hình ngay chỗ chữ (56% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (57% ô bận, 3% cạnh hoạ tiết); dời -240px ngang, +132px dọc tới chỗ trống ở dải giữa",
     "text_box": [
-     0.3369,
-     0.0567,
-     0.2847,
-     0.1614
+     0.1186,
+     0.2903,
+     0.3458,
+     0.1522
     ],
+    "room_bbox": [
+     0.1186,
+     0.2903,
+     0.3458,
+     0.1522
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.2915,
+     "y": 0.2903,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.37,
-     "edge_density": 0.025,
-     "luma_std": 0.1,
+     "calm_coarse": 0.96,
+     "edge_density": 0.001,
+     "luma_std": 0.033,
      "luma_p5_p50_p95": [
-      0.441,
-      0.639,
-      0.66
+      0.581,
+      0.615,
+      0.668
      ],
-     "fill_contrast_p5": 1.41,
-     "stroke_contrast_p5": 4.77,
-     "pair_contrast_p5": 4.81,
-     "panel_contrast_min": 8.75
+     "fill_contrast_p5": 1.39,
+     "stroke_contrast_p5": 6.13,
+     "pair_contrast_p5": 6.13,
+     "panel_contrast_min": 9.24
     }
    },
    "baked_text": {
@@ -10931,38 +11451,46 @@
     ],
     "calm_coarse": 0.41,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -221,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (67% ô bận); nền loang sáng tối (lệch 0.212)); dời -221px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (71% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.2305,
-     0.0566,
+     0.0271,
+     0.0567,
      0.122,
      0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.122,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.2915,
-     "y": 0.0566,
+     "x": 0.0881,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.9,
-     "edge_density": 0.028,
-     "luma_std": 0.062,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.983,
+      1.0,
       1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 10.03,
-     "pair_contrast_p5": 10.03,
-     "panel_contrast_min": 9.31
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
     }
    },
    "baked_text": {
@@ -11029,39 +11557,47 @@
      0.25
     ],
     "calm_coarse": 0.39,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -316,
+     18
     ],
-    "reason": "tranh có hình ngay chỗ chữ (64% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (63% ô bận, 2% cạnh hoạ tiết); dời -316px ngang, +18px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.3504,
-     0.0567,
-     0.2576,
-     0.1614
+     0.0576,
+     0.0885,
+     0.2678,
+     0.1398
     ],
+    "room_bbox": [
+     0.0576,
+     0.0885,
+     0.2678,
+     0.1398
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.1915,
+     "y": 0.0885,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.46,
-     "edge_density": 0.027,
-     "luma_std": 0.109,
+     "calm_coarse": 0.95,
+     "edge_density": 0.001,
+     "luma_std": 0.036,
      "luma_p5_p50_p95": [
-      0.468,
-      0.666,
-      0.75
+      0.617,
+      0.675,
+      0.735
      ],
-     "fill_contrast_p5": 1.25,
-     "stroke_contrast_p5": 5.03,
-     "pair_contrast_p5": 5.21,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.27,
+     "stroke_contrast_p5": 6.47,
+     "pair_contrast_p5": 6.47,
+     "panel_contrast_min": 9.44
     }
    },
    "baked_text": {
@@ -11128,39 +11664,47 @@
      0.25
     ],
     "calm_coarse": 0.56,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (40% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (41% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống",
     "text_box": [
-     0.3911,
-     0.0563,
-     0.1763,
-     0.1606
+     0.3809,
+     0.793,
+     0.1966,
+     0.1507
     ],
+    "room_bbox": [
+     0.3673,
+     0.793,
+     0.2238,
+     0.1507
+    ],
+    "anchor_name": "bottom-center",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0563,
+     "x": 0.4792,
+     "y": 0.793,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.48,
-     "edge_density": 0.001,
-     "luma_std": 0.045,
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.793,
-      0.893,
-      0.895
+      0.894,
+      0.894,
+      0.894
      ],
      "fill_contrast_p5": 1.06,
-     "stroke_contrast_p5": 8.18,
-     "pair_contrast_p5": 8.18,
-     "panel_contrast_min": 9.06
+     "stroke_contrast_p5": 9.17,
+     "pair_contrast_p5": 9.17,
+     "panel_contrast_min": 10.04
     }
    },
    "baked_text": {
@@ -11198,39 +11742,47 @@
      0.25
     ],
     "calm_coarse": 0.5,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "no_room",
     "shift_px": [
-     392,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (56% ô bận)); dời +392px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.6576,
+     0.8102,
      0.0566,
-     0.3085,
-     0.1261
+     0.1627,
+     0.2336
     ],
+    "room_bbox": [
+     0.8102,
+     0.0566,
+     0.1627,
+     0.2336
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.8118,
+     "x": 0.8916,
      "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.86,
-     "edge_density": 0.002,
+     "calm_coarse": 0.91,
+     "edge_density": 0.004,
      "luma_std": 0.043,
      "luma_p5_p50_p95": [
-      0.123,
-      0.143,
-      0.252
+      0.11,
+      0.134,
+      0.237
      ],
-     "fill_contrast_p5": 3.31,
-     "stroke_contrast_p5": 1.68,
-     "pair_contrast_p5": 3.32,
-     "panel_contrast_min": 8.87
+     "fill_contrast_p5": 3.48,
+     "stroke_contrast_p5": 1.56,
+     "pair_contrast_p5": 3.51,
+     "panel_contrast_min": 8.85
     }
    },
    "baked_text": {
@@ -11308,13 +11860,21 @@
      -79,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận); nền loang sáng tối (lệch 0.191)); dời -79px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (42% ô bận, 4% cạnh hoạ tiết); dời -79px ngang, +0px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
      0.3322,
      0.0566,
      0.1593,
      0.1912
     ],
+    "room_bbox": [
+     0.3254,
+     0.0566,
+     0.1729,
+     0.1912
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
      "x": 0.4118,
      "y": 0.0566,
@@ -11446,6 +12006,14 @@
      0.122,
      0.0932
     ],
+    "room_bbox": [
+     0.2758,
+     0.0276,
+     0.4484,
+     0.0932
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.5,
      "y": 0.0276,
@@ -11511,39 +12079,47 @@
      0.25
     ],
     "calm_coarse": 0.39,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -205,
+     300
     ],
-    "reason": "tranh có hình ngay chỗ chữ (60% ô bận); nền loang sáng tối (lệch 0.221): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (57% ô bận, 1% cạnh hoạ tiết); dời -205px ngang, +300px dọc tới chỗ trống ở phần ba dưới",
     "text_box": [
-     0.3639,
-     0.0567,
-     0.2305,
-     0.2011
+     0.1695,
+     0.5876,
+     0.2356,
+     0.1788
     ],
+    "room_bbox": [
+     0.1695,
+     0.5876,
+     0.2356,
+     0.1788
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.2873,
+     "y": 0.5876,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.43,
-     "edge_density": 0.01,
-     "luma_std": 0.17,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.015,
      "luma_p5_p50_p95": [
-      0.022,
-      0.045,
-      0.59
+      0.024,
+      0.042,
+      0.078
      ],
-     "fill_contrast_p5": 1.56,
+     "fill_contrast_p5": 7.78,
      "stroke_contrast_p5": 1.02,
-     "pair_contrast_p5": 6.54,
-     "panel_contrast_min": 8.76
+     "pair_contrast_p5": 7.78,
+     "panel_contrast_min": 8.77
     }
    },
    "baked_text": {
@@ -11588,38 +12164,46 @@
     ],
     "calm_coarse": 0.39,
     "style": "panel",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -105,
+     294
     ],
-    "reason": "tranh có hình ngay chỗ chữ (88% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.446): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (90% ô bận, 6% cạnh hoạ tiết); dời -105px ngang, +294px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3911,
-     0.0567,
-     0.1763,
-     0.2011
+     0.2915,
+     0.577,
+     0.1195,
+     0.2814
     ],
+    "room_bbox": [
+     0.2915,
+     0.577,
+     0.1195,
+     0.2814
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.3512,
+     "y": 0.577,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 26,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.1,
-     "edge_density": 0.058,
-     "luma_std": 0.445,
+     "calm_coarse": 0.95,
+     "edge_density": 0.001,
+     "luma_std": 0.03,
      "luma_p5_p50_p95": [
-      0.003,
-      0.424,
-      0.998
+      0.926,
+      0.986,
+      1.0
      ],
-     "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 1.39,
-     "pair_contrast_p5": 6.03,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.0,
+     "stroke_contrast_p5": 9.48,
+     "pair_contrast_p5": 9.48,
+     "panel_contrast_min": 9.03
     }
    },
    "baked_text": {
@@ -11719,38 +12303,46 @@
     ],
     "calm_coarse": 0.44,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -198,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (93% ô bận)); dời -198px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (92% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.2508,
+     0.0271,
      0.0566,
      0.122,
-     0.1911
+     0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0566,
+     0.326,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.3118,
+     "x": 0.0881,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
-     "edge_density": 0.003,
-     "luma_std": 0.022,
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.001,
      "luma_p5_p50_p95": [
-      0.452,
-      0.465,
-      0.471
+      0.468,
+      0.468,
+      0.468
      ],
-     "fill_contrast_p5": 1.92,
-     "stroke_contrast_p5": 4.88,
-     "pair_contrast_p5": 4.88,
-     "panel_contrast_min": 9.04
+     "fill_contrast_p5": 1.93,
+     "stroke_contrast_p5": 5.03,
+     "pair_contrast_p5": 5.03,
+     "panel_contrast_min": 9.41
     }
    },
    "baked_text": {
@@ -11799,35 +12391,43 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     59,
-     24
+     119,
+     30
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (31% ô bận)); dời +59px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (31% ô bận, 2% cạnh hoạ tiết); dời +119px ngang, +30px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.3932,
-     0.0991,
-     0.2712,
-     0.1911
+     0.4441,
+     0.1097,
+     0.2237,
+     0.1752
     ],
+    "room_bbox": [
+     0.4441,
+     0.1097,
+     0.2237,
+     0.1752
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.5288,
-     "y": 0.0991,
+     "x": 0.5559,
+     "y": 0.1097,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 36,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
-     "edge_density": 0.007,
-     "luma_std": 0.065,
+     "calm_coarse": 0.96,
+     "edge_density": 0.001,
+     "luma_std": 0.025,
      "luma_p5_p50_p95": [
-      0.55,
+      0.554,
       0.593,
-      0.618
+      0.611
      ],
-     "fill_contrast_p5": 1.5,
-     "stroke_contrast_p5": 5.83,
-     "pair_contrast_p5": 5.83,
+     "fill_contrast_p5": 1.51,
+     "stroke_contrast_p5": 5.87,
+     "pair_contrast_p5": 5.87,
      "panel_contrast_min": 9.28
     }
    },
@@ -11904,38 +12504,46 @@
     ],
     "calm_coarse": 0.89,
     "style": "c1",
-    "source": "fixed",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "chỗ cố định đè lên hình (14% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.3644,
+     0.0271,
      0.0276,
      0.2712,
      0.0931
     ],
+    "room_bbox": [
+     0.0271,
+     0.0276,
+     0.448,
+     0.0931
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.5,
+     "x": 0.1627,
      "y": 0.0276,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.019,
+     "luma_std": 0.008,
      "luma_p5_p50_p95": [
-      0.664,
-      0.676,
-      0.704
+      0.66,
+      0.672,
+      0.685
      ],
-     "fill_contrast_p5": 1.33,
-     "stroke_contrast_p5": 6.94,
-     "pair_contrast_p5": 6.94,
-     "panel_contrast_min": 9.68
+     "fill_contrast_p5": 1.36,
+     "stroke_contrast_p5": 6.9,
+     "pair_contrast_p5": 6.9,
+     "panel_contrast_min": 9.66
     }
    },
    "baked_text": {
@@ -12012,29 +12620,37 @@
     ],
     "calm_coarse": 0.69,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -112,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (36% ô bận); nền loang sáng tối (lệch 0.226)); dời -112px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (34% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.2305,
+     0.0271,
      0.0566,
      0.3085,
-     0.1911
+     0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0566,
+     0.3221,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.3848,
+     "x": 0.1814,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.9,
-     "edge_density": 0.005,
-     "luma_std": 0.109,
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -12043,7 +12659,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 8.75
+     "panel_contrast_min": 10.2
     }
    },
    "baked_text": {
@@ -12122,26 +12738,34 @@
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "chỗ cố định đè lên hình (7% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống",
     "text_box": [
-     0.3809,
+     0.3936,
      0.0567,
-     0.1966,
-     0.1912
+     0.1712,
+     0.1784
     ],
+    "room_bbox": [
+     0.3936,
+     0.0567,
+     0.1712,
+     0.1784
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.4792,
      "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.92,
-     "edge_density": 0.002,
-     "luma_std": 0.01,
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.005,
      "luma_p5_p50_p95": [
-      0.073,
+      0.074,
       0.079,
       0.087
      ],
@@ -12196,38 +12820,46 @@
     ],
     "calm_coarse": 0.48,
     "style": "panel",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     -339,
+     264
     ],
-    "reason": "tranh có hình ngay chỗ chữ (62% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.203): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (69% ô bận, 5% cạnh hoạ tiết); dời -339px ngang, +264px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3504,
-     0.0567,
-     0.2576,
-     0.2011
+     0.0373,
+     0.5239,
+     0.1712,
+     0.2973
     ],
+    "room_bbox": [
+     0.0373,
+     0.5239,
+     0.1712,
+     0.2973
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.1229,
+     "y": 0.5239,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 30,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.29,
-     "edge_density": 0.061,
-     "luma_std": 0.219,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
      "luma_p5_p50_p95": [
-      0.227,
-      0.798,
-      0.908
+      0.786,
+      0.786,
+      0.786
      ],
-     "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 2.69,
-     "pair_contrast_p5": 3.43,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.2,
+     "stroke_contrast_p5": 8.12,
+     "pair_contrast_p5": 8.12,
+     "panel_contrast_min": 9.87
     }
    },
    "baked_text": {
@@ -12299,38 +12931,46 @@
     ],
     "calm_coarse": 0.15,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (88% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3874,
-     0.0567,
-     0.1838,
-     0.2011
+     0.6983,
+     0.3752,
+     0.1839,
+     0.2726
     ],
+    "room_bbox": [
+     0.6983,
+     0.3752,
+     0.1839,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.7903,
+     "y": 0.3752,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.13,
-     "edge_density": 0.022,
-     "luma_std": 0.109,
+     "calm_coarse": 0.61,
+     "edge_density": 0.001,
+     "luma_std": 0.051,
      "luma_p5_p50_p95": [
-      0.376,
-      0.484,
-      0.724
+      0.449,
+      0.521,
+      0.612
      ],
-     "fill_contrast_p5": 1.29,
-     "stroke_contrast_p5": 4.14,
-     "pair_contrast_p5": 4.14,
-     "panel_contrast_min": 9.09
+     "fill_contrast_p5": 1.51,
+     "stroke_contrast_p5": 4.84,
+     "pair_contrast_p5": 4.84,
+     "panel_contrast_min": 9.04
     }
    },
    "baked_text": {
@@ -12463,29 +13103,37 @@
     ],
     "calm_coarse": 0.48,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -327,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (51% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.183)); dời -327px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (51% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.0475,
-     0.0566,
-     0.3085,
-     0.1912
+     0.0271,
+     0.0567,
+     0.2949,
+     0.1869
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.2949,
+     0.1869
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.2017,
-     "y": 0.0566,
+     "x": 0.1745,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 42,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.85,
-     "edge_density": 0.004,
-     "luma_std": 0.07,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.002,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -12494,7 +13142,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 8.74
+     "panel_contrast_min": 9.91
     }
    },
    "baked_text": {
@@ -12543,37 +13191,45 @@
     ],
     "calm_coarse": 0.24,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (73% ô bận); nền loang sáng tối (lệch 0.186): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3369,
-     0.0567,
-     0.2847,
-     0.2011
+     0.4339,
+     0.0566,
+     0.2051,
+     0.2726
     ],
+    "room_bbox": [
+     0.4339,
+     0.0566,
+     0.2051,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.5364,
+     "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.26,
-     "edge_density": 0.046,
-     "luma_std": 0.182,
+     "calm_coarse": 0.3,
+     "edge_density": 0.052,
+     "luma_std": 0.13,
      "luma_p5_p50_p95": [
-      0.011,
-      0.016,
-      0.595
+      0.013,
+      0.017,
+      0.124
      ],
-     "fill_contrast_p5": 1.55,
-     "stroke_contrast_p5": 1.22,
-     "pair_contrast_p5": 5.4,
+     "fill_contrast_p5": 5.75,
+     "stroke_contrast_p5": 1.09,
+     "pair_contrast_p5": 6.06,
      "panel_contrast_min": 8.74
     }
    },
@@ -12622,37 +13278,45 @@
     ],
     "calm_coarse": 0.3,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.47): chữ C1 sẽ chìm, dùng panel; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem",
     "text_box": [
-     0.3504,
+     0.3017,
      0.0566,
-     0.2576,
-     0.2011
+     0.1466,
+     0.2726
     ],
+    "room_bbox": [
+     0.3017,
+     0.0566,
+     0.1466,
+     0.2726
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.375,
      "y": 0.0566,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.24,
-     "edge_density": 0.127,
-     "luma_std": 0.469,
+     "calm_coarse": 0.36,
+     "edge_density": 0.051,
+     "luma_std": 0.371,
      "luma_p5_p50_p95": [
-      0.004,
-      0.121,
+      0.005,
+      1.0,
       1.0
      ],
      "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 1.09,
-     "pair_contrast_p5": 5.74,
+     "stroke_contrast_p5": 1.58,
+     "pair_contrast_p5": 7.18,
      "panel_contrast_min": 8.74
     }
    },
@@ -12755,6 +13419,14 @@
      0.3085,
      0.1654
     ],
+    "room_bbox": [
+     0.3182,
+     0.0565,
+     0.3221,
+     0.1654
+    ],
+    "anchor_name": "top-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.4793,
      "y": 0.0565,
@@ -12763,7 +13435,7 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.96,
+     "calm_coarse": 0.99,
      "edge_density": 0.003,
      "luma_std": 0.024,
      "luma_p5_p50_p95": [
@@ -12878,38 +13550,46 @@
     ],
     "calm_coarse": 0.39,
     "style": "c1",
-    "source": "shifted",
+    "source": "anchor",
     "shift_px": [
-     -253,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.194)); dời -253px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (82% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống",
     "text_box": [
-     0.1288,
+     0.0271,
      0.0566,
      0.2712,
-     0.1911
+     0.1912
     ],
+    "room_bbox": [
+     0.0271,
+     0.0566,
+     0.3256,
+     0.1912
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.2644,
+     "x": 0.1627,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
-     "edge_density": 0.012,
-     "luma_std": 0.036,
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.002,
      "luma_p5_p50_p95": [
-      0.519,
+      0.513,
       0.519,
       0.519
      ],
      "fill_contrast_p5": 1.76,
-     "stroke_contrast_p5": 5.52,
-     "pair_contrast_p5": 5.52,
-     "panel_contrast_min": 9.14
+     "stroke_contrast_p5": 5.47,
+     "pair_contrast_p5": 5.47,
+     "panel_contrast_min": 9.48
     }
    },
    "baked_text": {
@@ -12953,39 +13633,47 @@
      0.25
     ],
     "calm_coarse": 0.61,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     99,
+     30
     ],
-    "reason": "tranh có hình ngay chỗ chữ (40% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (39% ô bận, 0% cạnh hoạ tiết); dời +99px ngang, +30px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
-     0.3911,
-     0.0566,
-     0.1763,
-     0.2011
+     0.4644,
+     0.1097,
+     0.1627,
+     0.1752
     ],
+    "room_bbox": [
+     0.4644,
+     0.1097,
+     0.1627,
+     0.1752
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0566,
+     "x": 0.5457,
+     "y": 0.1097,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 36,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.63,
+     "calm_coarse": 0.95,
      "edge_density": 0.0,
-     "luma_std": 0.046,
+     "luma_std": 0.013,
      "luma_p5_p50_p95": [
-      0.653,
+      0.728,
       0.743,
-      0.797
+      0.764
      ],
-     "fill_contrast_p5": 1.18,
-     "stroke_contrast_p5": 6.83,
-     "pair_contrast_p5": 6.83,
-     "panel_contrast_min": 9.64
+     "fill_contrast_p5": 1.23,
+     "stroke_contrast_p5": 7.55,
+     "pair_contrast_p5": 7.55,
+     "panel_contrast_min": 9.68
     }
    },
    "baked_text": {
@@ -13028,39 +13716,47 @@
      0.25
     ],
     "calm_coarse": 0.33,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "shifted",
     "shift_px": [
-     0,
-     0
+     509,
+     312
     ],
-    "reason": "tranh có hình ngay chỗ chữ (84% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (85% ô bận, 9% cạnh hoạ tiết); dời +509px ngang, +312px dọc tới chỗ trống ở phần ba dưới",
     "text_box": [
-     0.4009,
-     0.0567,
-     0.1564,
-     0.2011
+     0.8305,
+     0.6088,
+     0.139,
+     0.1788
     ],
+    "room_bbox": [
+     0.8305,
+     0.6088,
+     0.139,
+     0.1788
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
-     "x": 0.4791,
-     "y": 0.0567,
+     "x": 0.9,
+     "y": 0.6088,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 38,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.13,
-     "edge_density": 0.093,
-     "luma_std": 0.161,
+     "calm_coarse": 0.96,
+     "edge_density": 0.0,
+     "luma_std": 0.031,
      "luma_p5_p50_p95": [
-      0.107,
-      0.533,
-      0.6
+      0.305,
+      0.364,
+      0.405
      ],
-     "fill_contrast_p5": 1.54,
-     "stroke_contrast_p5": 1.63,
-     "pair_contrast_p5": 3.46,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 2.2,
+     "stroke_contrast_p5": 3.45,
+     "pair_contrast_p5": 3.45,
+     "panel_contrast_min": 9.11
     }
    },
    "baked_text": {
@@ -13099,37 +13795,45 @@
     ],
     "calm_coarse": 0.09,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (15% điểm là cạnh); nền loang sáng tối (lệch 0.265): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3776,
-     0.0567,
-     0.2034,
-     0.1614
+     0.5763,
+     0.7044,
+     0.1017,
+     0.2336
     ],
+    "room_bbox": [
+     0.5763,
+     0.7044,
+     0.1017,
+     0.2336
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.6271,
+     "y": 0.7044,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.0,
-     "edge_density": 0.144,
-     "luma_std": 0.262,
+     "calm_coarse": 0.52,
+     "edge_density": 0.01,
+     "luma_std": 0.082,
      "luma_p5_p50_p95": [
-      0.086,
-      0.614,
-      0.955
+      0.663,
+      0.708,
+      0.753
      ],
-     "fill_contrast_p5": 1.0,
-     "stroke_contrast_p5": 1.8,
-     "pair_contrast_p5": 4.44,
+     "fill_contrast_p5": 1.24,
+     "stroke_contrast_p5": 6.92,
+     "pair_contrast_p5": 6.97,
      "panel_contrast_min": 8.74
     }
    },
@@ -13218,39 +13922,47 @@
      0.125
     ],
     "calm_coarse": 0.31,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (63% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (64% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống",
     "text_box": [
-     0.3441,
-     0.0276,
-     0.3119,
-     0.098
+     0.3085,
+     0.8792,
+     0.3831,
+     0.0932
     ],
+    "room_bbox": [
+     0.2949,
+     0.8792,
+     0.4103,
+     0.0932
+    ],
+    "anchor_name": "bottom-center",
+    "covers_art": false,
     "anchor": {
      "x": 0.5,
-     "y": 0.0276,
+     "y": 0.8792,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.41,
-     "edge_density": 0.033,
-     "luma_std": 0.124,
+     "calm_coarse": 0.97,
+     "edge_density": 0.003,
+     "luma_std": 0.07,
      "luma_p5_p50_p95": [
-      0.584,
-      0.939,
-      1.0
+      0.892,
+      0.892,
+      0.892
      ],
-     "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 6.16,
-     "pair_contrast_p5": 6.16,
-     "panel_contrast_min": 9.31
+     "fill_contrast_p5": 1.06,
+     "stroke_contrast_p5": 9.14,
+     "pair_contrast_p5": 9.14,
+     "panel_contrast_min": 8.74
     }
    },
    "baked_text": {
@@ -13327,39 +14039,47 @@
      0.25
     ],
     "calm_coarse": 0.06,
-    "style": "panel",
-    "source": "fixed",
+    "style": "c1",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (93% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh); nền loang sáng tối (lệch 0.302): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (96% ô bận, 20% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống",
     "text_box": [
-     0.3369,
-     0.0564,
-     0.2847,
-     0.2004
+     0.3064,
+     0.7531,
+     0.3458,
+     0.1905
     ],
+    "room_bbox": [
+     0.3064,
+     0.7531,
+     0.3458,
+     0.1905
+    ],
+    "anchor_name": "bottom-center",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0564,
+     "x": 0.4793,
+     "y": 0.7531,
      "align": "center"
     },
-    "font_px": 32,
+    "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.1,
-     "edge_density": 0.196,
-     "luma_std": 0.307,
+     "calm_coarse": 0.98,
+     "edge_density": 0.0,
+     "luma_std": 0.043,
      "luma_p5_p50_p95": [
-      0.013,
-      0.486,
-      0.925
+      0.803,
+      0.888,
+      0.944
      ],
-     "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 1.39,
-     "pair_contrast_p5": 3.32,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 8.29,
+     "pair_contrast_p5": 8.29,
+     "panel_contrast_min": 9.77
     }
    },
    "baked_text": {
@@ -13435,38 +14155,46 @@
     ],
     "calm_coarse": 0.22,
     "style": "panel",
-    "source": "fixed",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (86% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel",
+    "reason": "chỗ cố định đè lên hình (88% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3639,
+     0.0271,
      0.0567,
-     0.2305,
-     0.2011
+     0.1492,
+     0.3058
     ],
+    "room_bbox": [
+     0.0271,
+     0.0567,
+     0.1764,
+     0.3058
+    ],
+    "anchor_name": "top-left",
+    "covers_art": false,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.1017,
      "y": 0.0567,
      "align": "center"
     },
     "font_px": 32,
-    "lines": 1,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.12,
-     "edge_density": 0.082,
-     "luma_std": 0.182,
+     "calm_coarse": 0.99,
+     "edge_density": 0.0,
+     "luma_std": 0.01,
      "luma_p5_p50_p95": [
-      0.12,
-      0.56,
-      0.674
+      0.855,
+      0.868,
+      0.888
      ],
-     "fill_contrast_p5": 1.38,
-     "stroke_contrast_p5": 1.97,
-     "pair_contrast_p5": 3.49,
-     "panel_contrast_min": 8.74
+     "fill_contrast_p5": 1.07,
+     "stroke_contrast_p5": 8.79,
+     "pair_contrast_p5": 8.79,
+     "panel_contrast_min": 9.96
     }
    },
    "baked_text": {
@@ -13514,37 +14242,45 @@
     ],
     "calm_coarse": 0.13,
     "style": "panel",
-    "source": "fixed",
+    "source": "no_room",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (93% ô bận); nền loang sáng tối (lệch 0.281): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.3504,
+     0.2305,
      0.0563,
-     0.2576,
-     0.2
+     0.2466,
+     0.2711
     ],
+    "room_bbox": [
+     0.2305,
+     0.0563,
+     0.2466,
+     0.2711
+    ],
+    "anchor_name": null,
+    "covers_art": true,
     "anchor": {
-     "x": 0.4792,
+     "x": 0.3538,
      "y": 0.0563,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 24,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.02,
-     "edge_density": 0.042,
-     "luma_std": 0.288,
+     "calm_coarse": 0.11,
+     "edge_density": 0.026,
+     "luma_std": 0.229,
      "luma_p5_p50_p95": [
-      0.042,
-      0.553,
-      0.785
+      0.213,
+      0.555,
+      0.816
      ],
-     "fill_contrast_p5": 1.2,
-     "stroke_contrast_p5": 1.09,
-     "pair_contrast_p5": 3.77,
+     "fill_contrast_p5": 1.15,
+     "stroke_contrast_p5": 2.55,
+     "pair_contrast_p5": 3.26,
      "panel_contrast_min": 8.76
     }
    },
@@ -13624,35 +14360,43 @@
     "source": "shifted",
     "shift_px": [
      251,
-     24
+     54
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (74% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +251px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "chỗ cố định đè lên hình (77% ô bận, 8% cạnh hoạ tiết); dời +251px ngang, +54px dọc tới chỗ trống trong phần ba trên",
     "text_box": [
      0.5559,
-     0.0986,
+     0.1514,
      0.2712,
-     0.19
+     0.1901
     ],
+    "room_bbox": [
+     0.5559,
+     0.1514,
+     0.2712,
+     0.1901
+    ],
+    "anchor_name": null,
+    "covers_art": false,
     "anchor": {
      "x": 0.6915,
-     "y": 0.0986,
+     "y": 0.1514,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
-     "edge_density": 0.038,
-     "luma_std": 0.058,
+     "calm_coarse": 0.95,
+     "edge_density": 0.015,
+     "luma_std": 0.03,
      "luma_p5_p50_p95": [
-      0.38,
+      0.473,
       0.496,
-      0.56
+      0.558
      ],
      "fill_contrast_p5": 1.64,
-     "stroke_contrast_p5": 4.17,
-     "pair_contrast_p5": 4.19,
-     "panel_contrast_min": 8.98
+     "stroke_contrast_p5": 5.08,
+     "pair_contrast_p5": 5.08,
+     "panel_contrast_min": 9.04
     }
    },
    "baked_text": {
@@ -13677,13 +14421,15 @@
  ],
  "summary": {
   "covers": 93,
-  "c1": 49,
+  "c1": 63,
   "panel_long": 0,
-  "panel_busy": 42,
-  "c1_fixed": 15,
-  "c1_shifted": 34,
+  "panel_busy": 28,
+  "c1_fixed": 14,
+  "c1_shifted": 22,
+  "no_room": 18,
+  "anchor_other": 35,
   "replace_baked_title": 2,
-  "text_needs_review": 2,
+  "text_needs_review": 19,
   "flag_title": 2,
   "flag_text": 3,
   "no_zh_title": 20,

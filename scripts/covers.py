@@ -34,7 +34,7 @@ LINE_H = lambda px: px * 1.2 + C1["pinyin_px"] * 1.3      # 1 dòng chữ Hán +
 EN = {"px": 16, "line": 16 * 1.4, "char_w": 0.55}          # dòng tên tiếng Anh nhỏ bên dưới (để biết truyện gì)
 en_width = lambda en: font(EN["px"]).getlength(en) + 4 if en else 0   # đo bằng font thật
 # Ngưỡng đọc được cho C1 (đo trên hộp chữ, ảnh co về rộng FRAME_W):
-CALM_MIN = 0.85    # >= 85% ô lưới thô dưới chữ phải trống (không đè lên vật, nhân vật)
+CALM_MIN = 0.95    # >= 95% diện tích hộp chữ nằm trên ô thô trống: tên không được đè lên vật, nhân vật, hoạ tiết
 EDGE_MAX = 0.05     # tỉ lệ điểm ảnh là cạnh hoạ tiết (gradient màu > EDGE_T)
 EDGE_T = 0.12
 LUMA_STD_MAX = 0.18 # độ lệch chuẩn độ sáng tương đối: nền loang sáng/tối mạnh thì chữ lúc nổi lúc chìm
@@ -187,10 +187,10 @@ def legibility(img, bbox, empty):
     lp = PANEL["white_alpha"] * 1.0 + (1 - PANEL["white_alpha"]) * L
     cp = (lp + 0.05) / (lk + 0.05)
     G = cs.GRID
-    r0, r1 = int(bbox[1] * G), min(G, int(np.ceil((bbox[1] + bbox[3]) * G)))
-    c0, c1 = int(bbox[0] * G), min(G, int(np.ceil((bbox[0] + bbox[2]) * G)))
+    rows = np.minimum((np.arange(y0, y0 + a.shape[0]) * G) // H, G - 1)
+    cols = np.minimum((np.arange(x0, x0 + a.shape[1]) * G) // W, G - 1)
     return {
-        "calm_coarse": round(float(empty[r0:max(r1, r0 + 1), c0:max(c1, c0 + 1)].mean()), 2),  # thang thô: có vật/nhân vật không
+        "calm_coarse": round(float(empty[rows][:, cols].mean()), 2),  # phần diện tích hộp nằm trên ô thô trống (không vật/nhân vật)
         "edge_density": round(float((g > EDGE_T).mean()), 3),
         "luma_std": round(float(L.std()), 3),
         "luma_p5_p50_p95": [round(float(v), 3) for v in np.percentile(L, [5, 50, 95])],
@@ -201,23 +201,136 @@ def legibility(img, bbox, empty):
     }
 
 
-def shift_c1(img, tb, empty, step=24):
-    """Trượt hộp chữ C1 trong phần ba trên (giữ lề an toàn), trả về chỗ gần vị trí cũ nhất mà
-    decide() cho C1, kèm số đo. None nếu không có."""
+def art_maps(img, empty, other_text=()):
+    """Bản đồ "có hình" ở kích thước hiển thị: ô thô bận (vật, nhân vật) + điểm cạnh hoạ tiết mịn
+    + vùng chữ in sẵn khác (tác giả, logo). Trả về ảnh tích phân để đo nhanh mọi hộp."""
     H, W = img.shape[:2]
-    bw, bh = tb[2] * W, tb[3] * H
-    x_old, y_old = tb[0] * W, tb[1] * H
-    best = None
-    for y in np.arange(MARGIN, H / 3 - bh + 1, step / 2):
-        for x in np.arange(MARGIN, W - MARGIN - bw + 1, step):
-            d = abs(x - x_old) + 2 * abs(y - y_old)       # ưu tiên giữ độ cao, rồi gần tâm cũ
-            if best and d >= best[0]:
-                continue
+    G = cs.GRID
+    busy = ~empty
+    rows = np.minimum((np.arange(H) * G) // H, G - 1)
+    cols = np.minimum((np.arange(W) * G) // W, G - 1)
+    busy = busy[rows][:, cols].astype(np.float32)
+    for o in other_text:
+        x, y, w, h = o["bbox"]
+        busy[int(y * H):int(np.ceil((y + h) * H)), int(x * W):int(np.ceil((x + w) * W))] = 1
+    g = np.zeros((H, W), np.float32)
+    g[:, :-1] = np.maximum(g[:, :-1], np.abs(np.diff(img, axis=1)).max(2))
+    g[:-1, :] = np.maximum(g[:-1, :], np.abs(np.diff(img, axis=0)).max(2))
+    edge = (g > EDGE_T).astype(np.float32)
+    ii = lambda a: np.pad(a.cumsum(0).cumsum(1), ((1, 0), (1, 0)))
+    return {"W": W, "H": H, "busy": ii(busy), "edge": ii(edge)}
+
+
+def _sums(I, x, y, bw, bh):
+    return (I[y + bh, x + bw] - I[y, x + bw] - I[y + bh, x] + I[y, x]) / float(bw * bh)
+
+
+def art_free(m, bb):
+    """Hộp không đè lên hình: >= CALM_MIN ô trống ở thang thô VÀ <= EDGE_MAX điểm là cạnh hoạ tiết."""
+    W, H = m["W"], m["H"]
+    x, y = int(bb[0] * W), int(bb[1] * H)
+    bw, bh = max(2, min(W - x, int(round(bb[2] * W)))), max(2, min(H - y, int(round(bb[3] * H))))
+    busy, edge = float(_sums(m["busy"], x, y, bw, bh)), float(_sums(m["edge"], x, y, bw, bh))
+    return 1 - busy >= CALM_MIN and edge <= EDGE_MAX, round(1 - busy, 2), round(edge, 3)
+
+
+def box_sizes(n, sub, W):
+    """Các cỡ hộp chữ thử lần lượt (to trước): C1 một dòng 44→30px, rồi 2 dòng 32→24px."""
+    out = []
+    for px in range(C1["max_px"], C1["min_px"] - 1, -2):
+        bw = max(n * px, en_width(sub)) + 2 * C1["stroke_px"]
+        bh = LINE_H(px) + (EN["line"] if sub else 0) + 2 * C1["stroke_px"]
+        if bw <= W - 2 * MARGIN:
+            out.append(("c1", px, 1, bw, bh))
+    if n > 1:
+        for px in range(PANEL["px"], PANEL["min_px"] - 1, -2):
+            per = -(-n // 2)
+            bw = max(per * px, en_width(sub)) + 2 * PANEL["pad"][1]
+            bh = 2 * LINE_H(px) + (EN["line"] if sub else 0) + 2 * PANEL["pad"][0]
+            if bw <= W - 2 * MARGIN:
+                out.append(("panel", px, 2, bw, bh))
+    return out
+
+
+ANCHORS = ("top-center", "top-left", "top-right", "bottom-center", "bottom-left", "bottom-right")
+
+
+def anchor_room(m, n, sub, fixed_tb):
+    """Thử các neo chuẩn của khổ trước khi dò tự do, để bìa cùng khổ dùng chung vị trí (nhóm identical):
+    giữa-trên (vị trí cố định) > trái-trên > phải-trên > giữa-dưới > trái-dưới > phải-dưới.
+    Ở mỗi neo thử chữ to trước. Trả về (neo, kiểu, px, dòng, bbox) hoặc None."""
+    W, H = m["W"], m["H"]
+    fx, fy = (fixed_tb[0] + fixed_tb[2] / 2) * W, fixed_tb[1] * H
+    sizes = box_sizes(n, sub, W)
+    for pos in ANCHORS:
+        v, h = pos.split("-")
+        for kind, px, lines, bw, bh in sizes:
+            x = {"center": fx - bw / 2, "left": MARGIN, "right": W - MARGIN - bw}[h]
+            y = fy if v == "top" else H - MARGIN - bh
             bb = _bbox(x, y, bw, bh, W, H)
-            leg = legibility(img, bb, empty)
-            if decide("c1", 1, leg)[0] == "c1":
-                best = (d, bb, leg)
-    return best and (best[1], best[2])
+            if art_free(m, bb)[0]:
+                return pos, kind, px, lines, bb
+    return None
+
+
+def find_room(m, n, sub, fixed_tb, step=12):
+    """Tìm chỗ trống thật cho tên, không đè lên hình. Thứ tự ưu tiên:
+    1. đúng vị trí cố định của khổ (giữa phần ba trên)   2. chỗ khác trong phần ba trên
+    3. phần ba dưới   4. dải giữa. Trong mỗi tầng: chữ to trước, rồi gần vị trí cố định.
+    Trả về (tầng, kiểu, px, dòng, bbox) hoặc None nếu cả bìa không còn chỗ trống đủ lớn."""
+    W, H = m["W"], m["H"]
+    fx, fy = (fixed_tb[0] + fixed_tb[2] / 2) * W, fixed_tb[1] * H
+    best = None
+    for si, (kind, px, lines, bw, bh) in enumerate(box_sizes(n, sub, W)):
+        bw, bh = int(np.ceil(bw)), int(np.ceil(bh))
+        xs = np.arange(MARGIN, W - MARGIN - bw + 1, step)
+        ys = np.arange(MARGIN, H - MARGIN - bh + 1, step / 2).astype(int)
+        if not len(xs) or not len(ys):
+            continue
+        X, Y = np.meshgrid(xs, ys)
+        ok = (1 - _sums(m["busy"], X, Y, bw, bh) >= CALM_MIN) & (_sums(m["edge"], X, Y, bw, bh) <= EDGE_MAX)
+        if not ok.any():
+            continue
+        cx, cy = X + bw / 2, Y + bh / 2
+        dist = np.abs(cx - fx) + 2 * np.abs(Y - fy)
+        tier = np.where(dist <= 24, 0, np.where(cy < H / 3, 1, np.where(cy > 2 * H / 3, 2, 3)))
+        key = tier * 1e6 + si * 1e4 + dist
+        key = np.where(ok, key, np.inf)
+        j = np.unravel_index(np.argmin(key), key.shape)
+        k = (key[j], int(tier[j]), kind, px, lines, _bbox(float(X[j]), float(Y[j]), bw, bh, W, H))
+        if best is None or k[0] < best[0]:
+            best = k
+    return best and best[1:]
+
+
+def least_busy(m, n, sub, fixed_tb, step=12):
+    """Bìa kín hình: chỗ đè ít hình nhất cho tên (cỡ nhỏ nhất), để designer xem và xử lý riêng."""
+    W, H = m["W"], m["H"]
+    kind, px, lines, bw, bh = box_sizes(n, sub, W)[-1]
+    bw, bh = int(np.ceil(bw)), int(np.ceil(bh))
+    xs = np.arange(MARGIN, W - MARGIN - bw + 1, step)
+    ys = np.arange(MARGIN, H - MARGIN - bh + 1, step / 2).astype(int)
+    X, Y = np.meshgrid(xs, ys)
+    cost = _sums(m["busy"], X, Y, bw, bh) + 3 * _sums(m["edge"], X, Y, bw, bh)
+    cost = cost + 0.15 * ((Y + bh / 2) > H / 3)        # cùng mức thì giữ phần ba trên
+    j = np.unravel_index(np.argmin(cost), cost.shape)
+    return kind, px, lines, _bbox(float(X[j]), float(Y[j]), bw, bh, W, H)
+
+
+def grow_room(m, bb, max_w):
+    """Nới hộp ngang đều hai bên (tới bề rộng khung chung) khi vẫn không đè hình: khoảng designer được dùng."""
+    W = m["W"]
+    cur = bb
+    for _ in range(64):
+        if cur[2] >= max_w:
+            break
+        dw = 16 / W
+        nb = [round(max(MARGIN / W, cur[0] - dw / 2), 4), cur[1], 0, cur[3]]
+        nb[2] = round(min(cur[2] + dw, (W - MARGIN) / W - nb[0]), 4)
+        if nb[2] <= cur[2] or not art_free(m, nb)[0]:
+            break
+        cur = nb
+    return cur
 
 
 _ocr_local = threading.local()
@@ -420,35 +533,61 @@ def main():
         en, en_src = title_en(book)
         sub = en if tsrc != "title_en" else ""          # tên chính đã là tiếng Anh thì không lặp lại
         it["_sub"] = sub
-        kind, px, lines, tb = text_box(n, slot["bbox"], a["size"], sub)
-        leg = legibility(img, tb, empty)
-        style, reason = decide(kind, lines, leg)
-        source, shift = "fixed", [0, 0]
-        if kind == "c1" and style == "panel":
-            # nền ở vị trí cố định làm chữ chìm: dò trong phần ba trên tìm chỗ gần nhất mà C1 đọc rõ
-            near = shift_c1(img, tb, empty)
-            if near:
-                shift = [round((near[0][0] - tb[0]) * img.shape[1]), round((near[0][1] - tb[1]) * img.shape[0])]
-                tb, leg = near
-                style, reason = "c1", f"vị trí cố định bị chìm ({reason.split(':')[0]}); dời {shift[0]:+d}px ngang, {shift[1]:+d}px dọc tới chỗ nền yên"
-                source = "shifted"
-            else:   # không chỗ nào yên: panel bọc đúng dòng chữ ở vị trí cố định
-                Wf, Hf = img.shape[1], img.shape[0]
-                px = min(px, PANEL["px"])
-                bw = max(n * px, en_width(sub)) + 2 * PANEL["pad"][1]
-                bh = LINE_H(px) + (EN["line"] if sub else 0) + 2 * PANEL["pad"][0]
-                tb = _bbox((tb[0] + tb[2] / 2) * Wf - bw / 2, tb[1] * Hf, bw, bh, Wf, Hf)
-                leg = legibility(img, tb, empty)
         found = it.get("ocr")
         score, bt, hit, other = baked_title(found, en)
         baked = {"ocr": found is not None, "title_score": score, "title_bbox": bt,
                  "title_lines": [h["text"] for h in hit],
                  "other_text": [{"text": o["text"], "bbox": o["bbox"]} for o in other]}
+        m = art_maps(img, empty, baked["other_text"])
+        Wf, Hf = img.shape[1], img.shape[0]
+        kind, px, lines, tb = text_box(n, slot["bbox"], a["size"], sub)
+        tb_fixed = tb
+        free, calm_f, edge_f = art_free(m, tb)
+        source, shift, room_ok, anchor = "fixed", [0, 0], True, "top-center"
+        ar = None if free else anchor_room(m, n, sub, tb)
+        if ar:
+            anchor, kind, px, lines, tb = ar
+            source = "fixed" if anchor == "top-center" else "anchor"
+        if not free and not ar:
+            # mọi neo chuẩn đều đè lên hình/hoạ tiết: dò chỗ trống thật khác trên bìa, không đặt đè lên tranh
+            anchor = None
+            r = find_room(m, n, sub, tb)
+            if r:
+                tier, kind, px, lines, tb = r
+                source = "shifted"
+                shift = [round((tb[0] - tb_fixed[0]) * Wf), round((tb[1] - tb_fixed[1]) * Hf)]
+            else:
+                room_ok = False
+                source = "no_room"
+                kind, px, lines, tb = least_busy(m, n, sub, tb)
+        leg = legibility(img, tb, empty)
+        style, reason = decide(kind, lines, leg)
+        where = {0: "", 1: "trong phần ba trên", 2: "ở phần ba dưới", 3: "ở dải giữa"}
+        if source == "shifted":
+            style = "c1" if kind == "c1" and style == "c1" else "panel"
+            reason = (f"chỗ cố định đè lên hình ({round((1 - calm_f) * 100)}% ô bận, {round(edge_f * 100)}% cạnh hoạ tiết); "
+                      f"dời {shift[0]:+d}px ngang, {shift[1]:+d}px dọc tới chỗ trống {where[tier]}".rstrip())
+            if style == "panel":
+                reason += ": chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
+        elif source == "no_room":
+            style = "panel"
+            reason = ("bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, "
+                      "designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem")
+        elif source == "anchor" or (ar and anchor == "top-center"):
+            style = "c1" if kind == "c1" and style == "c1" else "panel"
+            reason = (f"chỗ cố định đè lên hình ({round((1 - calm_f) * 100)}% ô bận, {round(edge_f * 100)}% cạnh hoạ tiết); "
+                      f"dùng neo chuẩn {anchor}" + (" với chữ nhỏ hơn" if anchor == "top-center" else "") + ", chỗ đó trống")
+            if style == "panel":
+                reason += ": màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
+        elif style == "panel" and kind == "c1":
+            reason = reason.replace("dùng panel", "lót panel nhẹ (chỗ trống, không che hình)")
+        room = grow_room(m, tb, max(tb[2], slot["bbox"][2] - 2 * MARGIN / Wf)) if room_ok else tb
         if bt and score >= 0.6:
             # bìa đã in sẵn tên tiếng Anh: tên Trung thay vào đúng chỗ đó, designer xoá chữ Anh
             px, lines, tb = replace_box(n, bt, a["size"], sub)
+            room = tb
             leg = legibility(img, tb, empty)
-            style, source, shift = "replace", "baked_title", [0, 0]
+            style, source, shift, anchor = "replace", "baked_title", [0, 0], None
             reason = (f"bìa đã in sẵn tên tiếng Anh ({' / '.join(baked['title_lines'])}, khớp {round(score * 100)}%): "
                       "xoá chữ Anh trong tranh, đặt tên Trung vào đúng vùng đó")
         elif other and any(o["bbox"][3] >= 0.06 for o in other):
@@ -466,7 +605,8 @@ def main():
             "zones": own,
             "title_slot": {"slot_bbox": slot["bbox"], "calm_coarse": round(calm, 2),
                            "style": style, "source": source, "shift_px": shift, "reason": reason,
-                           "text_box": tb, "anchor": {"x": round(tb[0] + tb[2] / 2, 4), "y": tb[1], "align": "center"},
+                           "text_box": tb, "room_bbox": room, "anchor_name": anchor,
+                           "covers_art": source == "no_room", "anchor": {"x": round(tb[0] + tb[2] / 2, 4), "y": tb[1], "align": "center"},
                            "font_px": px, "lines": lines, "legibility": leg},
             "baked_text": baked,
             "cover_text_flag": cover_flag(baked),
@@ -476,7 +616,7 @@ def main():
 
     covers.sort(key=lambda c: c["id"])
     res = {
-        "schema": "covers/v2",
+        "schema": "covers/v3",
         "params": {"en": EN, "grid": cs.GRID, "empty_t": cs.EMPTY_T, "blank_t": cs.BLANK_T,
                    "stable_frac": STABLE_FRAC, "min_covers": MIN_COVERS, "frame_w": FRAME_W, "margin": MARGIN,
                    "c1": C1, "panel": PANEL, "calm_min": CALM_MIN, "edge_t": EDGE_T, "edge_max": EDGE_MAX, "luma_std_max": LUMA_STD_MAX},
@@ -490,6 +630,8 @@ def main():
             "panel_busy": sum(c["title_slot"]["style"] == "panel" and not c["title_slot"]["reason"].startswith("tên dài") for c in covers),
             "c1_fixed": sum(c["title_slot"]["style"] == "c1" and c["title_slot"]["source"] == "fixed" for c in covers),
             "c1_shifted": sum(c["title_slot"]["source"] == "shifted" for c in covers),
+            "no_room": sum(c["title_slot"]["source"] == "no_room" for c in covers),
+            "anchor_other": sum(c["title_slot"]["source"] == "anchor" for c in covers),
             "replace_baked_title": sum(c["title_slot"]["style"] == "replace" for c in covers),
             "text_needs_review": sum("cần người xem" in c["title_slot"]["reason"] for c in covers),
             "flag_title": sum(c["cover_text_flag"] == "title" for c in covers),

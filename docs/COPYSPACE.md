@@ -4,32 +4,31 @@
 
 ## Bìa truyện
 
+**Rule chính: tên không bao giờ đè lên hình vẽ hay hoạ tiết.** Bìa có hình ở đâu thì tìm chỗ trống khác để đặt tên; panel chỉ dùng để tăng tương phản trên chỗ đã trống, không dùng để che hình.
+
 **File bàn giao cho designer: `mapping/covers/cover_slots.json`** (tạo bằng `python3 scripts/export_slots.py out/covers/covers.json mapping/covers/cover_slots.json`). Chỉ có vị trí khung tên, không có kiểu chữ:
-- `templates[]`: khung chung của mỗi khổ bìa (`bbox` [x, y, w, h] tỉ lệ 0..1, gốc trên-trái; `anchor` giữa cạnh trên). `covers` = danh sách bìa dùng ĐÚNG khung này (nhóm identical, căn một lần cho cả nhóm).
-- `covers[]`: `placement` = `identical` (đúng khung chung) | `shifted` (cùng cỡ, dời chỗ vì nền ở khung chung có hình) | `replace` (bìa in sẵn tên tiếng Anh, khung = vùng tên cũ); `bbox`, `bbox_px` (px ảnh gốc), `anchor`, `backing` (`none` | `panel`: nền nhiều hoạ tiết, cần nền lót dưới chữ), `cover_text_flag`, `note` (lý do).
+- `templates[]`: vị trí chuẩn dùng chung theo khổ bìa (`<khổ>-top-center`, `-top-left`, `-top-right`, `-bottom-center`, `-bottom-left`, `-bottom-right`), `bbox` [x, y, w, h] tỉ lệ 0..1, gốc trên-trái (trung vị các bìa trong nhóm), `anchor` mép trên căn theo cạnh của vị trí. `covers` = danh sách bìa đặt ĐÚNG vị trí này (nhóm identical, căn một lần cho cả nhóm).
+- `covers[]`: `placement` = `identical` (đúng một vị trí chuẩn, `template_id` cho biết vị trí nào) | `shifted` (mọi vị trí chuẩn đều đè hình, dời tới chỗ trống thật khác) | `replace` (bìa in sẵn tên tiếng Anh, khung = vùng tên cũ) | `no_room` (bìa kín hình, `bbox` = chỗ đè ít hình nhất, cần người xem); `bbox` = chỗ trống được dùng (đã nới ngang tới bề rộng khung chung khi vẫn trống), `bbox_px` (px ảnh gốc), `anchor`, `backing` (`none` | `panel`: chỗ trống nhưng màu nền làm chữ kem kém tương phản), `cover_text_flag`, `note` (lý do).
 
 ```bash
 python3 scripts/covers.py --status Approve     # -> out/covers/covers.json + overlay/
 python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang (3.311 cuốn)
 ```
 
-1. Mỗi bìa đo độ bận trên lưới 24×24 như trang ruột (thang thô, đã làm mờ: thấy vật và nhân vật).
+1. Mỗi bìa đo độ bận trên lưới 24×24 như trang ruột (thang thô, đã làm mờ: thấy vật và nhân vật) và đo cạnh hoạ tiết ở thang mịn (ảnh co về rộng 1180px, không làm mờ: thấy cả hoạ tiết nhỏ).
 2. Bìa gom theo khổ: `wide` (≈2.09, StoryWeaver), `square` (1.0, African Storybook), `landscape`, `portrait`; lệch quá 8% thành khổ riêng.
-3. **Vị trí tên cố định của khổ** (`formats[].title_slot`), theo rule C1 trong `docs/DESIGN.md` ("centred in the calm top third"): dải trên cùng, cao 1 dòng C1 44px + pinyin + lề 32px, rộng đủ tên dài điển hình (bách phân vị 75) của khổ, ở khung 1180px. Đặt giữa; chỉ lệch trái/phải khi giữa trống ở ít bìa hơn hẳn (kém 0.15).
-4. **Hộp chữ thật** cho từng tên: C1 một dòng, cỡ 44→30px. Không vừa một dòng thì theo rule là panel (tối đa 2 dòng, 32→24px).
-5. **Kiểm tra chữ có chìm không** (`title_slot.legibility`), đo ngay dưới hộp chữ trên ảnh co về rộng 1180px, KHÔNG làm mờ, nên thấy cả hoạ tiết nhỏ ở chỗ nhìn xa tưởng trống. C1 chỉ được dùng khi đủ cả 4:
-   - `calm_coarse` ≥ 0.85: ô lưới thô dưới chữ trống (không đè lên vật, nhân vật);
-   - `edge_density` ≤ 0.05: tỉ lệ điểm ảnh là cạnh hoạ tiết (gradient màu > 0.12);
-   - `luma_std` ≤ 0.18: nền không loang sáng/tối mạnh;
-   - `pair_contrast_p5` ≥ 3: ở 95% điểm nền, chữ kem hoặc viền rừng đạt ≥ 3:1.
-6. Trượt ở vị trí cố định → dò trong phần ba trên (bước 24px ngang, 12px dọc) tìm chỗ gần nhất đạt cả 4 (`source: shifted`, `shift_px`). Không có → panel trắng 85% + blur 8px, chữ rừng, bọc đúng dòng chữ tại vị trí cố định (`style: panel`). `reason` ghi lý do bằng tiếng Việt.
-7. **Mapping tạm**: designer sẽ đặt chữ thật sau. Dưới tên Trung có một dòng tên tiếng Anh 16px (`title_en`) để biết truyện gì và tìm được. Nguồn `title_en_source`: `original` (sách tiếng Anh), `source_url` (lấy từ đường dẫn StoryWeaver), `ai_gloss` (đường dẫn chỉ là pinyin, dịch nháp trong `mapping/covers/title_en_gloss.json`), `missing`. Độ rộng chữ đo bằng font thật, nên tên tiếng Anh dài không tràn khung.
-8. **Chữ in sẵn trên bìa** (cần `rapidocr-onnxruntime`; `--no-ocr` để bỏ): OCR đọc chữ trên ảnh bìa (`baked_text`). Mỗi dòng (độ tin ≥ 0.5) thuộc tên nếu nằm trong tên tiếng Anh (bỏ hoa thường, khoảng trắng) hoặc giống một đoạn tên ≥ 80%. Các dòng khớp phủ ≥ 60% chữ cái của tên → `cover_text_flag: "title"`, `title_slot.style: "replace"`: designer xoá chữ Anh, đặt tên Trung vào đúng vùng đó (cỡ to nhất vừa vùng, 1–3 dòng). Có chữ khác (tác giả, logo, tên cách điệu OCR đọc không ra) → `cover_text_flag: "text"`, chữ lớn không khớp tên thì `reason` ghi "cần người xem". Không thấy chữ → `"none"`.
-9. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
+3. **Vị trí cố định của khổ** (`formats[].title_slot`), theo rule C1 trong `docs/DESIGN.md` ("centred in the calm top third"): dải trên cùng, cao 1 dòng C1 44px + pinyin + lề 32px, rộng đủ tên dài điển hình (bách phân vị 75) của khổ.
+4. **Hộp chữ** cho từng tên: C1 một dòng 44→30px; tên dài thì 2 dòng 32→24px. Dưới tên Trung có dòng tên tiếng Anh 16px.
+5. **Chỗ trống** (`art_free`): hộp chữ đặt được khi ≥ 95% diện tích nằm trên ô thô trống (`CALM_MIN`) VÀ ≤ 5% điểm ảnh là cạnh hoạ tiết (gradient màu > 0.12, `EDGE_MAX`). Chữ in sẵn khác trên bìa (tác giả, logo, từ OCR) cũng tính là có hình.
+6. **Thứ tự tìm chỗ**: vị trí cố định (giữa trên) → các vị trí chuẩn khác: trái trên, phải trên, giữa dưới, trái dưới, phải dưới (mỗi vị trí thử chữ to trước; `source: fixed | anchor`, `anchor_name`) → dò tự do toàn bìa, bước 12px: phần ba trên, rồi phần ba dưới, rồi dải giữa, chữ to trước, gần vị trí cố định trước (`source: shifted`, `shift_px`) → không còn chỗ trống: chỗ đè ít hình nhất, cỡ nhỏ nhất (`source: no_room`, `covers_art: true`, "cần người xem"). `room_bbox` = hộp nới ngang hai bên tới bề rộng khung chung khi vẫn trống.
+7. **Tương phản** (`title_slot.legibility`) trên chỗ đã chọn: chữ kem viền rừng (C1) khi `luma_std` ≤ 0.18 và `pair_contrast_p5` ≥ 3 (ở 95% điểm nền, chữ kem hoặc viền rừng đạt ≥ 3:1); không đạt thì lót panel trắng 85% + blur 8px, chữ rừng. Vì chỗ đã trống nên panel không che hình. `reason` ghi lý do bằng tiếng Việt.
+8. **Mapping tạm**: designer sẽ đặt chữ thật sau. Dưới tên Trung có một dòng tên tiếng Anh 16px (`title_en`) để biết truyện gì và tìm được. Nguồn `title_en_source`: `original` (sách tiếng Anh), `source_url` (lấy từ đường dẫn StoryWeaver), `ai_gloss` (đường dẫn chỉ là pinyin, dịch nháp trong `mapping/covers/title_en_gloss.json`), `missing`. Độ rộng chữ đo bằng font thật, nên tên tiếng Anh dài không tràn khung.
+9. **Chữ in sẵn trên bìa** (cần `rapidocr-onnxruntime`; `--no-ocr` để bỏ): OCR đọc chữ trên ảnh bìa (`baked_text`). Mỗi dòng (độ tin ≥ 0.5) thuộc tên nếu nằm trong tên tiếng Anh (bỏ hoa thường, khoảng trắng) hoặc giống một đoạn tên ≥ 80%. Các dòng khớp phủ ≥ 60% chữ cái của tên → `cover_text_flag: "title"`, `title_slot.style: "replace"`: designer xoá chữ Anh, đặt tên Trung vào đúng vùng đó (cỡ to nhất vừa vùng, 1–3 dòng). Có chữ khác (tác giả, logo, tên cách điệu OCR đọc không ra) → `cover_text_flag: "text"`, chữ lớn không khớp tên thì `reason` ghi "cần người xem". Không thấy chữ → `"none"`.
+10. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
 
 Ảnh duyệt trong `overlay/` vẽ tên tiếng Trung thật + pinyin (`title_pinyin`, từ gói `pypinyin`) đúng cỡ, màu, viền hoặc panel, để nhìn được chữ có chìm không.
 
-Giới hạn: chưa nhận diện mặt nhân vật, nên panel ở vị trí cố định có thể che đầu nhân vật nếu nhân vật chạm mép trên. Giới hạn: tên viết tay cách điệu (vd. "Lory Dory") OCR đọc không ra, chỉ được gắn cờ "text" để người xem.
+Giới hạn: chưa nhận diện mặt nhân vật; vật rất mảnh trên nền phẳng (dây, cành nhỏ) có thể lọt qua ngưỡng 5% cạnh. Giới hạn: tên viết tay cách điệu (vd. "Lory Dory") OCR đọc không ra, chỉ được gắn cờ "text" để người xem.
 
 ## Trang ruột (tham khảo)
 

@@ -1,116 +1,228 @@
 {
- "schema": "cover-slots/v1",
- "note": "Vị trí khung tên truyện trên bìa để đặt chữ đã thiết kế. bbox = [x, y, rộng, cao] theo tỉ lệ 0..1 của ảnh bìa, gốc trên-trái; bbox_px theo ảnh gốc.",
+ "schema": "cover-slots/v2",
+ "note": "Vị trí khung tên truyện trên bìa để đặt chữ đã thiết kế, không đè lên hình vẽ. bbox = [x, y, rộng, cao] theo tỉ lệ 0..1 của ảnh bìa, gốc trên-trái; bbox_px theo ảnh gốc.",
  "templates": [
   {
-   "template_id": "wide-title",
+   "template_id": "wide-top-left",
    "format": "wide",
    "aspect": 2.09,
-   "position": "top",
+   "position": "top-left",
    "bbox": [
-    0.3188,
+    0.0271,
     0.0567,
-    0.3208,
-    0.1933
+    0.3019,
+    0.1912
+   ],
+   "anchor": {
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
+   },
+   "identical_count": 23,
+   "covers": [
+    "SW-113998",
+    "SW-129026",
+    "SW-129737",
+    "SW-18749",
+    "SW-19920",
+    "SW-22294",
+    "SW-265474",
+    "SW-266338",
+    "SW-28636",
+    "SW-30254",
+    "SW-31005",
+    "SW-31246",
+    "SW-31284",
+    "SW-316354",
+    "SW-32403",
+    "SW-35185",
+    "SW-35233",
+    "SW-36213",
+    "SW-577907",
+    "SW-604371",
+    "SW-639015",
+    "SW-659392",
+    "SW-99712"
+   ]
+  },
+  {
+   "template_id": "wide-top-center",
+   "format": "wide",
+   "aspect": 2.09,
+   "position": "top-center",
+   "bbox": [
+    0.3614,
+    0.0567,
+    0.2356,
+    0.1827
    ],
    "anchor": {
     "x": 0.4792,
     "y": 0.0567,
     "align": "top-center"
    },
-   "identical_count": 46,
+   "identical_count": 9,
    "covers": [
-    "SW-129035",
-    "SW-133051",
     "SW-133581",
-    "SW-15657",
     "SW-163932",
-    "SW-174802",
-    "SW-18459",
-    "SW-18461",
-    "SW-19920",
-    "SW-20491",
-    "SW-20896",
-    "SW-218999",
-    "SW-219719",
     "SW-244316",
-    "SW-266338",
-    "SW-266453",
     "SW-28647",
-    "SW-306694",
-    "SW-31013",
-    "SW-31256",
-    "SW-31278",
-    "SW-323450",
+    "SW-31900",
     "SW-32370",
-    "SW-32850",
-    "SW-330676",
-    "SW-33549",
-    "SW-339531",
-    "SW-339562",
-    "SW-35041",
-    "SW-36201",
-    "SW-37233",
-    "SW-444471",
-    "SW-467125",
-    "SW-577649",
+    "SW-33391",
     "SW-62617",
-    "SW-638692",
-    "SW-638705",
-    "SW-659337",
-    "SW-659348",
-    "SW-659365",
-    "SW-68010",
-    "SW-69527",
-    "SW-87044",
-    "SW-99711",
-    "SW-99712",
-    "SW-99713"
+    "SW-659365"
    ]
   },
   {
-   "template_id": "square-title",
+   "template_id": "square-top-center",
    "format": "square",
    "aspect": 1.0,
-   "position": "top",
+   "position": "top-center",
    "bbox": [
-    0.2771,
+    0.2762,
     0.0271,
-    0.4458,
-    0.0979
+    0.4475,
+    0.0725
    ],
    "anchor": {
     "x": 0.5,
     "y": 0.0271,
     "align": "top-center"
    },
-   "identical_count": 10,
+   "identical_count": 6,
    "covers": [
-    "ASB-13623",
     "ASB-15459",
     "ASB-19258",
-    "ASB-51382",
+    "ASB-51370",
     "ASB-51398",
     "ASB-9229",
-    "SW-136331",
-    "SW-467099",
-    "SW-604310",
-    "SW-93066"
+    "SW-467099"
    ]
   },
   {
-   "template_id": "r1.08-title",
-   "format": "r1.08",
-   "aspect": 1.08,
-   "position": "top-right",
+   "template_id": "wide-bottom-right",
+   "format": "wide",
+   "aspect": 2.09,
+   "position": "bottom-right",
    "bbox": [
-    0.6521,
-    0.0293,
-    0.2375,
-    0.1374
+    0.7186,
+    0.7692,
+    0.2542,
+    0.1742
    ],
    "anchor": {
-    "x": 0.7709,
+    "x": 0.9728,
+    "y": 0.7692,
+    "align": "top-right"
+   },
+   "identical_count": 3,
+   "covers": [
+    "SW-15657",
+    "SW-266453",
+    "SW-306694"
+   ]
+  },
+  {
+   "template_id": "wide-bottom-left",
+   "format": "wide",
+   "aspect": 2.09,
+   "position": "bottom-left",
+   "bbox": [
+    0.0271,
+    0.7522,
+    0.2324,
+    0.1912
+   ],
+   "anchor": {
+    "x": 0.0271,
+    "y": 0.7522,
+    "align": "top-left"
+   },
+   "identical_count": 2,
+   "covers": [
+    "SW-19009",
+    "SW-30971"
+   ]
+  },
+  {
+   "template_id": "wide-top-right",
+   "format": "wide",
+   "aspect": 2.09,
+   "position": "top-right",
+   "bbox": [
+    0.6812,
+    0.0557,
+    0.2917,
+    0.1835
+   ],
+   "anchor": {
+    "x": 0.9729,
+    "y": 0.0557,
+    "align": "top-right"
+   },
+   "identical_count": 2,
+   "covers": [
+    "SW-266456",
+    "SW-32698"
+   ]
+  },
+  {
+   "template_id": "wide-bottom-center",
+   "format": "wide",
+   "aspect": 2.09,
+   "position": "bottom-center",
+   "bbox": [
+    0.3368,
+    0.7731,
+    0.2848,
+    0.1706
+   ],
+   "anchor": {
+    "x": 0.4792,
+    "y": 0.7731,
+    "align": "top-center"
+   },
+   "identical_count": 2,
+   "covers": [
+    "SW-444471",
+    "SW-99711"
+   ]
+  },
+  {
+   "template_id": "square-top-right",
+   "format": "square",
+   "aspect": 1.0,
+   "position": "top-right",
+   "bbox": [
+    0.783,
+    0.0271,
+    0.1899,
+    0.1193
+   ],
+   "anchor": {
+    "x": 0.9729,
+    "y": 0.0271,
+    "align": "top-right"
+   },
+   "identical_count": 1,
+   "covers": [
+    "ASB-13623"
+   ]
+  },
+  {
+   "template_id": "r1.08-top-center",
+   "format": "r1.08",
+   "aspect": 1.08,
+   "position": "top-center",
+   "bbox": [
+    0.6453,
+    0.0293,
+    0.251,
+    0.0784
+   ],
+   "anchor": {
+    "x": 0.7708,
     "y": 0.0293,
     "align": "top-center"
    },
@@ -120,50 +232,55 @@
    ]
   },
   {
-   "template_id": "r1.14-title",
-   "format": "r1.14",
-   "aspect": 1.14,
-   "position": "top-right",
+   "template_id": "square-top-left",
+   "format": "square",
+   "aspect": 1.0,
+   "position": "top-left",
    "bbox": [
-    0.5688,
-    0.0308,
-    0.4041,
-    0.1359
+    0.0271,
+    0.0276,
+    0.448,
+    0.0931
    ],
    "anchor": {
-    "x": 0.7709,
-    "y": 0.0308,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0276,
+    "align": "top-left"
    },
-   "identical_count": 0,
-   "covers": []
+   "identical_count": 1,
+   "covers": [
+    "SW-604310"
+   ]
   },
   {
-   "template_id": "r0.91-title",
-   "format": "r0.91",
-   "aspect": 0.91,
-   "position": "top-right",
+   "template_id": "square-bottom-center",
+   "format": "square",
+   "aspect": 1.0,
+   "position": "bottom-center",
    "bbox": [
-    0.6938,
-    0.0248,
-    0.2791,
-    0.1002
+    0.2949,
+    0.8792,
+    0.4103,
+    0.0932
    ],
    "anchor": {
-    "x": 0.8334,
-    "y": 0.0248,
+    "x": 0.5,
+    "y": 0.8792,
     "align": "top-center"
    },
-   "identical_count": 0,
-   "covers": []
+   "identical_count": 1,
+   "covers": [
+    "SW-93066"
+   ]
   }
  ],
  "summary": {
   "covers": 93,
-  "identical": 57,
-  "shifted": 34,
+  "identical": 51,
+  "shifted": 22,
   "replace": 2,
-  "backing_panel": 42,
+  "no_room": 18,
+  "backing_panel": 28,
   "flag_title": 2,
   "flag_text": 3
  },
@@ -178,28 +295,28 @@
     546
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-top-right",
    "placement": "identical",
    "bbox": [
-    0.2771,
+    0.783,
     0.0271,
-    0.4458,
-    0.0979
+    0.1899,
+    0.1193
    ],
    "bbox_px": [
-    151,
+    428,
     15,
-    243,
-    53
+    104,
+    65
    ],
    "anchor": {
-    "x": 0.5,
+    "x": 0.9729,
     "y": 0.0271,
-    "align": "top-center"
+    "align": "top-right"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.201): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (100% ô bận, 12% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "ASB-15459",
@@ -211,19 +328,19 @@
     546
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-top-center",
    "placement": "identical",
    "bbox": [
-    0.2771,
+    0.2752,
     0.0271,
-    0.4458,
-    0.0979
+    0.4496,
+    0.0664
    ],
    "bbox_px": [
-    151,
+    150,
     15,
-    243,
-    53
+    245,
+    36
    ],
    "anchor": {
     "x": 0.5,
@@ -232,7 +349,7 @@
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
+   "note": "chỗ cố định đè lên hình (8% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
   {
    "id": "ASB-15523",
@@ -244,22 +361,22 @@
     546
    ],
    "format": "r1.08",
-   "template_id": "r1.08-title",
+   "template_id": "r1.08-top-center",
    "placement": "identical",
    "bbox": [
-    0.6521,
+    0.6453,
     0.0293,
-    0.2375,
-    0.1374
+    0.251,
+    0.0784
    ],
    "bbox_px": [
-    385,
+    381,
     16,
-    140,
-    75
+    148,
+    43
    ],
    "anchor": {
-    "x": 0.7709,
+    "x": 0.7708,
     "y": 0.0293,
     "align": "top-center"
    },
@@ -277,19 +394,19 @@
     546
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-top-center",
    "placement": "identical",
    "bbox": [
-    0.2771,
+    0.316,
     0.0271,
-    0.4458,
-    0.0979
+    0.368,
+    0.0664
    ],
    "bbox_px": [
-    151,
+    173,
     15,
-    243,
-    53
+    201,
+    36
    ],
    "anchor": {
     "x": 0.5,
@@ -298,7 +415,7 @@
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
+   "note": "chỗ cố định đè lên hình (8% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
   {
    "id": "ASB-2154",
@@ -310,7 +427,7 @@
     546
    ],
    "format": "r1.14",
-   "template_id": "r1.14-title",
+   "template_id": null,
    "placement": "replace",
    "bbox": [
     0.2899,
@@ -343,28 +460,28 @@
     546
    ],
    "format": "square",
-   "template_id": "square-title",
-   "placement": "shifted",
+   "template_id": "square-top-center",
+   "placement": "identical",
    "bbox": [
-    0.3077,
+    0.3644,
     0.0271,
-    0.4458,
-    0.0979
+    0.2714,
+    0.1275
    ],
    "bbox_px": [
-    168,
+    199,
     15,
-    243,
-    53
+    148,
+    70
    ],
    "anchor": {
-    "x": 0.5306,
+    "x": 0.5001,
     "y": 0.0271,
     "align": "top-center"
    },
-   "backing": "none",
+   "backing": "panel",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (22% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (19% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "ASB-51382",
@@ -376,28 +493,28 @@
     546
    ],
    "format": "square",
-   "template_id": "square-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.2771,
-    0.0271,
-    0.4458,
-    0.0979
+    0.078,
+    0.2458,
+    0.2169,
+    0.1153
    ],
    "bbox_px": [
-    151,
-    15,
-    243,
-    53
+    43,
+    134,
+    118,
+    63
    ],
    "anchor": {
-    "x": 0.5,
-    "y": 0.0271,
+    "x": 0.1865,
+    "y": 0.2458,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (72% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.193): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (71% ô bận, 6% cạnh hoạ tiết); dời -237px ngang, +258px dọc tới chỗ trống trong phần ba trên: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "ASB-51398",
@@ -409,19 +526,19 @@
     546
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-top-center",
    "placement": "identical",
    "bbox": [
-    0.2771,
+    0.2762,
     0.0271,
-    0.4458,
-    0.0979
+    0.4475,
+    0.0725
    ],
    "bbox_px": [
     151,
     15,
-    243,
-    53
+    244,
+    40
    ],
    "anchor": {
     "x": 0.5,
@@ -442,7 +559,7 @@
     546
    ],
    "format": "r0.91",
-   "template_id": "r0.91-title",
+   "template_id": null,
    "placement": "replace",
    "bbox": [
     0.1091,
@@ -475,19 +592,19 @@
     546
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-top-center",
    "placement": "identical",
    "bbox": [
-    0.2771,
+    0.2762,
     0.0271,
-    0.4458,
-    0.0979
+    0.4475,
+    0.0725
    ],
    "bbox_px": [
     151,
     15,
-    243,
-    53
+    244,
+    40
    ],
    "anchor": {
     "x": 0.5,
@@ -508,28 +625,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": null,
    "placement": "shifted",
    "bbox": [
-    0.6565,
+    0.7085,
     0.0991,
-    0.3208,
-    0.1933
+    0.1881,
+    0.1876
    ],
    "bbox_px": [
-    630,
+    679,
     45,
-    308,
-    89
+    180,
+    86
    ],
    "anchor": {
-    "x": 0.8169,
+    "x": 0.8025,
     "y": 0.0991,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.386)); dời +398px ngang, +24px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (83% ô bận, 8% cạnh hoạ tiết); dời +387px ngang, +24px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-113998",
@@ -541,28 +658,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.1836,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.3221,
+    0.1912
    ],
    "bbox_px": [
-    176,
     26,
-    308,
-    89
+    26,
+    309,
+    88
    ],
    "anchor": {
-    "x": 0.344,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (33% ô bận)); dời -160px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (37% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-129026",
@@ -574,28 +691,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.2244,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.3221,
+    0.1515
    ],
    "bbox_px": [
-    215,
     26,
-    308,
-    89
+    26,
+    309,
+    70
    ],
    "anchor": {
-    "x": 0.3848,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (39% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.253)); dời -112px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (36% ô bận, 8% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-129035",
@@ -607,28 +724,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
+    0.2508,
     0.0566,
-    0.3208,
-    0.1934
+    0.122,
+    0.2336
    ],
    "bbox_px": [
-    1068,
+    840,
     91,
-    1075,
-    310
+    409,
+    375
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.3118,
     "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (82% ô bận); nền nhiều hoạ tiết (14% điểm là cạnh); nền loang sáng tối (lệch 0.223): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-129737",
@@ -640,28 +757,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.126,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.3458,
+    0.1912
    ],
    "bbox_px": [
-    121,
     26,
-    308,
-    89
+    26,
+    332,
+    88
    ],
    "anchor": {
-    "x": 0.2864,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (62% ô bận)); dời -228px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (67% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-133051",
@@ -673,28 +790,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.6678,
+    0.1204,
+    0.2627,
+    0.2726
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    640,
+    55,
+    252,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.7991,
+    "y": 0.1204,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (87% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.384): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-133581",
@@ -706,19 +823,19 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.3182,
     0.0567,
-    0.3208,
-    0.1933
+    0.3221,
+    0.1912
    ],
    "bbox_px": [
-    306,
+    305,
     26,
-    308,
-    89
+    309,
+    88
    ],
    "anchor": {
     "x": 0.4792,
@@ -739,28 +856,28 @@
     944
    ],
    "format": "square",
-   "template_id": "square-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.2771,
-    0.0275,
-    0.4458,
-    0.0975
+    0.4034,
+    0.8072,
+    0.3,
+    0.1325
    ],
    "bbox_px": [
-    266,
-    26,
-    428,
-    92
+    387,
+    762,
+    288,
+    125
    ],
    "anchor": {
-    "x": 0.5,
-    "y": 0.0275,
+    "x": 0.5534,
+    "y": 0.8072,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.33): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-15657",
@@ -772,28 +889,28 @@
     460
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-bottom-right",
    "placement": "identical",
    "bbox": [
-    0.3188,
-    0.0565,
-    0.3208,
-    0.1935
+    0.8237,
+    0.6777,
+    0.1492,
+    0.2657
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    790,
+    312,
+    143,
+    122
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0565,
-    "align": "top-center"
+    "x": 0.9729,
+    "y": 0.6777,
+    "align": "top-right"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (89% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.276): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (86% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-163932",
@@ -805,28 +922,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.379,
     0.0567,
-    0.3208,
-    0.1933
+    0.2002,
+    0.1742
    ],
    "bbox_px": [
-    306,
+    363,
     26,
-    308,
-    89
+    192,
+    80
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.4791,
     "y": 0.0567,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
+   "note": "chỗ cố định đè lên hình (8% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
   {
    "id": "SW-174802",
@@ -838,28 +955,28 @@
     461
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
+    0.4644,
     0.0564,
-    0.3208,
-    0.1936
+    0.1585,
+    0.2716
    ],
    "bbox_px": [
-    306,
+    445,
     26,
-    308,
-    89
+    152,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.5436,
     "y": 0.0564,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (32% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-18459",
@@ -871,28 +988,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.8712,
+    0.0566,
+    0.1017,
+    0.2726
    ],
    "bbox_px": [
-    306,
+    835,
     26,
-    308,
-    89
+    98,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.922,
+    "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (88% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.316): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-18461",
@@ -904,28 +1021,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.0271,
+    0.6195,
+    0.2822,
+    0.2726
    ],
    "bbox_px": [
-    306,
     26,
-    308,
-    89
+    284,
+    271,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.1682,
+    "y": 0.6195,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (96% ô bận); nền nhiều hoạ tiết (28% điểm là cạnh); nền loang sáng tối (lệch 0.337): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-18749",
@@ -937,28 +1054,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.2238,
+    0.1912
    ],
    "bbox_px": [
-    0,
     26,
-    308,
-    89
+    26,
+    215,
+    88
    ],
    "anchor": {
-    "x": 0.1604,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (32% ô bận)); dời -393px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (33% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-19009",
@@ -970,28 +1087,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-bottom-left",
+   "placement": "identical",
    "bbox": [
-    0.2515,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.7522,
+    0.2409,
+    0.1912
    ],
    "bbox_px": [
-    241,
     26,
-    308,
-    89
+    345,
+    231,
+    88
    ],
    "anchor": {
-    "x": 0.4119,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.7522,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (40% ô bận)); dời -79px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (37% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn bottom-left, chỗ đó trống"
   },
   {
    "id": "SW-19920",
@@ -1003,28 +1120,28 @@
     460
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-left",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.0271,
     0.0565,
-    0.3208,
-    0.1935
+    0.1881,
+    0.1611
    ],
    "bbox_px": [
-    306,
     26,
-    308,
-    89
+    26,
+    180,
+    74
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.0271,
     "y": 0.0565,
-    "align": "top-center"
+    "align": "top-left"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (94% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.362): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (95% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-20491",
@@ -1036,28 +1153,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.3831,
+    0.7044,
+    0.1966,
+    0.1912
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    367,
+    323,
+    189,
+    88
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.4814,
+    "y": 0.7044,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.285): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (79% ô bận, 6% cạnh hoạ tiết); dời +3px ngang, +366px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-20896",
@@ -1069,28 +1186,28 @@
     460
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
+    0.8102,
     0.0565,
-    0.3208,
-    0.1935
+    0.1593,
+    0.2721
    ],
    "bbox_px": [
-    306,
+    777,
     26,
-    308,
-    89
+    153,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.8899,
     "y": 0.0565,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (46% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-218999",
@@ -1102,28 +1219,28 @@
     458
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0568,
-    0.3208,
-    0.1932
+    0.1288,
+    0.7908,
+    0.2847,
+    0.1348
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    88
+    124,
+    362,
+    273,
+    62
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0568,
+    "x": 0.2712,
+    "y": 0.7908,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (69% ô bận); nền loang sáng tối (lệch 0.247): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (66% ô bận, 4% cạnh hoạ tiết); dời -228px ngang, +414px dọc tới chỗ trống ở phần ba dưới"
   },
   {
    "id": "SW-219719",
@@ -1135,28 +1252,28 @@
     460
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
+    0.3322,
     0.0565,
-    0.3208,
-    0.1935
+    0.1322,
+    0.1749
    ],
    "bbox_px": [
-    306,
+    319,
     26,
-    308,
-    89
+    127,
+    80
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.3983,
     "y": 0.0565,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (40% ô bận); nền loang sáng tối (lệch 0.246): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (46% ô bận, 4% cạnh hoạ tiết); dời -79px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-22294",
@@ -1168,28 +1285,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.3108,
-    0.0991,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.251,
+    0.1912
    ],
    "bbox_px": [
-    298,
-    45,
-    308,
-    89
+    26,
+    26,
+    241,
+    88
    ],
    "anchor": {
-    "x": 0.4712,
-    "y": 0.0991,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (24% ô bận)); dời -9px ngang, +24px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (19% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-244316",
@@ -1201,19 +1318,19 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.3614,
     0.0567,
-    0.3208,
-    0.1933
+    0.2356,
+    0.1784
    ],
    "bbox_px": [
-    306,
+    347,
     26,
-    308,
-    89
+    226,
+    82
    ],
    "anchor": {
     "x": 0.4792,
@@ -1222,7 +1339,7 @@
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
+   "note": "chỗ cố định đè lên hình (7% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
   {
    "id": "SW-265474",
@@ -1234,28 +1351,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.1871,
+    0.0271,
     0.0566,
-    0.3208,
-    0.1934
+    0.3291,
+    0.1912
    ],
    "bbox_px": [
-    627,
     91,
-    1075,
-    310
+    91,
+    1103,
+    307
    ],
    "anchor": {
-    "x": 0.3475,
+    "x": 0.0271,
     "y": 0.0566,
-    "align": "top-center"
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (37% ô bận)); dời -156px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (40% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-266338",
@@ -1267,28 +1384,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-left",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.0271,
     0.0567,
-    0.3208,
-    0.1933
+    0.2678,
+    0.1784
    ],
    "bbox_px": [
-    306,
     26,
-    308,
-    89
+    26,
+    257,
+    82
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.0271,
     "y": 0.0567,
-    "align": "top-center"
+    "align": "top-left"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (87% ô bận); nền nhiều hoạ tiết (10% điểm là cạnh); nền loang sáng tối (lệch 0.282): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (91% ô bận, 10% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-266453",
@@ -1300,28 +1417,28 @@
     461
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-bottom-right",
    "placement": "identical",
    "bbox": [
-    0.3188,
-    0.0564,
-    0.3208,
-    0.1936
+    0.6505,
+    0.7785,
+    0.3224,
+    0.1651
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    624,
+    359,
+    309,
+    76
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0564,
-    "align": "top-center"
+    "x": 0.9729,
+    "y": 0.7785,
+    "align": "top-right"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.239): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (66% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống"
   },
   {
    "id": "SW-266456",
@@ -1333,28 +1450,28 @@
     476
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-right",
+   "placement": "identical",
    "bbox": [
-    0.6379,
+    0.7048,
     0.0546,
-    0.3208,
-    0.1954
+    0.2681,
+    0.1843
    ],
    "bbox_px": [
-    612,
+    676,
     26,
-    308,
-    93
+    257,
+    88
    ],
    "anchor": {
-    "x": 0.7983,
+    "x": 0.9729,
     "y": 0.0546,
-    "align": "top-center"
+    "align": "top-right"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (76% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.303)); dời +377px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (74% ô bận, 7% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống"
   },
   {
    "id": "SW-28636",
@@ -1366,28 +1483,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.2328,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.326,
+    0.1912
    ],
    "bbox_px": [
-    223,
     26,
-    308,
-    89
+    26,
+    313,
+    88
    ],
    "anchor": {
-    "x": 0.3932,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (87% ô bận); nền loang sáng tối (lệch 0.283)); dời -101px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (88% ô bận, 5% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-28647",
@@ -1399,22 +1516,22 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.3148,
     0.0567,
-    0.3208,
-    0.1933
+    0.3289,
+    0.1827
    ],
    "bbox_px": [
-    306,
+    302,
     26,
-    308,
-    89
+    315,
+    84
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.4793,
     "y": 0.0567,
     "align": "top-center"
    },
@@ -1432,28 +1549,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": null,
    "placement": "shifted",
    "bbox": [
-    0.5938,
-    0.1416,
-    0.3208,
-    0.1933
+    0.6475,
+    0.1204,
+    0.1932,
+    0.1752
    ],
    "bbox_px": [
-    569,
-    65,
-    308,
-    89
+    621,
+    55,
+    185,
+    80
    ],
    "anchor": {
-    "x": 0.7542,
-    "y": 0.1416,
+    "x": 0.7441,
+    "y": 0.1204,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (91% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +324px ngang, +48px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (94% ô bận, 8% cạnh hoạ tiết); dời +337px ngang, +36px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-30254",
@@ -1465,28 +1582,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.0023,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.2593,
+    0.1869
    ],
    "bbox_px": [
-    2,
     26,
-    308,
-    89
+    26,
+    249,
+    86
    ],
    "anchor": {
-    "x": 0.1627,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (51% ô bận); nền loang sáng tối (lệch 0.208)); dời -373px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (50% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-306694",
@@ -1498,28 +1615,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-bottom-right",
    "placement": "identical",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.7186,
+    0.7692,
+    0.2542,
+    0.1742
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    689,
+    353,
+    244,
+    80
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
-    "align": "top-center"
+    "x": 0.9728,
+    "y": 0.7692,
+    "align": "top-right"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (42% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (43% ô bận, 5% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống"
   },
   {
    "id": "SW-30971",
@@ -1531,28 +1648,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-bottom-left",
+   "placement": "identical",
    "bbox": [
-    0.0057,
-    0.1416,
-    0.3208,
-    0.1933
+    0.0271,
+    0.7522,
+    0.2238,
+    0.1912
    ],
    "bbox_px": [
-    5,
-    65,
-    308,
-    89
+    26,
+    345,
+    215,
+    88
    ],
    "anchor": {
-    "x": 0.1661,
-    "y": 0.1416,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.7522,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận)); dời -369px ngang, +48px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (43% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn bottom-left, chỗ đó trống"
   },
   {
    "id": "SW-31005",
@@ -1564,28 +1681,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.4685,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.1742,
+    0.3058
    ],
    "bbox_px": [
-    449,
     26,
-    308,
-    89
+    26,
+    167,
+    140
    ],
    "anchor": {
-    "x": 0.6289,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
-   "backing": "none",
+   "backing": "panel",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.251)); dời +177px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (43% ô bận, 8% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-31013",
@@ -1597,28 +1714,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0566,
+    0.1305,
+    0.2726
    ],
    "bbox_px": [
-    306,
     26,
-    308,
-    89
+    26,
+    125,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.0924,
+    "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (100% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-31246",
@@ -1630,28 +1747,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.0447,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.2611,
+    0.1912
    ],
    "bbox_px": [
-    43,
     26,
-    308,
-    89
+    26,
+    250,
+    88
    ],
    "anchor": {
-    "x": 0.2051,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (19% điểm là cạnh)); dời -324px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (70% ô bận, 19% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-31256",
@@ -1663,28 +1780,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.4746,
+    0.6088,
+    0.1475,
+    0.2726
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    455,
+    279,
+    141,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.5484,
+    "y": 0.6088,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh); nền loang sáng tối (lệch 0.255): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-31278",
@@ -1696,28 +1813,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.4542,
+    0.2478,
+    0.0966,
+    0.1699
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    436,
+    114,
+    93,
+    78
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.5025,
+    "y": 0.2478,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (60% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (61% ô bận, 2% cạnh hoạ tiết); dời +42px ngang, +108px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-31284",
@@ -1729,28 +1846,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.3345,
-    0.0991,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.326,
+    0.1912
    ],
    "bbox_px": [
-    321,
-    45,
-    308,
-    89
+    26,
+    26,
+    313,
+    88
    ],
    "anchor": {
-    "x": 0.4949,
-    "y": 0.0991,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (27% ô bận)); dời +19px ngang, +24px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (22% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-316354",
@@ -1762,28 +1879,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.56,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.2751,
+    0.1912
    ],
    "bbox_px": [
-    537,
     26,
-    308,
-    89
+    26,
+    264,
+    88
    ],
    "anchor": {
-    "x": 0.7204,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.243)); dời +285px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (100% ô bận, 12% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-31900",
@@ -1795,28 +1912,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-center",
+   "placement": "identical",
    "bbox": [
-    0.3871,
-    0.0566,
-    0.3208,
-    0.1933
+    0.3938,
+    0.0567,
+    0.1708,
+    0.3058
    ],
    "bbox_px": [
-    371,
+    378,
     26,
-    308,
-    89
+    164,
+    140
    ],
    "anchor": {
-    "x": 0.5475,
-    "y": 0.0566,
+    "x": 0.4792,
+    "y": 0.0567,
     "align": "top-center"
    },
-   "backing": "none",
+   "backing": "panel",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời +80px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (19% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-323450",
@@ -1828,28 +1945,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.0271,
+    0.5876,
+    0.2,
+    0.1664
    ],
    "bbox_px": [
-    306,
     26,
-    308,
-    89
+    270,
+    192,
+    76
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.1271,
+    "y": 0.5876,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (57% ô bận); nền loang sáng tối (lệch 0.358): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (57% ô bận, 1% cạnh hoạ tiết); dời -373px ngang, +300px dọc tới chỗ trống ở phần ba dưới"
   },
   {
    "id": "SW-323565",
@@ -1861,28 +1978,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": null,
    "placement": "shifted",
    "bbox": [
-    0.2651,
+    0.2034,
     0.0566,
-    0.3208,
-    0.1933
+    0.3221,
+    0.1912
    ],
    "bbox_px": [
-    254,
+    195,
     26,
-    308,
-    89
+    309,
+    88
    ],
    "anchor": {
-    "x": 0.4255,
+    "x": 0.3644,
     "y": 0.0566,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời -63px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (21% ô bận, 2% cạnh hoạ tiết); dời -135px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-32370",
@@ -1894,22 +2011,22 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.3148,
     0.0567,
-    0.3208,
-    0.1933
+    0.3289,
+    0.1827
    ],
    "bbox_px": [
-    306,
+    302,
     26,
-    308,
-    89
+    315,
+    84
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.4793,
     "y": 0.0567,
     "align": "top-center"
    },
@@ -1927,28 +2044,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.0447,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.3019,
+    0.1912
    ],
    "bbox_px": [
-    43,
     26,
-    308,
-    89
+    26,
+    290,
+    88
    ],
    "anchor": {
-    "x": 0.2051,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (74% ô bận); nền loang sáng tối (lệch 0.43)); dời -324px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (70% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-32698",
@@ -1960,28 +2077,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-right",
+   "placement": "identical",
    "bbox": [
-    0.6346,
-    0.0566,
-    0.3208,
-    0.1933
+    0.6576,
+    0.0567,
+    0.3153,
+    0.1827
    ],
    "bbox_px": [
-    609,
+    631,
     26,
-    308,
-    89
+    302,
+    84
    ],
    "anchor": {
-    "x": 0.795,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.9729,
+    "y": 0.0567,
+    "align": "top-right"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (84% ô bận); nền nhiều hoạ tiết (29% điểm là cạnh); nền loang sáng tối (lệch 0.324)); dời +373px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (90% ô bận, 29% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống"
   },
   {
    "id": "SW-32850",
@@ -1993,28 +2110,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.4542,
+    0.1735,
+    0.1797,
+    0.1841
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    436,
+    80,
+    172,
+    85
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.5441,
+    "y": 0.1735,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (68% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh); nền loang sáng tối (lệch 0.308): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (66% ô bận, 11% cạnh hoạ tiết); dời +86px ngang, +66px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-330676",
@@ -2026,28 +2143,28 @@
     461
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0564,
-    0.3208,
-    0.1936
+    0.1593,
+    0.4374,
+    0.1017,
+    0.2328
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    153,
+    202,
+    98,
+    107
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0564,
+    "x": 0.2102,
+    "y": 0.4374,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-33391",
@@ -2059,28 +2176,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-center",
+   "placement": "identical",
    "bbox": [
-    0.3498,
-    0.0566,
-    0.3208,
-    0.1933
+    0.3725,
+    0.0567,
+    0.2136,
+    0.1827
    ],
    "bbox_px": [
-    335,
+    357,
     26,
-    308,
-    89
+    205,
+    84
    ],
    "anchor": {
-    "x": 0.5102,
-    "y": 0.0566,
+    "x": 0.4793,
+    "y": 0.0567,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (20% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (10% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
   {
    "id": "SW-33549",
@@ -2092,28 +2209,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.2814,
+    0.0566,
+    0.2339,
+    0.1912
    ],
    "bbox_px": [
-    306,
+    270,
     26,
-    308,
-    89
+    224,
+    88
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.3983,
+    "y": 0.0566,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
+   "note": "chỗ cố định đè lên hình (16% ô bận, 0% cạnh hoạ tiết); dời -95px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-339531",
@@ -2125,28 +2242,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.8102,
+    0.1947,
+    0.1568,
+    0.2726
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    777,
+    89,
+    150,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.8886,
+    "y": 0.1947,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (84% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-339562",
@@ -2158,28 +2275,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
+    0.2508,
     0.0566,
-    0.3208,
-    0.1934
+    0.2119,
+    0.1699
    ],
    "bbox_px": [
-    1068,
+    840,
     91,
-    1075,
-    310
+    710,
+    273
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.3568,
     "y": 0.0566,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (54% ô bận); nền loang sáng tối (lệch 0.317): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (55% ô bận, 5% cạnh hoạ tiết); dời -110px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-35041",
@@ -2191,28 +2308,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0566,
+    0.1551,
+    0.2726
    ],
    "bbox_px": [
-    306,
     26,
-    308,
-    89
+    26,
+    149,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.1046,
+    "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-35185",
@@ -2224,28 +2341,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.1668,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.3291,
+    0.1912
    ],
    "bbox_px": [
-    160,
     26,
-    308,
-    89
+    26,
+    316,
+    88
    ],
    "anchor": {
-    "x": 0.3272,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (63% ô bận); nền loang sáng tối (lệch 0.217)); dời -179px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (66% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-35233",
@@ -2257,28 +2374,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.1887,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.3326,
+    0.1912
    ],
    "bbox_px": [
-    181,
     26,
-    308,
-    89
+    26,
+    319,
+    88
    ],
    "anchor": {
-    "x": 0.3491,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận)); dời -154px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (45% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-36201",
@@ -2290,28 +2407,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.1186,
+    0.2903,
+    0.3458,
+    0.1522
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    114,
+    133,
+    332,
+    70
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.2915,
+    "y": 0.2903,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (56% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (57% ô bận, 3% cạnh hoạ tiết); dời -240px ngang, +132px dọc tới chỗ trống ở dải giữa"
   },
   {
    "id": "SW-36213",
@@ -2323,28 +2440,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.1311,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.122,
+    0.1912
    ],
    "bbox_px": [
-    126,
     26,
-    308,
-    89
+    26,
+    117,
+    88
    ],
    "anchor": {
-    "x": 0.2915,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (67% ô bận); nền loang sáng tối (lệch 0.212)); dời -221px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (71% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-37233",
@@ -2356,28 +2473,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.0576,
+    0.0885,
+    0.2678,
+    0.1398
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    55,
+    41,
+    257,
+    64
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.1915,
+    "y": 0.0885,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (64% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (63% ô bận, 2% cạnh hoạ tiết); dời -316px ngang, +18px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-444471",
@@ -2389,28 +2506,28 @@
     462
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-bottom-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
-    0.0563,
-    0.3208,
-    0.1937
+    0.3673,
+    0.793,
+    0.2238,
+    0.1507
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    352,
+    366,
+    215,
+    70
    ],
    "anchor": {
     "x": 0.4792,
-    "y": 0.0563,
+    "y": 0.793,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (40% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (41% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống"
   },
   {
    "id": "SW-444501",
@@ -2422,28 +2539,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.6514,
+    0.8102,
     0.0566,
-    0.3208,
-    0.1933
+    0.1627,
+    0.2336
    ],
    "bbox_px": [
-    625,
+    777,
     26,
-    308,
-    89
+    156,
+    107
    ],
    "anchor": {
-    "x": 0.8118,
+    "x": 0.8916,
     "y": 0.0566,
     "align": "top-center"
    },
-   "backing": "none",
+   "backing": "panel",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (56% ô bận)); dời +392px ngang, +0px dọc tới chỗ nền yên"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-455539",
@@ -2455,19 +2572,19 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": null,
    "placement": "shifted",
    "bbox": [
-    0.2515,
+    0.3254,
     0.0566,
-    0.3208,
-    0.1933
+    0.1729,
+    0.1912
    ],
    "bbox_px": [
-    241,
+    312,
     26,
-    308,
-    89
+    166,
+    88
    ],
    "anchor": {
     "x": 0.4119,
@@ -2476,7 +2593,7 @@
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận); nền loang sáng tối (lệch 0.191)); dời -79px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (42% ô bận, 4% cạnh hoạ tiết); dời -79px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-467099",
@@ -2488,19 +2605,19 @@
     942
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-top-center",
    "placement": "identical",
    "bbox": [
-    0.2771,
+    0.2758,
     0.0276,
-    0.4458,
-    0.0974
+    0.4484,
+    0.0932
    ],
    "bbox_px": [
-    266,
+    264,
     26,
-    428,
-    92
+    430,
+    88
    ],
    "anchor": {
     "x": 0.5,
@@ -2521,28 +2638,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.1695,
+    0.5876,
+    0.2356,
+    0.1788
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    163,
+    270,
+    226,
+    82
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.2873,
+    "y": 0.5876,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (60% ô bận); nền loang sáng tối (lệch 0.221): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (57% ô bận, 1% cạnh hoạ tiết); dời -205px ngang, +300px dọc tới chỗ trống ở phần ba dưới"
   },
   {
    "id": "SW-577649",
@@ -2554,28 +2671,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.2915,
+    0.577,
+    0.1195,
+    0.2814
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    280,
+    265,
+    115,
+    129
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.3512,
+    "y": 0.577,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (88% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.446): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (90% ô bận, 6% cạnh hoạ tiết); dời -105px ngang, +294px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-577907",
@@ -2587,28 +2704,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.1514,
+    0.0271,
     0.0566,
-    0.3208,
-    0.1934
+    0.326,
+    0.1912
    ],
    "bbox_px": [
-    507,
     91,
-    1075,
-    310
+    91,
+    1092,
+    307
    ],
    "anchor": {
-    "x": 0.3118,
+    "x": 0.0271,
     "y": 0.0566,
-    "align": "top-center"
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (93% ô bận)); dời -198px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (92% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-588744",
@@ -2620,28 +2737,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": null,
    "placement": "shifted",
    "bbox": [
-    0.3684,
-    0.0991,
-    0.3208,
-    0.1934
+    0.4441,
+    0.1097,
+    0.2237,
+    0.1752
    ],
    "bbox_px": [
-    1235,
-    159,
-    1075,
-    310
+    1488,
+    176,
+    750,
+    281
    ],
    "anchor": {
-    "x": 0.5288,
-    "y": 0.0991,
+    "x": 0.5559,
+    "y": 0.1097,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (31% ô bận)); dời +59px ngang, +24px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (31% ô bận, 2% cạnh hoạ tiết); dời +119px ngang, +30px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-604310",
@@ -2653,28 +2770,28 @@
     943
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-top-left",
    "placement": "identical",
    "bbox": [
-    0.2771,
+    0.0271,
     0.0276,
-    0.4458,
-    0.0974
+    0.448,
+    0.0931
    ],
    "bbox_px": [
-    266,
     26,
-    428,
-    92
+    26,
+    430,
+    88
    ],
    "anchor": {
-    "x": 0.5,
+    "x": 0.0271,
     "y": 0.0276,
-    "align": "top-center"
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
+   "note": "chỗ cố định đè lên hình (14% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-604371",
@@ -2686,28 +2803,28 @@
     2140
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.2244,
+    0.0271,
     0.0566,
-    0.3208,
-    0.1934
+    0.3221,
+    0.1912
    ],
    "bbox_px": [
-    1003,
     121,
-    1433,
-    414
+    121,
+    1439,
+    409
    ],
    "anchor": {
-    "x": 0.3848,
+    "x": 0.0271,
     "y": 0.0566,
-    "align": "top-center"
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (36% ô bận); nền loang sáng tối (lệch 0.226)); dời -112px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (34% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-62617",
@@ -2719,19 +2836,19 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.3936,
     0.0567,
-    0.3208,
-    0.1933
+    0.1712,
+    0.1784
    ],
    "bbox_px": [
-    306,
+    377,
     26,
-    308,
-    89
+    164,
+    82
    ],
    "anchor": {
     "x": 0.4792,
@@ -2740,7 +2857,7 @@
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
+   "note": "chỗ cố định đè lên hình (7% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
   {
    "id": "SW-638692",
@@ -2752,28 +2869,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.0373,
+    0.5239,
+    0.1712,
+    0.2973
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    36,
+    240,
+    164,
+    136
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.1229,
+    "y": 0.5239,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (62% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.203): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (69% ô bận, 5% cạnh hoạ tiết); dời -339px ngang, +264px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-638705",
@@ -2785,28 +2902,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.6983,
+    0.3752,
+    0.1839,
+    0.2726
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    670,
+    172,
+    176,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.7903,
+    "y": 0.3752,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (88% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-639015",
@@ -2818,28 +2935,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.0413,
-    0.0566,
-    0.3208,
-    0.1933
+    0.0271,
+    0.0567,
+    0.2949,
+    0.1869
    ],
    "bbox_px": [
-    40,
     26,
-    308,
-    89
+    26,
+    283,
+    86
    ],
    "anchor": {
-    "x": 0.2017,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.0271,
+    "y": 0.0567,
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (51% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.183)); dời -327px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (51% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-659337",
@@ -2851,28 +2968,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.4339,
+    0.0566,
+    0.2051,
+    0.2726
    ],
    "bbox_px": [
-    306,
+    416,
     26,
-    308,
-    89
+    197,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.5364,
+    "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (73% ô bận); nền loang sáng tối (lệch 0.186): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-659348",
@@ -2884,28 +3001,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
+    0.3017,
     0.0566,
-    0.3208,
-    0.1934
+    0.1466,
+    0.2726
    ],
    "bbox_px": [
-    1068,
+    1011,
     91,
-    1075,
-    310
+    491,
+    438
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.375,
     "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "text",
-   "note": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.47): chữ C1 sẽ chìm, dùng panel; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem"
   },
   {
    "id": "SW-659365",
@@ -2917,19 +3034,19 @@
     460
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.3182,
     0.0565,
-    0.3208,
-    0.1935
+    0.3221,
+    0.1654
    ],
    "bbox_px": [
-    306,
+    305,
     26,
-    308,
-    89
+    309,
+    76
    ],
    "anchor": {
     "x": 0.4792,
@@ -2950,28 +3067,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "shifted",
+   "template_id": "wide-top-left",
+   "placement": "identical",
    "bbox": [
-    0.104,
+    0.0271,
     0.0566,
-    0.3208,
-    0.1934
+    0.3256,
+    0.1912
    ],
    "bbox_px": [
-    349,
     91,
-    1075,
-    310
+    91,
+    1091,
+    307
    ],
    "anchor": {
-    "x": 0.2644,
+    "x": 0.0271,
     "y": 0.0566,
-    "align": "top-center"
+    "align": "top-left"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.194)); dời -253px ngang, +0px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (82% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
   {
    "id": "SW-68010",
@@ -2983,28 +3100,28 @@
     1605
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0566,
-    0.3208,
-    0.1934
+    0.4644,
+    0.1097,
+    0.1627,
+    0.1752
    ],
    "bbox_px": [
-    1068,
-    91,
-    1075,
-    310
+    1556,
+    176,
+    545,
+    281
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0566,
+    "x": 0.5457,
+    "y": 0.1097,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (40% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (39% ô bận, 0% cạnh hoạ tiết); dời +99px ngang, +30px dọc tới chỗ trống trong phần ba trên"
   },
   {
    "id": "SW-69527",
@@ -3016,28 +3133,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "shifted",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.8305,
+    0.6088,
+    0.139,
+    0.1788
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    796,
+    279,
+    133,
+    82
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.9,
+    "y": 0.6088,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (84% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (85% ô bận, 9% cạnh hoạ tiết); dời +509px ngang, +312px dọc tới chỗ trống ở phần ba dưới"
   },
   {
    "id": "SW-87044",
@@ -3049,28 +3166,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
-    0.0567,
-    0.3208,
-    0.1933
+    0.5763,
+    0.7044,
+    0.1017,
+    0.2336
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    553,
+    323,
+    98,
+    107
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0567,
+    "x": 0.6271,
+    "y": 0.7044,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "text",
-   "note": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (15% điểm là cạnh); nền loang sáng tối (lệch 0.265): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-93066",
@@ -3082,28 +3199,28 @@
     942
    ],
    "format": "square",
-   "template_id": "square-title",
+   "template_id": "square-bottom-center",
    "placement": "identical",
    "bbox": [
-    0.2771,
-    0.0276,
-    0.4458,
-    0.0974
+    0.2949,
+    0.8792,
+    0.4103,
+    0.0932
    ],
    "bbox_px": [
-    266,
-    26,
-    428,
-    92
+    283,
+    828,
+    393,
+    88
    ],
    "anchor": {
     "x": 0.5,
-    "y": 0.0276,
+    "y": 0.8792,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (63% ô bận): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (64% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống"
   },
   {
    "id": "SW-99711",
@@ -3115,28 +3232,28 @@
     461
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-bottom-center",
    "placement": "identical",
    "bbox": [
-    0.3188,
-    0.0564,
-    0.3208,
-    0.1936
+    0.3064,
+    0.7531,
+    0.3458,
+    0.1905
    ],
    "bbox_px": [
-    306,
-    26,
-    308,
-    89
+    294,
+    347,
+    332,
+    88
    ],
    "anchor": {
-    "x": 0.4792,
-    "y": 0.0564,
+    "x": 0.4793,
+    "y": 0.7531,
     "align": "top-center"
    },
-   "backing": "panel",
+   "backing": "none",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (93% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh); nền loang sáng tối (lệch 0.302): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (96% ô bận, 20% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống"
   },
   {
    "id": "SW-99712",
@@ -3148,28 +3265,28 @@
     459
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": "wide-top-left",
    "placement": "identical",
    "bbox": [
-    0.3188,
+    0.0271,
     0.0567,
-    0.3208,
-    0.1933
+    0.1764,
+    0.3058
    ],
    "bbox_px": [
-    306,
     26,
-    308,
-    89
+    26,
+    169,
+    140
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.0271,
     "y": 0.0567,
-    "align": "top-center"
+    "align": "top-left"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (86% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel"
+   "note": "chỗ cố định đè lên hình (88% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-99713",
@@ -3181,28 +3298,28 @@
     462
    ],
    "format": "wide",
-   "template_id": "wide-title",
-   "placement": "identical",
+   "template_id": null,
+   "placement": "no_room",
    "bbox": [
-    0.3188,
+    0.2305,
     0.0563,
-    0.3208,
-    0.1937
+    0.2466,
+    0.2711
    ],
    "bbox_px": [
-    306,
+    221,
     26,
-    308,
-    89
+    236,
+    125
    ],
    "anchor": {
-    "x": 0.4792,
+    "x": 0.3538,
     "y": 0.0563,
     "align": "top-center"
    },
    "backing": "panel",
    "cover_text_flag": "none",
-   "note": "tranh có hình ngay chỗ chữ (93% ô bận); nền loang sáng tối (lệch 0.281): chữ C1 sẽ chìm, dùng panel"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-99794",
@@ -3214,28 +3331,28 @@
     462
    ],
    "format": "wide",
-   "template_id": "wide-title",
+   "template_id": null,
    "placement": "shifted",
    "bbox": [
-    0.5311,
-    0.0986,
-    0.3208,
-    0.1937
+    0.5559,
+    0.1514,
+    0.2712,
+    0.1901
    ],
    "bbox_px": [
-    509,
-    46,
-    308,
-    89
+    533,
+    70,
+    260,
+    88
    ],
    "anchor": {
     "x": 0.6915,
-    "y": 0.0986,
+    "y": 0.1514,
     "align": "top-center"
    },
    "backing": "none",
    "cover_text_flag": "none",
-   "note": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (74% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +251px ngang, +24px dọc tới chỗ nền yên"
+   "note": "chỗ cố định đè lên hình (77% ô bận, 8% cạnh hoạ tiết); dời +251px ngang, +54px dọc tới chỗ trống trong phần ba trên"
   }
  ]
 }
