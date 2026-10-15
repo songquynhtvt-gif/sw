@@ -1,6 +1,6 @@
 # Mapping chữ vào tranh (copy space + điểm neo)
 
-> **Phạm vi hiện tại: chỉ bìa truyện** (chốt 15/10). Script bìa: `scripts/covers.py`, mẫu 93 bìa đã Approve ở `mapping/covers/`. Phần trang ruột bên dưới giữ làm tham khảo, `covers.py` dùng lại bộ đo độ bận của `copyspace.py`.
+> **Phạm vi hiện tại: chỉ bìa truyện** (chốt 15/10). Script bìa: `scripts/covers.py`, toàn bộ 93 bìa đã Approve ở `mapping/covers/` (cover_slots.json, title_sheet.csv). Phần trang ruột bên dưới giữ làm tham khảo, `covers.py` dùng lại bộ đo độ bận của `copyspace.py`.
 
 ## Bìa truyện
 
