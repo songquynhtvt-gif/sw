@@ -1,0 +1,38 @@
+[
+ {
+  "id": "SW-266338",
+  "summary": {
+   "pages": 15,
+   "overlay_stable": 3,
+   "overlay_page": 0,
+   "overlay_panel": 0,
+   "column": 12,
+   "not_fit": 0
+  },
+  "error": null
+ },
+ {
+  "id": "ASB-13623",
+  "summary": {
+   "pages": 9,
+   "overlay_stable": 1,
+   "overlay_page": 0,
+   "overlay_panel": 0,
+   "column": 8,
+   "not_fit": 0
+  },
+  "error": null
+ },
+ {
+  "id": "SW-659392",
+  "summary": {
+   "pages": 21,
+   "overlay_stable": 1,
+   "overlay_page": 0,
+   "overlay_panel": 0,
+   "column": 20,
+   "not_fit": 0
+  },
+  "error": null
+ }
+]
