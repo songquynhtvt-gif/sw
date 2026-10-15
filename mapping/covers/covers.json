@@ -1,18 +1,37 @@
 {
- "schema": "covers/v1",
+ "schema": "covers/v2",
  "params": {
   "grid": 24,
   "empty_t": 0.03,
   "blank_t": 0.008,
   "stable_frac": 0.5,
   "min_covers": 5,
-  "title": {
-   "hanzi_px": 56,
-   "pinyin_px": 20,
-   "pad_px": 16,
-   "min_scale": 0.6,
-   "ref_w": 1194
-  }
+  "frame_w": 1180,
+  "margin": 32,
+  "c1": {
+   "max_px": 44,
+   "min_px": 30,
+   "pinyin_px": 16,
+   "stroke_px": 6,
+   "fill": "#FDF9F0",
+   "stroke": "#0E4A3A"
+  },
+  "panel": {
+   "px": 32,
+   "min_px": 24,
+   "pad": [
+    16,
+    24
+   ],
+   "white_alpha": 0.85,
+   "blur_px": 8,
+   "ink": "#0E4A3A",
+   "max_lines": 2
+  },
+  "calm_min": 0.85,
+  "edge_t": 0.12,
+  "edge_max": 0.05,
+  "luma_std_max": 0.18
  },
  "formats": [
   {
@@ -22,31 +41,31 @@
    "title_slot": {
     "id": "slot",
     "bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "position": "top",
     "anchor": {
-     "x": 0.0,
+     "x": 0.4792,
      "y": 0.0,
-     "align": "left"
+     "align": "center"
     },
     "bg": "calm",
     "bg_rgb": [
+     190,
      194,
-     200,
-     182
+     176
     ],
-    "busy": 0.0535,
+    "busy": 0.0687,
     "ink": "#0E4A3A",
-    "contrast": 5.99,
+    "contrast": 5.64,
     "scrim": "cream",
-    "capacity_hanzi": 10,
+    "capacity_hanzi": 9,
     "lines": 1,
-    "chars_per_line": 10,
-    "empty_freq": 0.562,
+    "chars_per_line": 9,
+    "empty_freq": 0.445,
     "typical_title_len": 8
    },
    "stable_zones": [
@@ -714,31 +733,31 @@
    "title_slot": {
     "id": "slot",
     "bbox": [
-     0.625,
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
+    "position": "top",
     "anchor": {
-     "x": 1.0,
+     "x": 0.5,
      "y": 0.0,
-     "align": "right"
+     "align": "center"
     },
     "bg": "calm",
     "bg_rgb": [
-     223,
      218,
-     203
+     218,
+     200
     ],
-    "busy": 0.0292,
+    "busy": 0.0424,
     "ink": "#0E4A3A",
-    "contrast": 7.35,
+    "contrast": 7.22,
     "scrim": "cream",
     "capacity_hanzi": 0,
     "lines": 0,
-    "chars_per_line": 6,
-    "empty_freq": 0.761,
+    "chars_per_line": 5,
+    "empty_freq": 0.64,
     "typical_title_len": 7
    },
    "stable_zones": [
@@ -1464,16 +1483,16 @@
    "title_slot": {
     "id": "slot",
     "bbox": [
-     0.5417,
+     0.625,
      0.0,
      0.2083,
-     0.125
+     0.1667
     ],
-    "position": "top",
+    "position": "top-right",
     "anchor": {
-     "x": 0.6458,
+     "x": 0.8333,
      "y": 0.0,
-     "align": "center"
+     "align": "right"
     },
     "bg": "blank",
     "bg_rgb": [
@@ -1481,12 +1500,12 @@
      220,
      2
     ],
-    "busy": 0.0022,
+    "busy": 0.001,
     "ink": "#0E4A3A",
     "contrast": 7.55,
     "scrim": null,
-    "capacity_hanzi": 0,
-    "lines": 0,
+    "capacity_hanzi": 3,
+    "lines": 1,
     "chars_per_line": 3,
     "empty_freq": 1.0,
     "typical_title_len": 3
@@ -2126,10 +2145,10 @@
    "title_slot": {
     "id": "slot",
     "bbox": [
-     0.7917,
+     0.6667,
      0.0,
-     0.2083,
-     0.25
+     0.3333,
+     0.1667
     ],
     "position": "top-right",
     "anchor": {
@@ -2139,18 +2158,18 @@
     },
     "bg": "blank",
     "bg_rgb": [
-     46,
-     76,
-     112
+     47,
+     77,
+     113
     ],
-    "busy": 0.0016,
+    "busy": 0.0047,
     "ink": "#FDF9F0",
-    "contrast": 8.32,
+    "contrast": 8.23,
     "scrim": null,
     "capacity_hanzi": 6,
-    "lines": 2,
-    "chars_per_line": 3,
-    "empty_freq": 1.0,
+    "lines": 1,
+    "chars_per_line": 6,
+    "empty_freq": 0.969,
     "typical_title_len": 7
    },
    "stable_zones": [],
@@ -2789,30 +2808,30 @@
     "id": "slot",
     "bbox": [
      0.7917,
-     0.875,
+     0.0,
      0.2083,
      0.125
     ],
-    "position": "bottom-right",
+    "position": "top-right",
     "anchor": {
      "x": 1.0,
-     "y": 0.875,
+     "y": 0.0,
      "align": "right"
     },
-    "bg": "blank",
+    "bg": "calm",
     "bg_rgb": [
-     124,
-     109,
-     157
+     135,
+     122,
+     166
     ],
-    "busy": 0.0079,
+    "busy": 0.0212,
     "ink": "#FDF9F0",
-    "contrast": 4.37,
+    "contrast": 3.71,
     "scrim": "forest",
     "capacity_hanzi": 0,
     "lines": 0,
     "chars_per_line": 2,
-    "empty_freq": 0.933,
+    "empty_freq": 0.733,
     "typical_title_len": 3
    },
    "stable_zones": [],
@@ -3461,28 +3480,48 @@
    "empty_ratio": 0.406,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.56,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
+    "calm_coarse": 0.0,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     228,
+     120
+    ],
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (13% điểm là cạnh); nền loang sáng tối (lệch 0.181)); dời +228px ngang, +120px dọc tới chỗ nền yên",
+    "text_box": [
+     0.5763,
+     0.1288,
+     0.2339,
+     0.0725
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.6932,
+     "y": 0.1288,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 3.74,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.86,
+     "edge_density": 0.0,
+     "luma_std": 0.019,
+     "luma_p5_p50_p95": [
+      0.415,
+      0.438,
+      0.475
+     ],
+     "fill_contrast_p5": 1.9,
+     "stroke_contrast_p5": 4.52,
+     "pair_contrast_p5": 4.52,
+     "panel_contrast_min": 9.27
+    }
+   }
   },
   {
    "id": "ASB-15459",
@@ -3585,44 +3624,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 10.2,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.8333,
-     1.0,
-     0.1667
+    "calm_coarse": 0.88,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.383,
+     0.0271,
+     0.2339,
+     0.0725
+    ],
     "anchor": {
      "x": 0.5,
-     "y": 0.8333,
+     "y": 0.0271,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.008,
+     "luma_std": 0.062,
+     "luma_p5_p50_p95": [
+      0.986,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 10.06,
+     "pair_contrast_p5": 10.06,
+     "panel_contrast_min": 9.09
+    }
    }
   },
   {
@@ -3698,44 +3740,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.5417,
+    "slot_bbox": [
+     0.625,
      0.0,
      0.2083,
-     0.125
+     0.1667
     ],
-    "position": "top",
+    "calm_coarse": 1.0,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.6681,
+     0.0293,
+     0.122,
+     0.0784
+    ],
     "anchor": {
-     "x": 0.6458,
-     "y": 0.0,
+     "x": 0.7291,
+     "y": 0.0293,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 7.55,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.0,
-     0.25,
-     0.3333
-    ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      0.728,
+      0.728,
+      0.728
+     ],
+     "fill_contrast_p5": 1.28,
+     "stroke_contrast_p5": 7.55,
+     "pair_contrast_p5": 7.55,
+     "panel_contrast_min": 9.8
+    }
    }
   },
   {
@@ -3811,44 +3856,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 10.2,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.7917,
-     1.0,
-     0.2083
+    "calm_coarse": 0.88,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.383,
+     0.0271,
+     0.2339,
+     0.0725
+    ],
     "anchor": {
      "x": 0.5,
-     "y": 0.7917,
+     "y": 0.0271,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
+    }
    }
   },
   {
@@ -3924,44 +3972,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
+    "slot_bbox": [
+     0.6667,
+     0.0,
+     0.3333,
+     0.1667
+    ],
+    "calm_coarse": 0.97,
+    "style": "c1",
     "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.7917,
-     0.0,
-     0.2083,
-     0.25
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#FDF9F0",
-    "contrast": 8.32,
-    "scrim": null,
-    "font_scale": 0.95,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.0,
-     0.25,
-     0.25
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.6978,
+     0.0308,
+     0.2712,
+     0.0825
     ],
-    "position": "top-right",
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.8334,
+     "y": 0.0308,
+     "align": "center"
     },
-    "ink": "#FDF9F0",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.001,
+     "luma_p5_p50_p95": [
+      0.069,
+      0.069,
+      0.071
+     ],
+     "fill_contrast_p5": 8.26,
+     "stroke_contrast_p5": 1.16,
+     "pair_contrast_p5": 8.26,
+     "panel_contrast_min": 8.84
+    }
    }
   },
   {
@@ -4009,44 +4060,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.625,
-     0.0,
-     0.375,
-     0.125
-    ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.59,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.375,
+    "slot_bbox": [
+     0.3333,
      0.0,
      0.3333,
-     0.2917
+     0.125
     ],
-    "position": "top",
+    "calm_coarse": 0.92,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3644,
+     0.0271,
+     0.2712,
+     0.0725
+    ],
     "anchor": {
-     "x": 0.5417,
-     "y": 0.0,
+     "x": 0.5,
+     "y": 0.0271,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.92,
+     "edge_density": 0.004,
+     "luma_std": 0.053,
+     "luma_p5_p50_p95": [
+      0.818,
+      0.837,
+      0.869
+     ],
+     "fill_contrast_p5": 1.09,
+     "stroke_contrast_p5": 8.43,
+     "pair_contrast_p5": 8.43,
+     "panel_contrast_min": 8.74
+    }
    }
   },
   {
@@ -4065,28 +4119,48 @@
    "empty_ratio": 0.356,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.67,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
+    "calm_coarse": 0.08,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (92% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3847,
+     0.0271,
+     0.2305,
+     0.0773
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.5,
+     "y": 0.0271,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.78,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.06,
+     "edge_density": 0.056,
+     "luma_std": 0.138,
+     "luma_p5_p50_p95": [
+      0.115,
+      0.458,
+      0.625
+     ],
+     "fill_contrast_p5": 1.48,
+     "stroke_contrast_p5": 2.06,
+     "pair_contrast_p5": 3.69,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "ASB-51398",
@@ -4161,44 +4235,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.36,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.5,
-     0.0,
-     0.2917,
-     0.4167
+    "calm_coarse": 1.0,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3644,
+     0.0271,
+     0.2712,
+     0.0725
+    ],
     "anchor": {
-     "x": 0.6458,
-     "y": 0.0,
+     "x": 0.5,
+     "y": 0.0271,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.012,
+     "luma_p5_p50_p95": [
+      0.792,
+      0.812,
+      0.831
+     ],
+     "fill_contrast_p5": 1.13,
+     "stroke_contrast_p5": 8.18,
+     "pair_contrast_p5": 8.18,
+     "panel_contrast_min": 9.87
+    }
    }
   },
   {
@@ -4217,28 +4294,48 @@
    "empty_ratio": 0.365,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.93,
-    "bbox": [
+    "slot_bbox": [
      0.7917,
-     0.875,
+     0.0,
      0.2083,
      0.125
     ],
-    "position": "bottom-right",
+    "calm_coarse": 0.73,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (22% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.8348,
+     0.0248,
+     0.122,
+     0.0706
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.875,
-     "align": "right"
+     "x": 0.8958,
+     "y": 0.0248,
+     "align": "center"
     },
-    "ink": "#FDF9F0",
-    "contrast": 4.37,
-    "scrim": "forest",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.78,
+     "edge_density": 0.0,
+     "luma_std": 0.067,
+     "luma_p5_p50_p95": [
+      0.17,
+      0.17,
+      0.366
+     ],
+     "fill_contrast_p5": 2.4,
+     "stroke_contrast_p5": 2.13,
+     "pair_contrast_p5": 4.06,
+     "panel_contrast_min": 8.95
+    }
+   }
   },
   {
    "id": "ASB-9229",
@@ -4341,44 +4438,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.09,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     1.0,
-     0.4583
+    "calm_coarse": 1.0,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.383,
+     0.0271,
+     0.2339,
+     0.0725
+    ],
     "anchor": {
      "x": 0.5,
-     "y": 0.0,
+     "y": 0.0271,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.007,
+     "luma_p5_p50_p95": [
+      0.767,
+      0.782,
+      0.79
+     ],
+     "fill_contrast_p5": 1.19,
+     "stroke_contrast_p5": 7.93,
+     "pair_contrast_p5": 7.93,
+     "panel_contrast_min": 9.82
+    }
    }
   },
   {
@@ -4397,28 +4497,48 @@
    "empty_ratio": 0.394,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.45,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.33,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     398,
+     24
+    ],
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.379)); dời +398px ngang, +24px dọc tới chỗ nền yên",
+    "text_box": [
+     0.7186,
+     0.0991,
+     0.1966,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.8169,
+     "y": 0.0991,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 8.55,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.92,
+     "edge_density": 0.0,
+     "luma_std": 0.002,
+     "luma_p5_p50_p95": [
+      0.957,
+      0.961,
+      0.961
+     ],
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 9.78,
+     "pair_contrast_p5": 9.78,
+     "panel_contrast_min": 10.07
+    }
+   }
   },
   {
    "id": "SW-113998",
@@ -4521,44 +4641,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.95,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#FDF9F0",
-    "contrast": 3.6,
-    "scrim": "forest",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.4167,
-     0.25,
-     0.5833
+    "calm_coarse": 0.7,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -160,
+     0
     ],
-    "position": "bottom-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (28% ô bận)); dời -160px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.1898,
+     0.0566,
+     0.3085,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.4167,
-     "align": "left"
+     "x": 0.344,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.006,
+     "luma_std": 0.046,
+     "luma_p5_p50_p95": [
+      0.213,
+      0.262,
+      0.311
+     ],
+     "fill_contrast_p5": 2.77,
+     "stroke_contrast_p5": 2.55,
+     "pair_contrast_p5": 3.12,
+     "panel_contrast_min": 8.97
+    }
    }
   },
   {
@@ -4634,44 +4757,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 9.28,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.5,
-     0.5417
+    "calm_coarse": 0.61,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -110,
+     0
     ],
-    "position": "top-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (36% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.248)); dời -110px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.2508,
+     0.0566,
+     0.2712,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.3864,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.93,
+     "edge_density": 0.0,
+     "luma_std": 0.012,
+     "luma_p5_p50_p95": [
+      0.889,
+      0.908,
+      0.93
+     ],
+     "fill_contrast_p5": 1.02,
+     "stroke_contrast_p5": 9.12,
+     "pair_contrast_p5": 9.12,
+     "panel_contrast_min": 9.97
+    }
    }
   },
   {
@@ -4690,28 +4816,48 @@
    "empty_ratio": 0.108,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.23,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.3,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (82% ô bận); nền nhiều hoạ tiết (16% điểm là cạnh); nền loang sáng tối (lệch 0.224): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3776,
+     0.0566,
+     0.2034,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 5.08,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.12,
+     "edge_density": 0.163,
+     "luma_std": 0.225,
+     "luma_p5_p50_p95": [
+      0.022,
+      0.616,
+      0.642
+     ],
+     "fill_contrast_p5": 1.44,
+     "stroke_contrast_p5": 1.44,
+     "pair_contrast_p5": 3.5,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-129737",
@@ -4786,44 +4932,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.66,
-    "scrim": null,
-    "font_scale": 0.9,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.5833,
-     0.4583,
-     0.4167,
-     0.5417
+    "calm_coarse": 0.44,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -228,
+     0
     ],
-    "position": "bottom-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (64% ô bận)); dời -228px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.1288,
+     0.0566,
+     0.3153,
+     0.1431
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.4583,
-     "align": "right"
+     "x": 0.2864,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 40,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      0.532,
+      0.532,
+      0.532
+     ],
+     "fill_contrast_p5": 1.72,
+     "stroke_contrast_p5": 5.66,
+     "pair_contrast_p5": 5.66,
+     "panel_contrast_min": 9.52
+    }
    }
   },
   {
@@ -4842,28 +4991,48 @@
    "empty_ratio": 0.189,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.08,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.11,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (86% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.395): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3233,
+     0.0567,
+     0.3119,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.85,
-    "scrim": "panel-onart",
-    "font_scale": 0.8,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.13,
+     "edge_density": 0.063,
+     "luma_std": 0.387,
+     "luma_p5_p50_p95": [
+      0.008,
+      0.205,
+      1.0
+     ],
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 1.96,
+     "pair_contrast_p5": 3.83,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-133581",
@@ -4910,44 +5079,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.62,
-    "bbox": [
-     0.0,
-     0.0,
-     0.4167,
-     0.25
-    ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.47,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
+    "slot_bbox": [
      0.2917,
      0.0,
-     0.4167,
-     0.3333
+     0.375,
+     0.25
     ],
-    "position": "top",
+    "calm_coarse": 1.0,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.325,
+     0.0567,
+     0.3085,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.5,
-     "y": 0.0,
+     "x": 0.4793,
+     "y": 0.0567,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
+    }
    }
   },
   {
@@ -4966,28 +5138,48 @@
    "empty_ratio": 0.146,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.04,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
+    "calm_coarse": 0.0,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tên dài, xuống 2 dòng: dùng panel theo rule C1",
+    "text_box": [
+     0.3711,
+     0.0275,
+     0.2576,
+     0.1295
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.4999,
+     "y": 0.0275,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.53,
-    "scrim": "panel-onart",
-    "font_scale": 0.6,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 2,
+    "legibility": {
+     "calm_coarse": 0.0,
+     "edge_density": 0.119,
+     "luma_std": 0.329,
+     "luma_p5_p50_p95": [
+      0.175,
+      0.424,
+      1.0
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 2.18,
+     "pair_contrast_p5": 3.32,
+     "panel_contrast_min": 8.92
+    }
+   }
   },
   {
    "id": "SW-15657",
@@ -5005,28 +5197,48 @@
    "empty_ratio": 0.325,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.3,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.07,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4046,
+     0.0565,
+     0.1492,
+     0.1611
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0565,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 5.47,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.12,
+     "edge_density": 0.063,
+     "luma_std": 0.197,
+     "luma_p5_p50_p95": [
+      0.435,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 4.71,
+     "pair_contrast_p5": 7.79,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-163932",
@@ -5073,44 +5285,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.77,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.97,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.1667,
-     0.0,
-     0.4167,
-     0.2083
+    "calm_coarse": 0.78,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3995,
+     0.0567,
+     0.1593,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.375,
-     "y": 0.0,
+     "x": 0.4792,
+     "y": 0.0567,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.9
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      0.946,
+      0.946,
+      0.946
+     ],
+     "fill_contrast_p5": 1.0,
+     "stroke_contrast_p5": 9.68,
+     "pair_contrast_p5": 9.68,
+     "panel_contrast_min": 10.12
+    }
    }
   },
   {
@@ -5129,28 +5344,48 @@
    "empty_ratio": 0.304,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.42,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.63,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (20% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3911,
+     0.0564,
+     0.1763,
+     0.1608
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0564,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 7.04,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.68,
+     "edge_density": 0.008,
+     "luma_std": 0.039,
+     "luma_p5_p50_p95": [
+      0.064,
+      0.109,
+      0.173
+     ],
+     "fill_contrast_p5": 4.49,
+     "stroke_contrast_p5": 1.12,
+     "pair_contrast_p5": 4.49,
+     "panel_contrast_min": 8.79
+    }
+   }
   },
   {
    "id": "SW-18459",
@@ -5168,28 +5403,48 @@
    "empty_ratio": 0.054,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.03,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.09,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền loang sáng tối (lệch 0.33): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3911,
+     0.0567,
+     0.1763,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 3.18,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.12,
+     "edge_density": 0.049,
+     "luma_std": 0.318,
+     "luma_p5_p50_p95": [
+      0.099,
+      0.164,
+      0.93
+     ],
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 1.45,
+     "pair_contrast_p5": 3.83,
+     "panel_contrast_min": 8.8
+    }
+   }
   },
   {
    "id": "SW-18461",
@@ -5207,28 +5462,48 @@
    "empty_ratio": 0.106,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.1,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.07,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (29% điểm là cạnh); nền loang sáng tối (lệch 0.339): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3233,
+     0.0567,
+     0.3119,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.76,
-    "scrim": "panel-onart",
-    "font_scale": 0.8,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.04,
+     "edge_density": 0.288,
+     "luma_std": 0.338,
+     "luma_p5_p50_p95": [
+      0.042,
+      0.942,
+      1.0
+     ],
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 1.22,
+     "pair_contrast_p5": 4.02,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-18749",
@@ -5331,44 +5606,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.72,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 9.43,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.625,
-     0.5417,
-     0.375,
-     0.4583
+    "calm_coarse": 0.52,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom-right",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3809,
+     0.0567,
+     0.1966,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.5417,
-     "align": "right"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.85,
+     "edge_density": 0.0,
+     "luma_std": 0.02,
+     "luma_p5_p50_p95": [
+      0.872,
+      0.909,
+      0.931
+     ],
+     "fill_contrast_p5": 1.02,
+     "stroke_contrast_p5": 8.95,
+     "pair_contrast_p5": 8.95,
+     "panel_contrast_min": 9.75
+    }
    }
   },
   {
@@ -5472,44 +5750,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.72,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 6.9,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.6667,
-     0.25,
-     0.3333
+    "calm_coarse": 0.59,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -79,
+     0
     ],
-    "position": "bottom-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (40% ô bận)); dời -79px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.3322,
+     0.0566,
+     0.1593,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.6667,
-     "align": "left"
+     "x": 0.4118,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": "cream",
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      0.684,
+      0.684,
+      0.684
+     ],
+     "fill_contrast_p5": 1.36,
+     "stroke_contrast_p5": 7.13,
+     "pair_contrast_p5": 7.13,
+     "panel_contrast_min": 9.74
+    }
    }
   },
   {
@@ -5557,44 +5838,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.7,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.64,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.25,
-     0.25,
-     0.1667
+    "calm_coarse": 0.24,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-left",
+    "reason": "tranh có hình ngay chỗ chữ (96% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.388): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3639,
+     0.0565,
+     0.2305,
+     0.1611
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.25,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0565,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.06,
+     "edge_density": 0.065,
+     "luma_std": 0.365,
+     "luma_p5_p50_p95": [
+      0.039,
+      0.132,
+      0.979
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 1.06,
+     "pair_contrast_p5": 3.69,
+     "panel_contrast_min": 8.76
+    }
    }
   },
   {
@@ -5642,44 +5926,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.38,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.42,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.5,
-     0.7083,
-     0.2917,
-     0.2917
+    "calm_coarse": 0.15,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom",
+    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền loang sáng tối (lệch 0.277): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3911,
+     0.0567,
+     0.1763,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.6458,
-     "y": 0.7083,
+     "x": 0.4793,
+     "y": 0.0567,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.2,
+     "edge_density": 0.048,
+     "luma_std": 0.285,
+     "luma_p5_p50_p95": [
+      0.008,
+      0.752,
+      0.852
+     ],
+     "fill_contrast_p5": 1.11,
+     "stroke_contrast_p5": 1.54,
+     "pair_contrast_p5": 7.1,
+     "panel_contrast_min": 8.74
+    }
    }
   },
   {
@@ -5698,28 +5985,48 @@
    "empty_ratio": 0.392,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.58,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.61,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (32% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3776,
+     0.0565,
+     0.2034,
+     0.1611
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0565,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 8.95,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.6,
+     "edge_density": 0.017,
+     "luma_std": 0.106,
+     "luma_p5_p50_p95": [
+      0.724,
+      0.926,
+      0.996
+     ],
+     "fill_contrast_p5": 1.0,
+     "stroke_contrast_p5": 7.51,
+     "pair_contrast_p5": 7.51,
+     "panel_contrast_min": 9.21
+    }
+   }
   },
   {
    "id": "SW-218999",
@@ -5766,44 +6073,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
+    "slot_bbox": [
+     0.2917,
+     0.0,
+     0.375,
+     0.25
+    ],
+    "calm_coarse": 0.33,
+    "style": "panel",
     "source": "fixed",
-    "calm": 0.37,
-    "bbox": [
-     0.0,
-     0.0,
-     0.4167,
-     0.25
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.9,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.125,
-     0.75,
-     0.25,
-     0.25
+    "reason": "tranh có hình ngay chỗ chữ (60% ô bận); nền loang sáng tối (lệch 0.25): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4046,
+     0.0568,
+     0.1492,
+     0.1617
     ],
-    "position": "bottom-left",
     "anchor": {
-     "x": 0.125,
-     "y": 0.75,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0568,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.4,
+     "edge_density": 0.036,
+     "luma_std": 0.247,
+     "luma_p5_p50_p95": [
+      0.331,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 3.7,
+     "pair_contrast_p5": 3.7,
+     "panel_contrast_min": 9.08
+    }
    }
   },
   {
@@ -5822,28 +6132,48 @@
    "empty_ratio": 0.368,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.37,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.54,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (45% ô bận); nền loang sáng tối (lệch 0.265): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4046,
+     0.0565,
+     0.1492,
+     0.1611
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0565,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.55,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.6,
+     "edge_density": 0.045,
+     "luma_std": 0.254,
+     "luma_p5_p50_p95": [
+      0.208,
+      0.844,
+      0.852
+     ],
+     "fill_contrast_p5": 1.11,
+     "stroke_contrast_p5": 2.51,
+     "pair_contrast_p5": 3.28,
+     "panel_contrast_min": 8.82
+    }
+   }
   },
   {
    "id": "SW-22294",
@@ -5946,44 +6276,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.78,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#FDF9F0",
-    "contrast": 5.73,
-    "scrim": "forest",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.7083,
-     0.0,
-     0.2917,
-     0.5417
+    "calm_coarse": 0.5,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -9,
+     24
     ],
-    "position": "top-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (30% ô bận)); dời -9px ngang, +24px dọc tới chỗ nền yên",
+    "text_box": [
+     0.3729,
+     0.0991,
+     0.1966,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.4712,
+     "y": 0.0991,
+     "align": "center"
     },
-    "ink": "#FDF9F0",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.87,
+     "edge_density": 0.0,
+     "luma_std": 0.001,
+     "luma_p5_p50_p95": [
+      0.936,
+      0.936,
+      0.936
+     ],
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 9.58,
+     "pair_contrast_p5": 9.58,
+     "panel_contrast_min": 9.99
+    }
    }
   },
   {
@@ -6059,44 +6392,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 10.2,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.5833,
-     0.2917
+    "calm_coarse": 0.85,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-left",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3436,
+     0.0567,
+     0.2712,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
+    }
    }
   },
   {
@@ -6172,44 +6508,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.97,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.81,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.7083,
-     0.0,
-     0.2917,
-     1.0
+    "calm_coarse": 0.76,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -84,
+     0
     ],
-    "position": "right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (21% ô bận)); dời -84px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.2915,
+     0.0566,
+     0.2339,
+     0.1515
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.4084,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.0,
+     "luma_std": 0.031,
+     "luma_p5_p50_p95": [
+      0.816,
+      0.873,
+      0.914
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 8.41,
+     "pair_contrast_p5": 8.41,
+     "panel_contrast_min": 9.24
+    }
    }
   },
   {
@@ -6285,44 +6624,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.8,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 10.02,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.0,
-     0.25,
-     1.0
+    "calm_coarse": 0.26,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -327,
+     0
     ],
-    "position": "right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (83% ô bận); nền nhiều hoạ tiết (10% điểm là cạnh); nền loang sáng tối (lệch 0.207)); dời -327px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.0475,
+     0.0566,
+     0.3085,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.2017,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.011,
+     "luma_std": 0.07,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 8.74
+    }
    }
   },
   {
@@ -6398,44 +6740,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.1,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.14,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.4583,
-     0.7917,
-     0.5417,
-     0.2083
+    "calm_coarse": 0.26,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     395,
+     72
     ],
-    "position": "bottom-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (61% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.229)); dời +395px ngang, +72px dọc tới chỗ nền yên",
+    "text_box": [
+     0.678,
+     0.1834,
+     0.2712,
+     0.1509
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.7917,
-     "align": "right"
+     "x": 0.8136,
+     "y": 0.1834,
+     "align": "center"
     },
-    "ink": "#FDF9F0",
-    "scrim": null,
-    "font_scale": 0.9
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.91,
+     "edge_density": 0.002,
+     "luma_std": 0.06,
+     "luma_p5_p50_p95": [
+      0.783,
+      0.896,
+      0.942
+     ],
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 8.09,
+     "pair_contrast_p5": 8.09,
+     "panel_contrast_min": 9.31
+    }
    }
   },
   {
@@ -6483,44 +6828,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.43,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.03,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.0,
-     0.25,
-     0.25
+    "calm_coarse": 0.24,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     377,
+     0
     ],
-    "position": "top-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (70% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.245)); dời +377px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.7186,
+     0.0546,
+     0.1593,
+     0.1462
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.7982,
+     "y": 0.0546,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.054,
+     "luma_p5_p50_p95": [
+      0.764,
+      0.849,
+      0.924
+     ],
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 7.9,
+     "pair_contrast_p5": 7.9,
+     "panel_contrast_min": 9.67
+    }
    }
   },
   {
@@ -6624,44 +6972,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.0,
-     0.0,
-     0.4167,
-     0.25
-    ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.09,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
+    "slot_bbox": [
+     0.2917,
      0.0,
      0.375,
-     0.5417
+     0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.54,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -101,
+     0
+    ],
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (83% ô bận); nền loang sáng tối (lệch 0.261)); dời -101px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.3322,
+     0.0566,
+     0.122,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.3932,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.0,
+     "luma_std": 0.015,
+     "luma_p5_p50_p95": [
+      0.76,
+      0.783,
+      0.81
+     ],
+     "fill_contrast_p5": 1.16,
+     "stroke_contrast_p5": 7.86,
+     "pair_contrast_p5": 7.86,
+     "panel_contrast_min": 9.8
+    }
    }
   },
   {
@@ -6709,44 +7060,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 9.12,
-    "scrim": null,
-    "font_scale": 0.9,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.6667,
-     0.5833
+    "calm_coarse": 1.0,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-left",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3216,
+     0.0567,
+     0.3153,
+     0.1431
+    ],
     "anchor": {
-     "x": 0.3333,
-     "y": 0.0,
+     "x": 0.4793,
+     "y": 0.0567,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 40,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.001,
+     "luma_p5_p50_p95": [
+      0.889,
+      0.889,
+      0.89
+     ],
+     "fill_contrast_p5": 1.06,
+     "stroke_contrast_p5": 9.12,
+     "pair_contrast_p5": 9.12,
+     "panel_contrast_min": 10.03
+    }
    }
   },
   {
@@ -6765,28 +7119,48 @@
    "empty_ratio": 0.134,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.1,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.11,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     324,
+     48
+    ],
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (89% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +324px ngang, +48px dọc tới chỗ nền yên",
+    "text_box": [
+     0.6373,
+     0.1416,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.7542,
+     "y": 0.1416,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 3.41,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.87,
+     "edge_density": 0.0,
+     "luma_std": 0.005,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 9.94
+    }
+   }
   },
   {
    "id": "SW-30254",
@@ -6861,44 +7235,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.7,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.13,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.7083,
-     0.0,
-     0.2917,
-     0.4167
+    "calm_coarse": 0.43,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     395,
+     0
     ],
-    "position": "top-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (46% ô bận); nền loang sáng tối (lệch 0.208)); dời +395px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.678,
+     0.0566,
+     0.2712,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.8136,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.022,
+     "luma_std": 0.028,
+     "luma_p5_p50_p95": [
+      0.404,
+      0.443,
+      0.461
+     ],
+     "fill_contrast_p5": 1.95,
+     "stroke_contrast_p5": 4.41,
+     "pair_contrast_p5": 4.41,
+     "panel_contrast_min": 9.09
+    }
    }
   },
   {
@@ -6974,44 +7351,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.77,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.6,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.375,
-     0.25,
-     0.625
+    "calm_coarse": 0.57,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom-right",
+    "reason": "tranh có hình ngay chỗ chữ (50% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3504,
+     0.0567,
+     0.2576,
+     0.1614
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.375,
-     "align": "right"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.54,
+     "edge_density": 0.076,
+     "luma_std": 0.164,
+     "luma_p5_p50_p95": [
+      0.554,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 5.86,
+     "pair_contrast_p5": 6.57,
+     "panel_contrast_min": 8.76
+    }
    }
   },
   {
@@ -7087,44 +7467,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.6,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.1,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.5833,
-     0.375,
-     0.4167,
-     0.625
+    "calm_coarse": 0.5,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -369,
+     48
     ],
-    "position": "bottom-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (40% ô bận)); dời -369px ngang, +48px dọc tới chỗ nền yên",
+    "text_box": [
+     0.0678,
+     0.1416,
+     0.1966,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.375,
-     "align": "right"
+     "x": 0.1661,
+     "y": 0.1416,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.87,
+     "edge_density": 0.0,
+     "luma_std": 0.04,
+     "luma_p5_p50_p95": [
+      0.724,
+      0.779,
+      0.852
+     ],
+     "fill_contrast_p5": 1.11,
+     "stroke_contrast_p5": 7.52,
+     "pair_contrast_p5": 7.52,
+     "panel_contrast_min": 9.58
+    }
    }
   },
   {
@@ -7172,44 +7555,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.57,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.52,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.0,
-     0.25,
-     0.5417
+    "calm_coarse": 0.63,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     152,
+     0
     ],
-    "position": "top-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (39% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.222)); dời +152px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.4542,
+     0.0566,
+     0.3085,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.6084,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.86,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
+    }
    }
   },
   {
@@ -7228,28 +7614,48 @@
    "empty_ratio": 0.054,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.13,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.07,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3776,
+     0.0567,
+     0.2034,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 5.41,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.0,
+     "edge_density": 0.015,
+     "luma_std": 0.165,
+     "luma_p5_p50_p95": [
+      0.307,
+      0.54,
+      0.808
+     ],
+     "fill_contrast_p5": 1.16,
+     "stroke_contrast_p5": 3.47,
+     "pair_contrast_p5": 3.5,
+     "panel_contrast_min": 8.85
+    }
+   }
   },
   {
    "id": "SW-31246",
@@ -7352,44 +7758,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.82,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.39,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.25,
-     1.0
+    "calm_coarse": 0.41,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -324,
+     0
     ],
-    "position": "left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (71% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh)); dời -324px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.0881,
+     0.0566,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.205,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.92,
+     "edge_density": 0.027,
+     "luma_std": 0.035,
+     "luma_p5_p50_p95": [
+      0.465,
+      0.476,
+      0.489
+     ],
+     "fill_contrast_p5": 1.85,
+     "stroke_contrast_p5": 5.0,
+     "pair_contrast_p5": 5.0,
+     "panel_contrast_min": 8.84
+    }
    }
   },
   {
@@ -7408,28 +7817,48 @@
    "empty_ratio": 0.056,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.03,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.06,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (21% điểm là cạnh); nền loang sáng tối (lệch 0.272): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4182,
+     0.0567,
+     0.122,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 5.79,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.0,
+     "edge_density": 0.201,
+     "luma_std": 0.266,
+     "luma_p5_p50_p95": [
+      0.066,
+      0.441,
+      0.865
+     ],
+     "fill_contrast_p5": 1.09,
+     "stroke_contrast_p5": 1.19,
+     "pair_contrast_p5": 3.45,
+     "panel_contrast_min": 8.75
+    }
+   }
   },
   {
    "id": "SW-31278",
@@ -7447,28 +7876,48 @@
    "empty_ratio": 0.457,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.13,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.33,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (50% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4182,
+     0.0567,
+     0.122,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.64,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.4,
+     "edge_density": 0.022,
+     "luma_std": 0.124,
+     "luma_p5_p50_p95": [
+      0.55,
+      0.705,
+      0.923
+     ],
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 5.83,
+     "pair_contrast_p5": 5.83,
+     "panel_contrast_min": 9.08
+    }
+   }
   },
   {
    "id": "SW-31284",
@@ -7543,44 +7992,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.88,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.3,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.6667,
-     0.0,
-     0.3333,
-     1.0
+    "calm_coarse": 0.54,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     19,
+     24
     ],
-    "position": "right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (33% ô bận)); dời +19px ngang, +24px dọc tới chỗ nền yên",
+    "text_box": [
+     0.4339,
+     0.0991,
+     0.122,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.4949,
+     "y": 0.0991,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.9,
+     "edge_density": 0.0,
+     "luma_std": 0.007,
+     "luma_p5_p50_p95": [
+      0.451,
+      0.461,
+      0.472
+     ],
+     "fill_contrast_p5": 1.91,
+     "stroke_contrast_p5": 4.86,
+     "pair_contrast_p5": 4.86,
+     "panel_contrast_min": 9.37
+    }
    }
   },
   {
@@ -7684,44 +8136,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.85,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 9.59,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.25,
-     1.0
+    "calm_coarse": 0.3,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     285,
+     0
     ],
-    "position": "left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh); nền loang sáng tối (lệch 0.255)); dời +285px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.678,
+     0.0566,
+     0.0847,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.7204,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.002,
+     "luma_p5_p50_p95": [
+      0.951,
+      0.951,
+      0.958
+     ],
+     "fill_contrast_p5": 1.0,
+     "stroke_contrast_p5": 9.72,
+     "pair_contrast_p5": 9.72,
+     "panel_contrast_min": 10.11
+    }
    }
   },
   {
@@ -7797,44 +8252,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.58,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.76,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.4167,
-     0.0,
-     0.5833,
-     0.2083
+    "calm_coarse": 0.85,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     80,
+     0
     ],
-    "position": "top-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (17% ô bận)); dời +80px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.3932,
+     0.0566,
+     0.3085,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.5474,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.9
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.94,
+     "edge_density": 0.002,
+     "luma_std": 0.031,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 9.1
+    }
    }
   },
   {
@@ -7882,44 +8340,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.68,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.95,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.125,
-     0.0,
-     0.2917,
-     0.1667
+    "calm_coarse": 0.48,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -253,
+     0
     ],
-    "position": "top-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (57% ô bận); nền loang sáng tối (lệch 0.345)); dời -253px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.1288,
+     0.0566,
+     0.2712,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.125,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.2644,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.86,
+     "edge_density": 0.0,
+     "luma_std": 0.038,
+     "luma_p5_p50_p95": [
+      0.757,
+      0.794,
+      0.879
+     ],
+     "fill_contrast_p5": 1.08,
+     "stroke_contrast_p5": 7.84,
+     "pair_contrast_p5": 7.84,
+     "panel_contrast_min": 9.72
+    }
    }
   },
   {
@@ -7995,44 +8456,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.68,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.18,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.1667,
-     0.0,
-     0.3333,
-     0.4583
+    "calm_coarse": 0.85,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-left",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.325,
+     0.0567,
+     0.3085,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.3333,
-     "y": 0.0,
+     "x": 0.4793,
+     "y": 0.0567,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.012,
+     "luma_std": 0.081,
+     "luma_p5_p50_p95": [
+      0.843,
+      0.879,
+      0.897
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 8.67,
+     "pair_contrast_p5": 8.68,
+     "panel_contrast_min": 8.76
+    }
    }
   },
   {
@@ -8080,44 +8544,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.44,
-    "scrim": null,
-    "font_scale": 0.9,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.5417,
-     0.5
+    "calm_coarse": 1.0,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-left",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3216,
+     0.0567,
+     0.3153,
+     0.1431
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 40,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.009,
+     "luma_std": 0.061,
+     "luma_p5_p50_p95": [
+      0.665,
+      0.77,
+      0.851
+     ],
+     "fill_contrast_p5": 1.11,
+     "stroke_contrast_p5": 6.94,
+     "pair_contrast_p5": 6.94,
+     "panel_contrast_min": 9.05
+    }
    }
   },
   {
@@ -8193,44 +8660,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.85,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.53,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.6667,
-     0.0,
-     0.3333,
-     1.0
+    "calm_coarse": 0.37,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -299,
+     0
     ],
-    "position": "right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (79% ô bận); nền loang sáng tối (lệch 0.434)); dời -299px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.1085,
+     0.0566,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.2254,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#FDF9F0",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.86,
+     "edge_density": 0.0,
+     "luma_std": 0.018,
+     "luma_p5_p50_p95": [
+      0.843,
+      0.876,
+      0.901
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 8.67,
+     "pair_contrast_p5": 8.67,
+     "panel_contrast_min": 9.57
+    }
    }
   },
   {
@@ -8306,44 +8776,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.77,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 8.43,
-    "scrim": "cream",
-    "font_scale": 0.9,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.4167,
-     0.25,
-     0.4167
+    "calm_coarse": 0.26,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     373,
+     0
     ],
-    "position": "right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (81% ô bận); nền nhiều hoạ tiết (26% điểm là cạnh); nền loang sáng tối (lệch 0.311)); dời +373px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.6373,
+     0.0566,
+     0.3153,
+     0.1431
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.4167,
-     "align": "right"
+     "x": 0.795,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.95
+    "font_px": 40,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.94,
+     "edge_density": 0.0,
+     "luma_std": 0.01,
+     "luma_p5_p50_p95": [
+      0.779,
+      0.812,
+      0.812
+     ],
+     "fill_contrast_p5": 1.16,
+     "stroke_contrast_p5": 8.05,
+     "pair_contrast_p5": 8.05,
+     "panel_contrast_min": 9.83
+    }
    }
   },
   {
@@ -8362,28 +8835,48 @@
    "empty_ratio": 0.297,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.47,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.2,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (13% điểm là cạnh); nền loang sáng tối (lệch 0.321): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3911,
+     0.0567,
+     0.1763,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 7.41,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.32,
+     "edge_density": 0.116,
+     "luma_std": 0.308,
+     "luma_p5_p50_p95": [
+      0.144,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.02,
+     "stroke_contrast_p5": 1.88,
+     "pair_contrast_p5": 3.72,
+     "panel_contrast_min": 8.76
+    }
+   }
   },
   {
    "id": "SW-330676",
@@ -8401,28 +8894,48 @@
    "empty_ratio": 0.153,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.03,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.04,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4182,
+     0.0564,
+     0.122,
+     0.1608
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0564,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 5.97,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.0,
+     "edge_density": 0.112,
+     "luma_std": 0.1,
+     "luma_p5_p50_p95": [
+      0.039,
+      0.053,
+      0.306
+     ],
+     "fill_contrast_p5": 2.81,
+     "stroke_contrast_p5": 1.01,
+     "pair_contrast_p5": 3.25,
+     "panel_contrast_min": 8.76
+    }
+   }
   },
   {
    "id": "SW-33391",
@@ -8469,44 +8982,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.18,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 3.97,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.8333,
-     0.4583,
-     0.1667
+    "calm_coarse": 0.76,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     36,
+     0
     ],
-    "position": "bottom-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.3932,
+     0.0566,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.8333,
-     "align": "left"
+     "x": 0.5102,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.86,
+     "edge_density": 0.0,
+     "luma_std": 0.048,
+     "luma_p5_p50_p95": [
+      0.765,
+      0.863,
+      0.925
+     ],
+     "fill_contrast_p5": 1.02,
+     "stroke_contrast_p5": 7.92,
+     "pair_contrast_p5": 7.92,
+     "panel_contrast_min": 9.7
+    }
    }
   },
   {
@@ -8554,44 +9070,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.85,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 6.2,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.25,
-     0.0417,
-     0.25,
-     0.5
+    "calm_coarse": 0.83,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3623,
+     0.0567,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.375,
-     "y": 0.0417,
+     "x": 0.4793,
+     "y": 0.0567,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": "cream",
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.0,
+     "luma_std": 0.06,
+     "luma_p5_p50_p95": [
+      0.501,
+      0.566,
+      0.686
+     ],
+     "fill_contrast_p5": 1.36,
+     "stroke_contrast_p5": 5.35,
+     "pair_contrast_p5": 5.35,
+     "panel_contrast_min": 9.37
+    }
    }
   },
   {
@@ -8610,28 +9129,48 @@
    "empty_ratio": 0.33,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.47,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.19,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (85% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3911,
+     0.0567,
+     0.1763,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 3.98,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.16,
+     "edge_density": 0.035,
+     "luma_std": 0.137,
+     "luma_p5_p50_p95": [
+      0.033,
+      0.356,
+      0.454
+     ],
+     "fill_contrast_p5": 1.98,
+     "stroke_contrast_p5": 1.09,
+     "pair_contrast_p5": 3.5,
+     "panel_contrast_min": 8.76
+    }
+   }
   },
   {
    "id": "SW-339562",
@@ -8678,44 +9217,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.72,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.78,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.4583,
-     0.6667,
-     0.25,
-     0.3333
+    "calm_coarse": 0.54,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom",
+    "reason": "tranh có hình ngay chỗ chữ (57% ô bận); nền loang sáng tối (lệch 0.317): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3639,
+     0.0566,
+     0.2305,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.5833,
-     "y": 0.6667,
+     "x": 0.4792,
+     "y": 0.0566,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.85
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.46,
+     "edge_density": 0.048,
+     "luma_std": 0.323,
+     "luma_p5_p50_p95": [
+      0.174,
+      0.892,
+      0.892
+     ],
+     "fill_contrast_p5": 1.06,
+     "stroke_contrast_p5": 2.18,
+     "pair_contrast_p5": 3.23,
+     "panel_contrast_min": 8.74
+    }
    }
   },
   {
@@ -8734,28 +9276,48 @@
    "empty_ratio": 0.12,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.38,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.09,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3776,
+     0.0567,
+     0.2034,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 8.25,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.0,
+     "edge_density": 0.053,
+     "luma_std": 0.182,
+     "luma_p5_p50_p95": [
+      0.285,
+      0.735,
+      0.895
+     ],
+     "fill_contrast_p5": 1.06,
+     "stroke_contrast_p5": 3.25,
+     "pair_contrast_p5": 3.64,
+     "panel_contrast_min": 8.81
+    }
+   }
   },
   {
    "id": "SW-35185",
@@ -8858,44 +9420,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#FDF9F0",
-    "contrast": 10.14,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.4167,
-     0.5417
+    "calm_coarse": 0.48,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -179,
+     0
     ],
-    "position": "top-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (64% ô bận); nền loang sáng tối (lệch 0.185)); dời -179px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.2102,
+     0.0566,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.3272,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#FDF9F0",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.0,
+     "luma_std": 0.007,
+     "luma_p5_p50_p95": [
+      0.039,
+      0.052,
+      0.063
+     ],
+     "fill_contrast_p5": 8.88,
+     "stroke_contrast_p5": 1.01,
+     "pair_contrast_p5": 8.88,
+     "panel_contrast_min": 8.78
+    }
    }
   },
   {
@@ -8999,44 +9564,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 9.62,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.4167,
-     0.5
+    "calm_coarse": 0.61,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -154,
+     0
     ],
-    "position": "top-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (40% ô bận)); dời -154px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.2508,
+     0.0566,
+     0.1966,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.3491,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.95,
+     "edge_density": 0.013,
+     "luma_std": 0.046,
+     "luma_p5_p50_p95": [
+      0.855,
+      0.949,
+      0.979
+     ],
+     "fill_contrast_p5": 1.0,
+     "stroke_contrast_p5": 8.79,
+     "pair_contrast_p5": 8.79,
+     "panel_contrast_min": 9.4
+    }
    }
   },
   {
@@ -9084,44 +9652,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.48,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 6.48,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.2917,
-     0.4167,
-     0.1667
+    "calm_coarse": 0.37,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "left",
+    "reason": "tranh có hình ngay chỗ chữ (54% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3776,
+     0.0567,
+     0.2034,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.2917,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.4,
+     "edge_density": 0.015,
+     "luma_std": 0.08,
+     "luma_p5_p50_p95": [
+      0.451,
+      0.639,
+      0.66
+     ],
+     "fill_contrast_p5": 1.41,
+     "stroke_contrast_p5": 4.86,
+     "pair_contrast_p5": 4.86,
+     "panel_contrast_min": 9.06
+    }
    }
   },
   {
@@ -9197,44 +9768,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.83,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 10.04,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0417,
-     0.375,
-     0.1667
+    "calm_coarse": 0.41,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -221,
+     0
     ],
-    "position": "top-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (58% ô bận)); dời -221px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.2305,
+     0.0566,
+     0.122,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0417,
-     "align": "left"
+     "x": 0.2915,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.029,
+     "luma_std": 0.061,
+     "luma_p5_p50_p95": [
+      0.981,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 10.01,
+     "pair_contrast_p5": 10.01,
+     "panel_contrast_min": 9.31
+    }
    }
   },
   {
@@ -9282,44 +9856,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.68,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 6.95,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.5,
-     0.25,
-     0.1667
+    "calm_coarse": 0.39,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -324,
+     24
     ],
-    "position": "left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (64% ô bận)); dời -324px ngang, +24px dọc tới chỗ nền yên",
+    "text_box": [
+     0.0881,
+     0.0991,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.5,
-     "align": "left"
+     "x": 0.205,
+     "y": 0.0991,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.87,
+     "edge_density": 0.0,
+     "luma_std": 0.036,
+     "luma_p5_p50_p95": [
+      0.619,
+      0.676,
+      0.736
+     ],
+     "fill_contrast_p5": 1.27,
+     "stroke_contrast_p5": 6.49,
+     "pair_contrast_p5": 6.49,
+     "panel_contrast_min": 9.44
+    }
    }
   },
   {
@@ -9367,44 +9944,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.5,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.13,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0833,
-     0.625,
-     0.5,
-     0.375
+    "calm_coarse": 0.56,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom-left",
+    "reason": "tranh có hình ngay chỗ chữ (50% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4182,
+     0.0563,
+     0.122,
+     0.1606
+    ],
     "anchor": {
-     "x": 0.3333,
-     "y": 0.625,
+     "x": 0.4792,
+     "y": 0.0563,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.4,
+     "edge_density": 0.0,
+     "luma_std": 0.041,
+     "luma_p5_p50_p95": [
+      0.793,
+      0.894,
+      0.895
+     ],
+     "fill_contrast_p5": 1.06,
+     "stroke_contrast_p5": 8.18,
+     "pair_contrast_p5": 8.18,
+     "panel_contrast_min": 9.82
+    }
    }
   },
   {
@@ -9423,28 +10003,48 @@
    "empty_ratio": 0.378,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.57,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.5,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     373,
+     0
+    ],
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (57% ô bận)); dời +373px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.678,
+     0.0566,
+     0.2339,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.795,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#FDF9F0",
-    "contrast": 6.55,
-    "scrim": "forest",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.003,
+     "luma_std": 0.044,
+     "luma_p5_p50_p95": [
+      0.119,
+      0.143,
+      0.25
+     ],
+     "fill_contrast_p5": 3.33,
+     "stroke_contrast_p5": 1.65,
+     "pair_contrast_p5": 3.36,
+     "panel_contrast_min": 8.85
+    }
+   }
   },
   {
    "id": "SW-455539",
@@ -9491,44 +10091,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.72,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 6.65,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.1667,
-     0.0,
-     0.2917,
-     0.4583
+    "calm_coarse": 0.69,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -79,
+     0
     ],
-    "position": "top-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (45% ô bận); nền loang sáng tối (lệch 0.198)); dời -79px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.3322,
+     0.0566,
+     0.1593,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.3125,
-     "y": 0.0,
+     "x": 0.4118,
+     "y": 0.0566,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.001,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.17
+    }
    }
   },
   {
@@ -9604,44 +10207,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 10.2,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     1.0,
-     0.25
+    "calm_coarse": 1.0,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.4389,
+     0.0276,
+     0.122,
+     0.0739
+    ],
     "anchor": {
-     "x": 0.5,
-     "y": 0.0,
+     "x": 0.4999,
+     "y": 0.0276,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.0,
+     "luma_std": 0.0,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 10.2
+    }
    }
   },
   {
@@ -9660,28 +10266,48 @@
    "empty_ratio": 0.45,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.45,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.39,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (64% ô bận); nền loang sáng tối (lệch 0.243): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3639,
+     0.0567,
+     0.2305,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 4.55,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.4,
+     "edge_density": 0.013,
+     "luma_std": 0.187,
+     "luma_p5_p50_p95": [
+      0.022,
+      0.044,
+      0.737
+     ],
+     "fill_contrast_p5": 1.27,
+     "stroke_contrast_p5": 1.02,
+     "pair_contrast_p5": 6.09,
+     "panel_contrast_min": 8.77
+    }
+   }
   },
   {
    "id": "SW-577649",
@@ -9699,28 +10325,48 @@
    "empty_ratio": 0.215,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.15,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.39,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.441): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3911,
+     0.0567,
+     0.1763,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.36,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.12,
+     "edge_density": 0.049,
+     "luma_std": 0.448,
+     "luma_p5_p50_p95": [
+      0.003,
+      0.853,
+      0.998
+     ],
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 1.38,
+     "pair_contrast_p5": 8.45,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-577907",
@@ -9795,44 +10441,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.92,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.05,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.75,
-     0.0,
-     0.25,
-     1.0
+    "calm_coarse": 0.44,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -198,
+     0
     ],
-    "position": "right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (92% ô bận)); dời -198px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.2508,
+     0.0566,
+     0.122,
+     0.1515
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.3118,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.92,
+     "edge_density": 0.0,
+     "luma_std": 0.005,
+     "luma_p5_p50_p95": [
+      0.458,
+      0.465,
+      0.471
+     ],
+     "fill_contrast_p5": 1.92,
+     "stroke_contrast_p5": 4.93,
+     "pair_contrast_p5": 4.93,
+     "panel_contrast_min": 9.39
+    }
    }
   },
   {
@@ -9851,28 +10500,48 @@
    "empty_ratio": 0.262,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.33,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.72,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     59,
+     24
+    ],
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (39% ô bận)); dời +59px ngang, +24px dọc tới chỗ nền yên",
+    "text_box": [
+     0.3932,
+     0.0991,
+     0.2712,
+     0.1515
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.5288,
+     "y": 0.0991,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 6.77,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.86,
+     "edge_density": 0.009,
+     "luma_std": 0.072,
+     "luma_p5_p50_p95": [
+      0.544,
+      0.593,
+      0.618
+     ],
+     "fill_contrast_p5": 1.5,
+     "stroke_contrast_p5": 5.76,
+     "pair_contrast_p5": 5.76,
+     "panel_contrast_min": 9.28
+    }
+   }
   },
   {
    "id": "SW-604310",
@@ -9919,44 +10588,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.93,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.02,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.4167,
-     0.2083
+    "calm_coarse": 0.88,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top-left",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3644,
+     0.0276,
+     0.2712,
+     0.0738
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.5,
+     "y": 0.0276,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.0,
+     "luma_std": 0.01,
+     "luma_p5_p50_p95": [
+      0.664,
+      0.675,
+      0.691
+     ],
+     "fill_contrast_p5": 1.35,
+     "stroke_contrast_p5": 6.93,
+     "pair_contrast_p5": 6.93,
+     "panel_contrast_min": 9.68
+    }
    }
   },
   {
@@ -10004,44 +10676,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 1.0,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 10.2,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.4583,
-     0.25
+    "calm_coarse": 0.69,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -63,
+     0
     ],
-    "position": "top-left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (31% ô bận)); dời -63px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.2712,
+     0.0566,
+     0.3085,
+     0.1515
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4254,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.003,
+     "luma_std": 0.074,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 8.78
+    }
    }
   },
   {
@@ -10089,44 +10764,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.45,
-    "bbox": [
-     0.0,
-     0.0,
-     0.4167,
-     0.25
-    ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 4.95,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
+    "slot_bbox": [
      0.2917,
-     0.0417,
-     0.25,
+     0.0,
+     0.375,
      0.25
     ],
-    "position": "top",
+    "calm_coarse": 0.8,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.3809,
+     0.0567,
+     0.1966,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.4167,
-     "y": 0.0417,
+     "x": 0.4792,
+     "y": 0.0567,
      "align": "center"
     },
-    "ink": "#FDF9F0",
-    "scrim": null,
-    "font_scale": 0.95
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.95,
+     "edge_density": 0.0,
+     "luma_std": 0.005,
+     "luma_p5_p50_p95": [
+      0.074,
+      0.079,
+      0.088
+     ],
+     "fill_contrast_p5": 7.26,
+     "stroke_contrast_p5": 1.21,
+     "pair_contrast_p5": 7.26,
+     "panel_contrast_min": 8.83
+    }
    }
   },
   {
@@ -10145,28 +10823,48 @@
    "empty_ratio": 0.391,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.7,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.48,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (56% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3504,
+     0.0567,
+     0.2576,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 7.72,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.31,
+     "edge_density": 0.038,
+     "luma_std": 0.164,
+     "luma_p5_p50_p95": [
+      0.307,
+      0.901,
+      0.91
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 3.47,
+     "pair_contrast_p5": 5.74,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-638705",
@@ -10213,44 +10911,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.32,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.16,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.625,
-     0.8333,
-     0.375,
-     0.1667
+    "calm_coarse": 0.15,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom-right",
+    "reason": "tranh có hình ngay chỗ chữ (92% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4182,
+     0.0567,
+     0.122,
+     0.1614
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.8333,
-     "align": "right"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.07,
+     "edge_density": 0.024,
+     "luma_std": 0.102,
+     "luma_p5_p50_p95": [
+      0.362,
+      0.455,
+      0.686
+     ],
+     "fill_contrast_p5": 1.36,
+     "stroke_contrast_p5": 4.0,
+     "pair_contrast_p5": 4.0,
+     "panel_contrast_min": 9.09
+    }
    }
   },
   {
@@ -10354,44 +11055,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.85,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 9.72,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.0,
-     0.25,
-     1.0
+    "calm_coarse": 0.48,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -327,
+     0
     ],
-    "position": "left",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (53% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.197)); dời -327px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.0475,
+     0.0566,
+     0.3085,
+     0.1516
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.2017,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.88,
+     "edge_density": 0.002,
+     "luma_std": 0.041,
+     "luma_p5_p50_p95": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 10.2,
+     "pair_contrast_p5": 10.2,
+     "panel_contrast_min": 9.52
+    }
    }
   },
   {
@@ -10410,28 +11114,48 @@
    "empty_ratio": 0.132,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.15,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.24,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.206): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3369,
+     0.0567,
+     0.2847,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 4.18,
-    "scrim": "panel-onart",
-    "font_scale": 0.9,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.31,
+     "edge_density": 0.05,
+     "luma_std": 0.194,
+     "luma_p5_p50_p95": [
+      0.011,
+      0.016,
+      0.678
+     ],
+     "fill_contrast_p5": 1.37,
+     "stroke_contrast_p5": 1.22,
+     "pair_contrast_p5": 4.41,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-659348",
@@ -10449,28 +11173,48 @@
    "empty_ratio": 0.17,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.23,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.3,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (78% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.463): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3504,
+     0.0566,
+     0.2576,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 4.25,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.2,
+     "edge_density": 0.132,
+     "luma_std": 0.467,
+     "luma_p5_p50_p95": [
+      0.005,
+      0.592,
+      1.0
+     ],
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 1.08,
+     "pair_contrast_p5": 5.45,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-659365",
@@ -10517,44 +11261,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.92,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 3.17,
-    "scrim": "cream",
-    "font_scale": 0.75,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.25,
-     0.0,
-     0.5417,
-     0.2083
+    "calm_coarse": 0.96,
+    "style": "c1",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "top",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "text_box": [
+     0.325,
+     0.0565,
+     0.3085,
+     0.1258
+    ],
     "anchor": {
-     "x": 0.5208,
-     "y": 0.0,
+     "x": 0.4793,
+     "y": 0.0565,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": "cream",
-    "font_scale": 0.9
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 1.0,
+     "edge_density": 0.002,
+     "luma_std": 0.022,
+     "luma_p5_p50_p95": [
+      0.259,
+      0.273,
+      0.309
+     ],
+     "fill_contrast_p5": 2.79,
+     "stroke_contrast_p5": 3.01,
+     "pair_contrast_p5": 3.13,
+     "panel_contrast_min": 9.04
+    }
    }
   },
   {
@@ -10630,44 +11377,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.92,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.57,
-    "scrim": null,
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.7083,
-     0.0,
-     0.2917,
-     1.0
+    "calm_coarse": 0.39,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     -253,
+     0
     ],
-    "position": "right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời -253px ngang, +0px dọc tới chỗ nền yên",
+    "text_box": [
+     0.1288,
+     0.0566,
+     0.2712,
+     0.1515
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
+     "x": 0.2644,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.89,
+     "edge_density": 0.003,
+     "luma_std": 0.018,
+     "luma_p5_p50_p95": [
+      0.519,
+      0.519,
+      0.519
+     ],
+     "fill_contrast_p5": 1.76,
+     "stroke_contrast_p5": 5.52,
+     "pair_contrast_p5": 5.52,
+     "panel_contrast_min": 9.14
+    }
    }
   },
   {
@@ -10686,28 +11436,48 @@
    "empty_ratio": 0.229,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.52,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.61,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (45% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3911,
+     0.0566,
+     0.1763,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4793,
+     "y": 0.0566,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 7.27,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.6,
+     "edge_density": 0.0,
+     "luma_std": 0.048,
+     "luma_p5_p50_p95": [
+      0.649,
+      0.742,
+      0.795
+     ],
+     "fill_contrast_p5": 1.18,
+     "stroke_contrast_p5": 6.79,
+     "pair_contrast_p5": 6.79,
+     "panel_contrast_min": 9.64
+    }
+   }
   },
   {
    "id": "SW-69527",
@@ -10725,28 +11495,48 @@
    "empty_ratio": 0.319,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.52,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.33,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4046,
+     0.0567,
+     0.1492,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 5.4,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.16,
+     "edge_density": 0.061,
+     "luma_std": 0.131,
+     "luma_p5_p50_p95": [
+      0.158,
+      0.54,
+      0.6
+     ],
+     "fill_contrast_p5": 1.54,
+     "stroke_contrast_p5": 2.03,
+     "pair_contrast_p5": 4.41,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-87044",
@@ -10764,28 +11554,48 @@
    "empty_ratio": 0.099,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.03,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.09,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (13% điểm là cạnh); nền loang sáng tối (lệch 0.243): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.4046,
+     0.0567,
+     0.1492,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 4.12,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.0,
+     "edge_density": 0.12,
+     "luma_std": 0.239,
+     "luma_p5_p50_p95": [
+      0.14,
+      0.612,
+      0.953
+     ],
+     "fill_contrast_p5": 1.0,
+     "stroke_contrast_p5": 1.94,
+     "pair_contrast_p5": 4.66,
+     "panel_contrast_min": 8.74
+    }
+   }
   },
   {
    "id": "SW-93066",
@@ -10832,44 +11642,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.19,
-    "bbox": [
-     0.625,
+    "slot_bbox": [
+     0.3333,
      0.0,
-     0.375,
+     0.3333,
      0.125
     ],
-    "position": "top-right",
-    "anchor": {
-     "x": 1.0,
-     "y": 0.0,
-     "align": "right"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 4.19,
-    "scrim": "panel-onart",
-    "font_scale": 0.7,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.625,
-     0.7083,
-     0.375,
-     0.2917
+    "calm_coarse": 0.42,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom-right",
+    "reason": "tranh có hình ngay chỗ chữ (58% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3524,
+     0.0276,
+     0.2949,
+     0.0766
+    ],
     "anchor": {
-     "x": 1.0,
-     "y": 0.7083,
-     "align": "right"
+     "x": 0.4999,
+     "y": 0.0276,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 30,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.42,
+     "edge_density": 0.042,
+     "luma_std": 0.127,
+     "luma_p5_p50_p95": [
+      0.567,
+      0.939,
+      1.0
+     ],
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 5.99,
+     "pair_contrast_p5": 5.99,
+     "panel_contrast_min": 9.31
+    }
    }
   },
   {
@@ -10917,44 +11730,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.17,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 5.33,
-    "scrim": "panel-onart",
-    "font_scale": 0.9,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.7083,
-     0.625,
-     0.2917
+    "calm_coarse": 0.06,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "bottom-left",
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (22% điểm là cạnh); nền loang sáng tối (lệch 0.285): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3369,
+     0.0564,
+     0.2847,
+     0.1608
+    ],
     "anchor": {
-     "x": 0.3125,
-     "y": 0.7083,
+     "x": 0.4792,
+     "y": 0.0564,
      "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 1.0
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.06,
+     "edge_density": 0.212,
+     "luma_std": 0.301,
+     "luma_p5_p50_p95": [
+      0.011,
+      0.446,
+      0.909
+     ],
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 1.36,
+     "pair_contrast_p5": 3.3,
+     "panel_contrast_min": 8.74
+    }
    }
   },
   {
@@ -11002,44 +11818,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.67,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 7.81,
-    "scrim": "cream",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.0,
-     0.25,
-     0.25,
-     0.2917
+    "calm_coarse": 0.22,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
     ],
-    "position": "left",
+    "reason": "tranh có hình ngay chỗ chữ (82% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3639,
+     0.0567,
+     0.2305,
+     0.1614
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.25,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0567,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.7
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.14,
+     "edge_density": 0.07,
+     "luma_std": 0.16,
+     "luma_p5_p50_p95": [
+      0.273,
+      0.593,
+      0.674
+     ],
+     "fill_contrast_p5": 1.38,
+     "stroke_contrast_p5": 3.13,
+     "pair_contrast_p5": 3.62,
+     "panel_contrast_min": 8.74
+    }
    }
   },
   {
@@ -11058,28 +11877,48 @@
    "empty_ratio": 0.068,
    "zones": [],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.15,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
+    "calm_coarse": 0.13,
+    "style": "panel",
+    "source": "fixed",
+    "shift_px": [
+     0,
+     0
+    ],
+    "reason": "tranh có hình ngay chỗ chữ (92% ô bận); nền loang sáng tối (lệch 0.277): chữ C1 sẽ chìm, dùng panel",
+    "text_box": [
+     0.3504,
+     0.0563,
+     0.2576,
+     0.1606
+    ],
     "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
+     "x": 0.4792,
+     "y": 0.0563,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "contrast": 5.98,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": null
+    "font_px": 32,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.03,
+     "edge_density": 0.041,
+     "luma_std": 0.291,
+     "luma_p5_p50_p95": [
+      0.057,
+      0.726,
+      0.785
+     ],
+     "fill_contrast_p5": 1.2,
+     "stroke_contrast_p5": 1.09,
+     "pair_contrast_p5": 4.94,
+     "panel_contrast_min": 8.76
+    }
+   }
   },
   {
    "id": "SW-99794",
@@ -11126,44 +11965,47 @@
     }
    ],
    "title_slot": {
-    "zone_id": "slot",
-    "source": "fixed",
-    "calm": 0.07,
-    "bbox": [
+    "slot_bbox": [
+     0.2917,
      0.0,
-     0.0,
-     0.4167,
+     0.375,
      0.25
     ],
-    "position": "top-left",
-    "anchor": {
-     "x": 0.0,
-     "y": 0.0,
-     "align": "left"
-    },
-    "ink": "#0E4A3A",
-    "contrast": 4.11,
-    "scrim": "panel-onart",
-    "font_scale": 1.0,
-    "fits": true
-   },
-   "alt_slot": {
-    "zone_id": "Z1",
-    "bbox": [
-     0.5833,
-     0.1667,
-     0.25,
-     0.25
+    "calm_coarse": 0.33,
+    "style": "c1",
+    "source": "shifted",
+    "shift_px": [
+     251,
+     36
     ],
-    "position": "top-right",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +251px ngang, +36px dọc tới chỗ nền yên",
+    "text_box": [
+     0.5559,
+     0.1197,
+     0.2712,
+     0.1506
+    ],
     "anchor": {
-     "x": 0.8333,
-     "y": 0.1667,
-     "align": "right"
+     "x": 0.6915,
+     "y": 0.1197,
+     "align": "center"
     },
-    "ink": "#0E4A3A",
-    "scrim": null,
-    "font_scale": 0.65
+    "font_px": 44,
+    "lines": 1,
+    "legibility": {
+     "calm_coarse": 0.86,
+     "edge_density": 0.034,
+     "luma_std": 0.052,
+     "luma_p5_p50_p95": [
+      0.462,
+      0.497,
+      0.562
+     ],
+     "fill_contrast_p5": 1.63,
+     "stroke_contrast_p5": 4.97,
+     "pair_contrast_p5": 4.97,
+     "panel_contrast_min": 9.0
+    }
    }
   }
  ],
@@ -11179,11 +12021,11 @@
  ],
  "summary": {
   "covers": 93,
-  "clean": 21,
-  "soft_scrim": 37,
-  "panel": 35,
-  "has_alt_slot": 61,
-  "not_fit": 0,
+  "c1": 55,
+  "panel_long": 1,
+  "panel_busy": 37,
+  "c1_fixed": 19,
+  "c1_shifted": 36,
   "no_zh_title": 20
  }
 }

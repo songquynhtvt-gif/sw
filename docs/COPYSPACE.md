@@ -9,13 +9,21 @@ python3 scripts/covers.py --status Approve     # -> out/covers/covers.json + ove
 python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang (3.311 cuốn)
 ```
 
-1. Mỗi bìa đo độ bận trên lưới 24×24 như trang ruột.
+1. Mỗi bìa đo độ bận trên lưới 24×24 như trang ruột (thang thô, đã làm mờ: thấy vật và nhân vật).
 2. Bìa gom theo khổ: `wide` (≈2.09, StoryWeaver), `square` (1.0, African Storybook), `landscape`, `portrait`; lệch quá 8% thành khổ riêng.
-3. **Vị trí tên cố định của khổ** (`formats[].title_slot`): thử mọi dải trên/dưới và cột trái/phải đủ chứa tên dài điển hình (bách phân vị 75 độ dài tên trong khổ) ở chữ Hán 56px + pinyin 20px khi bìa rộng 1194px; lấy dải trống ở nhiều bìa nhất (hoà thì ưu tiên giữa).
-4. Từng bìa (`covers[].title_slot`): luôn đặt ở vị trí cố định của khổ. `calm` = tỉ lệ ô trống của bìa đó tại vị trí ấy; `scrim` = `null` (≥90% trống, tương phản ≥4.5), `cream`/`forest` nền mờ (≥50%), `panel-onart` (còn lại). `alt_slot` = chỗ trống riêng của bìa đủ đặt tên, nếu có.
-5. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
+3. **Vị trí tên cố định của khổ** (`formats[].title_slot`), theo rule C1 trong `docs/DESIGN.md` ("centred in the calm top third"): dải trên cùng, cao 1 dòng C1 44px + pinyin + lề 32px, rộng đủ tên dài điển hình (bách phân vị 75) của khổ, ở khung 1180px. Đặt giữa; chỉ lệch trái/phải khi giữa trống ở ít bìa hơn hẳn (kém 0.15).
+4. **Hộp chữ thật** cho từng tên: C1 một dòng, cỡ 44→30px. Không vừa một dòng thì theo rule là panel (tối đa 2 dòng, 32→24px).
+5. **Kiểm tra chữ có chìm không** (`title_slot.legibility`), đo ngay dưới hộp chữ trên ảnh co về rộng 1180px, KHÔNG làm mờ, nên thấy cả hoạ tiết nhỏ ở chỗ nhìn xa tưởng trống. C1 chỉ được dùng khi đủ cả 4:
+   - `calm_coarse` ≥ 0.85: ô lưới thô dưới chữ trống (không đè lên vật, nhân vật);
+   - `edge_density` ≤ 0.05: tỉ lệ điểm ảnh là cạnh hoạ tiết (gradient màu > 0.12);
+   - `luma_std` ≤ 0.18: nền không loang sáng/tối mạnh;
+   - `pair_contrast_p5` ≥ 3: ở 95% điểm nền, chữ kem hoặc viền rừng đạt ≥ 3:1.
+6. Trượt ở vị trí cố định → dò trong phần ba trên (bước 24px ngang, 12px dọc) tìm chỗ gần nhất đạt cả 4 (`source: shifted`, `shift_px`). Không có → panel trắng 85% + blur 8px, chữ rừng, bọc đúng dòng chữ tại vị trí cố định (`style: panel`). `reason` ghi lý do bằng tiếng Việt.
+7. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
 
-Giới hạn: bìa đã in sẵn tên trong tranh (vd. "Lory Dory", "The Moon and The Cap") chưa được nhận ra; cần lọc tay hoặc thêm OCR.
+Ảnh duyệt trong `overlay/` vẽ khối chữ giả đúng cỡ, màu, viền (hoặc panel) để nhìn được chữ có chìm không.
+
+Giới hạn: chưa nhận diện mặt nhân vật, nên panel ở vị trí cố định có thể che đầu nhân vật nếu nhân vật chạm mép trên. Giới hạn: bìa đã in sẵn tên trong tranh (vd. "Lory Dory", "The Moon and The Cap") chưa được nhận ra; cần lọc tay hoặc thêm OCR.
 
 ## Trang ruột (tham khảo)
 

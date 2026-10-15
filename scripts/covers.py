@@ -4,9 +4,11 @@
 Dùng lại bộ đo độ bận của scripts/copyspace.py. Khác với trang ruột:
   - Mỗi cuốn chỉ có 1 bìa, nên "vị trí giống nhau" được tìm GIỮA CÁC CUỐN: bìa gom theo khổ
     (tỉ lệ khung), ô trống ở >= STABLE_FRAC số bìa trong khổ = vùng ổn định của khổ đó.
-  - Chữ đặt lên bìa là tên truyện (hanzi lớn + pinyin), luôn đè lên tranh.
-  - Mỗi bìa: dùng vùng ổn định của khổ nếu bìa đó trống ở đấy và chứa vừa tên;
-    không thì vùng trống riêng của bìa; không nữa thì dải panel trên/dưới yên nhất.
+  - Chữ đặt lên bìa là tên truyện. Theo docs/DESIGN.md: tên một dòng dùng kiểu C1 (chữ kem, viền
+    rừng 6px, đặt giữa phần ba trên đang yên); tên xuống hai dòng, hoặc nền ở đó nhiều hoạ tiết /
+    loang sáng tối khiến chữ chìm, thì dùng panel trắng 85% + blur 8px, chữ màu rừng.
+  - Độ "trống" đo ở thang thô (đã làm mờ) để tìm chỗ đặt; độ đọc được đo lại ở thang mịn,
+    đúng kích thước hiển thị, ngay trên hộp chữ thật, vì nền trông trống từ xa vẫn có thể đầy hoạ tiết nhỏ.
 
 Dùng:
   python3 scripts/covers.py --status Approve            # -> out/covers/covers.json + overlay/
@@ -17,15 +19,23 @@ import argparse, json, os, sys
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import copyspace as cs  # noqa: E402
 
 STABLE_FRAC = 0.5       # bìa khác nhau nhiều hơn trang ruột: ô trống ở >= nửa số bìa cùng khổ là ổn định
 MIN_COVERS = 5          # khổ có ít hơn số bìa này thì không tính vùng ổn định
-TITLE = {"hanzi_px": 56, "pinyin_px": 20, "pad_px": 16, "min_scale": 0.6, "ref_w": 1194}
-TITLE_LINE = TITLE["hanzi_px"] * 1.2 + TITLE["pinyin_px"] * 1.3
+# docs/DESIGN.md: khung 1180×820, lề an toàn 32px, C1 30–44px viền rừng 6px, panel 85% trắng padding 16/24
+FRAME_W, MARGIN = 1180, 32
+C1 = {"max_px": 44, "min_px": 30, "pinyin_px": 16, "stroke_px": 6, "fill": "#FDF9F0", "stroke": "#0E4A3A"}
+PANEL = {"px": 32, "min_px": 24, "pad": (16, 24), "white_alpha": 0.85, "blur_px": 8, "ink": "#0E4A3A", "max_lines": 2}
+LINE_H = lambda px: px * 1.2 + C1["pinyin_px"] * 1.3      # 1 dòng chữ Hán + pinyin phía trên
+# Ngưỡng đọc được cho C1 (đo trên hộp chữ, ảnh co về rộng FRAME_W):
+CALM_MIN = 0.85    # >= 85% ô lưới thô dưới chữ phải trống (không đè lên vật, nhân vật)
+EDGE_MAX = 0.05     # tỉ lệ điểm ảnh là cạnh hoạ tiết (gradient màu > EDGE_T)
+EDGE_T = 0.12
+LUMA_STD_MAX = 0.18 # độ lệch chuẩn độ sáng tương đối: nền loang sáng/tối mạnh thì chữ lúc nổi lúc chìm
 
 
 def title_of(book):
@@ -46,44 +56,141 @@ def title_len(title):
     return n if n else round(len(title.split()) * 1.4)   # chưa có tên Trung: ước lượng
 
 
-def title_scale(n, bbox, size):
-    """Hệ số cỡ chữ để tên vừa vùng, ảnh bìa hiển thị rộng ref_w px. None nếu dưới min_scale."""
-    w, h = size
-    s = TITLE["ref_w"] / w
-    zw = bbox[2] * w * s - 2 * TITLE["pad_px"]
-    zh = bbox[3] * h * s - 2 * TITLE["pad_px"]
-    for sc in np.arange(1.0, TITLE["min_scale"] - 1e-6, -0.05):
-        if zw > 0 and zh > 0 and int(zw // (TITLE["hanzi_px"] * sc)) * int(zh // (TITLE_LINE * sc)) >= n:
-            return round(float(sc), 2)
-    return None
+def frame_scale(size):
+    return FRAME_W / size[0]
 
 
 def fixed_slot(freq, ref, its):
-    """Vị trí tên truyện cố định cho cả khổ bìa: trong các dải đủ chứa tên dài điển hình
-    (dải trên/dưới, cột trái/phải), lấy dải trống ở nhiều bìa nhất."""
+    """Vị trí tên cố định cho cả khổ bìa, theo rule C1: dải trong phần ba trên, ưu tiên giữa.
+    Dải cao 1 dòng C1 cỡ lớn nhất, rộng đủ tên dài điển hình (bách phân vị 75) của khổ.
+    Chỉ dời sang trái/phải khi giữa trống ở ít bìa hơn hẳn (kém hơn 0.15)."""
     G = cs.GRID
     w, h = ref["size"]
-    s = TITLE["ref_w"] / w
-    need_h = (TITLE_LINE + 2 * TITLE["pad_px"]) / (h * s)          # 1 dòng tên ở cỡ chuẩn
+    s = frame_scale(ref["size"])
     n_typ = int(np.percentile([title_len(title_of(it["book"])[0]) for it in its], 75))
-    need_w = (n_typ * TITLE["hanzi_px"] + 2 * TITLE["pad_px"]) / (w * s)
-    hh = min(G, max(2, int(np.ceil(need_h * G))))
+    need_w = (n_typ * C1["max_px"] + 2 * C1["stroke_px"] + 2 * MARGIN) / (w * s)
+    need_h = (LINE_H(C1["max_px"]) + 2 * MARGIN) / (h * s)
     ww = min(G, max(4, int(np.ceil(need_w * G))))
-    cands = []
-    for t in (0, G - hh):                                    # dải ngang trên / dưới
-        for l in range(0, G - ww + 1):
-            cands.append((t, l, hh, ww))
-    vh = min(G, hh * 2)
-    vw = min(G, max(4, int(np.ceil(need_w * G / 2))))      # cột dọc: tên xuống 2 dòng
-    for l in (0, G - vw):
-        for t in range(0, G - vh + 1):
-            cands.append((t, l, vh, vw))
-    t, l, hh_, ww_ = max(cands, key=lambda r: (freq[r[0]:r[0] + r[2], r[1]:r[1] + r[3]].mean(),
-                                                -abs(r[1] + r[3] / 2 - G / 2)))   # hoà thì ưu tiên giữa
-    z = cs.zone("slot", (t, l, hh_, ww_), ref)
-    z["empty_freq"] = round(float(freq[t:t + hh_, l:l + ww_].mean()), 3)
+    hh = min(G // 3, max(2, int(np.ceil(need_h * G))))
+    top = 0
+    def score(l):
+        return float(freq[top:top + hh, l:l + ww].mean())
+    centre = (G - ww) // 2
+    best = max(range(0, G - ww + 1), key=score)
+    l = centre if score(centre) >= score(best) - 0.15 else best
+    z = cs.zone("slot", (top, l, hh, ww), ref)
+    z["empty_freq"] = round(score(l), 3)
     z["typical_title_len"] = n_typ
     return z
+
+
+def text_box(n, slot_bbox, size):
+    """Hộp chữ thật cho một tên: thử C1 một dòng (44→30px) trong dải; không vừa thì panel 2 dòng.
+    Trả về (kiểu, cỡ chữ, số dòng, bbox 0..1 của hộp chữ kể cả viền/padding), căn theo neo của dải."""
+    w, h = size
+    s = frame_scale(size)
+    sx, sy, sw, sh = (v * d * s for v, d in zip(slot_bbox, (w, h, w, h)))
+    avail = sw - 2 * MARGIN
+    cx = sx + sw / 2
+    for px in range(C1["max_px"], C1["min_px"] - 1, -2):
+        tw = n * px + 2 * C1["stroke_px"]
+        if tw <= avail:
+            th = LINE_H(px) + 2 * C1["stroke_px"]
+            return "c1", px, 1, _bbox(cx - tw / 2, sy + MARGIN, tw, th, w * s, h * s)
+    for px in range(PANEL["px"], PANEL["min_px"] - 1, -2):
+        per = max(1, int((avail - 2 * PANEL["pad"][1]) // px))
+        lines = -(-n // per)
+        if lines <= PANEL["max_lines"]:
+            tw = min(n, per) * px + 2 * PANEL["pad"][1]
+            th = lines * LINE_H(px) + 2 * PANEL["pad"][0]
+            return "panel", px, lines, _bbox(cx - tw / 2, sy + MARGIN, tw, th, w * s, h * s)
+    px = PANEL["min_px"]
+    per = max(1, int((avail - 2 * PANEL["pad"][1]) // px))
+    lines = -(-n // per)
+    tw, th = min(n, per) * px + 2 * PANEL["pad"][1], lines * LINE_H(px) + 2 * PANEL["pad"][0]
+    return "panel", px, lines, _bbox(cx - tw / 2, sy + MARGIN, tw, th, w * s, h * s)
+
+
+def _bbox(x, y, bw, bh, W, H):
+    x = min(max(x, MARGIN), W - MARGIN - bw)
+    return [round(x / W, 4), round(y / H, 4), round(bw / W, 4), round(bh / H, 4)]
+
+
+def display(path):
+    """Ảnh bìa ở kích thước hiển thị (rộng FRAME_W), dạng mảng 0..1."""
+    im = Image.open(path).convert("RGB")
+    s = FRAME_W / im.size[0]
+    im = im.resize((FRAME_W, max(1, round(im.size[1] * s))), Image.LANCZOS)
+    return np.asarray(im, dtype=np.float32) / 255
+
+
+def legibility(img, bbox, empty):
+    """Đo nền ngay dưới hộp chữ, ở kích thước hiển thị, không làm mờ (hoạ tiết nhỏ vẫn còn)."""
+    H, W = img.shape[:2]
+    x0, y0 = int(bbox[0] * W), int(bbox[1] * H)
+    x1, y1 = max(x0 + 2, int((bbox[0] + bbox[2]) * W)), max(y0 + 2, int((bbox[1] + bbox[3]) * H))
+    a = img[y0:y1, x0:x1]
+    g = np.zeros(a.shape[:2], np.float32)
+    g[:, :-1] = np.maximum(g[:, :-1], np.abs(np.diff(a, axis=1)).max(2))
+    g[:-1, :] = np.maximum(g[:-1, :], np.abs(np.diff(a, axis=0)).max(2))
+    lin = np.where(a <= 0.03928, a / 12.92, ((a + 0.055) / 1.055) ** 2.4)
+    L = lin @ np.array([0.2126, 0.7152, 0.0722], np.float32)
+    lf, lk = cs.hex_lum(C1["fill"]), cs.hex_lum(C1["stroke"])
+    cf = (np.maximum(L, lf) + 0.05) / (np.minimum(L, lf) + 0.05)
+    ck = (np.maximum(L, lk) + 0.05) / (np.minimum(L, lk) + 0.05)
+    # panel: 85% trắng phủ lên nền đã blur -> độ sáng nền sau panel, tương phản chữ rừng
+    lp = PANEL["white_alpha"] * 1.0 + (1 - PANEL["white_alpha"]) * L
+    cp = (lp + 0.05) / (lk + 0.05)
+    G = cs.GRID
+    r0, r1 = int(bbox[1] * G), min(G, int(np.ceil((bbox[1] + bbox[3]) * G)))
+    c0, c1 = int(bbox[0] * G), min(G, int(np.ceil((bbox[0] + bbox[2]) * G)))
+    return {
+        "calm_coarse": round(float(empty[r0:max(r1, r0 + 1), c0:max(c1, c0 + 1)].mean()), 2),  # thang thô: có vật/nhân vật không
+        "edge_density": round(float((g > EDGE_T).mean()), 3),
+        "luma_std": round(float(L.std()), 3),
+        "luma_p5_p50_p95": [round(float(v), 3) for v in np.percentile(L, [5, 50, 95])],
+        "fill_contrast_p5": round(float(np.percentile(cf, 5)), 2),     # chữ kem so với nền
+        "stroke_contrast_p5": round(float(np.percentile(ck, 5)), 2),   # viền rừng so với nền
+        "pair_contrast_p5": round(float(np.percentile(np.maximum(cf, ck), 5)), 2),  # ít nhất một trong hai
+        "panel_contrast_min": round(float(cp.min()), 2),
+    }
+
+
+def shift_c1(img, tb, empty, step=24):
+    """Trượt hộp chữ C1 trong phần ba trên (giữ lề an toàn), trả về chỗ gần vị trí cũ nhất mà
+    decide() cho C1, kèm số đo. None nếu không có."""
+    H, W = img.shape[:2]
+    bw, bh = tb[2] * W, tb[3] * H
+    x_old, y_old = tb[0] * W, tb[1] * H
+    best = None
+    for y in np.arange(MARGIN, H / 3 - bh + 1, step / 2):
+        for x in np.arange(MARGIN, W - MARGIN - bw + 1, step):
+            d = abs(x - x_old) + 2 * abs(y - y_old)       # ưu tiên giữ độ cao, rồi gần tâm cũ
+            if best and d >= best[0]:
+                continue
+            bb = _bbox(x, y, bw, bh, W, H)
+            leg = legibility(img, bb, empty)
+            if decide("c1", 1, leg)[0] == "c1":
+                best = (d, bb, leg)
+    return best and (best[1], best[2])
+
+
+def decide(kind, lines, leg):
+    """Rule chọn kiểu chữ. C1 chỉ khi tên một dòng VÀ nền dưới chữ yên ở thang mịn."""
+    if kind == "panel":
+        return "panel", f"tên dài, xuống {lines} dòng: dùng panel theo rule C1"
+    why = []
+    if leg["calm_coarse"] < CALM_MIN:
+        why.append(f"tranh có hình ngay chỗ chữ ({round((1 - leg['calm_coarse']) * 100)}% ô bận)")
+    if leg["edge_density"] > EDGE_MAX:
+        why.append(f"nền nhiều hoạ tiết ({round(leg['edge_density'] * 100)}% điểm là cạnh)")
+    if leg["luma_std"] > LUMA_STD_MAX:
+        why.append(f"nền loang sáng tối (lệch {leg['luma_std']})")
+    if leg["pair_contrast_p5"] < 3:
+        why.append("có chỗ cả chữ kem lẫn viền rừng đều dưới 3:1 với nền")
+    if why:
+        return "panel", "; ".join(why) + ": chữ C1 sẽ chìm, dùng panel"
+    return "c1", "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
 
 
 def fmt_key(size):
@@ -162,21 +269,31 @@ def main():
     for it in ok:
         a, book, empty = it["a"], it["book"], it["empty"]
         title, tsrc = title_of(book)
-        n = title_len(title)
+        n = it["_n"] = title_len(title)
         own = [cs.zone(f"Z{j + 1}", r, a) for j, r in enumerate(cs.rects(empty, min_w=0.25, min_h=0.15))]
         slot = it["fmt_slot"]
+        img = display(it["cover"]["_local"])
+        kind, px, lines, tb = text_box(n, slot["bbox"], a["size"])
+        leg = legibility(img, tb, empty)
+        style, reason = decide(kind, lines, leg)
+        source, shift = "fixed", [0, 0]
+        if kind == "c1" and style == "panel":
+            # nền ở vị trí cố định làm chữ chìm: dò trong phần ba trên tìm chỗ gần nhất mà C1 đọc rõ
+            near = shift_c1(img, tb, empty)
+            if near:
+                shift = [round((near[0][0] - tb[0]) * img.shape[1]), round((near[0][1] - tb[1]) * img.shape[0])]
+                tb, leg = near
+                style, reason = "c1", f"vị trí cố định bị chìm ({reason.split(':')[0]}); dời {shift[0]:+d}px ngang, {shift[1]:+d}px dọc tới chỗ nền yên"
+                source = "shifted"
+            else:   # không chỗ nào yên: panel bọc đúng dòng chữ ở vị trí cố định
+                Wf, Hf = img.shape[1], img.shape[0]
+                px = min(px, PANEL["px"])
+                bw, bh = n * px + 2 * PANEL["pad"][1], LINE_H(px) + 2 * PANEL["pad"][0]
+                tb = _bbox((tb[0] + tb[2] / 2) * Wf - bw / 2, tb[1] * Hf, bw, bh, Wf, Hf)
+                leg = legibility(img, tb, empty)
         t, l = round(slot["bbox"][1] * cs.GRID), round(slot["bbox"][0] * cs.GRID)
         hh, ww = round(slot["bbox"][3] * cs.GRID), round(slot["bbox"][2] * cs.GRID)
-        chosen = cs.zone(slot["id"], (t, l, hh, ww), a)
         calm = float(empty[t:t + hh, l:l + ww].mean())
-        # tranh ở vị trí cố định có trống không: trống hẳn thì để chữ trần, lấn một phần thì nền mờ, bận thì panel
-        chosen["scrim"] = None if calm >= 0.9 and chosen["contrast"] >= 4.5 else (
-            ("cream" if chosen["ink"] == cs.INK["dark"] else "forest") if calm >= 0.5 else "panel-onart")
-        if chosen["scrim"] == "panel-onart":
-            chosen["ink"] = cs.INK["dark"]
-        src = "fixed"
-        sc = title_scale(n, chosen["bbox"], a["size"])
-        alt = next((z for z in own if title_scale(n, z["bbox"], a["size"])), None)
         c = it["cover"]
         covers.append({
             "id": book["id"], "source": book["source"], "lang": book["lang"],
@@ -184,32 +301,30 @@ def main():
             "title": title, "title_source": tsrc, "title_len": n,
             "empty_ratio": round(float(empty.mean()), 3),
             "zones": own,
-            "title_slot": {"zone_id": chosen["id"], "source": src, "calm": round(calm, 2), "bbox": chosen["bbox"],
-                           "position": chosen["position"], "anchor": chosen["anchor"],
-                           "ink": chosen["ink"], "contrast": chosen["contrast"], "scrim": chosen["scrim"],
-                           "font_scale": sc if sc else TITLE["min_scale"], "fits": sc is not None},
-            "alt_slot": alt and {"zone_id": alt["id"], "bbox": alt["bbox"], "position": alt["position"],
-                                 "anchor": alt["anchor"], "ink": alt["ink"], "scrim": alt["scrim"],
-                                 "font_scale": title_scale(n, alt["bbox"], a["size"])},
+            "title_slot": {"slot_bbox": slot["bbox"], "calm_coarse": round(calm, 2),
+                           "style": style, "source": source, "shift_px": shift, "reason": reason,
+                           "text_box": tb, "anchor": {"x": round(tb[0] + tb[2] / 2, 4), "y": tb[1], "align": "center"},
+                           "font_px": px, "lines": lines, "legibility": leg},
         })
         if not args.no_overlay:
-            draw(it, chosen, alt, os.path.join(args.out, "overlay", f"{book['id']}.jpg"))
+            draw(it, slot, covers[-1]["title_slot"], None, os.path.join(args.out, "overlay", f"{book['id']}.jpg"))
 
     covers.sort(key=lambda c: c["id"])
     res = {
-        "schema": "covers/v1",
+        "schema": "covers/v2",
         "params": {"grid": cs.GRID, "empty_t": cs.EMPTY_T, "blank_t": cs.BLANK_T,
-                   "stable_frac": STABLE_FRAC, "min_covers": MIN_COVERS, "title": TITLE},
+                   "stable_frac": STABLE_FRAC, "min_covers": MIN_COVERS, "frame_w": FRAME_W, "margin": MARGIN,
+                   "c1": C1, "panel": PANEL, "calm_min": CALM_MIN, "edge_t": EDGE_T, "edge_max": EDGE_MAX, "luma_std_max": LUMA_STD_MAX},
         "formats": fmt_out,
         "covers": covers,
         "errors": [{"id": it["id"], "error": it["error"]} for it in items if "error" in it],
         "summary": {
             "covers": len(covers),
-            "clean": sum(c["title_slot"]["scrim"] is None for c in covers),
-            "soft_scrim": sum(c["title_slot"]["scrim"] in ("cream", "forest") for c in covers),
-            "panel": sum(c["title_slot"]["scrim"] == "panel-onart" for c in covers),
-            "has_alt_slot": sum(bool(c["alt_slot"]) for c in covers),
-            "not_fit": sum(not c["title_slot"]["fits"] for c in covers),
+            "c1": sum(c["title_slot"]["style"] == "c1" for c in covers),
+            "panel_long": sum(c["title_slot"]["reason"].startswith("tên dài") for c in covers),
+            "panel_busy": sum(c["title_slot"]["style"] == "panel" and not c["title_slot"]["reason"].startswith("tên dài") for c in covers),
+            "c1_fixed": sum(c["title_slot"]["style"] == "c1" and c["title_slot"]["source"] == "fixed" for c in covers),
+            "c1_shifted": sum(c["title_slot"]["source"] == "shifted" for c in covers),
             "no_zh_title": sum(c["title_source"] == "title_en" for c in covers),
         },
     }
@@ -220,8 +335,12 @@ def main():
         print(f["format"], f["covers"], f["title_slot"]["position"], f["title_slot"]["bbox"], f["title_slot"]["empty_freq"])
 
 
-def draw(it, chosen, alt, path):
+def draw(it, slot, ts, alt, path):
+    """Ảnh duyệt ở kích thước hiển thị: ô bận đỏ nhạt, dải cố định xanh dương, hộp chữ xanh lá
+    (C1) hoặc cam (panel), chỗ phụ vàng; mô phỏng luôn chữ để nhìn có chìm không."""
     im = Image.open(it["cover"]["_local"]).convert("RGB")
+    s = FRAME_W / im.size[0]
+    im = im.resize((FRAME_W, round(im.size[1] * s)), Image.LANCZOS)
     w, h = im.size
     ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(ov)
@@ -229,23 +348,45 @@ def draw(it, chosen, alt, path):
     for r in range(cs.GRID):
         for c in range(cs.GRID):
             if not it["empty"][r, c]:
-                d.rectangle([c * cw, r * ch, (c + 1) * cw, (r + 1) * ch], fill=(220, 40, 40, 45))
-    lw = max(2, w // 200)
+                d.rectangle([c * cw, r * ch, (c + 1) * cw, (r + 1) * ch], fill=(220, 40, 40, 35))
 
-    def box(bb, col, wd):
-        d.rectangle([bb[0] * w, bb[1] * h, (bb[0] + bb[2]) * w, (bb[1] + bb[3]) * h], outline=col, width=wd)
+    def rect(bb):
+        return [bb[0] * w, bb[1] * h, (bb[0] + bb[2]) * w, (bb[1] + bb[3]) * h]
 
-    for z in it["fmt_zones"]:
-        box(z["bbox"], (40, 120, 255, 255), lw * 2)
+    d.rectangle(rect(slot["bbox"]), outline=(40, 120, 255, 255), width=3)
     if alt:
-        box(alt["bbox"], (255, 190, 0, 255), lw * 2)
-    box(chosen["bbox"], (0, 170, 80, 255), lw * 3)
-    ax, ay, r = chosen["anchor"]["x"] * w, chosen["anchor"]["y"] * h, lw * 4
-    d.ellipse([ax - r, ay - r, ax + r, ay + r], fill=(0, 170, 80, 255), outline=(255, 255, 255, 255), width=lw)
-    im = Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB")
+        d.rectangle(rect(alt["text_box"]), outline=(255, 190, 0, 255), width=4)
+    im = Image.alpha_composite(im.convert("RGBA"), ov)
+    # mô phỏng chữ: khối đặc thay cho glyph (cùng kích thước, màu, viền) để thấy độ nổi
+    sim = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(sim)
+    x0, y0, x1, y1 = rect(ts["text_box"])
+    if ts["style"] == "panel":
+        panel_bg = im.crop((int(x0), int(y0), int(x1), int(y1))).filter(ImageFilter.GaussianBlur(PANEL["blur_px"]))
+        white = Image.new("RGBA", panel_bg.size, (255, 255, 255, int(255 * PANEL["white_alpha"])))
+        im.paste(Image.alpha_composite(panel_bg, white), (int(x0), int(y0)))
+        ink, pad = (14, 74, 58, 255), PANEL["pad"]
+        gx, gy = x0 + pad[1], y0 + pad[0]
+        per = max(1, int((x1 - x0 - 2 * pad[1]) // ts["font_px"]))
+        for li in range(ts["lines"]):
+            for k in range(max(0, min(per, it["_n"] - li * per))):
+                gx_ = gx + k * ts["font_px"]
+                gy_ = gy + li * LINE_H(ts["font_px"]) + C1["pinyin_px"] * 1.3
+                d.rounded_rectangle([gx_ + 3, gy_ + 3, gx_ + ts["font_px"] - 3, gy_ + ts["font_px"] - 3], 4, fill=ink)
+        d.rounded_rectangle([x0, y0, x1, y1], 24, outline=(230, 120, 40, 255), width=3)
+    else:
+        sp = C1["stroke_px"]
+        gy = y0 + sp + C1["pinyin_px"] * 1.3
+        for k in range(it["_n"]):
+            gx = x0 + sp + k * ts["font_px"]
+            box = [gx + 3, gy + 3, gx + ts["font_px"] - 3, gy + ts["font_px"] - 3]
+            d.rounded_rectangle([box[0] - sp, box[1] - sp, box[2] + sp, box[3] + sp], 6, fill=(14, 74, 58, 255))
+            d.rounded_rectangle(box, 4, fill=(253, 249, 240, 255))
+        d.rectangle([x0, y0, x1, y1], outline=(0, 170, 80, 255), width=3)
+    im = Image.alpha_composite(im, sim).convert("RGB")
     im.thumbnail((800, 800))
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    im.save(path, quality=78)
+    im.save(path, quality=80)
 
 
 if __name__ == "__main__":
