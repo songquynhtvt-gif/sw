@@ -66,12 +66,22 @@ def compose(slots, titles, out):
         cover.alpha_composite(t, pos)
         cover.convert("RGB").save(os.path.join(out, f"{cid}.jpg"), quality=90)
         done[cid] = {"title_file": os.path.basename(files[cid]), "cover_image": c["image"],
-                     "placed_px": [pos[0], pos[1], t.width, t.height], "scale": round(k, 4),
+                     "placed_px": [pos[0], pos[1], t.width, t.height], "scale": round(k, 4), "fit": round(k * FRAME_W / W, 3),
                      "bbox": c["bbox"], "anchor": c["anchor"]}
     extra = sorted(set(files) - set(by_id))
     json.dump({"schema": "title-map/v1", "covers": done, "missing_title": missing, "unmatched_files": extra},
               open(os.path.join(out, "title_map.json"), "w"), ensure_ascii=False, indent=1)
-    print(f"ghép {len(done)} bìa, thiếu tên {len(missing)}, file không khớp id {len(extra)}: {extra[:10]}")
+    # fit = cỡ PNG sau khi đặt so với cỡ thiết kế ở khung 1180px; < 0.7 là PNG to hơn khung nhiều (sai số dòng / quá to)
+    small = sorted(cid for cid, v in done.items() if v["fit"] < 0.7)
+    flagged = sorted(cid for cid in done if by_id[cid]["placement"] in ("no_room", "replace"))
+    lines = [f"# Ghép tên vào bìa", "",
+             f"- Đã ghép: **{len(done)}** / {len(by_id)} bìa",
+             f"- Còn thiếu tên: {len(missing)}",
+             f"- File không khớp mã sách nào: {len(extra)}" + (f" ({', '.join(extra[:20])})" if extra else ""),
+             f"- PNG phải thu nhỏ dưới 70% cỡ thiết kế (kiểm tra số dòng / design_w × design_h): {len(small)}" + (f" ({', '.join(small[:20])})" if small else ""),
+             f"- Bìa cần người xem (kín hình / thay tên in sẵn): {len(flagged)}" + (f" ({', '.join(flagged[:20])})" if flagged else "")]
+    open(os.path.join(out, "report.md"), "w").write("\n".join(lines) + "\n")
+    print("\n".join(lines))
 
 
 if __name__ == "__main__":

@@ -13,7 +13,7 @@
 **Nối tên đã thiết kế với bìa** (`scripts/compose_titles.py`), khoá nối là mã sách `id`:
 1. `python3 scripts/compose_titles.py sheet mapping/covers/cover_slots.json mapping/covers/title_sheet.csv`: bảng giao việc (mở bằng Excel/Sheets), mỗi bìa một dòng: `file_name` = `<id>.png`, `design_w × design_h` = cỡ tối đa ở khung 1180px, `lines`, `align`, `template_id` (cùng template thì làm theo lô), `check` (no_room / replace / 2_lines / small).
 2. Designer xuất PNG nền trong suốt, tên file đúng `<id>.png`, bỏ chung một thư mục.
-3. `python3 scripts/compose_titles.py compose mapping/covers/cover_slots.json <thư-mục-png> out/composed/`: đặt từng PNG vào khung của bìa cùng id (thu vừa khung, giữ tỉ lệ, canh theo `anchor.align`, mép trên) → `out/composed/<id>.jpg` + `title_map.json` (vị trí px đã đặt; danh sách bìa thiếu tên và file không khớp id).
+3. **Tự động**: đẩy PNG vào `mapping/covers/titles/` là GitHub Actions (`.github/workflows/compose-titles.yml`) tự ghép, commit `mapping/covers/title_map.json` + `compose_report.md`, đính kèm ảnh bìa đã ghép (mục Artifacts của lần chạy) và in báo cáo (thiếu tên, file sai mã, PNG phải thu dưới 70% cỡ thiết kế, bìa cần xem). Chạy tay: `python3 scripts/compose_titles.py compose mapping/covers/cover_slots.json <thư-mục-png> out/composed/`: đặt từng PNG vào khung của bìa cùng id (thu vừa khung, giữ tỉ lệ, canh theo `anchor.align`, mép trên) → `out/composed/<id>.jpg` + `title_map.json` (vị trí px đã đặt; danh sách bìa thiếu tên và file không khớp id).
 
 ```bash
 python3 scripts/covers.py --status Approve     # -> out/covers/covers.json + overlay/

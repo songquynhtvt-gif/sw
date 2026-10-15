@@ -1,0 +1,43 @@
+name: Ghép tên vào bìa
+
+on:
+  push:
+    paths:
+      - "mapping/covers/titles/**"
+      - "mapping/covers/cover_slots.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: compose-titles-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Ghép PNG vào bìa theo mã sách
+        run: |
+          python3 scripts/compose_titles.py compose mapping/covers/cover_slots.json mapping/covers/titles out/composed
+          cp out/composed/title_map.json mapping/covers/title_map.json
+          cp out/composed/report.md mapping/covers/compose_report.md
+          cat out/composed/report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Ảnh bìa đã ghép
+        uses: actions/upload-artifact@v4
+        with:
+          name: composed-covers
+          path: out/composed/
+          retention-days: 30
+      - name: Lưu title_map.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
+          git add mapping/covers/title_map.json mapping/covers/compose_report.md
+          git diff --cached --quiet || (git commit -m "Cập nhật title_map.json từ tên đã thiết kế" && git push)
