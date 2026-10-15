@@ -1,8 +1,27 @@
 # Mapping chữ vào tranh (copy space + điểm neo)
 
+> **Phạm vi hiện tại: chỉ bìa truyện** (chốt 15/10). Script bìa: `scripts/covers.py`, mẫu 93 bìa đã Approve ở `mapping/covers/`. Phần trang ruột bên dưới giữ làm tham khảo, `covers.py` dùng lại bộ đo độ bận của `copyspace.py`.
+
+## Bìa truyện
+
+```bash
+python3 scripts/covers.py --status Approve     # -> out/covers/covers.json + overlay/
+python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang (3.311 cuốn)
+```
+
+1. Mỗi bìa đo độ bận trên lưới 24×24 như trang ruột.
+2. Bìa gom theo khổ: `wide` (≈2.09, StoryWeaver), `square` (1.0, African Storybook), `landscape`, `portrait`; lệch quá 8% thành khổ riêng.
+3. **Vị trí tên cố định của khổ** (`formats[].title_slot`): thử mọi dải trên/dưới và cột trái/phải đủ chứa tên dài điển hình (bách phân vị 75 độ dài tên trong khổ) ở chữ Hán 56px + pinyin 20px khi bìa rộng 1194px; lấy dải trống ở nhiều bìa nhất (hoà thì ưu tiên giữa).
+4. Từng bìa (`covers[].title_slot`): luôn đặt ở vị trí cố định của khổ. `calm` = tỉ lệ ô trống của bìa đó tại vị trí ấy; `scrim` = `null` (≥90% trống, tương phản ≥4.5), `cream`/`forest` nền mờ (≥50%), `panel-onart` (còn lại). `alt_slot` = chỗ trống riêng của bìa đủ đặt tên, nếu có.
+5. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
+
+Giới hạn: bìa đã in sẵn tên trong tranh (vd. "Lory Dory", "The Moon and The Cap") chưa được nhận ra; cần lọc tay hoặc thêm OCR.
+
+## Trang ruột (tham khảo)
+
 Mục tiêu: với mỗi cuốn trong thư viện pilot (`https://twc.mikademy.vn/pilot.html`), tìm vùng trống trên tranh, xác định vị trí lặp lại giống nhau giữa các trang, chốt điểm neo đặt chữ (hanzi + pinyin) và xuất JSON cố định để app reader dựng trang.
 
-Script: `scripts/copyspace.py` (chỉ cần numpy + Pillow). Mẫu: `mapping/copyspace/` (3 cuốn, JSON + ảnh duyệt trong `overlay/`).
+Script trang ruột: `scripts/copyspace.py` (chỉ cần numpy + Pillow).
 
 ## Chạy
 
