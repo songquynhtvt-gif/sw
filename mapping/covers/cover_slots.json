@@ -83,7 +83,7 @@
     0.2762,
     0.0271,
     0.4475,
-    0.0725
+    0.0708
    ],
    "anchor": {
     "x": 0.5,
@@ -124,6 +124,29 @@
    ]
   },
   {
+   "template_id": "wide-top-right",
+   "format": "wide",
+   "aspect": 2.09,
+   "position": "top-right",
+   "bbox": [
+    0.7017,
+    0.0567,
+    0.2712,
+    0.1827
+   ],
+   "anchor": {
+    "x": 0.9729,
+    "y": 0.0567,
+    "align": "top-right"
+   },
+   "identical_count": 3,
+   "covers": [
+    "SW-266456",
+    "SW-32698",
+    "SW-444501"
+   ]
+  },
+  {
    "template_id": "wide-bottom-left",
    "format": "wide",
    "aspect": 2.09,
@@ -143,28 +166,6 @@
    "covers": [
     "SW-19009",
     "SW-30971"
-   ]
-  },
-  {
-   "template_id": "wide-top-right",
-   "format": "wide",
-   "aspect": 2.09,
-   "position": "top-right",
-   "bbox": [
-    0.6812,
-    0.0557,
-    0.2917,
-    0.1835
-   ],
-   "anchor": {
-    "x": 0.9729,
-    "y": 0.0557,
-    "align": "top-right"
-   },
-   "identical_count": 2,
-   "covers": [
-    "SW-266456",
-    "SW-32698"
    ]
   },
   {
@@ -276,11 +277,14 @@
  ],
  "summary": {
   "covers": 93,
-  "identical": 51,
-  "shifted": 22,
+  "identical": 52,
+  "shifted": 21,
   "replace": 2,
   "no_room": 18,
   "backing_panel": 28,
+  "length_2_lines": 14,
+  "length_small": 13,
+  "length_too_long": 0,
   "flag_title": 2,
   "flag_text": 3
  },
@@ -315,6 +319,12 @@
     "align": "top-right"
    },
    "backing": "panel",
+   "length": {
+    "chars": 11,
+    "font_px": 28,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (100% ô bận, 12% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
@@ -348,6 +358,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (8% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
@@ -381,6 +397,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "text",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem"
   },
@@ -414,6 +436,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (8% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
@@ -447,6 +475,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 10,
+    "font_px": 96,
+    "lines": 2,
+    "check": "ok"
+   },
    "cover_text_flag": "title",
    "note": "bìa đã in sẵn tên tiếng Anh (The Moon / and / TheCap, khớp 100%): xoá chữ Anh trong tranh, đặt tên Trung vào đúng vùng đó"
   },
@@ -463,23 +497,29 @@
    "template_id": "square-top-center",
    "placement": "identical",
    "bbox": [
-    0.3644,
+    0.3577,
     0.0271,
-    0.2714,
-    0.1275
+    0.2847,
+    0.0692
    ],
    "bbox_px": [
-    199,
+    195,
     15,
-    148,
-    70
+    155,
+    38
    ],
    "anchor": {
-    "x": 0.5001,
+    "x": 0.5,
     "y": 0.0271,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 12,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (19% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
@@ -513,6 +553,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 15,
+    "font_px": 26,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (71% ô bận, 6% cạnh hoạ tiết); dời -237px ngang, +258px dọc tới chỗ trống trong phần ba trên: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
   },
@@ -546,6 +592,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 11,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
   },
@@ -579,6 +631,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 96,
+    "lines": 2,
+    "check": "ok"
+   },
    "cover_text_flag": "title",
    "note": "bìa đã in sẵn tên tiếng Anh (BATHTUB / SAFARI, khớp 100%): xoá chữ Anh trong tranh, đặt tên Trung vào đúng vùng đó"
   },
@@ -612,6 +670,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 11,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
   },
@@ -645,6 +709,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 42,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (83% ô bận, 8% cạnh hoạ tiết); dời +387px ngang, +24px dọc tới chỗ trống trong phần ba trên"
   },
@@ -678,6 +748,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (37% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -711,6 +787,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (36% ô bận, 8% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -744,6 +826,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 7,
+    "font_px": 24,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -777,6 +865,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (67% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -810,6 +904,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 10,
+    "font_px": 24,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -843,6 +943,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
   },
@@ -876,6 +982,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 12,
+    "font_px": 24,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -909,6 +1021,12 @@
     "align": "top-right"
    },
    "backing": "panel",
+   "length": {
+    "chars": 8,
+    "font_px": 32,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (86% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
@@ -942,6 +1060,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 4,
+    "font_px": 36,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (8% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
@@ -961,13 +1085,13 @@
     0.4644,
     0.0564,
     0.1585,
-    0.2716
+    0.1834
    ],
    "bbox_px": [
     445,
     26,
     152,
-    125
+    85
    ],
    "anchor": {
     "x": 0.5436,
@@ -975,6 +1099,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 5,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -991,23 +1121,29 @@
    "template_id": null,
    "placement": "no_room",
    "bbox": [
-    0.8712,
+    0.8305,
     0.0566,
-    0.1017,
-    0.2726
+    0.1424,
+    0.1841
    ],
    "bbox_px": [
-    835,
+    796,
     26,
-    98,
-    125
+    137,
+    85
    ],
    "anchor": {
-    "x": 0.922,
+    "x": 0.9017,
     "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 5,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -1041,6 +1177,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 10,
+    "font_px": 24,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -1074,6 +1216,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (33% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1107,6 +1255,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 4,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (37% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn bottom-left, chỗ đó trống"
   },
@@ -1140,6 +1294,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 30,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (95% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1173,6 +1333,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 5,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (79% ô bận, 6% cạnh hoạ tiết); dời +3px ngang, +366px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
   },
@@ -1190,22 +1356,28 @@
    "placement": "no_room",
    "bbox": [
     0.8102,
-    0.0565,
-    0.1593,
-    0.2721
+    0.1837,
+    0.1627,
+    0.1837
    ],
    "bbox_px": [
     777,
-    26,
-    153,
-    125
+    85,
+    156,
+    85
    ],
    "anchor": {
-    "x": 0.8899,
-    "y": 0.0565,
+    "x": 0.8916,
+    "y": 0.1837,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 6,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -1239,6 +1411,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 36,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (66% ô bận, 4% cạnh hoạ tiết); dời -228px ngang, +414px dọc tới chỗ trống ở phần ba dưới"
   },
@@ -1272,6 +1450,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 4,
+    "font_px": 36,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (46% ô bận, 4% cạnh hoạ tiết); dời -79px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
@@ -1305,6 +1489,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (19% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1338,6 +1528,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (7% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
@@ -1371,6 +1567,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 6,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (40% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1404,6 +1606,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (91% ô bận, 10% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1437,6 +1645,12 @@
     "align": "top-right"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 32,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (66% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống"
   },
@@ -1470,6 +1684,12 @@
     "align": "top-right"
    },
    "backing": "none",
+   "length": {
+    "chars": 4,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (74% ô bận, 7% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống"
   },
@@ -1503,6 +1723,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 3,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (88% ô bận, 5% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1536,6 +1762,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 40,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
   },
@@ -1569,6 +1801,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 6,
+    "font_px": 36,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (94% ô bận, 8% cạnh hoạ tiết); dời +337px ngang, +36px dọc tới chỗ trống trong phần ba trên"
   },
@@ -1602,6 +1840,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 42,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (50% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1635,6 +1879,12 @@
     "align": "top-right"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 36,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (43% ô bận, 5% cạnh hoạ tiết); dùng neo chuẩn bottom-right, chỗ đó trống"
   },
@@ -1668,6 +1918,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (43% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn bottom-left, chỗ đó trống"
   },
@@ -1701,6 +1957,12 @@
     "align": "top-left"
    },
    "backing": "panel",
+   "length": {
+    "chars": 8,
+    "font_px": 32,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (43% ô bận, 8% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
@@ -1718,22 +1980,28 @@
    "placement": "no_room",
    "bbox": [
     0.0271,
-    0.0566,
-    0.1305,
-    0.2726
+    0.0779,
+    0.1627,
+    0.1841
    ],
    "bbox_px": [
     26,
-    26,
-    125,
-    125
+    36,
+    156,
+    85
    ],
    "anchor": {
-    "x": 0.0924,
-    "y": 0.0566,
+    "x": 0.1085,
+    "y": 0.0779,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 6,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -1767,6 +2035,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 6,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (70% ô bận, 19% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1784,22 +2058,28 @@
    "placement": "no_room",
    "bbox": [
     0.4746,
-    0.6088,
+    0.6938,
     0.1475,
-    0.2726
+    0.1841
    ],
    "bbox_px": [
     455,
-    279,
+    318,
     141,
-    125
+    85
    ],
    "anchor": {
     "x": 0.5484,
-    "y": 0.6088,
+    "y": 0.6938,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 3,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -1833,6 +2113,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 3,
+    "font_px": 34,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (61% ô bận, 2% cạnh hoạ tiết); dời +42px ngang, +108px dọc tới chỗ trống trong phần ba trên"
   },
@@ -1866,6 +2152,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 3,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (22% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1899,6 +2191,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 2,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (100% ô bận, 12% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -1932,6 +2230,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 8,
+    "font_px": 32,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (19% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
@@ -1965,6 +2269,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 32,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (57% ô bận, 1% cạnh hoạ tiết); dời -373px ngang, +300px dọc tới chỗ trống ở phần ba dưới"
   },
@@ -1998,6 +2308,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (21% ô bận, 2% cạnh hoạ tiết); dời -135px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
@@ -2031,6 +2347,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 40,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
   },
@@ -2064,6 +2386,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 6,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (70% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2097,6 +2425,12 @@
     "align": "top-right"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 40,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (90% ô bận, 29% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống"
   },
@@ -2130,6 +2464,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 40,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (66% ô bận, 11% cạnh hoạ tiết); dời +86px ngang, +66px dọc tới chỗ trống trong phần ba trên"
   },
@@ -2146,23 +2486,29 @@
    "template_id": null,
    "placement": "no_room",
    "bbox": [
-    0.1593,
-    0.4374,
-    0.1017,
-    0.2328
+    0.1288,
+    0.522,
+    0.1627,
+    0.1446
    ],
    "bbox_px": [
-    153,
-    202,
-    98,
-    107
+    124,
+    241,
+    156,
+    67
    ],
    "anchor": {
     "x": 0.2102,
-    "y": 0.4374,
+    "y": 0.522,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 6,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -2196,6 +2542,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 6,
+    "font_px": 40,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (10% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
@@ -2229,6 +2581,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 6,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (16% ô bận, 0% cạnh hoạ tiết); dời -95px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
@@ -2246,22 +2604,28 @@
    "placement": "no_room",
    "bbox": [
     0.8102,
-    0.1947,
+    0.2372,
     0.1568,
-    0.2726
+    0.1841
    ],
    "bbox_px": [
     777,
-    89,
+    109,
     150,
-    125
+    85
    ],
    "anchor": {
     "x": 0.8886,
-    "y": 0.1947,
+    "y": 0.2372,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 5,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -2295,6 +2659,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 34,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (55% ô bận, 5% cạnh hoạ tiết); dời -110px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
@@ -2313,21 +2683,27 @@
    "bbox": [
     0.0271,
     0.0566,
-    0.1551,
-    0.2726
+    0.1627,
+    0.1841
    ],
    "bbox_px": [
     26,
     26,
-    149,
-    125
+    156,
+    85
    ],
    "anchor": {
-    "x": 0.1046,
+    "x": 0.1085,
     "y": 0.0566,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 6,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -2361,6 +2737,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 6,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (66% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2394,6 +2776,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (45% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2427,6 +2815,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (57% ô bận, 3% cạnh hoạ tiết); dời -240px ngang, +132px dọc tới chỗ trống ở dải giữa"
   },
@@ -2460,6 +2854,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 3,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (71% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2493,6 +2893,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (63% ô bận, 2% cạnh hoạ tiết); dời -316px ngang, +18px dọc tới chỗ trống trong phần ba trên"
   },
@@ -2526,6 +2932,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (41% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống"
   },
@@ -2539,28 +2951,34 @@
     459
    ],
    "format": "wide",
-   "template_id": null,
-   "placement": "no_room",
+   "template_id": "wide-top-right",
+   "placement": "identical",
    "bbox": [
-    0.8102,
-    0.0566,
-    0.1627,
-    0.2336
+    0.7017,
+    0.0567,
+    0.2712,
+    0.1444
    ],
    "bbox_px": [
-    777,
+    673,
     26,
-    156,
-    107
+    260,
+    66
    ],
    "anchor": {
-    "x": 0.8916,
-    "y": 0.0566,
-    "align": "top-center"
+    "x": 0.9729,
+    "y": 0.0567,
+    "align": "top-right"
    },
    "backing": "panel",
+   "length": {
+    "chars": 11,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
-   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
+   "note": "chỗ cố định đè lên hình (59% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
   {
    "id": "SW-455539",
@@ -2592,6 +3010,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 4,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (42% ô bận, 4% cạnh hoạ tiết); dời -79px ngang, +0px dọc tới chỗ trống trong phần ba trên"
   },
@@ -2625,6 +3049,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 3,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
   },
@@ -2658,6 +3088,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (57% ô bận, 1% cạnh hoạ tiết); dời -205px ngang, +300px dọc tới chỗ trống ở phần ba dưới"
   },
@@ -2672,27 +3108,33 @@
    ],
    "format": "wide",
    "template_id": null,
-   "placement": "shifted",
+   "placement": "no_room",
    "bbox": [
-    0.2915,
-    0.577,
-    0.1195,
-    0.2814
+    0.2814,
+    0.5876,
+    0.1424,
+    0.1841
    ],
    "bbox_px": [
-    280,
-    265,
-    115,
-    129
+    270,
+    270,
+    137,
+    85
    ],
    "anchor": {
-    "x": 0.3512,
-    "y": 0.577,
+    "x": 0.3526,
+    "y": 0.5876,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 5,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
-   "note": "chỗ cố định đè lên hình (90% ô bận, 6% cạnh hoạ tiết); dời -105px ngang, +294px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
+   "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
   {
    "id": "SW-577907",
@@ -2724,6 +3166,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 3,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (92% ô bận, 1% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2757,6 +3205,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 36,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (31% ô bận, 2% cạnh hoạ tiết); dời +119px ngang, +30px dọc tới chỗ trống trong phần ba trên"
   },
@@ -2790,6 +3244,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (14% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2823,6 +3283,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (34% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2856,6 +3322,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (7% ô bận, 0% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống"
   },
@@ -2889,6 +3361,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 8,
+    "font_px": 30,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (69% ô bận, 5% cạnh hoạ tiết); dời -339px ngang, +264px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)"
   },
@@ -2906,22 +3384,28 @@
    "placement": "no_room",
    "bbox": [
     0.6983,
-    0.3752,
+    0.4071,
     0.1839,
-    0.2726
+    0.1841
    ],
    "bbox_px": [
     670,
-    172,
+    187,
     176,
-    125
+    85
    ],
    "anchor": {
     "x": 0.7903,
-    "y": 0.3752,
+    "y": 0.4071,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 3,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -2955,6 +3439,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 8,
+    "font_px": 42,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (51% ô bận, 6% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -2988,6 +3478,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 9,
+    "font_px": 24,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -3021,6 +3517,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 8,
+    "font_px": 24,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "text",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem"
   },
@@ -3054,6 +3556,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 11,
+    "font_px": 32,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "nền yên dưới chữ: chữ kem viền rừng đọc rõ"
   },
@@ -3087,6 +3595,12 @@
     "align": "top-left"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (82% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống"
   },
@@ -3120,6 +3634,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 5,
+    "font_px": 36,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (39% ô bận, 0% cạnh hoạ tiết); dời +99px ngang, +30px dọc tới chỗ trống trong phần ba trên"
   },
@@ -3153,6 +3673,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 4,
+    "font_px": 38,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (85% ô bận, 9% cạnh hoạ tiết); dời +509px ngang, +312px dọc tới chỗ trống ở phần ba dưới"
   },
@@ -3169,23 +3695,29 @@
    "template_id": null,
    "placement": "no_room",
    "bbox": [
-    0.5763,
-    0.7044,
-    0.1017,
-    0.2336
+    0.6678,
+    0.3327,
+    0.1627,
+    0.1451
    ],
    "bbox_px": [
-    553,
-    323,
-    98,
-    107
+    640,
+    153,
+    156,
+    67
    ],
    "anchor": {
-    "x": 0.6271,
-    "y": 0.7044,
+    "x": 0.7491,
+    "y": 0.3327,
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 6,
+    "font_px": 24,
+    "lines": 1,
+    "check": "small"
+   },
    "cover_text_flag": "text",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -3219,6 +3751,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 10,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (64% ô bận, 3% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống"
   },
@@ -3252,6 +3790,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 9,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (96% ô bận, 20% cạnh hoạ tiết); dùng neo chuẩn bottom-center, chỗ đó trống"
   },
@@ -3285,6 +3829,12 @@
     "align": "top-left"
    },
    "backing": "panel",
+   "length": {
+    "chars": 7,
+    "font_px": 32,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (88% ô bận, 9% cạnh hoạ tiết); dùng neo chuẩn top-left, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)"
   },
@@ -3318,6 +3868,12 @@
     "align": "top-center"
    },
    "backing": "panel",
+   "length": {
+    "chars": 8,
+    "font_px": 24,
+    "lines": 2,
+    "check": "2_lines"
+   },
    "cover_text_flag": "none",
    "note": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem"
   },
@@ -3351,6 +3907,12 @@
     "align": "top-center"
    },
    "backing": "none",
+   "length": {
+    "chars": 7,
+    "font_px": 44,
+    "lines": 1,
+    "check": "ok"
+   },
    "cover_text_flag": "none",
    "note": "chỗ cố định đè lên hình (77% ô bận, 8% cạnh hoạ tiết); dời +251px ngang, +54px dọc tới chỗ trống trong phần ba trên"
   }

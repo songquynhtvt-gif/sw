@@ -13,6 +13,9 @@ Rule chính: tên KHÔNG được đè lên hình vẽ hay hoạ tiết. Mỗi b
                                   (ưu tiên phần ba trên, rồi phần ba dưới, rồi dải giữa)
                   "replace"    -> bìa in sẵn tên tiếng Anh, khung = vùng tên cũ (designer xoá chữ Anh)
                   "no_room"    -> bìa kín hình, không chỗ nào trống đủ: bbox = chỗ đè ít hình nhất, cần người xem
+      length   = rule độ dài tên: chars (số chữ Hán, hoặc độ rộng em với tên tiếng Anh), font_px, lines (cỡ chữ
+                 khung chứa được), check = ok | small (1 dòng, < 30px) | 2_lines (tên > 6 chữ, chia đều 2 dòng)
+                 | too_long (> 16 chữ hoặc 2 dòng vẫn không vừa: cần rút gọn / người xem). Tên <= 6 chữ luôn 1 dòng.
       bbox     = chỗ trống designer được dùng (đã nới ngang tới bề rộng khung chung nếu vẫn trống)
       backing  = "none" (đặt chữ trực tiếp) | "panel" (chỗ trống nhưng màu nền làm chữ kem kém tương phản,
                  lót panel nhẹ; không bao giờ dùng panel để che hình)
@@ -64,6 +67,8 @@ def main(src, dst):
             "bbox": bbox, "bbox_px": px(bbox, c["size"]),
             "anchor": anchor_of(bbox, name if placement == "identical" else None),
             "backing": "panel" if ts["style"] == "panel" else "none",
+            "length": {"chars": c["title_len"], "font_px": ts["font_px"], "lines": ts["lines"],
+                       "check": ts.get("length_check", "ok")},
             "cover_text_flag": c.get("cover_text_flag", "unknown"),
             "note": ts["reason"],
         })
@@ -88,6 +93,9 @@ def main(src, dst):
             "replace": sum(c["placement"] == "replace" for c in covers),
             "no_room": sum(c["placement"] == "no_room" for c in covers),
             "backing_panel": sum(c["backing"] == "panel" for c in covers),
+            "length_2_lines": sum(c["length"]["check"] == "2_lines" for c in covers),
+            "length_small": sum(c["length"]["check"] == "small" for c in covers),
+            "length_too_long": sum(c["length"]["check"] == "too_long" for c in covers),
             "flag_title": sum(c["cover_text_flag"] == "title" for c in covers),
             "flag_text": sum(c["cover_text_flag"] == "text" for c in covers),
         },

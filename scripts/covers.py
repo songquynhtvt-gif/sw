@@ -234,15 +234,26 @@ def art_free(m, bb):
     return 1 - busy >= CALM_MIN and edge <= EDGE_MAX, round(1 - busy, 2), round(edge, 3)
 
 
+SHORT_MAX = 6    # tên <= 6 chữ luôn để 1 dòng, không bẻ đôi
+LONG_MAX = 16    # tên > 16 chữ (hoặc 2 dòng vẫn không vừa) là quá dài: cần rút gọn / người xem
+
+
 def box_sizes(n, sub, W):
-    """Các cỡ hộp chữ thử lần lượt (to trước): C1 một dòng 44→30px, rồi 2 dòng 32→24px."""
+    """Các cỡ hộp chữ thử lần lượt (to trước), theo độ dài tên:
+    C1 một dòng 44→30px; panel một dòng 28→24px; chỉ tên > SHORT_MAX chữ mới được xuống 2 dòng 32→24px
+    (chia đều hai dòng). Bề rộng = max(chữ Hán, dòng tên tiếng Anh), đo bằng font thật."""
     out = []
     for px in range(C1["max_px"], C1["min_px"] - 1, -2):
         bw = max(n * px, en_width(sub)) + 2 * C1["stroke_px"]
         bh = LINE_H(px) + (EN["line"] if sub else 0) + 2 * C1["stroke_px"]
         if bw <= W - 2 * MARGIN:
             out.append(("c1", px, 1, bw, bh))
-    if n > 1:
+    for px in range(C1["min_px"] - 2, PANEL["min_px"] - 1, -2):
+        bw = max(n * px, en_width(sub)) + 2 * PANEL["pad"][1]
+        bh = LINE_H(px) + (EN["line"] if sub else 0) + 2 * PANEL["pad"][0]
+        if bw <= W - 2 * MARGIN:
+            out.append(("panel", px, 1, bw, bh))
+    if n > SHORT_MAX:
         for px in range(PANEL["px"], PANEL["min_px"] - 1, -2):
             per = -(-n // 2)
             bw = max(per * px, en_width(sub)) + 2 * PANEL["pad"][1]
@@ -250,6 +261,17 @@ def box_sizes(n, sub, W):
             if bw <= W - 2 * MARGIN:
                 out.append(("panel", px, 2, bw, bh))
     return out
+
+
+def length_check(n, style, px, lines):
+    """Rule độ dài tên: ok | small (1 dòng nhưng phải nhỏ hơn cỡ C1 30px) | 2_lines | too_long."""
+    if n > LONG_MAX or lines > 2 or px < PANEL["min_px"]:
+        return "too_long"
+    if lines == 2 and style != "replace":
+        return "2_lines"
+    if style != "replace" and px < C1["min_px"]:
+        return "small"
+    return "ok"
 
 
 ANCHORS = ("top-center", "top-left", "top-right", "bottom-center", "bottom-left", "bottom-right")
@@ -606,7 +628,8 @@ def main():
             "title_slot": {"slot_bbox": slot["bbox"], "calm_coarse": round(calm, 2),
                            "style": style, "source": source, "shift_px": shift, "reason": reason,
                            "text_box": tb, "room_bbox": room, "anchor_name": anchor,
-                           "covers_art": source == "no_room", "anchor": {"x": round(tb[0] + tb[2] / 2, 4), "y": tb[1], "align": "center"},
+                           "covers_art": source == "no_room",
+                           "length_check": length_check(n, style, px, lines), "anchor": {"x": round(tb[0] + tb[2] / 2, 4), "y": tb[1], "align": "center"},
                            "font_px": px, "lines": lines, "legibility": leg},
             "baked_text": baked,
             "cover_text_flag": cover_flag(baked),
@@ -632,6 +655,9 @@ def main():
             "c1_shifted": sum(c["title_slot"]["source"] == "shifted" for c in covers),
             "no_room": sum(c["title_slot"]["source"] == "no_room" for c in covers),
             "anchor_other": sum(c["title_slot"]["source"] == "anchor" for c in covers),
+            "length_2_lines": sum(c["title_slot"]["length_check"] == "2_lines" for c in covers),
+            "length_small": sum(c["title_slot"]["length_check"] == "small" for c in covers),
+            "length_too_long": sum(c["title_slot"]["length_check"] == "too_long" for c in covers),
             "replace_baked_title": sum(c["title_slot"]["style"] == "replace" for c in covers),
             "text_needs_review": sum("cần người xem" in c["title_slot"]["reason"] for c in covers),
             "flag_title": sum(c["cover_text_flag"] == "title" for c in covers),

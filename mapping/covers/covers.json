@@ -3516,6 +3516,7 @@
     ],
     "anchor_name": "top-right",
     "covers_art": false,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.8813,
      "y": 0.0271,
@@ -3679,6 +3680,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
@@ -3814,6 +3816,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.7708,
      "y": 0.0293,
@@ -3959,6 +3962,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
@@ -4094,6 +4098,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4991,
      "y": 0.1453,
@@ -4243,39 +4248,40 @@
     ],
     "reason": "chỗ cố định đè lên hình (19% ô bận, 4% cạnh hoạ tiết); dùng neo chuẩn top-center với chữ nhỏ hơn, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.3984,
+     0.3577,
      0.0271,
-     0.2034,
-     0.1275
+     0.2847,
+     0.0692
     ],
     "room_bbox": [
-     0.3644,
+     0.3577,
      0.0271,
-     0.2714,
-     0.1275
+     0.2847,
+     0.0692
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "small",
     "anchor": {
-     "x": 0.5001,
+     "x": 0.5,
      "y": 0.0271,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 2,
+    "font_px": 24,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 1.0,
-     "edge_density": 0.0,
-     "luma_std": 0.016,
+     "calm_coarse": 0.95,
+     "edge_density": 0.005,
+     "luma_std": 0.055,
      "luma_p5_p50_p95": [
-      0.822,
-      0.846,
-      0.871
+      0.817,
+      0.836,
+      0.869
      ],
-     "fill_contrast_p5": 1.08,
-     "stroke_contrast_p5": 8.47,
-     "pair_contrast_p5": 8.47,
-     "panel_contrast_min": 9.75
+     "fill_contrast_p5": 1.09,
+     "stroke_contrast_p5": 8.42,
+     "pair_contrast_p5": 8.43,
+     "panel_contrast_min": 8.74
     }
    },
    "baked_text": {
@@ -4334,6 +4340,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.1865,
      "y": 0.2458,
@@ -4469,6 +4476,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
@@ -4547,6 +4555,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.517,
      "y": 0.063,
@@ -4718,6 +4727,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5,
      "y": 0.0271,
@@ -4802,6 +4812,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.8025,
      "y": 0.0991,
@@ -4974,6 +4985,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1814,
      "y": 0.0567,
@@ -5109,6 +5121,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1814,
      "y": 0.0567,
@@ -5187,6 +5200,7 @@
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.3118,
      "y": 0.0566,
@@ -5332,6 +5346,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.2,
      "y": 0.0567,
@@ -5421,6 +5436,7 @@
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.7991,
      "y": 0.1204,
@@ -5537,6 +5553,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4793,
      "y": 0.0567,
@@ -5628,6 +5645,7 @@
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.5534,
      "y": 0.8072,
@@ -5706,6 +5724,7 @@
     ],
     "anchor_name": "bottom-right",
     "covers_art": false,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.8983,
      "y": 0.6777,
@@ -5818,6 +5837,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4791,
      "y": 0.0567,
@@ -5892,36 +5912,37 @@
      0.4644,
      0.0564,
      0.1585,
-     0.2716
+     0.1834
     ],
     "room_bbox": [
      0.4644,
      0.0564,
      0.1585,
-     0.2716
+     0.1834
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
      "x": 0.5436,
      "y": 0.0564,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.6,
-     "edge_density": 0.011,
-     "luma_std": 0.039,
+     "calm_coarse": 0.82,
+     "edge_density": 0.006,
+     "luma_std": 0.03,
      "luma_p5_p50_p95": [
-      0.036,
-      0.093,
-      0.155
+      0.057,
+      0.096,
+      0.151
      ],
-     "fill_contrast_p5": 4.88,
-     "stroke_contrast_p5": 1.05,
-     "pair_contrast_p5": 4.88,
-     "panel_contrast_min": 8.75
+     "fill_contrast_p5": 4.97,
+     "stroke_contrast_p5": 1.07,
+     "pair_contrast_p5": 4.98,
+     "panel_contrast_min": 8.78
     }
    },
    "baked_text": {
@@ -5973,39 +5994,40 @@
     ],
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.8712,
+     0.8305,
      0.0566,
-     0.1017,
-     0.2726
+     0.1424,
+     0.1841
     ],
     "room_bbox": [
-     0.8712,
+     0.8305,
      0.0566,
-     0.1017,
-     0.2726
+     0.1424,
+     0.1841
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
-     "x": 0.922,
+     "x": 0.9017,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.12,
-     "edge_density": 0.01,
-     "luma_std": 0.136,
+     "calm_coarse": 0.13,
+     "edge_density": 0.008,
+     "luma_std": 0.131,
      "luma_p5_p50_p95": [
-      0.094,
-      0.445,
-      0.553
+      0.167,
+      0.469,
+      0.693
      ],
-     "fill_contrast_p5": 1.66,
-     "stroke_contrast_p5": 1.4,
-     "pair_contrast_p5": 3.3,
-     "panel_contrast_min": 8.79
+     "fill_contrast_p5": 1.34,
+     "stroke_contrast_p5": 2.11,
+     "pair_contrast_p5": 4.29,
+     "panel_contrast_min": 8.78
     }
    },
    "baked_text": {
@@ -6075,6 +6097,7 @@
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.1682,
      "y": 0.6195,
@@ -6244,6 +6267,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1254,
      "y": 0.0567,
@@ -6412,6 +6436,7 @@
     ],
     "anchor_name": "bottom-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1067,
      "y": 0.7522,
@@ -6527,6 +6552,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1211,
      "y": 0.0565,
@@ -6640,6 +6666,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4814,
      "y": 0.7044,
@@ -6713,38 +6740,39 @@
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
      0.8102,
-     0.0565,
-     0.1593,
-     0.2721
+     0.1837,
+     0.1627,
+     0.1837
     ],
     "room_bbox": [
      0.8102,
-     0.0565,
-     0.1593,
-     0.2721
+     0.1837,
+     0.1627,
+     0.1837
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
-     "x": 0.8899,
-     "y": 0.0565,
+     "x": 0.8916,
+     "y": 0.1837,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
      "calm_coarse": 0.71,
-     "edge_density": 0.023,
-     "luma_std": 0.112,
+     "edge_density": 0.003,
+     "luma_std": 0.058,
      "luma_p5_p50_p95": [
-      0.843,
+      0.873,
       0.96,
-      0.997
+      0.999
      ],
      "fill_contrast_p5": 1.0,
-     "stroke_contrast_p5": 8.67,
-     "pair_contrast_p5": 8.67,
-     "panel_contrast_min": 8.99
+     "stroke_contrast_p5": 8.96,
+     "pair_contrast_p5": 8.96,
+     "panel_contrast_min": 8.9
     }
    },
    "baked_text": {
@@ -6832,6 +6860,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.2712,
      "y": 0.7908,
@@ -6915,6 +6944,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.3983,
      "y": 0.0565,
@@ -7084,6 +7114,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1254,
      "y": 0.0567,
@@ -7227,6 +7258,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4792,
      "y": 0.0567,
@@ -7369,6 +7401,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1441,
      "y": 0.0566,
@@ -7513,6 +7546,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.161,
      "y": 0.0567,
@@ -7656,6 +7690,7 @@
     ],
     "anchor_name": "bottom-right",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.8729,
      "y": 0.7785,
@@ -7768,6 +7803,7 @@
     ],
     "anchor_name": "top-right",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.8932,
      "y": 0.0546,
@@ -7935,6 +7971,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.0881,
      "y": 0.0567,
@@ -8052,6 +8089,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4793,
      "y": 0.0567,
@@ -8137,6 +8175,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.7441,
      "y": 0.1204,
@@ -8280,6 +8319,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1568,
      "y": 0.0567,
@@ -8424,6 +8464,7 @@
     ],
     "anchor_name": "bottom-right",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.8457,
      "y": 0.7692,
@@ -8565,6 +8606,7 @@
     ],
     "anchor_name": "bottom-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1254,
      "y": 0.7522,
@@ -8681,6 +8723,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.1074,
      "y": 0.0567,
@@ -8754,38 +8797,39 @@
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
      0.0271,
-     0.0566,
-     0.1305,
-     0.2726
+     0.0779,
+     0.1627,
+     0.1841
     ],
     "room_bbox": [
      0.0271,
-     0.0566,
-     0.1305,
-     0.2726
+     0.0779,
+     0.1627,
+     0.1841
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
-     "x": 0.0924,
-     "y": 0.0566,
+     "x": 0.1085,
+     "y": 0.0779,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.27,
-     "edge_density": 0.039,
-     "luma_std": 0.12,
+     "calm_coarse": 0.33,
+     "edge_density": 0.009,
+     "luma_std": 0.102,
      "luma_p5_p50_p95": [
-      0.186,
-      0.326,
-      0.6
+      0.238,
+      0.311,
+      0.568
      ],
-     "fill_contrast_p5": 1.54,
-     "stroke_contrast_p5": 2.29,
-     "pair_contrast_p5": 3.16,
-     "panel_contrast_min": 8.78
+     "fill_contrast_p5": 1.62,
+     "stroke_contrast_p5": 2.8,
+     "pair_contrast_p5": 3.15,
+     "panel_contrast_min": 8.93
     }
    },
    "baked_text": {
@@ -8936,6 +8980,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1441,
      "y": 0.0567,
@@ -9006,37 +9051,38 @@
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
      0.4746,
-     0.6088,
+     0.6938,
      0.1475,
-     0.2726
+     0.1841
     ],
     "room_bbox": [
      0.4746,
-     0.6088,
+     0.6938,
      0.1475,
-     0.2726
+     0.1841
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
      "x": 0.5484,
-     "y": 0.6088,
+     "y": 0.6938,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.17,
-     "edge_density": 0.003,
-     "luma_std": 0.102,
+     "calm_coarse": 0.26,
+     "edge_density": 0.004,
+     "luma_std": 0.106,
      "luma_p5_p50_p95": [
-      0.571,
-      0.788,
-      0.895
+      0.55,
+      0.779,
+      0.887
      ],
-     "fill_contrast_p5": 1.06,
-     "stroke_contrast_p5": 6.03,
-     "pair_contrast_p5": 6.03,
+     "fill_contrast_p5": 1.07,
+     "stroke_contrast_p5": 5.83,
+     "pair_contrast_p5": 5.83,
      "panel_contrast_min": 9.03
     }
    },
@@ -9100,6 +9146,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5025,
      "y": 0.2478,
@@ -9239,6 +9286,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.0881,
      "y": 0.0567,
@@ -9405,6 +9453,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.0694,
      "y": 0.0567,
@@ -9549,6 +9598,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.4792,
      "y": 0.0567,
@@ -9664,6 +9714,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1271,
      "y": 0.5876,
@@ -9808,6 +9859,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.3644,
      "y": 0.0566,
@@ -9925,6 +9977,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4793,
      "y": 0.0567,
@@ -10067,6 +10120,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1441,
      "y": 0.0567,
@@ -10212,6 +10266,7 @@
     ],
     "anchor_name": "top-right",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.8153,
      "y": 0.0567,
@@ -10296,6 +10351,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5441,
      "y": 0.1735,
@@ -10361,39 +10417,40 @@
     ],
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.1593,
-     0.4374,
-     0.1017,
-     0.2328
+     0.1288,
+     0.522,
+     0.1627,
+     0.1446
     ],
     "room_bbox": [
-     0.1593,
-     0.4374,
-     0.1017,
-     0.2328
+     0.1288,
+     0.522,
+     0.1627,
+     0.1446
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
      "x": 0.2102,
-     "y": 0.4374,
+     "y": 0.522,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.79,
-     "edge_density": 0.006,
-     "luma_std": 0.018,
+     "calm_coarse": 0.72,
+     "edge_density": 0.0,
+     "luma_std": 0.007,
      "luma_p5_p50_p95": [
-      0.043,
-      0.048,
-      0.057
+      0.041,
+      0.049,
+      0.063
      ],
-     "fill_contrast_p5": 9.3,
-     "stroke_contrast_p5": 1.01,
-     "pair_contrast_p5": 9.3,
-     "panel_contrast_min": 8.77
+     "fill_contrast_p5": 8.87,
+     "stroke_contrast_p5": 1.02,
+     "pair_contrast_p5": 8.87,
+     "panel_contrast_min": 8.78
     }
    },
    "baked_text": {
@@ -10488,6 +10545,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4793,
      "y": 0.0567,
@@ -10602,6 +10660,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.3983,
      "y": 0.0566,
@@ -10674,38 +10733,39 @@
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
      0.8102,
-     0.1947,
+     0.2372,
      0.1568,
-     0.2726
+     0.1841
     ],
     "room_bbox": [
      0.8102,
-     0.1947,
+     0.2372,
      0.1568,
-     0.2726
+     0.1841
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
      "x": 0.8886,
-     "y": 0.1947,
+     "y": 0.2372,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.73,
-     "edge_density": 0.029,
-     "luma_std": 0.063,
+     "calm_coarse": 0.8,
+     "edge_density": 0.025,
+     "luma_std": 0.057,
      "luma_p5_p50_p95": [
-      0.366,
-      0.416,
-      0.469
+      0.368,
+      0.422,
+      0.459
      ],
-     "fill_contrast_p5": 1.93,
-     "stroke_contrast_p5": 4.04,
-     "pair_contrast_p5": 4.04,
-     "panel_contrast_min": 8.88
+     "fill_contrast_p5": 1.96,
+     "stroke_contrast_p5": 4.06,
+     "pair_contrast_p5": 4.06,
+     "panel_contrast_min": 9.02
     }
    },
    "baked_text": {
@@ -10801,6 +10861,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.3568,
      "y": 0.0566,
@@ -10875,36 +10936,37 @@
     "text_box": [
      0.0271,
      0.0566,
-     0.1551,
-     0.2726
+     0.1627,
+     0.1841
     ],
     "room_bbox": [
      0.0271,
      0.0566,
-     0.1551,
-     0.2726
+     0.1627,
+     0.1841
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
-     "x": 0.1046,
+     "x": 0.1085,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.54,
+     "calm_coarse": 0.69,
      "edge_density": 0.006,
-     "luma_std": 0.05,
+     "luma_std": 0.049,
      "luma_p5_p50_p95": [
-      0.799,
-      0.888,
+      0.792,
+      0.889,
       0.924
      ],
      "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 8.24,
-     "pair_contrast_p5": 8.24,
+     "stroke_contrast_p5": 8.18,
+     "pair_contrast_p5": 8.18,
      "panel_contrast_min": 8.91
     }
    },
@@ -11056,6 +11118,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1441,
      "y": 0.0567,
@@ -11225,6 +11288,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1254,
      "y": 0.0567,
@@ -11332,6 +11396,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.2915,
      "y": 0.2903,
@@ -11471,6 +11536,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.0881,
      "y": 0.0567,
@@ -11578,6 +11644,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1915,
      "y": 0.0885,
@@ -11685,6 +11752,7 @@
     ],
     "anchor_name": "bottom-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4792,
      "y": 0.793,
@@ -11743,46 +11811,47 @@
     ],
     "calm_coarse": 0.5,
     "style": "panel",
-    "source": "no_room",
+    "source": "anchor",
     "shift_px": [
      0,
      0
     ],
-    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
+    "reason": "chỗ cố định đè lên hình (59% ô bận, 2% cạnh hoạ tiết); dùng neo chuẩn top-right, chỗ đó trống: màu nền làm chữ kem kém tương phản, lót panel nhẹ (không che hình)",
     "text_box": [
-     0.8102,
-     0.0566,
-     0.1627,
-     0.2336
+     0.7085,
+     0.0567,
+     0.2644,
+     0.1444
     ],
     "room_bbox": [
-     0.8102,
-     0.0566,
-     0.1627,
-     0.2336
+     0.7017,
+     0.0567,
+     0.2712,
+     0.1444
     ],
-    "anchor_name": null,
-    "covers_art": true,
+    "anchor_name": "top-right",
+    "covers_art": false,
+    "length_check": "small",
     "anchor": {
-     "x": 0.8916,
-     "y": 0.0566,
+     "x": 0.8407,
+     "y": 0.0567,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.91,
-     "edge_density": 0.004,
-     "luma_std": 0.043,
+     "calm_coarse": 0.97,
+     "edge_density": 0.002,
+     "luma_std": 0.04,
      "luma_p5_p50_p95": [
-      0.11,
-      0.134,
-      0.237
+      0.119,
+      0.139,
+      0.247
      ],
-     "fill_contrast_p5": 3.48,
-     "stroke_contrast_p5": 1.56,
-     "pair_contrast_p5": 3.51,
-     "panel_contrast_min": 8.85
+     "fill_contrast_p5": 3.36,
+     "stroke_contrast_p5": 1.65,
+     "pair_contrast_p5": 3.38,
+     "panel_contrast_min": 8.87
     }
    },
    "baked_text": {
@@ -11875,6 +11944,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4118,
      "y": 0.0566,
@@ -12014,6 +12084,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5,
      "y": 0.0276,
@@ -12100,6 +12171,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.2873,
      "y": 0.5876,
@@ -12164,46 +12236,47 @@
     ],
     "calm_coarse": 0.39,
     "style": "panel",
-    "source": "shifted",
+    "source": "no_room",
     "shift_px": [
-     -105,
-     294
+     0,
+     0
     ],
-    "reason": "chỗ cố định đè lên hình (90% ô bận, 6% cạnh hoạ tiết); dời -105px ngang, +294px dọc tới chỗ trống ở phần ba dưới: chỗ trống nhưng chữ kem chưa đủ tương phản, lót panel nhẹ (không che hình)",
+    "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.2915,
-     0.577,
-     0.1195,
-     0.2814
+     0.2814,
+     0.5876,
+     0.1424,
+     0.1841
     ],
     "room_bbox": [
-     0.2915,
-     0.577,
-     0.1195,
-     0.2814
+     0.2814,
+     0.5876,
+     0.1424,
+     0.1841
     ],
     "anchor_name": null,
-    "covers_art": false,
+    "covers_art": true,
+    "length_check": "small",
     "anchor": {
-     "x": 0.3512,
-     "y": 0.577,
+     "x": 0.3526,
+     "y": 0.5876,
      "align": "center"
     },
-    "font_px": 26,
-    "lines": 2,
+    "font_px": 24,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.95,
-     "edge_density": 0.001,
-     "luma_std": 0.03,
+     "calm_coarse": 0.92,
+     "edge_density": 0.0,
+     "luma_std": 0.018,
      "luma_p5_p50_p95": [
-      0.926,
-      0.986,
+      0.946,
+      0.99,
       1.0
      ],
-     "fill_contrast_p5": 1.0,
-     "stroke_contrast_p5": 9.48,
-     "pair_contrast_p5": 9.48,
-     "panel_contrast_min": 9.03
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 9.67,
+     "pair_contrast_p5": 9.67,
+     "panel_contrast_min": 10.03
     }
    },
    "baked_text": {
@@ -12323,6 +12396,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.0881,
      "y": 0.0566,
@@ -12409,6 +12483,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5559,
      "y": 0.1097,
@@ -12524,6 +12599,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1627,
      "y": 0.0276,
@@ -12640,6 +12716,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1814,
      "y": 0.0566,
@@ -12753,6 +12830,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4792,
      "y": 0.0567,
@@ -12840,6 +12918,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.1229,
      "y": 0.5239,
@@ -12939,38 +13018,39 @@
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
      0.6983,
-     0.3752,
+     0.4071,
      0.1839,
-     0.2726
+     0.1841
     ],
     "room_bbox": [
      0.6983,
-     0.3752,
+     0.4071,
      0.1839,
-     0.2726
+     0.1841
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
      "x": 0.7903,
-     "y": 0.3752,
+     "y": 0.4071,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.61,
-     "edge_density": 0.001,
-     "luma_std": 0.051,
+     "calm_coarse": 0.72,
+     "edge_density": 0.0,
+     "luma_std": 0.046,
      "luma_p5_p50_p95": [
-      0.449,
-      0.521,
-      0.612
+      0.452,
+      0.523,
+      0.602
      ],
-     "fill_contrast_p5": 1.51,
-     "stroke_contrast_p5": 4.84,
-     "pair_contrast_p5": 4.84,
-     "panel_contrast_min": 9.04
+     "fill_contrast_p5": 1.53,
+     "stroke_contrast_p5": 4.88,
+     "pair_contrast_p5": 4.88,
+     "panel_contrast_min": 9.25
     }
    },
    "baked_text": {
@@ -13123,6 +13203,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1745,
      "y": 0.0567,
@@ -13211,6 +13292,7 @@
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.5364,
      "y": 0.0566,
@@ -13298,6 +13380,7 @@
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.375,
      "y": 0.0566,
@@ -13427,6 +13510,7 @@
     ],
     "anchor_name": "top-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4793,
      "y": 0.0565,
@@ -13570,6 +13654,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.1627,
      "y": 0.0566,
@@ -13654,6 +13739,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5457,
      "y": 0.1097,
@@ -13737,6 +13823,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.9,
      "y": 0.6088,
@@ -13802,38 +13889,39 @@
     ],
     "reason": "bìa kín hình, không có chỗ trống đủ cho tên: đề xuất chỗ đè ít hình nhất, designer cần thu nhỏ chữ hoặc xử lý riêng, cần người xem",
     "text_box": [
-     0.5763,
-     0.7044,
-     0.1017,
-     0.2336
+     0.6678,
+     0.3327,
+     0.1627,
+     0.1451
     ],
     "room_bbox": [
-     0.5763,
-     0.7044,
-     0.1017,
-     0.2336
+     0.6678,
+     0.3327,
+     0.1627,
+     0.1451
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "small",
     "anchor": {
-     "x": 0.6271,
-     "y": 0.7044,
+     "x": 0.7491,
+     "y": 0.3327,
      "align": "center"
     },
     "font_px": 24,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.52,
-     "edge_density": 0.01,
-     "luma_std": 0.082,
+     "calm_coarse": 0.44,
+     "edge_density": 0.004,
+     "luma_std": 0.044,
      "luma_p5_p50_p95": [
-      0.663,
-      0.708,
-      0.753
+      0.688,
+      0.739,
+      0.774
      ],
-     "fill_contrast_p5": 1.24,
-     "stroke_contrast_p5": 6.92,
-     "pair_contrast_p5": 6.97,
+     "fill_contrast_p5": 1.21,
+     "stroke_contrast_p5": 7.16,
+     "pair_contrast_p5": 7.17,
      "panel_contrast_min": 8.74
     }
    },
@@ -13943,6 +14031,7 @@
     ],
     "anchor_name": "bottom-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.5,
      "y": 0.8792,
@@ -14060,6 +14149,7 @@
     ],
     "anchor_name": "bottom-center",
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.4793,
      "y": 0.7531,
@@ -14175,6 +14265,7 @@
     ],
     "anchor_name": "top-left",
     "covers_art": false,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.1017,
      "y": 0.0567,
@@ -14262,6 +14353,7 @@
     ],
     "anchor_name": null,
     "covers_art": true,
+    "length_check": "2_lines",
     "anchor": {
      "x": 0.3538,
      "y": 0.0563,
@@ -14377,6 +14469,7 @@
     ],
     "anchor_name": null,
     "covers_art": false,
+    "length_check": "ok",
     "anchor": {
      "x": 0.6915,
      "y": 0.1514,
@@ -14425,9 +14518,12 @@
   "panel_long": 0,
   "panel_busy": 28,
   "c1_fixed": 14,
-  "c1_shifted": 22,
+  "c1_shifted": 21,
   "no_room": 18,
-  "anchor_other": 35,
+  "anchor_other": 36,
+  "length_2_lines": 14,
+  "length_small": 13,
+  "length_too_long": 0,
   "replace_baked_title": 2,
   "text_needs_review": 19,
   "flag_title": 2,
