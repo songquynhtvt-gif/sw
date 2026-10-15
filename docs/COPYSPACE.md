@@ -10,6 +10,11 @@
 - `templates[]`: vị trí chuẩn dùng chung theo khổ bìa (`<khổ>-top-center`, `-top-left`, `-top-right`, `-bottom-center`, `-bottom-left`, `-bottom-right`), `bbox` [x, y, w, h] tỉ lệ 0..1, gốc trên-trái (trung vị các bìa trong nhóm), `anchor` mép trên căn theo cạnh của vị trí. `covers` = danh sách bìa đặt ĐÚNG vị trí này (nhóm identical, căn một lần cho cả nhóm).
 - `covers[]`: `placement` = `identical` (đúng một vị trí chuẩn, `template_id` cho biết vị trí nào) | `shifted` (mọi vị trí chuẩn đều đè hình, dời tới chỗ trống thật khác) | `replace` (bìa in sẵn tên tiếng Anh, khung = vùng tên cũ) | `no_room` (bìa kín hình, `bbox` = chỗ đè ít hình nhất, cần người xem); `bbox` = chỗ trống được dùng (đã nới ngang tới bề rộng khung chung khi vẫn trống), `bbox_px` (px ảnh gốc), `anchor`, `backing` (`none` | `panel`: chỗ trống nhưng màu nền làm chữ kem kém tương phản), `cover_text_flag`, `note` (lý do).
 
+**Nối tên đã thiết kế với bìa** (`scripts/compose_titles.py`), khoá nối là mã sách `id`:
+1. `python3 scripts/compose_titles.py sheet mapping/covers/cover_slots.json mapping/covers/title_sheet.csv`: bảng giao việc (mở bằng Excel/Sheets), mỗi bìa một dòng: `file_name` = `<id>.png`, `design_w × design_h` = cỡ tối đa ở khung 1180px, `lines`, `align`, `template_id` (cùng template thì làm theo lô), `check` (no_room / replace / 2_lines / small).
+2. Designer xuất PNG nền trong suốt, tên file đúng `<id>.png`, bỏ chung một thư mục.
+3. `python3 scripts/compose_titles.py compose mapping/covers/cover_slots.json <thư-mục-png> out/composed/`: đặt từng PNG vào khung của bìa cùng id (thu vừa khung, giữ tỉ lệ, canh theo `anchor.align`, mép trên) → `out/composed/<id>.jpg` + `title_map.json` (vị trí px đã đặt; danh sách bìa thiếu tên và file không khớp id).
+
 ```bash
 python3 scripts/covers.py --status Approve     # -> out/covers/covers.json + overlay/
 python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang (3.311 cuốn)
