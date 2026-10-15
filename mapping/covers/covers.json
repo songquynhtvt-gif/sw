@@ -1,6 +1,11 @@
 {
  "schema": "covers/v2",
  "params": {
+  "en": {
+   "px": 16,
+   "line": 22.4,
+   "char_w": 0.55
+  },
   "grid": 24,
   "empty_t": 0.03,
   "blank_t": 0.008,
@@ -733,9 +738,9 @@
    "title_slot": {
     "id": "slot",
     "bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
     "position": "top",
@@ -746,19 +751,19 @@
     },
     "bg": "calm",
     "bg_rgb": [
-     218,
+     219,
      218,
      200
     ],
-    "busy": 0.0424,
+    "busy": 0.0431,
     "ink": "#0E4A3A",
-    "contrast": 7.22,
+    "contrast": 7.24,
     "scrim": "cream",
     "capacity_hanzi": 0,
     "lines": 0,
-    "chars_per_line": 5,
-    "empty_freq": 0.64,
-    "typical_title_len": 7
+    "chars_per_line": 8,
+    "empty_freq": 0.646,
+    "typical_title_len": 11
    },
    "stable_zones": [
     {
@@ -1485,12 +1490,12 @@
     "bbox": [
      0.625,
      0.0,
-     0.2083,
+     0.2917,
      0.1667
     ],
     "position": "top-right",
     "anchor": {
-     "x": 0.8333,
+     "x": 0.9167,
      "y": 0.0,
      "align": "right"
     },
@@ -1500,15 +1505,15 @@
      220,
      2
     ],
-    "busy": 0.001,
+    "busy": 0.0007,
     "ink": "#0E4A3A",
     "contrast": 7.55,
     "scrim": null,
-    "capacity_hanzi": 3,
+    "capacity_hanzi": 5,
     "lines": 1,
-    "chars_per_line": 3,
+    "chars_per_line": 5,
     "empty_freq": 1.0,
-    "typical_title_len": 3
+    "typical_title_len": 5
    },
    "stable_zones": [],
    "empty_freq": [
@@ -2145,9 +2150,9 @@
    "title_slot": {
     "id": "slot",
     "bbox": [
-     0.6667,
+     0.5417,
      0.0,
-     0.3333,
+     0.4583,
      0.1667
     ],
     "position": "top-right",
@@ -2156,21 +2161,21 @@
      "y": 0.0,
      "align": "right"
     },
-    "bg": "blank",
+    "bg": "calm",
     "bg_rgb": [
-     47,
-     77,
-     113
+     61,
+     88,
+     119
     ],
-    "busy": 0.0047,
+    "busy": 0.0314,
     "ink": "#FDF9F0",
-    "contrast": 8.23,
-    "scrim": null,
-    "capacity_hanzi": 6,
+    "contrast": 6.94,
+    "scrim": "forest",
+    "capacity_hanzi": 9,
     "lines": 1,
-    "chars_per_line": 6,
-    "empty_freq": 0.969,
-    "typical_title_len": 7
+    "chars_per_line": 9,
+    "empty_freq": 0.818,
+    "typical_title_len": 10
    },
    "stable_zones": [],
    "empty_freq": [
@@ -2807,9 +2812,9 @@
    "title_slot": {
     "id": "slot",
     "bbox": [
-     0.7917,
+     0.6667,
      0.0,
-     0.2083,
+     0.3333,
      0.125
     ],
     "position": "top-right",
@@ -2820,19 +2825,19 @@
     },
     "bg": "calm",
     "bg_rgb": [
-     135,
-     122,
-     166
+     149,
+     136,
+     175
     ],
-    "busy": 0.0212,
-    "ink": "#FDF9F0",
-    "contrast": 3.71,
-    "scrim": "forest",
+    "busy": 0.0316,
+    "ink": "#0E4A3A",
+    "contrast": 3.15,
+    "scrim": "cream",
     "capacity_hanzi": 0,
     "lines": 0,
-    "chars_per_line": 2,
-    "empty_freq": 0.733,
-    "typical_title_len": 3
+    "chars_per_line": 5,
+    "empty_freq": 0.583,
+    "typical_title_len": 7
    },
    "stable_zones": [],
    "empty_freq": [
@@ -3476,51 +3481,53 @@
    "format": "square",
    "title": "Goat and Hyena's knife",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 11,
    "title_pinyin": null,
+   "title_en": "Goat and Hyena's knife",
+   "title_en_source": "original",
    "empty_ratio": 0.406,
    "zones": [],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.0,
-    "style": "c1",
-    "source": "shifted",
+    "calm_coarse": 0.03,
+    "style": "panel",
+    "source": "fixed",
     "shift_px": [
-     228,
-     120
+     0,
+     0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (13% điểm là cạnh); nền loang sáng tối (lệch 0.181)); dời +228px ngang, +120px dọc tới chỗ nền yên",
+    "reason": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.201): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.5763,
-     0.1288,
-     0.2339,
-     0.0725
+     0.3305,
+     0.0271,
+     0.339,
+     0.0773
     ],
     "anchor": {
-     "x": 0.6932,
-     "y": 0.1288,
+     "x": 0.5,
+     "y": 0.0271,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
-     "edge_density": 0.0,
-     "luma_std": 0.019,
+     "calm_coarse": 0.0,
+     "edge_density": 0.123,
+     "luma_std": 0.195,
      "luma_p5_p50_p95": [
-      0.415,
-      0.438,
-      0.475
+      0.018,
+      0.036,
+      0.502
      ],
-     "fill_contrast_p5": 1.9,
-     "stroke_contrast_p5": 4.52,
-     "pair_contrast_p5": 4.52,
-     "panel_contrast_min": 9.27
+     "fill_contrast_p5": 1.81,
+     "stroke_contrast_p5": 1.1,
+     "pair_contrast_p5": 3.94,
+     "panel_contrast_min": 8.75
     }
    }
   },
@@ -3536,8 +3543,10 @@
    "format": "square",
    "title": "Little Ant's big plan",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 9,
    "title_pinyin": null,
+   "title_en": "Little Ant's big plan",
+   "title_en_source": "original",
    "empty_ratio": 0.604,
    "zones": [
     {
@@ -3627,12 +3636,12 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.88,
+    "calm_coarse": 0.92,
     "style": "c1",
     "source": "fixed",
     "shift_px": [
@@ -3641,9 +3650,9 @@
     ],
     "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
     "text_box": [
-     0.383,
+     0.3271,
      0.0271,
-     0.2339,
+     0.3458,
      0.0725
     ],
     "anchor": {
@@ -3654,9 +3663,9 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
+     "calm_coarse": 0.9,
      "edge_density": 0.008,
-     "luma_std": 0.062,
+     "luma_std": 0.064,
      "luma_p5_p50_p95": [
       0.986,
       1.0,
@@ -3681,8 +3690,10 @@
    "format": "r1.08",
    "title": "Lory Dory",
    "title_source": "title_en",
-   "title_len": 3,
+   "title_len": 5,
    "title_pinyin": null,
+   "title_en": "Lory Dory",
+   "title_en_source": "original",
    "empty_ratio": 0.45,
    "zones": [
     {
@@ -3746,7 +3757,7 @@
     "slot_bbox": [
      0.625,
      0.0,
-     0.2083,
+     0.2917,
      0.1667
     ],
     "calm_coarse": 1.0,
@@ -3758,13 +3769,13 @@
     ],
     "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
     "text_box": [
-     0.6681,
+     0.6725,
      0.0293,
-     0.122,
+     0.1966,
      0.0784
     ],
     "anchor": {
-     "x": 0.7291,
+     "x": 0.7708,
      "y": 0.0293,
      "align": "center"
     },
@@ -3798,8 +3809,10 @@
    "format": "square",
    "title": "Why Fly pesters Cow",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 9,
    "title_pinyin": null,
+   "title_en": "Why Fly pesters Cow",
+   "title_en_source": "original",
    "empty_ratio": 0.675,
    "zones": [
     {
@@ -3861,12 +3874,12 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.88,
+    "calm_coarse": 0.89,
     "style": "c1",
     "source": "fixed",
     "shift_px": [
@@ -3875,9 +3888,9 @@
     ],
     "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
     "text_box": [
-     0.383,
+     0.3271,
      0.0271,
-     0.2339,
+     0.3458,
      0.0725
     ],
     "anchor": {
@@ -3888,7 +3901,7 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
+     "calm_coarse": 0.87,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -3915,8 +3928,10 @@
    "format": "r1.14",
    "title": "The moon and the cap",
    "title_source": "title_en",
-   "title_len": 7,
+   "title_len": 10,
    "title_pinyin": null,
+   "title_en": "The moon and the cap",
+   "title_en_source": "original",
    "empty_ratio": 0.455,
    "zones": [
     {
@@ -3978,12 +3993,12 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.6667,
+     0.5417,
      0.0,
-     0.3333,
+     0.4583,
      0.1667
     ],
-    "calm_coarse": 0.97,
+    "calm_coarse": 0.82,
     "style": "c1",
     "source": "fixed",
     "shift_px": [
@@ -3992,31 +4007,31 @@
     ],
     "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
     "text_box": [
-     0.6978,
+     0.5793,
      0.0308,
-     0.2712,
+     0.3831,
      0.0825
     ],
     "anchor": {
-     "x": 0.8334,
+     "x": 0.7709,
      "y": 0.0308,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 1.0,
+     "calm_coarse": 0.88,
      "edge_density": 0.0,
-     "luma_std": 0.001,
+     "luma_std": 0.007,
      "luma_p5_p50_p95": [
       0.069,
-      0.069,
+      0.071,
       0.071
      ],
      "fill_contrast_p5": 8.26,
      "stroke_contrast_p5": 1.16,
      "pair_contrast_p5": 8.26,
-     "panel_contrast_min": 8.84
+     "panel_contrast_min": 8.78
     }
    }
   },
@@ -4032,8 +4047,10 @@
    "format": "square",
    "title": "Jaŋkuno mini Baa ni Bolli",
    "title_source": "title_en",
-   "title_len": 7,
+   "title_len": 12,
    "title_pinyin": null,
+   "title_en": "Jaŋkuno mini Baa ni Bolli",
+   "title_en_source": "original",
    "empty_ratio": 0.345,
    "zones": [
     {
@@ -4067,44 +4084,44 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.92,
+    "calm_coarse": 0.78,
     "style": "c1",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
+     36,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (22% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.3644,
+     0.3119,
      0.0271,
-     0.2712,
-     0.0725
+     0.4373,
+     0.0705
     ],
     "anchor": {
-     "x": 0.5,
+     "x": 0.5306,
      "y": 0.0271,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 42,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.92,
-     "edge_density": 0.004,
-     "luma_std": 0.053,
+     "calm_coarse": 0.85,
+     "edge_density": 0.019,
+     "luma_std": 0.107,
      "luma_p5_p50_p95": [
-      0.818,
-      0.837,
-      0.869
+      0.809,
+      0.833,
+      0.866
      ],
      "fill_contrast_p5": 1.09,
-     "stroke_contrast_p5": 8.43,
-     "pair_contrast_p5": 8.43,
+     "stroke_contrast_p5": 8.35,
+     "pair_contrast_p5": 8.36,
      "panel_contrast_min": 8.74
     }
    }
@@ -4121,29 +4138,31 @@
    "format": "square",
    "title": "Jaŋkuno mini Baa ni kahimpiɛɣu",
    "title_source": "title_en",
-   "title_len": 7,
+   "title_len": 15,
    "title_pinyin": null,
+   "title_en": "Jaŋkuno mini Baa ni kahimpiɛɣu",
+   "title_en_source": "original",
    "empty_ratio": 0.356,
    "zones": [],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.08,
+    "calm_coarse": 0.28,
     "style": "panel",
     "source": "fixed",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (92% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (72% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.193): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.3847,
+     0.2763,
      0.0271,
-     0.2305,
+     0.4475,
      0.0773
     ],
     "anchor": {
@@ -4154,17 +4173,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.06,
-     "edge_density": 0.056,
-     "luma_std": 0.138,
+     "calm_coarse": 0.28,
+     "edge_density": 0.054,
+     "luma_std": 0.189,
      "luma_p5_p50_p95": [
-      0.115,
-      0.458,
-      0.625
+      0.179,
+      0.462,
+      0.741
      ],
-     "fill_contrast_p5": 1.48,
-     "stroke_contrast_p5": 2.06,
-     "pair_contrast_p5": 3.69,
+     "fill_contrast_p5": 1.26,
+     "stroke_contrast_p5": 2.22,
+     "pair_contrast_p5": 3.28,
      "panel_contrast_min": 8.74
     }
    }
@@ -4181,8 +4200,10 @@
    "format": "square",
    "title": "Jaŋkuno mini Baa ni galli",
    "title_source": "title_en",
-   "title_len": 7,
+   "title_len": 11,
    "title_pinyin": null,
+   "title_en": "Jaŋkuno mini Baa ni galli",
+   "title_en_source": "original",
    "empty_ratio": 0.349,
    "zones": [
     {
@@ -4244,9 +4265,9 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
     "calm_coarse": 1.0,
@@ -4258,9 +4279,9 @@
     ],
     "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
     "text_box": [
-     0.3644,
+     0.2898,
      0.0271,
-     0.2712,
+     0.4203,
      0.0725
     ],
     "anchor": {
@@ -4282,7 +4303,7 @@
      "fill_contrast_p5": 1.13,
      "stroke_contrast_p5": 8.18,
      "pair_contrast_p5": 8.18,
-     "panel_contrast_min": 9.87
+     "panel_contrast_min": 9.85
     }
    }
   },
@@ -4298,51 +4319,53 @@
    "format": "r0.91",
    "title": "Bathtub Safari",
    "title_source": "title_en",
-   "title_len": 3,
+   "title_len": 7,
    "title_pinyin": null,
+   "title_en": "Bathtub Safari",
+   "title_en_source": "original",
    "empty_ratio": 0.365,
    "zones": [],
    "title_slot": {
     "slot_bbox": [
-     0.7917,
+     0.6667,
      0.0,
-     0.2083,
+     0.3333,
      0.125
     ],
-    "calm_coarse": 0.73,
+    "calm_coarse": 0.58,
     "style": "panel",
     "source": "fixed",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (22% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (42% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.8348,
+     0.7181,
      0.0248,
-     0.122,
+     0.2305,
      0.0706
     ],
     "anchor": {
-     "x": 0.8958,
+     "x": 0.8333,
      "y": 0.0248,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.78,
-     "edge_density": 0.0,
-     "luma_std": 0.067,
+     "calm_coarse": 0.56,
+     "edge_density": 0.001,
+     "luma_std": 0.17,
      "luma_p5_p50_p95": [
+      0.169,
       0.17,
-      0.17,
-      0.366
+      0.668
      ],
-     "fill_contrast_p5": 2.4,
+     "fill_contrast_p5": 1.39,
      "stroke_contrast_p5": 2.13,
-     "pair_contrast_p5": 4.06,
-     "panel_contrast_min": 8.95
+     "pair_contrast_p5": 4.03,
+     "panel_contrast_min": 8.93
     }
    }
   },
@@ -4358,8 +4381,10 @@
    "format": "square",
    "title": "Tortoise finds his house",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 11,
    "title_pinyin": null,
+   "title_en": "Tortoise finds his house",
+   "title_en_source": "original",
    "empty_ratio": 0.795,
    "zones": [
     {
@@ -4449,9 +4474,9 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
     "calm_coarse": 1.0,
@@ -4463,9 +4488,9 @@
     ],
     "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
     "text_box": [
-     0.383,
+     0.2898,
      0.0271,
-     0.2339,
+     0.4203,
      0.0725
     ],
     "anchor": {
@@ -4481,7 +4506,7 @@
      "luma_std": 0.007,
      "luma_p5_p50_p95": [
       0.767,
-      0.782,
+      0.78,
       0.79
      ],
      "fill_contrast_p5": 1.19,
@@ -4511,6 +4536,8 @@
     "wǒ",
     "shì"
    ],
+   "title_en": "Today, I Am...",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.394,
    "zones": [],
    "title_slot": {
@@ -4527,12 +4554,12 @@
      398,
      24
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.379)); dời +398px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.386)); dời +398px ngang, +24px dọc tới chỗ nền yên",
     "text_box": [
      0.7186,
      0.0991,
      0.1966,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.8169,
@@ -4544,7 +4571,7 @@
     "legibility": {
      "calm_coarse": 0.92,
      "edge_density": 0.0,
-     "luma_std": 0.002,
+     "luma_std": 0.003,
      "luma_p5_p50_p95": [
       0.957,
       0.961,
@@ -4580,6 +4607,8 @@
     "zhe",
     "ne"
    ],
+   "title_en": "Busy mother hen",
+   "title_en_source": "source_url",
    "empty_ratio": 0.714,
    "zones": [
     {
@@ -4681,12 +4710,12 @@
      -160,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (28% ô bận)); dời -160px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (33% ô bận)); dời -160px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.1898,
      0.0566,
      0.3085,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.344,
@@ -4697,8 +4726,8 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.88,
-     "edge_density": 0.006,
-     "luma_std": 0.046,
+     "edge_density": 0.007,
+     "luma_std": 0.045,
      "luma_p5_p50_p95": [
       0.213,
       0.262,
@@ -4723,8 +4752,10 @@
    "format": "wide",
    "title": "Just the Way I Am",
    "title_source": "title_en",
-   "title_len": 7,
+   "title_len": 8,
    "title_pinyin": null,
+   "title_en": "Just the Way I Am",
+   "title_en_source": "original",
    "empty_ratio": 0.443,
    "zones": [
     {
@@ -4795,31 +4826,31 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     -110,
+     -112,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (36% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.248)); dời -110px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (39% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.253)); dời -112px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.2508,
+     0.2305,
      0.0566,
-     0.2712,
+     0.3085,
      0.1516
     ],
     "anchor": {
-     "x": 0.3864,
+     "x": 0.3848,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.93,
+     "calm_coarse": 0.94,
      "edge_density": 0.0,
      "luma_std": 0.012,
      "luma_p5_p50_p95": [
       0.889,
       0.908,
-      0.93
+      0.931
      ],
      "fill_contrast_p5": 1.02,
      "stroke_contrast_p5": 9.12,
@@ -4840,8 +4871,10 @@
    "format": "wide",
    "title": "I Miss My Dog",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 7,
    "title_pinyin": null,
+   "title_en": "I Miss My Dog",
+   "title_en_source": "original",
    "empty_ratio": 0.108,
    "zones": [],
    "title_slot": {
@@ -4858,32 +4891,32 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (82% ô bận); nền nhiều hoạ tiết (16% điểm là cạnh); nền loang sáng tối (lệch 0.224): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (82% ô bận); nền nhiều hoạ tiết (14% điểm là cạnh); nền loang sáng tối (lệch 0.223): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.3776,
+     0.3639,
      0.0566,
-     0.2034,
+     0.2305,
      0.1614
     ],
     "anchor": {
-     "x": 0.4793,
+     "x": 0.4792,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.12,
-     "edge_density": 0.163,
-     "luma_std": 0.225,
+     "calm_coarse": 0.14,
+     "edge_density": 0.156,
+     "luma_std": 0.226,
      "luma_p5_p50_p95": [
-      0.022,
-      0.616,
-      0.642
+      0.02,
+      0.617,
+      0.639
      ],
-     "fill_contrast_p5": 1.44,
-     "stroke_contrast_p5": 1.44,
-     "pair_contrast_p5": 3.5,
+     "fill_contrast_p5": 1.45,
+     "stroke_contrast_p5": 1.45,
+     "pair_contrast_p5": 3.63,
      "panel_contrast_min": 8.74
     }
    }
@@ -4912,6 +4945,8 @@
     "ér",
     "shǔ"
    ],
+   "title_en": "Fanglianr mao jianlianr shu",
+   "title_en_source": "source_url",
    "empty_ratio": 0.569,
    "zones": [
     {
@@ -4985,12 +5020,12 @@
      -228,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (64% ô bận)); dời -228px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (62% ô bận)); dời -228px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.1288,
      0.0566,
      0.3153,
-     0.1431
+     0.1827
     ],
     "anchor": {
      "x": 0.2864,
@@ -5000,7 +5035,7 @@
     "font_px": 40,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
+     "calm_coarse": 0.9,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -5040,6 +5075,8 @@
     "shí",
     "shù"
    ],
+   "title_en": "Amazing Insects: Count with Pictures",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.189,
    "zones": [],
    "title_slot": {
@@ -5056,12 +5093,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (86% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.395): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (87% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.384): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3233,
      0.0567,
      0.3119,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -5072,15 +5109,15 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.13,
-     "edge_density": 0.063,
-     "luma_std": 0.387,
+     "edge_density": 0.059,
+     "luma_std": 0.377,
      "luma_p5_p50_p95": [
-      0.008,
-      0.205,
+      0.01,
+      0.203,
       1.0
      ],
-     "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 1.96,
+     "fill_contrast_p5": 1.04,
+     "stroke_contrast_p5": 1.95,
      "pair_contrast_p5": 3.83,
      "panel_contrast_min": 8.74
     }
@@ -5109,6 +5146,8 @@
     "yǒu",
     ""
    ],
+   "title_en": "Who Are Our Friends?",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.3,
    "zones": [
     {
@@ -5159,7 +5198,7 @@
      0.325,
      0.0567,
      0.3085,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4793,
@@ -5211,48 +5250,50 @@
     "gù",
     "shì"
    ],
+   "title_en": "The magic powder a folktale from myanmar",
+   "title_en_source": "source_url",
    "empty_ratio": 0.146,
    "zones": [],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.0,
+    "calm_coarse": 0.03,
     "style": "panel",
     "source": "fixed",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tên dài, xuống 2 dòng: dùng panel theo rule C1",
+    "reason": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.33): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.3711,
+     0.317,
      0.0275,
-     0.2576,
-     0.1295
+     0.3661,
+     0.0978
     ],
     "anchor": {
-     "x": 0.4999,
+     "x": 0.5,
      "y": 0.0275,
      "align": "center"
     },
     "font_px": 32,
-    "lines": 2,
+    "lines": 1,
     "legibility": {
-     "calm_coarse": 0.0,
-     "edge_density": 0.119,
-     "luma_std": 0.329,
+     "calm_coarse": 0.03,
+     "edge_density": 0.071,
+     "luma_std": 0.339,
      "luma_p5_p50_p95": [
       0.175,
-      0.424,
+      0.706,
       1.0
      ],
      "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 2.18,
-     "pair_contrast_p5": 3.32,
+     "stroke_contrast_p5": 2.19,
+     "pair_contrast_p5": 3.36,
      "panel_contrast_min": 8.92
     }
    }
@@ -5269,8 +5310,10 @@
    "format": "wide",
    "title": "The Brave Monkey",
    "title_source": "title_en",
-   "title_len": 4,
+   "title_len": 8,
    "title_pinyin": null,
+   "title_en": "The Brave Monkey",
+   "title_en_source": "original",
    "empty_ratio": 0.325,
    "zones": [],
    "title_slot": {
@@ -5287,11 +5330,11 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (89% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.276): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4046,
+     0.3504,
      0.0565,
-     0.1492,
+     0.2576,
      0.1611
     ],
     "anchor": {
@@ -5302,17 +5345,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.12,
-     "edge_density": 0.063,
-     "luma_std": 0.197,
+     "calm_coarse": 0.11,
+     "edge_density": 0.074,
+     "luma_std": 0.249,
      "luma_p5_p50_p95": [
-      0.435,
+      0.304,
       1.0,
       1.0
      ],
      "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 4.71,
-     "pair_contrast_p5": 7.79,
+     "stroke_contrast_p5": 3.44,
+     "pair_contrast_p5": 4.0,
      "panel_contrast_min": 8.74
     }
    }
@@ -5336,6 +5379,8 @@
     "bié",
     "zuò"
    ],
+   "title_en": "Don't, Don't Do It",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.319,
    "zones": [
     {
@@ -5386,7 +5431,7 @@
      0.3995,
      0.0567,
      0.1593,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4792,
@@ -5396,7 +5441,7 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 1.0,
+     "calm_coarse": 0.92,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -5431,6 +5476,8 @@
     "shù",
     "shàng"
    ],
+   "title_en": "High Up in the Tree",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.304,
    "zones": [],
    "title_slot": {
@@ -5447,12 +5494,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (20% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (32% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3911,
      0.0564,
      0.1763,
-     0.1608
+     0.2004
     ],
     "anchor": {
      "x": 0.4793,
@@ -5462,18 +5509,18 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.68,
-     "edge_density": 0.008,
+     "calm_coarse": 0.57,
+     "edge_density": 0.007,
      "luma_std": 0.039,
      "luma_p5_p50_p95": [
-      0.064,
+      0.06,
       0.109,
       0.173
      ],
      "fill_contrast_p5": 4.49,
-     "stroke_contrast_p5": 1.12,
+     "stroke_contrast_p5": 1.09,
      "pair_contrast_p5": 4.49,
-     "panel_contrast_min": 8.79
+     "panel_contrast_min": 8.78
     }
    }
   },
@@ -5497,6 +5544,8 @@
     "huǒ",
     "bàn"
    ],
+   "title_en": "Mandarin",
+   "title_en_source": "source_url",
    "empty_ratio": 0.054,
    "zones": [],
    "title_slot": {
@@ -5513,12 +5562,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền loang sáng tối (lệch 0.33): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (88% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.316): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3911,
      0.0567,
      0.1763,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4793,
@@ -5528,18 +5577,18 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.12,
-     "edge_density": 0.049,
-     "luma_std": 0.318,
+     "calm_coarse": 0.1,
+     "edge_density": 0.054,
+     "luma_std": 0.306,
      "luma_p5_p50_p95": [
-      0.099,
-      0.164,
-      0.93
+      0.089,
+      0.161,
+      0.926
      ],
      "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 1.45,
-     "pair_contrast_p5": 3.83,
-     "panel_contrast_min": 8.8
+     "stroke_contrast_p5": 1.35,
+     "pair_contrast_p5": 3.69,
+     "panel_contrast_min": 8.77
     }
    }
   },
@@ -5568,6 +5617,8 @@
     "yě",
     "láng"
    ],
+   "title_en": "Dule and Bulu Take On the Big Bad Wolf",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.106,
    "zones": [],
    "title_slot": {
@@ -5584,12 +5635,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (97% ô bận); nền nhiều hoạ tiết (29% điểm là cạnh); nền loang sáng tối (lệch 0.339): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (96% ô bận); nền nhiều hoạ tiết (28% điểm là cạnh); nền loang sáng tối (lệch 0.337): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3233,
      0.0567,
      0.3119,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -5600,16 +5651,16 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.04,
-     "edge_density": 0.288,
-     "luma_std": 0.338,
+     "edge_density": 0.281,
+     "luma_std": 0.336,
      "luma_p5_p50_p95": [
       0.042,
-      0.942,
+      0.939,
       1.0
      ],
      "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 1.22,
-     "pair_contrast_p5": 4.02,
+     "stroke_contrast_p5": 1.23,
+     "pair_contrast_p5": 4.03,
      "panel_contrast_min": 8.74
     }
    }
@@ -5634,6 +5685,8 @@
     "gè",
     "wǒ"
    ],
+   "title_en": "Another Me",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.703,
    "zones": [
     {
@@ -5730,38 +5783,38 @@
     ],
     "calm_coarse": 0.52,
     "style": "c1",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
+     -393,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (32% ô bận)); dời -393px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.3809,
-     0.0567,
+     0.0475,
+     0.0566,
      0.1966,
-     0.1516
+     0.1912
     ],
     "anchor": {
-     "x": 0.4792,
-     "y": 0.0567,
+     "x": 0.1458,
+     "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.85,
+     "calm_coarse": 1.0,
      "edge_density": 0.0,
-     "luma_std": 0.02,
+     "luma_std": 0.013,
      "luma_p5_p50_p95": [
-      0.872,
-      0.909,
-      0.931
+      0.963,
+      1.0,
+      1.0
      ],
      "fill_contrast_p5": 1.02,
-     "stroke_contrast_p5": 8.95,
-     "pair_contrast_p5": 8.95,
-     "panel_contrast_min": 9.75
+     "stroke_contrast_p5": 9.84,
+     "pair_contrast_p5": 9.84,
+     "panel_contrast_min": 10.03
     }
    }
   },
@@ -5784,6 +5837,8 @@
     "pá",
     ""
    ],
+   "title_en": "I Can Climb!",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.514,
    "zones": [
     {
@@ -5890,7 +5945,7 @@
      0.3322,
      0.0566,
      0.1593,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4118,
@@ -5937,6 +5992,8 @@
     "lǐ",
     "wù"
    ],
+   "title_en": "Sam's Christmas Present",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.387,
    "zones": [
     {
@@ -5982,12 +6039,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (96% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.388): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (94% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.362): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3639,
      0.0565,
      0.2305,
-     0.1611
+     0.2007
     ],
     "anchor": {
      "x": 0.4792,
@@ -5997,17 +6054,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.06,
-     "edge_density": 0.065,
-     "luma_std": 0.365,
+     "calm_coarse": 0.07,
+     "edge_density": 0.057,
+     "luma_std": 0.333,
      "luma_p5_p50_p95": [
       0.039,
-      0.132,
-      0.979
+      0.312,
+      0.959
      ],
-     "fill_contrast_p5": 1.04,
+     "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 1.06,
-     "pair_contrast_p5": 3.69,
+     "pair_contrast_p5": 3.51,
      "panel_contrast_min": 8.76
     }
    }
@@ -6032,6 +6089,8 @@
     "lā",
     "lā"
    ],
+   "title_en": "Lala the Yellow Ladybug",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.372,
    "zones": [
     {
@@ -6077,32 +6136,32 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền loang sáng tối (lệch 0.277): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.285): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.3911,
+     0.3862,
      0.0567,
-     0.1763,
-     0.1614
+     0.186,
+     0.2011
     ],
     "anchor": {
-     "x": 0.4793,
+     "x": 0.4792,
      "y": 0.0567,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.2,
-     "edge_density": 0.048,
-     "luma_std": 0.285,
+     "calm_coarse": 0.23,
+     "edge_density": 0.06,
+     "luma_std": 0.286,
      "luma_p5_p50_p95": [
       0.008,
-      0.752,
-      0.852
+      0.757,
+      0.856
      ],
-     "fill_contrast_p5": 1.11,
-     "stroke_contrast_p5": 1.54,
-     "pair_contrast_p5": 7.1,
+     "fill_contrast_p5": 1.1,
+     "stroke_contrast_p5": 1.56,
+     "pair_contrast_p5": 5.23,
      "panel_contrast_min": 8.74
     }
    }
@@ -6128,6 +6187,8 @@
     "yī",
     "yàng"
    ],
+   "title_en": "Same and Different",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.392,
    "zones": [],
    "title_slot": {
@@ -6144,12 +6205,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (32% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (46% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3776,
      0.0565,
      0.2034,
-     0.1611
+     0.2007
     ],
     "anchor": {
      "x": 0.4793,
@@ -6159,18 +6220,18 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.6,
-     "edge_density": 0.017,
-     "luma_std": 0.106,
+     "calm_coarse": 0.53,
+     "edge_density": 0.03,
+     "luma_std": 0.149,
      "luma_p5_p50_p95": [
-      0.724,
-      0.926,
-      0.996
+      0.585,
+      0.933,
+      0.997
      ],
-     "fill_contrast_p5": 1.0,
-     "stroke_contrast_p5": 7.51,
-     "pair_contrast_p5": 7.51,
-     "panel_contrast_min": 9.21
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 6.17,
+     "pair_contrast_p5": 6.42,
+     "panel_contrast_min": 8.81
     }
    }
   },
@@ -6186,8 +6247,10 @@
    "format": "wide",
    "title": "Our Colourful World",
    "title_source": "title_en",
-   "title_len": 4,
+   "title_len": 9,
    "title_pinyin": null,
+   "title_en": "Our Colourful World",
+   "title_en_source": "original",
    "empty_ratio": 0.408,
    "zones": [
     {
@@ -6233,11 +6296,11 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (60% ô bận); nền loang sáng tối (lệch 0.25): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (69% ô bận); nền loang sáng tối (lệch 0.247): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4046,
+     0.3369,
      0.0568,
-     0.1492,
+     0.2847,
      0.1617
     ],
     "anchor": {
@@ -6248,18 +6311,18 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.4,
-     "edge_density": 0.036,
-     "luma_std": 0.247,
+     "calm_coarse": 0.34,
+     "edge_density": 0.051,
+     "luma_std": 0.258,
      "luma_p5_p50_p95": [
-      0.331,
-      1.0,
+      0.328,
+      0.994,
       1.0
      ],
-     "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 3.7,
-     "pair_contrast_p5": 3.7,
-     "panel_contrast_min": 9.08
+     "fill_contrast_p5": 1.05,
+     "stroke_contrast_p5": 3.67,
+     "pair_contrast_p5": 3.67,
+     "panel_contrast_min": 9.05
     }
    }
   },
@@ -6282,6 +6345,8 @@
     "māo",
     ""
    ],
+   "title_en": "Hide and Seek!",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.368,
    "zones": [],
    "title_slot": {
@@ -6298,12 +6363,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (45% ô bận); nền loang sáng tối (lệch 0.265): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (40% ô bận); nền loang sáng tối (lệch 0.246): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.4046,
      0.0565,
      0.1492,
-     0.1611
+     0.2007
     ],
     "anchor": {
      "x": 0.4792,
@@ -6314,16 +6379,16 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.6,
-     "edge_density": 0.045,
-     "luma_std": 0.254,
+     "edge_density": 0.037,
+     "luma_std": 0.235,
      "luma_p5_p50_p95": [
-      0.208,
+      0.22,
       0.844,
-      0.852
+      0.845
      ],
-     "fill_contrast_p5": 1.11,
-     "stroke_contrast_p5": 2.51,
-     "pair_contrast_p5": 3.28,
+     "fill_contrast_p5": 1.12,
+     "stroke_contrast_p5": 2.62,
+     "pair_contrast_p5": 3.34,
      "panel_contrast_min": 8.82
     }
    }
@@ -6348,6 +6413,8 @@
     "mào",
     "zi"
    ],
+   "title_en": "The moon and the cap",
+   "title_en_source": "source_url",
    "empty_ratio": 0.67,
    "zones": [
     {
@@ -6449,12 +6516,12 @@
      -9,
      24
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (30% ô bận)); dời -9px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (24% ô bận)); dời -9px ngang, +24px dọc tới chỗ nền yên",
     "text_box": [
      0.3729,
      0.0991,
      0.1966,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4712,
@@ -6501,6 +6568,8 @@
     "jì",
     "huà"
    ],
+   "title_en": "A big plan of a little ant",
+   "title_en_source": "source_url",
    "empty_ratio": 0.571,
    "zones": [
     {
@@ -6579,7 +6648,7 @@
      0.3436,
      0.0567,
      0.2712,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4792,
@@ -6589,7 +6658,7 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
+     "calm_coarse": 0.91,
      "edge_density": 0.0,
      "luma_std": 0.0,
      "luma_p5_p50_p95": [
@@ -6625,6 +6694,8 @@
     "lái",
     ""
    ],
+   "title_en": "Cat come back",
+   "title_en_source": "source_url",
    "empty_ratio": 0.766,
    "zones": [
     {
@@ -6695,36 +6766,36 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     -84,
+     -156,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (21% ô bận)); dời -84px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (37% ô bận)); dời -156px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.2915,
+     0.2305,
      0.0566,
      0.2339,
-     0.1515
+     0.1911
     ],
     "anchor": {
-     "x": 0.4084,
+     "x": 0.3475,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
+     "calm_coarse": 0.86,
      "edge_density": 0.0,
-     "luma_std": 0.031,
+     "luma_std": 0.028,
      "luma_p5_p50_p95": [
       0.816,
-      0.873,
-      0.914
+      0.864,
+      0.906
      ],
-     "fill_contrast_p5": 1.04,
+     "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 8.41,
      "pair_contrast_p5": 8.41,
-     "panel_contrast_min": 9.24
+     "panel_contrast_min": 9.75
     }
    }
   },
@@ -6751,6 +6822,8 @@
     "gù",
     "shì"
    ],
+   "title_en": "The story of a dancer",
+   "title_en_source": "source_url",
    "empty_ratio": 0.646,
    "zones": [
     {
@@ -6818,38 +6891,38 @@
      0.25
     ],
     "calm_coarse": 0.26,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "fixed",
     "shift_px": [
-     -327,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (83% ô bận); nền nhiều hoạ tiết (10% điểm là cạnh); nền loang sáng tối (lệch 0.207)); dời -327px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "tranh có hình ngay chỗ chữ (87% ô bận); nền nhiều hoạ tiết (10% điểm là cạnh); nền loang sáng tối (lệch 0.282): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.0475,
-     0.0566,
-     0.3085,
-     0.1516
+     0.3504,
+     0.0567,
+     0.2576,
+     0.2011
     ],
     "anchor": {
-     "x": 0.2017,
-     "y": 0.0566,
+     "x": 0.4792,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
-     "edge_density": 0.011,
-     "luma_std": 0.07,
+     "calm_coarse": 0.07,
+     "edge_density": 0.096,
+     "luma_std": 0.303,
      "luma_p5_p50_p95": [
-      1.0,
+      0.004,
       1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 10.2,
-     "pair_contrast_p5": 10.2,
+     "fill_contrast_p5": 1.02,
+     "stroke_contrast_p5": 1.92,
+     "pair_contrast_p5": 5.24,
      "panel_contrast_min": 8.74
     }
    }
@@ -6876,6 +6949,8 @@
     "gǔ",
     "ěr"
    ],
+   "title_en": "Gul in space",
+   "title_en_source": "source_url",
    "empty_ratio": 0.345,
    "zones": [
     {
@@ -6943,39 +7018,39 @@
      0.25
     ],
     "calm_coarse": 0.26,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "fixed",
     "shift_px": [
-     395,
-     72
+     0,
+     0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (61% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.229)); dời +395px ngang, +72px dọc tới chỗ nền yên",
+    "reason": "tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.239): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.678,
-     0.1834,
-     0.2712,
-     0.1509
+     0.3639,
+     0.0564,
+     0.2305,
+     0.2004
     ],
     "anchor": {
-     "x": 0.8136,
-     "y": 0.1834,
+     "x": 0.4792,
+     "y": 0.0564,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.91,
-     "edge_density": 0.002,
-     "luma_std": 0.06,
+     "calm_coarse": 0.26,
+     "edge_density": 0.047,
+     "luma_std": 0.203,
      "luma_p5_p50_p95": [
-      0.783,
-      0.896,
-      0.942
+      0.035,
+      0.047,
+      0.747
      ],
-     "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 8.09,
-     "pair_contrast_p5": 8.09,
-     "panel_contrast_min": 9.31
+     "fill_contrast_p5": 1.25,
+     "stroke_contrast_p5": 1.02,
+     "pair_contrast_p5": 5.47,
+     "panel_contrast_min": 8.75
     }
    }
   },
@@ -6998,6 +7073,8 @@
     "yǎn",
     "jìng"
    ],
+   "title_en": "The magical glasses",
+   "title_en_source": "source_url",
    "empty_ratio": 0.358,
    "zones": [
     {
@@ -7043,12 +7120,12 @@
      377,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (70% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.245)); dời +377px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (76% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.303)); dời +377px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.7186,
      0.0546,
      0.1593,
-     0.1462
+     0.1844
     ],
     "anchor": {
      "x": 0.7982,
@@ -7058,15 +7135,15 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.95,
+     "calm_coarse": 0.96,
      "edge_density": 0.0,
-     "luma_std": 0.054,
+     "luma_std": 0.053,
      "luma_p5_p50_p95": [
-      0.764,
-      0.849,
-      0.924
+      0.763,
+      0.854,
+      0.925
      ],
-     "fill_contrast_p5": 1.03,
+     "fill_contrast_p5": 1.02,
      "stroke_contrast_p5": 7.9,
      "pair_contrast_p5": 7.9,
      "panel_contrast_min": 9.67
@@ -7091,6 +7168,8 @@
     "huà",
     "jiā"
    ],
+   "title_en": "HỌA SĨ TÈO NHÍ",
+   "title_en_source": "original",
    "empty_ratio": 0.681,
    "zones": [
     {
@@ -7192,12 +7271,12 @@
      -101,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (83% ô bận); nền loang sáng tối (lệch 0.261)); dời -101px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (87% ô bận); nền loang sáng tối (lệch 0.283)); dời -101px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.3322,
      0.0566,
      0.122,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.3932,
@@ -7207,18 +7286,18 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
+     "calm_coarse": 0.85,
      "edge_density": 0.0,
-     "luma_std": 0.015,
+     "luma_std": 0.016,
      "luma_p5_p50_p95": [
-      0.76,
-      0.783,
-      0.81
+      0.757,
+      0.78,
+      0.809
      ],
      "fill_contrast_p5": 1.16,
-     "stroke_contrast_p5": 7.86,
-     "pair_contrast_p5": 7.86,
-     "panel_contrast_min": 9.8
+     "stroke_contrast_p5": 7.84,
+     "pair_contrast_p5": 7.84,
+     "panel_contrast_min": 9.79
     }
    }
   },
@@ -7246,6 +7325,8 @@
     "shàng",
     ""
    ],
+   "title_en": "AI NÉM GIÀY VÀO ĐẦU TỚ?",
+   "title_en_source": "original",
    "empty_ratio": 0.498,
    "zones": [
     {
@@ -7296,7 +7377,7 @@
      0.3216,
      0.0567,
      0.3153,
-     0.1431
+     0.1827
     ],
     "anchor": {
      "x": 0.4793,
@@ -7317,7 +7398,7 @@
      "fill_contrast_p5": 1.06,
      "stroke_contrast_p5": 9.12,
      "pair_contrast_p5": 9.12,
-     "panel_contrast_min": 10.03
+     "panel_contrast_min": 10.0
     }
    }
   },
@@ -7342,6 +7423,8 @@
     "ne",
     ""
    ],
+   "title_en": "TRỐN Ở ĐÂU NÀO?",
+   "title_en_source": "original",
    "empty_ratio": 0.134,
    "zones": [],
    "title_slot": {
@@ -7358,12 +7441,12 @@
      324,
      48
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (89% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +324px ngang, +48px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (91% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +324px ngang, +48px dọc tới chỗ nền yên",
     "text_box": [
      0.6373,
      0.1416,
      0.2339,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.7542,
@@ -7374,8 +7457,8 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.87,
-     "edge_density": 0.0,
-     "luma_std": 0.005,
+     "edge_density": 0.001,
+     "luma_std": 0.011,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -7384,7 +7467,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 9.94
+     "panel_contrast_min": 9.91
     }
    }
   },
@@ -7410,6 +7493,8 @@
     "qù",
     "wán"
    ],
+   "title_en": "Dấu Câu Đi Chơi",
+   "title_en_source": "original",
    "empty_ratio": 0.47,
    "zones": [
     {
@@ -7480,36 +7565,36 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     395,
+     -373,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (46% ô bận); nền loang sáng tối (lệch 0.208)); dời +395px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (51% ô bận); nền loang sáng tối (lệch 0.208)); dời -373px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.678,
+     0.0271,
      0.0566,
      0.2712,
-     0.1516
+     0.1912
     ],
     "anchor": {
-     "x": 0.8136,
+     "x": 0.1627,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
-     "edge_density": 0.022,
-     "luma_std": 0.028,
+     "calm_coarse": 0.85,
+     "edge_density": 0.016,
+     "luma_std": 0.024,
      "luma_p5_p50_p95": [
-      0.404,
-      0.443,
-      0.461
+      0.417,
+      0.442,
+      0.46
      ],
-     "fill_contrast_p5": 1.95,
-     "stroke_contrast_p5": 4.41,
-     "pair_contrast_p5": 4.41,
-     "panel_contrast_min": 9.09
+     "fill_contrast_p5": 1.96,
+     "stroke_contrast_p5": 4.54,
+     "pair_contrast_p5": 4.54,
+     "panel_contrast_min": 9.08
     }
    }
   },
@@ -7536,6 +7621,8 @@
     "tàn",
     "wàng"
    ],
+   "title_en": "Cousin Comes to the Village",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.545,
    "zones": [
     {
@@ -7609,12 +7696,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (50% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (42% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3504,
      0.0567,
      0.2576,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -7624,17 +7711,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.54,
-     "edge_density": 0.076,
-     "luma_std": 0.164,
+     "calm_coarse": 0.6,
+     "edge_density": 0.062,
+     "luma_std": 0.151,
      "luma_p5_p50_p95": [
-      0.554,
+      0.723,
       1.0,
       1.0
      ],
      "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 5.86,
-     "pair_contrast_p5": 6.57,
+     "stroke_contrast_p5": 7.51,
+     "pair_contrast_p5": 8.08,
      "panel_contrast_min": 8.76
     }
    }
@@ -7659,6 +7746,8 @@
     "mào",
     "xiǎn"
    ],
+   "title_en": "Cuộc Phiêu Lưu Của Đất Sét",
+   "title_en_source": "original",
    "empty_ratio": 0.625,
    "zones": [
     {
@@ -7732,12 +7821,12 @@
      -369,
      48
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (40% ô bận)); dời -369px ngang, +48px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận)); dời -369px ngang, +48px dọc tới chỗ nền yên",
     "text_box": [
      0.0678,
      0.1416,
      0.1966,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.1661,
@@ -7749,11 +7838,11 @@
     "legibility": {
      "calm_coarse": 0.87,
      "edge_density": 0.0,
-     "luma_std": 0.04,
+     "luma_std": 0.038,
      "luma_p5_p50_p95": [
       0.724,
-      0.779,
-      0.852
+      0.782,
+      0.85
      ],
      "fill_contrast_p5": 1.11,
      "stroke_contrast_p5": 7.52,
@@ -7785,6 +7874,8 @@
     "gē",
     ""
    ],
+   "title_en": "Lấy Cái Xô Cho Anh!",
+   "title_en_source": "original",
    "empty_ratio": 0.493,
    "zones": [
     {
@@ -7827,27 +7918,27 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     152,
+     177,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (39% ô bận); nền nhiều hoạ tiết (7% điểm là cạnh); nền loang sáng tối (lệch 0.222)); dời +152px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh); nền loang sáng tối (lệch 0.251)); dời +177px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.4542,
+     0.4746,
      0.0566,
      0.3085,
-     0.1516
+     0.1912
     ],
     "anchor": {
-     "x": 0.6084,
+     "x": 0.6288,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
-     "edge_density": 0.0,
-     "luma_std": 0.0,
+     "calm_coarse": 0.85,
+     "edge_density": 0.008,
+     "luma_std": 0.062,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -7856,7 +7947,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 10.2
+     "panel_contrast_min": 8.79
     }
    }
   },
@@ -7881,6 +7972,8 @@
     "shàng",
     "xué"
    ],
+   "title_en": "Sóc con đi học",
+   "title_en_source": "original",
    "empty_ratio": 0.054,
    "zones": [],
    "title_slot": {
@@ -7902,7 +7995,7 @@
      0.3776,
      0.0567,
      0.2034,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4793,
@@ -7913,17 +8006,17 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.0,
-     "edge_density": 0.015,
-     "luma_std": 0.165,
+     "edge_density": 0.018,
+     "luma_std": 0.164,
      "luma_p5_p50_p95": [
-      0.307,
-      0.54,
-      0.808
+      0.305,
+      0.512,
+      0.794
      ],
-     "fill_contrast_p5": 1.16,
-     "stroke_contrast_p5": 3.47,
-     "pair_contrast_p5": 3.5,
-     "panel_contrast_min": 8.85
+     "fill_contrast_p5": 1.18,
+     "stroke_contrast_p5": 3.45,
+     "pair_contrast_p5": 3.52,
+     "panel_contrast_min": 8.77
     }
    }
   },
@@ -7948,6 +8041,8 @@
     "yáng",
     "ya"
    ],
+   "title_en": "Nắng Ơi Là Nắng",
+   "title_en_source": "original",
    "empty_ratio": 0.724,
    "zones": [
     {
@@ -8049,12 +8144,12 @@
      -324,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (71% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh)); dời -324px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (19% điểm là cạnh)); dời -324px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.0881,
      0.0566,
      0.2339,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.205,
@@ -8064,18 +8159,18 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.92,
-     "edge_density": 0.027,
-     "luma_std": 0.035,
+     "calm_coarse": 0.87,
+     "edge_density": 0.04,
+     "luma_std": 0.051,
      "luma_p5_p50_p95": [
       0.465,
       0.476,
-      0.489
+      0.508
      ],
-     "fill_contrast_p5": 1.85,
+     "fill_contrast_p5": 1.79,
      "stroke_contrast_p5": 5.0,
      "pair_contrast_p5": 5.0,
-     "panel_contrast_min": 8.84
+     "panel_contrast_min": 8.82
     }
    }
   },
@@ -8097,6 +8192,8 @@
     "rèn",
     "zì"
    ],
+   "title_en": "Kèng Kẹc Học Chữ",
+   "title_en_source": "original",
    "empty_ratio": 0.056,
    "zones": [],
    "title_slot": {
@@ -8113,12 +8210,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (21% điểm là cạnh); nền loang sáng tối (lệch 0.272): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh); nền loang sáng tối (lệch 0.255): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4182,
+     0.4057,
      0.0567,
-     0.122,
-     0.1614
+     0.147,
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -8129,16 +8226,16 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.0,
-     "edge_density": 0.201,
-     "luma_std": 0.266,
+     "edge_density": 0.175,
+     "luma_std": 0.255,
      "luma_p5_p50_p95": [
-      0.066,
-      0.441,
-      0.865
+      0.07,
+      0.459,
+      0.858
      ],
-     "fill_contrast_p5": 1.09,
-     "stroke_contrast_p5": 1.19,
-     "pair_contrast_p5": 3.45,
+     "fill_contrast_p5": 1.1,
+     "stroke_contrast_p5": 1.22,
+     "pair_contrast_p5": 3.48,
      "panel_contrast_min": 8.75
     }
    }
@@ -8161,6 +8258,8 @@
     "shēng",
     "rì"
    ],
+   "title_en": "Sinh nhật Bơ",
+   "title_en_source": "original",
    "empty_ratio": 0.457,
    "zones": [],
    "title_slot": {
@@ -8177,12 +8276,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (50% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (60% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.4182,
      0.0567,
      0.122,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -8192,17 +8291,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.4,
+     "calm_coarse": 0.5,
      "edge_density": 0.022,
-     "luma_std": 0.124,
+     "luma_std": 0.119,
      "luma_p5_p50_p95": [
-      0.55,
+      0.615,
       0.705,
       0.923
      ],
      "fill_contrast_p5": 1.03,
-     "stroke_contrast_p5": 5.83,
-     "pair_contrast_p5": 5.83,
+     "stroke_contrast_p5": 6.46,
+     "pair_contrast_p5": 6.46,
      "panel_contrast_min": 9.08
     }
    }
@@ -8225,6 +8324,8 @@
     "bǎo",
     "bèi"
    ],
+   "title_en": "Báu Vật Của Bo",
+   "title_en_source": "original",
    "empty_ratio": 0.736,
    "zones": [
     {
@@ -8298,12 +8399,12 @@
      19,
      24
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (33% ô bận)); dời +19px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (27% ô bận)); dời +19px ngang, +24px dọc tới chỗ nền yên",
     "text_box": [
      0.4339,
      0.0991,
      0.122,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4949,
@@ -8319,11 +8420,11 @@
      "luma_p5_p50_p95": [
       0.451,
       0.461,
-      0.472
+      0.473
      ],
      "fill_contrast_p5": 1.91,
-     "stroke_contrast_p5": 4.86,
-     "pair_contrast_p5": 4.86,
+     "stroke_contrast_p5": 4.87,
+     "pair_contrast_p5": 4.87,
      "panel_contrast_min": 9.37
     }
    }
@@ -8345,6 +8446,8 @@
     "yán",
     "sè"
    ],
+   "title_en": "Colours",
+   "title_en_source": "source_url",
    "empty_ratio": 0.646,
    "zones": [
     {
@@ -8446,12 +8549,12 @@
      285,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh); nền loang sáng tối (lệch 0.255)); dời +285px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.243)); dời +285px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.678,
      0.0566,
      0.0847,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.7204,
@@ -8461,7 +8564,7 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 1.0,
+     "calm_coarse": 0.87,
      "edge_density": 0.0,
      "luma_std": 0.002,
      "luma_p5_p50_p95": [
@@ -8472,7 +8575,7 @@
      "fill_contrast_p5": 1.0,
      "stroke_contrast_p5": 9.72,
      "pair_contrast_p5": 9.72,
-     "panel_contrast_min": 10.11
+     "panel_contrast_min": 10.06
     }
    }
   },
@@ -8499,6 +8602,8 @@
     "shuì",
     "jué"
    ],
+   "title_en": "Suỵt! Em Bé Đang Ngủ",
+   "title_en_source": "original",
    "empty_ratio": 0.479,
    "zones": [
     {
@@ -8572,12 +8677,12 @@
      80,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (17% ô bận)); dời +80px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời +80px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.3932,
      0.0566,
      0.3085,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.5474,
@@ -8587,9 +8692,9 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.94,
-     "edge_density": 0.002,
-     "luma_std": 0.031,
+     "calm_coarse": 0.95,
+     "edge_density": 0.001,
+     "luma_std": 0.028,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -8624,6 +8729,8 @@
     "yá",
     "chǐ"
    ],
+   "title_en": "The Wobbly Tooth",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.392,
    "zones": [
     {
@@ -8663,39 +8770,39 @@
      0.25
     ],
     "calm_coarse": 0.48,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "fixed",
     "shift_px": [
-     -253,
+     0,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (57% ô bận); nền loang sáng tối (lệch 0.345)); dời -253px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "tranh có hình ngay chỗ chữ (57% ô bận); nền loang sáng tối (lệch 0.358): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.1288,
-     0.0566,
-     0.2712,
-     0.1516
+     0.3639,
+     0.0567,
+     0.2305,
+     0.2011
     ],
     "anchor": {
-     "x": 0.2644,
-     "y": 0.0566,
+     "x": 0.4792,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
-     "edge_density": 0.0,
-     "luma_std": 0.038,
+     "calm_coarse": 0.4,
+     "edge_density": 0.012,
+     "luma_std": 0.351,
      "luma_p5_p50_p95": [
-      0.757,
-      0.794,
-      0.879
+      0.025,
+      0.78,
+      0.925
      ],
-     "fill_contrast_p5": 1.08,
-     "stroke_contrast_p5": 7.84,
-     "pair_contrast_p5": 7.84,
-     "panel_contrast_min": 9.72
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 1.11,
+     "pair_contrast_p5": 7.35,
+     "panel_contrast_min": 8.75
     }
    }
   },
@@ -8722,6 +8829,8 @@
     "qián",
     "jìn"
    ],
+   "title_en": "Best foot forward",
+   "title_en_source": "source_url",
    "empty_ratio": 0.41,
    "zones": [
     {
@@ -8790,37 +8899,37 @@
     ],
     "calm_coarse": 0.85,
     "style": "c1",
-    "source": "fixed",
+    "source": "shifted",
     "shift_px": [
-     0,
+     -63,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời -63px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.325,
-     0.0567,
+     0.2712,
+     0.0566,
      0.3085,
-     0.1516
+     0.1912
     ],
     "anchor": {
-     "x": 0.4793,
-     "y": 0.0567,
+     "x": 0.4254,
+     "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
-     "edge_density": 0.012,
-     "luma_std": 0.081,
+     "calm_coarse": 0.85,
+     "edge_density": 0.018,
+     "luma_std": 0.105,
      "luma_p5_p50_p95": [
-      0.843,
-      0.879,
+      0.834,
+      0.878,
       0.897
      ],
      "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 8.67,
-     "pair_contrast_p5": 8.68,
+     "stroke_contrast_p5": 8.59,
+     "pair_contrast_p5": 8.62,
      "panel_contrast_min": 8.76
     }
    }
@@ -8849,6 +8958,8 @@
     "ma",
     ""
    ],
+   "title_en": "Cậu Cố Lấy Hạt Của Tớ Không?",
+   "title_en_source": "original",
    "empty_ratio": 0.512,
    "zones": [
     {
@@ -8899,7 +9010,7 @@
      0.3216,
      0.0567,
      0.3153,
-     0.1431
+     0.1827
     ],
     "anchor": {
      "x": 0.4793,
@@ -8911,15 +9022,15 @@
     "legibility": {
      "calm_coarse": 1.0,
      "edge_density": 0.009,
-     "luma_std": 0.061,
+     "luma_std": 0.063,
      "luma_p5_p50_p95": [
-      0.665,
-      0.77,
-      0.851
+      0.652,
+      0.757,
+      0.846
      ],
      "fill_contrast_p5": 1.11,
-     "stroke_contrast_p5": 6.94,
-     "pair_contrast_p5": 6.94,
+     "stroke_contrast_p5": 6.82,
+     "pair_contrast_p5": 6.82,
      "panel_contrast_min": 9.05
     }
    }
@@ -8945,6 +9056,8 @@
     "lái",
     ""
    ],
+   "title_en": "Tớ Phải Trốn Thôi!",
+   "title_en_source": "original",
    "empty_ratio": 0.75,
    "zones": [
     {
@@ -9015,36 +9128,36 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     -299,
+     -324,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (79% ô bận); nền loang sáng tối (lệch 0.434)); dời -299px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (74% ô bận); nền loang sáng tối (lệch 0.43)); dời -324px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.1085,
+     0.0881,
      0.0566,
      0.2339,
-     0.1516
+     0.1912
     ],
     "anchor": {
-     "x": 0.2254,
+     "x": 0.205,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.86,
+     "calm_coarse": 0.93,
      "edge_density": 0.0,
-     "luma_std": 0.018,
+     "luma_std": 0.019,
      "luma_p5_p50_p95": [
-      0.843,
-      0.876,
+      0.837,
+      0.872,
       0.901
      ],
      "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 8.67,
-     "pair_contrast_p5": 8.67,
-     "panel_contrast_min": 9.57
+     "stroke_contrast_p5": 8.62,
+     "pair_contrast_p5": 8.62,
+     "panel_contrast_min": 9.79
     }
    }
   },
@@ -9072,6 +9185,8 @@
     "yàng",
     ""
    ],
+   "title_en": "Nhà có đông người thì sao?",
+   "title_en_source": "original",
    "empty_ratio": 0.524,
    "zones": [
     {
@@ -9145,12 +9260,12 @@
      373,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (81% ô bận); nền nhiều hoạ tiết (26% điểm là cạnh); nền loang sáng tối (lệch 0.311)); dời +373px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (84% ô bận); nền nhiều hoạ tiết (29% điểm là cạnh); nền loang sáng tối (lệch 0.324)); dời +373px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.6373,
      0.0566,
      0.3153,
-     0.1431
+     0.1827
     ],
     "anchor": {
      "x": 0.795,
@@ -9160,18 +9275,18 @@
     "font_px": 40,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.94,
-     "edge_density": 0.0,
-     "luma_std": 0.01,
+     "calm_coarse": 0.9,
+     "edge_density": 0.002,
+     "luma_std": 0.029,
      "luma_p5_p50_p95": [
-      0.779,
+      0.781,
       0.812,
       0.812
      ],
      "fill_contrast_p5": 1.16,
-     "stroke_contrast_p5": 8.05,
-     "pair_contrast_p5": 8.05,
-     "panel_contrast_min": 9.83
+     "stroke_contrast_p5": 8.07,
+     "pair_contrast_p5": 8.07,
+     "panel_contrast_min": 8.74
     }
    }
   },
@@ -9195,6 +9310,8 @@
     "xià",
     "tiān"
    ],
+   "title_en": "Mùa hè kỳ lạ",
+   "title_en_source": "original",
    "empty_ratio": 0.297,
    "zones": [],
    "title_slot": {
@@ -9211,12 +9328,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (13% điểm là cạnh); nền loang sáng tối (lệch 0.321): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (68% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh); nền loang sáng tối (lệch 0.308): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3911,
      0.0567,
      0.1763,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4793,
@@ -9226,17 +9343,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.32,
-     "edge_density": 0.116,
-     "luma_std": 0.308,
+     "calm_coarse": 0.4,
+     "edge_density": 0.095,
+     "luma_std": 0.288,
      "luma_p5_p50_p95": [
-      0.144,
+      0.162,
       1.0,
       1.0
      ],
-     "fill_contrast_p5": 1.02,
-     "stroke_contrast_p5": 1.88,
-     "pair_contrast_p5": 3.72,
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 2.06,
+     "pair_contrast_p5": 3.81,
      "panel_contrast_min": 8.76
     }
    }
@@ -9253,8 +9370,10 @@
    "format": "wide",
    "title": "Yellow Shoes",
    "title_source": "title_en",
-   "title_len": 3,
+   "title_len": 6,
    "title_pinyin": null,
+   "title_en": "Yellow Shoes",
+   "title_en_source": "original",
    "empty_ratio": 0.153,
    "zones": [],
    "title_slot": {
@@ -9273,13 +9392,13 @@
     ],
     "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (11% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4182,
+     0.3776,
      0.0564,
-     0.122,
+     0.2034,
      0.1608
     ],
     "anchor": {
-     "x": 0.4792,
+     "x": 0.4793,
      "y": 0.0564,
      "align": "center"
     },
@@ -9287,17 +9406,17 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.0,
-     "edge_density": 0.112,
-     "luma_std": 0.1,
+     "edge_density": 0.113,
+     "luma_std": 0.105,
      "luma_p5_p50_p95": [
-      0.039,
-      0.053,
-      0.306
+      0.038,
+      0.055,
+      0.307
      ],
-     "fill_contrast_p5": 2.81,
+     "fill_contrast_p5": 2.8,
      "stroke_contrast_p5": 1.01,
-     "pair_contrast_p5": 3.25,
-     "panel_contrast_min": 8.76
+     "pair_contrast_p5": 3.23,
+     "panel_contrast_min": 8.75
     }
    }
   },
@@ -9322,6 +9441,8 @@
     "ér",
     ""
    ],
+   "title_en": "Màu Vàng Ở Đâu?",
+   "title_en_source": "original",
    "empty_ratio": 0.3,
    "zones": [
     {
@@ -9367,12 +9488,12 @@
      36,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (18% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (20% ô bận)); dời +36px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.3932,
      0.0566,
      0.2339,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.5102,
@@ -9384,16 +9505,16 @@
     "legibility": {
      "calm_coarse": 0.86,
      "edge_density": 0.0,
-     "luma_std": 0.048,
+     "luma_std": 0.051,
      "luma_p5_p50_p95": [
-      0.765,
-      0.863,
-      0.925
+      0.761,
+      0.867,
+      0.928
      ],
      "fill_contrast_p5": 1.02,
-     "stroke_contrast_p5": 7.92,
-     "pair_contrast_p5": 7.92,
-     "panel_contrast_min": 9.7
+     "stroke_contrast_p5": 7.88,
+     "pair_contrast_p5": 7.88,
+     "panel_contrast_min": 9.64
     }
    }
   },
@@ -9418,6 +9539,8 @@
     "de",
     "mèng"
    ],
+   "title_en": "Giấc mơ biển xanh",
+   "title_en_source": "original",
    "empty_ratio": 0.457,
    "zones": [
     {
@@ -9468,7 +9591,7 @@
      0.3623,
      0.0567,
      0.2339,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4793,
@@ -9478,17 +9601,17 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
+     "calm_coarse": 0.86,
      "edge_density": 0.0,
-     "luma_std": 0.06,
+     "luma_std": 0.061,
      "luma_p5_p50_p95": [
-      0.501,
-      0.566,
+      0.498,
+      0.563,
       0.686
      ],
      "fill_contrast_p5": 1.36,
-     "stroke_contrast_p5": 5.35,
-     "pair_contrast_p5": 5.35,
+     "stroke_contrast_p5": 5.32,
+     "pair_contrast_p5": 5.32,
      "panel_contrast_min": 9.37
     }
    }
@@ -9513,6 +9636,8 @@
     "měi",
     "lā"
    ],
+   "title_en": "Meera and ameera",
+   "title_en_source": "source_url",
    "empty_ratio": 0.33,
    "zones": [],
    "title_slot": {
@@ -9529,12 +9654,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (85% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (84% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3911,
      0.0567,
      0.1763,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4793,
@@ -9544,17 +9669,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.16,
-     "edge_density": 0.035,
-     "luma_std": 0.137,
+     "calm_coarse": 0.17,
+     "edge_density": 0.04,
+     "luma_std": 0.155,
      "luma_p5_p50_p95": [
-      0.033,
-      0.356,
-      0.454
+      0.027,
+      0.346,
+      0.449
      ],
-     "fill_contrast_p5": 1.98,
-     "stroke_contrast_p5": 1.09,
-     "pair_contrast_p5": 3.5,
+     "fill_contrast_p5": 2.0,
+     "stroke_contrast_p5": 1.08,
+     "pair_contrast_p5": 3.56,
      "panel_contrast_min": 8.76
     }
    }
@@ -9581,6 +9706,8 @@
     "jiǎo",
     "ba"
    ],
+   "title_en": "Let s count legs",
+   "title_en_source": "source_url",
    "empty_ratio": 0.502,
    "zones": [
     {
@@ -9626,12 +9753,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (57% ô bận); nền loang sáng tối (lệch 0.317): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (54% ô bận); nền loang sáng tối (lệch 0.317): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3639,
      0.0566,
      0.2305,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -9641,9 +9768,9 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.46,
-     "edge_density": 0.048,
-     "luma_std": 0.323,
+     "calm_coarse": 0.48,
+     "edge_density": 0.054,
+     "luma_std": 0.321,
      "luma_p5_p50_p95": [
       0.174,
       0.892,
@@ -9677,6 +9804,8 @@
     "hú",
     "lú"
    ],
+   "title_en": "Lục Bình Giỏi Giang",
+   "title_en_source": "original",
    "empty_ratio": 0.12,
    "zones": [],
    "title_slot": {
@@ -9693,12 +9822,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3776,
      0.0567,
      0.2034,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4793,
@@ -9710,15 +9839,15 @@
     "legibility": {
      "calm_coarse": 0.0,
      "edge_density": 0.053,
-     "luma_std": 0.182,
+     "luma_std": 0.19,
      "luma_p5_p50_p95": [
-      0.285,
-      0.735,
-      0.895
+      0.259,
+      0.721,
+      0.887
      ],
-     "fill_contrast_p5": 1.06,
-     "stroke_contrast_p5": 3.25,
-     "pair_contrast_p5": 3.64,
+     "fill_contrast_p5": 1.07,
+     "stroke_contrast_p5": 3.0,
+     "pair_contrast_p5": 3.6,
      "panel_contrast_min": 8.81
     }
    }
@@ -9744,6 +9873,8 @@
     "ér",
     ""
    ],
+   "title_en": "Biển Ở Đâu?",
+   "title_en_source": "original",
    "empty_ratio": 0.719,
    "zones": [
     {
@@ -9845,12 +9976,12 @@
      -179,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (64% ô bận); nền loang sáng tối (lệch 0.185)); dời -179px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (63% ô bận); nền loang sáng tối (lệch 0.217)); dời -179px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.2102,
      0.0566,
      0.2339,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.3272,
@@ -9860,18 +9991,18 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
-     "edge_density": 0.0,
+     "calm_coarse": 0.87,
+     "edge_density": 0.001,
      "luma_std": 0.007,
      "luma_p5_p50_p95": [
-      0.039,
-      0.052,
+      0.04,
+      0.053,
       0.063
      ],
-     "fill_contrast_p5": 8.88,
+     "fill_contrast_p5": 8.86,
      "stroke_contrast_p5": 1.01,
-     "pair_contrast_p5": 8.88,
-     "panel_contrast_min": 8.78
+     "pair_contrast_p5": 8.86,
+     "panel_contrast_min": 8.74
     }
    }
   },
@@ -9895,6 +10026,8 @@
     "zhǒng",
     "zi"
    ],
+   "title_en": "Cái Hạt Đi Lạc",
+   "title_en_source": "original",
    "empty_ratio": 0.618,
    "zones": [
     {
@@ -9996,12 +10129,12 @@
      -154,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (40% ô bận)); dời -154px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận)); dời -154px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.2508,
      0.0566,
      0.1966,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.3491,
@@ -10011,13 +10144,13 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.95,
-     "edge_density": 0.013,
-     "luma_std": 0.046,
+     "calm_coarse": 0.96,
+     "edge_density": 0.012,
+     "luma_std": 0.045,
      "luma_p5_p50_p95": [
       0.855,
       0.949,
-      0.979
+      0.98
      ],
      "fill_contrast_p5": 1.0,
      "stroke_contrast_p5": 8.79,
@@ -10038,8 +10171,10 @@
    "format": "wide",
    "title": "Fishing in My Village",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 9,
    "title_pinyin": null,
+   "title_en": "Fishing in My Village",
+   "title_en_source": "original",
    "empty_ratio": 0.24,
    "zones": [
     {
@@ -10085,33 +10220,33 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (54% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (56% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.3776,
+     0.3369,
      0.0567,
-     0.2034,
+     0.2847,
      0.1614
     ],
     "anchor": {
-     "x": 0.4793,
+     "x": 0.4792,
      "y": 0.0567,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.4,
-     "edge_density": 0.015,
-     "luma_std": 0.08,
+     "calm_coarse": 0.37,
+     "edge_density": 0.025,
+     "luma_std": 0.1,
      "luma_p5_p50_p95": [
-      0.451,
+      0.441,
       0.639,
       0.66
      ],
      "fill_contrast_p5": 1.41,
-     "stroke_contrast_p5": 4.86,
-     "pair_contrast_p5": 4.86,
-     "panel_contrast_min": 9.06
+     "stroke_contrast_p5": 4.77,
+     "pair_contrast_p5": 4.81,
+     "panel_contrast_min": 8.75
     }
    }
   },
@@ -10133,6 +10268,8 @@
     "lǜ",
     "ya"
    ],
+   "title_en": "Xanh thật là xanh",
+   "title_en_source": "original",
    "empty_ratio": 0.469,
    "zones": [
     {
@@ -10206,12 +10343,12 @@
      -221,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (58% ô bận)); dời -221px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (67% ô bận); nền loang sáng tối (lệch 0.212)); dời -221px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.2305,
      0.0566,
      0.122,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.2915,
@@ -10221,17 +10358,17 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 1.0,
-     "edge_density": 0.029,
-     "luma_std": 0.061,
+     "calm_coarse": 0.9,
+     "edge_density": 0.028,
+     "luma_std": 0.062,
      "luma_p5_p50_p95": [
-      0.981,
+      0.983,
       1.0,
       1.0
      ],
      "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 10.01,
-     "pair_contrast_p5": 10.01,
+     "stroke_contrast_p5": 10.03,
+     "pair_contrast_p5": 10.03,
      "panel_contrast_min": 9.31
     }
    }
@@ -10248,8 +10385,10 @@
    "format": "wide",
    "title": "Piggy Wants to Fly",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 8,
    "title_pinyin": null,
+   "title_en": "Piggy Wants to Fly",
+   "title_en_source": "original",
    "empty_ratio": 0.406,
    "zones": [
     {
@@ -10289,39 +10428,39 @@
      0.25
     ],
     "calm_coarse": 0.39,
-    "style": "c1",
-    "source": "shifted",
+    "style": "panel",
+    "source": "fixed",
     "shift_px": [
-     -324,
-     24
+     0,
+     0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (64% ô bận)); dời -324px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "tranh có hình ngay chỗ chữ (64% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.0881,
-     0.0991,
-     0.2339,
-     0.1516
+     0.3504,
+     0.0567,
+     0.2576,
+     0.1614
     ],
     "anchor": {
-     "x": 0.205,
-     "y": 0.0991,
+     "x": 0.4792,
+     "y": 0.0567,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.87,
-     "edge_density": 0.0,
-     "luma_std": 0.036,
+     "calm_coarse": 0.46,
+     "edge_density": 0.027,
+     "luma_std": 0.109,
      "luma_p5_p50_p95": [
-      0.619,
-      0.676,
-      0.736
+      0.468,
+      0.666,
+      0.75
      ],
-     "fill_contrast_p5": 1.27,
-     "stroke_contrast_p5": 6.49,
-     "pair_contrast_p5": 6.49,
-     "panel_contrast_min": 9.44
+     "fill_contrast_p5": 1.25,
+     "stroke_contrast_p5": 5.03,
+     "pair_contrast_p5": 5.21,
+     "panel_contrast_min": 8.74
     }
    }
   },
@@ -10337,8 +10476,10 @@
    "format": "wide",
    "title": "Behind You",
    "title_source": "title_en",
-   "title_len": 3,
+   "title_len": 5,
    "title_pinyin": null,
+   "title_en": "Behind You",
+   "title_en_source": "original",
    "empty_ratio": 0.451,
    "zones": [
     {
@@ -10384,33 +10525,33 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (50% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (40% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4182,
+     0.3911,
      0.0563,
-     0.122,
+     0.1763,
      0.1606
     ],
     "anchor": {
-     "x": 0.4792,
+     "x": 0.4793,
      "y": 0.0563,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.4,
-     "edge_density": 0.0,
-     "luma_std": 0.041,
+     "calm_coarse": 0.48,
+     "edge_density": 0.001,
+     "luma_std": 0.045,
      "luma_p5_p50_p95": [
       0.793,
-      0.894,
+      0.893,
       0.895
      ],
      "fill_contrast_p5": 1.06,
      "stroke_contrast_p5": 8.18,
      "pair_contrast_p5": 8.18,
-     "panel_contrast_min": 9.82
+     "panel_contrast_min": 9.06
     }
    }
   },
@@ -10426,8 +10567,10 @@
    "format": "wide",
    "title": "The Lonely Whale Shark",
    "title_source": "title_en",
-   "title_len": 6,
+   "title_len": 11,
    "title_pinyin": null,
+   "title_en": "The Lonely Whale Shark",
+   "title_en_source": "original",
    "empty_ratio": 0.378,
    "zones": [],
    "title_slot": {
@@ -10441,36 +10584,36 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     373,
+     392,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (57% ô bận)); dời +373px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (56% ô bận)); dời +392px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.678,
+     0.6576,
      0.0566,
-     0.2339,
-     0.1516
+     0.3085,
+     0.1261
     ],
     "anchor": {
-     "x": 0.795,
+     "x": 0.8118,
      "y": 0.0566,
      "align": "center"
     },
-    "font_px": 44,
+    "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
-     "edge_density": 0.003,
-     "luma_std": 0.044,
+     "calm_coarse": 0.86,
+     "edge_density": 0.002,
+     "luma_std": 0.043,
      "luma_p5_p50_p95": [
-      0.119,
+      0.123,
       0.143,
-      0.25
+      0.252
      ],
-     "fill_contrast_p5": 3.33,
-     "stroke_contrast_p5": 1.65,
-     "pair_contrast_p5": 3.36,
-     "panel_contrast_min": 8.85
+     "fill_contrast_p5": 3.31,
+     "stroke_contrast_p5": 1.68,
+     "pair_contrast_p5": 3.32,
+     "panel_contrast_min": 8.87
     }
    }
   },
@@ -10493,6 +10636,8 @@
     "de",
     "gē"
    ],
+   "title_en": "Cicada s song",
+   "title_en_source": "source_url",
    "empty_ratio": 0.486,
    "zones": [
     {
@@ -10538,12 +10683,12 @@
      -79,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (45% ô bận); nền loang sáng tối (lệch 0.198)); dời -79px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (44% ô bận); nền loang sáng tối (lệch 0.191)); dời -79px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.3322,
      0.0566,
      0.1593,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4118,
@@ -10553,9 +10698,9 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.95,
+     "calm_coarse": 0.96,
      "edge_density": 0.0,
-     "luma_std": 0.001,
+     "luma_std": 0.002,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -10564,7 +10709,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 10.17
+     "panel_contrast_min": 10.15
     }
    }
   },
@@ -10586,6 +10731,8 @@
     "shuí",
     ""
    ],
+   "title_en": "Who is it",
+   "title_en_source": "source_url",
    "empty_ratio": 0.497,
    "zones": [
     {
@@ -10647,9 +10794,9 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
     "calm_coarse": 1.0,
@@ -10661,13 +10808,13 @@
     ],
     "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
     "text_box": [
-     0.4389,
+     0.439,
      0.0276,
      0.122,
-     0.0739
+     0.0932
     ],
     "anchor": {
-     "x": 0.4999,
+     "x": 0.5,
      "y": 0.0276,
      "align": "center"
     },
@@ -10711,6 +10858,8 @@
     "zhí",
     "wù"
    ],
+   "title_en": "Tra s red bean plant",
+   "title_en_source": "source_url",
    "empty_ratio": 0.45,
    "zones": [],
    "title_slot": {
@@ -10727,12 +10876,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (64% ô bận); nền loang sáng tối (lệch 0.243): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (60% ô bận); nền loang sáng tối (lệch 0.221): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3639,
      0.0567,
      0.2305,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -10742,18 +10891,18 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.4,
-     "edge_density": 0.013,
-     "luma_std": 0.187,
+     "calm_coarse": 0.43,
+     "edge_density": 0.01,
+     "luma_std": 0.17,
      "luma_p5_p50_p95": [
       0.022,
-      0.044,
-      0.737
+      0.045,
+      0.59
      ],
-     "fill_contrast_p5": 1.27,
+     "fill_contrast_p5": 1.56,
      "stroke_contrast_p5": 1.02,
-     "pair_contrast_p5": 6.09,
-     "panel_contrast_min": 8.77
+     "pair_contrast_p5": 6.54,
+     "panel_contrast_min": 8.76
     }
    }
   },
@@ -10767,7 +10916,7 @@
     459
    ],
    "format": "wide",
-   "title": "爸爸的爱好\nTan Jun Qi\nTan Jun Qi",
+   "title": "爸爸的爱好",
    "title_source": "cover_text",
    "title_len": 5,
    "title_pinyin": [
@@ -10777,6 +10926,8 @@
     "ài",
     "hǎo"
    ],
+   "title_en": "Dad's Hobby",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.215,
    "zones": [],
    "title_slot": {
@@ -10793,12 +10944,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (85% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.441): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (88% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.446): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3911,
      0.0567,
      0.1763,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4793,
@@ -10808,17 +10959,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.12,
-     "edge_density": 0.049,
-     "luma_std": 0.448,
+     "calm_coarse": 0.1,
+     "edge_density": 0.058,
+     "luma_std": 0.445,
      "luma_p5_p50_p95": [
       0.003,
-      0.853,
+      0.424,
       0.998
      ],
      "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 1.38,
-     "pair_contrast_p5": 8.45,
+     "stroke_contrast_p5": 1.39,
+     "pair_contrast_p5": 6.03,
      "panel_contrast_min": 8.74
     }
    }
@@ -10833,7 +10984,7 @@
     1605
    ],
    "format": "wide",
-   "title": "睡觉吧\nKrisha Tamrakar\nKrisha Tamrakar\nJenny Lu",
+   "title": "睡觉吧",
    "title_source": "cover_text",
    "title_len": 3,
    "title_pinyin": [
@@ -10841,6 +10992,8 @@
     "jué",
     "ba"
    ],
+   "title_en": "Time to Sleep",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.663,
    "zones": [
     {
@@ -10914,12 +11067,12 @@
      -198,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (92% ô bận)); dời -198px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (93% ô bận)); dời -198px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.2508,
      0.0566,
      0.122,
-     0.1515
+     0.1911
     ],
     "anchor": {
      "x": 0.3118,
@@ -10929,18 +11082,18 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.92,
-     "edge_density": 0.0,
-     "luma_std": 0.005,
+     "calm_coarse": 0.87,
+     "edge_density": 0.003,
+     "luma_std": 0.022,
      "luma_p5_p50_p95": [
-      0.458,
+      0.452,
       0.465,
       0.471
      ],
      "fill_contrast_p5": 1.92,
-     "stroke_contrast_p5": 4.93,
-     "pair_contrast_p5": 4.93,
-     "panel_contrast_min": 9.39
+     "stroke_contrast_p5": 4.88,
+     "pair_contrast_p5": 4.88,
+     "panel_contrast_min": 9.04
     }
    }
   },
@@ -10966,6 +11119,8 @@
     "gè",
     ""
    ],
+   "title_en": "Ze li you duo shao ge",
+   "title_en_source": "source_url",
    "empty_ratio": 0.262,
    "zones": [],
    "title_slot": {
@@ -10982,12 +11137,12 @@
      59,
      24
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (39% ô bận)); dời +59px ngang, +24px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (31% ô bận)); dời +59px ngang, +24px dọc tới chỗ nền yên",
     "text_box": [
      0.3932,
      0.0991,
      0.2712,
-     0.1515
+     0.1911
     ],
     "anchor": {
      "x": 0.5288,
@@ -10998,16 +11153,16 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.86,
-     "edge_density": 0.009,
-     "luma_std": 0.072,
+     "edge_density": 0.007,
+     "luma_std": 0.065,
      "luma_p5_p50_p95": [
-      0.544,
+      0.55,
       0.593,
       0.618
      ],
      "fill_contrast_p5": 1.5,
-     "stroke_contrast_p5": 5.76,
-     "pair_contrast_p5": 5.76,
+     "stroke_contrast_p5": 5.83,
+     "pair_contrast_p5": 5.83,
      "panel_contrast_min": 9.28
     }
    }
@@ -11034,6 +11189,8 @@
     "tián",
     "diǎn"
    ],
+   "title_en": "The cat ate the sweet",
+   "title_en_source": "source_url",
    "empty_ratio": 0.365,
    "zones": [
     {
@@ -11067,12 +11224,12 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.88,
+    "calm_coarse": 0.89,
     "style": "c1",
     "source": "fixed",
     "shift_px": [
@@ -11084,7 +11241,7 @@
      0.3644,
      0.0276,
      0.2712,
-     0.0738
+     0.0931
     ],
     "anchor": {
      "x": 0.5,
@@ -11096,15 +11253,15 @@
     "legibility": {
      "calm_coarse": 0.88,
      "edge_density": 0.0,
-     "luma_std": 0.01,
+     "luma_std": 0.019,
      "luma_p5_p50_p95": [
       0.664,
-      0.675,
-      0.691
+      0.676,
+      0.704
      ],
-     "fill_contrast_p5": 1.35,
-     "stroke_contrast_p5": 6.93,
-     "pair_contrast_p5": 6.93,
+     "fill_contrast_p5": 1.33,
+     "stroke_contrast_p5": 6.94,
+     "pair_contrast_p5": 6.94,
      "panel_contrast_min": 9.68
     }
    }
@@ -11132,6 +11289,8 @@
     "chē",
     ""
    ],
+   "title_en": "Leela learns to ride",
+   "title_en_source": "source_url",
    "empty_ratio": 0.302,
    "zones": [
     {
@@ -11174,27 +11333,27 @@
     "style": "c1",
     "source": "shifted",
     "shift_px": [
-     -63,
+     -112,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (31% ô bận)); dời -63px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (36% ô bận); nền loang sáng tối (lệch 0.226)); dời -112px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
-     0.2712,
+     0.2305,
      0.0566,
      0.3085,
-     0.1515
+     0.1911
     ],
     "anchor": {
-     "x": 0.4254,
+     "x": 0.3848,
      "y": 0.0566,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
-     "edge_density": 0.003,
-     "luma_std": 0.074,
+     "calm_coarse": 0.9,
+     "edge_density": 0.005,
+     "luma_std": 0.109,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -11203,7 +11362,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 8.78
+     "panel_contrast_min": 8.75
     }
    }
   },
@@ -11227,6 +11386,8 @@
     "ā",
     "kù"
    ],
+   "title_en": "Angry Aku",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.234,
    "zones": [
     {
@@ -11277,7 +11438,7 @@
      0.3809,
      0.0567,
      0.1966,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.4792,
@@ -11287,18 +11448,18 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.95,
-     "edge_density": 0.0,
-     "luma_std": 0.005,
+     "calm_coarse": 0.92,
+     "edge_density": 0.002,
+     "luma_std": 0.01,
      "luma_p5_p50_p95": [
-      0.074,
+      0.073,
       0.079,
-      0.088
+      0.087
      ],
-     "fill_contrast_p5": 7.26,
+     "fill_contrast_p5": 7.29,
      "stroke_contrast_p5": 1.21,
-     "pair_contrast_p5": 7.26,
-     "panel_contrast_min": 8.83
+     "pair_contrast_p5": 7.29,
+     "panel_contrast_min": 8.74
     }
    }
   },
@@ -11325,6 +11486,8 @@
     "zuò",
     "jù"
    ],
+   "title_en": "Foxy joxy plays a trick",
+   "title_en_source": "source_url",
    "empty_ratio": 0.391,
    "zones": [],
    "title_slot": {
@@ -11341,12 +11504,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (56% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (62% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.203): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3504,
      0.0567,
      0.2576,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -11356,17 +11519,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.31,
-     "edge_density": 0.038,
-     "luma_std": 0.164,
+     "calm_coarse": 0.29,
+     "edge_density": 0.061,
+     "luma_std": 0.219,
      "luma_p5_p50_p95": [
-      0.307,
-      0.901,
-      0.91
+      0.227,
+      0.798,
+      0.908
      ],
      "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 3.47,
-     "pair_contrast_p5": 5.74,
+     "stroke_contrast_p5": 2.69,
+     "pair_contrast_p5": 3.43,
      "panel_contrast_min": 8.74
     }
    }
@@ -11389,6 +11552,8 @@
     "hé",
     "jiě"
    ],
+   "title_en": "The bridge of friendship",
+   "title_en_source": "source_url",
    "empty_ratio": 0.276,
    "zones": [
     {
@@ -11434,32 +11599,32 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (92% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (88% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4182,
+     0.3874,
      0.0567,
-     0.122,
-     0.1614
+     0.1838,
+     0.2011
     ],
     "anchor": {
-     "x": 0.4792,
+     "x": 0.4793,
      "y": 0.0567,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.07,
-     "edge_density": 0.024,
-     "luma_std": 0.102,
+     "calm_coarse": 0.13,
+     "edge_density": 0.022,
+     "luma_std": 0.109,
      "luma_p5_p50_p95": [
-      0.362,
-      0.455,
-      0.686
+      0.376,
+      0.484,
+      0.724
      ],
-     "fill_contrast_p5": 1.36,
-     "stroke_contrast_p5": 4.0,
-     "pair_contrast_p5": 4.0,
+     "fill_contrast_p5": 1.29,
+     "stroke_contrast_p5": 4.14,
+     "pair_contrast_p5": 4.14,
      "panel_contrast_min": 9.09
     }
    }
@@ -11487,6 +11652,8 @@
     "hé",
     "mǎ"
    ],
+   "title_en": "Hippo wants to dance",
+   "title_en_source": "source_url",
    "empty_ratio": 0.646,
    "zones": [
     {
@@ -11588,12 +11755,12 @@
      -327,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (53% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.197)); dời -327px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (51% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh); nền loang sáng tối (lệch 0.183)); dời -327px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.0475,
      0.0566,
      0.3085,
-     0.1516
+     0.1912
     ],
     "anchor": {
      "x": 0.2017,
@@ -11603,9 +11770,9 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.88,
-     "edge_density": 0.002,
-     "luma_std": 0.041,
+     "calm_coarse": 0.85,
+     "edge_density": 0.004,
+     "luma_std": 0.07,
      "luma_p5_p50_p95": [
       1.0,
       1.0,
@@ -11614,7 +11781,7 @@
      "fill_contrast_p5": 1.05,
      "stroke_contrast_p5": 10.2,
      "pair_contrast_p5": 10.2,
-     "panel_contrast_min": 9.52
+     "panel_contrast_min": 8.74
     }
    }
   },
@@ -11642,6 +11809,8 @@
     "hēi",
     "dòng"
    ],
+   "title_en": "There s a hole in my galaxy",
+   "title_en_source": "source_url",
    "empty_ratio": 0.132,
    "zones": [],
    "title_slot": {
@@ -11658,12 +11827,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (69% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh); nền loang sáng tối (lệch 0.206): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (73% ô bận); nền loang sáng tối (lệch 0.186): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3369,
      0.0567,
      0.2847,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -11673,17 +11842,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.31,
-     "edge_density": 0.05,
-     "luma_std": 0.194,
+     "calm_coarse": 0.26,
+     "edge_density": 0.046,
+     "luma_std": 0.182,
      "luma_p5_p50_p95": [
       0.011,
       0.016,
-      0.678
+      0.595
      ],
-     "fill_contrast_p5": 1.37,
+     "fill_contrast_p5": 1.55,
      "stroke_contrast_p5": 1.22,
-     "pair_contrast_p5": 4.41,
+     "pair_contrast_p5": 5.4,
      "panel_contrast_min": 8.74
     }
    }
@@ -11711,6 +11880,8 @@
     "le",
     ""
    ],
+   "title_en": "Where is the fifth",
+   "title_en_source": "source_url",
    "empty_ratio": 0.17,
    "zones": [],
    "title_slot": {
@@ -11727,12 +11898,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (78% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.463): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.47): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3504,
      0.0566,
      0.2576,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -11742,17 +11913,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.2,
-     "edge_density": 0.132,
-     "luma_std": 0.467,
+     "calm_coarse": 0.24,
+     "edge_density": 0.127,
+     "luma_std": 0.469,
      "luma_p5_p50_p95": [
-      0.005,
-      0.592,
+      0.004,
+      0.121,
       1.0
      ],
      "fill_contrast_p5": 1.05,
-     "stroke_contrast_p5": 1.08,
-     "pair_contrast_p5": 5.45,
+     "stroke_contrast_p5": 1.09,
+     "pair_contrast_p5": 5.74,
      "panel_contrast_min": 8.74
     }
    }
@@ -11783,6 +11954,8 @@
     "mào",
     "xiǎn"
    ],
+   "title_en": "Ghum ghum gharial s glorious adventure",
+   "title_en_source": "source_url",
    "empty_ratio": 0.399,
    "zones": [
     {
@@ -11833,7 +12006,7 @@
      0.325,
      0.0565,
      0.3085,
-     0.1258
+     0.1654
     ],
     "anchor": {
      "x": 0.4793,
@@ -11843,15 +12016,15 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 1.0,
-     "edge_density": 0.002,
-     "luma_std": 0.022,
+     "calm_coarse": 0.96,
+     "edge_density": 0.003,
+     "luma_std": 0.024,
      "luma_p5_p50_p95": [
-      0.259,
-      0.273,
-      0.309
+      0.26,
+      0.277,
+      0.313
      ],
-     "fill_contrast_p5": 2.79,
+     "fill_contrast_p5": 2.75,
      "stroke_contrast_p5": 3.01,
      "pair_contrast_p5": 3.13,
      "panel_contrast_min": 9.04
@@ -11880,6 +12053,8 @@
     "shí",
     "guāng"
    ],
+   "title_en": "Come stay with me",
+   "title_en_source": "source_url",
    "empty_ratio": 0.686,
    "zones": [
     {
@@ -11953,12 +12128,12 @@
      -253,
      0
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời -253px ngang, +0px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.194)); dời -253px ngang, +0px dọc tới chỗ nền yên",
     "text_box": [
      0.1288,
      0.0566,
      0.2712,
-     0.1515
+     0.1911
     ],
     "anchor": {
      "x": 0.2644,
@@ -11968,9 +12143,9 @@
     "font_px": 44,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.89,
-     "edge_density": 0.003,
-     "luma_std": 0.018,
+     "calm_coarse": 0.86,
+     "edge_density": 0.012,
+     "luma_std": 0.036,
      "luma_p5_p50_p95": [
       0.519,
       0.519,
@@ -12003,6 +12178,8 @@
     "jié",
     "rì"
    ],
+   "title_en": "Tết của Đậu Xanh",
+   "title_en_source": "original",
    "empty_ratio": 0.229,
    "zones": [],
    "title_slot": {
@@ -12019,12 +12196,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (45% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (40% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3911,
      0.0566,
      0.1763,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4793,
@@ -12034,17 +12211,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.6,
+     "calm_coarse": 0.63,
      "edge_density": 0.0,
-     "luma_std": 0.048,
+     "luma_std": 0.046,
      "luma_p5_p50_p95": [
-      0.649,
-      0.742,
-      0.795
+      0.653,
+      0.743,
+      0.797
      ],
      "fill_contrast_p5": 1.18,
-     "stroke_contrast_p5": 6.79,
-     "pair_contrast_p5": 6.79,
+     "stroke_contrast_p5": 6.83,
+     "pair_contrast_p5": 6.83,
      "panel_contrast_min": 9.64
     }
    }
@@ -12068,6 +12245,8 @@
     "xiǎo",
     "māo"
    ],
+   "title_en": "Three Little Kittens",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.319,
    "zones": [],
    "title_slot": {
@@ -12084,32 +12263,32 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (5% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (84% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4046,
+     0.4009,
      0.0567,
-     0.1492,
-     0.1614
+     0.1564,
+     0.2011
     ],
     "anchor": {
-     "x": 0.4792,
+     "x": 0.4791,
      "y": 0.0567,
      "align": "center"
     },
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.16,
-     "edge_density": 0.061,
-     "luma_std": 0.131,
+     "calm_coarse": 0.13,
+     "edge_density": 0.093,
+     "luma_std": 0.161,
      "luma_p5_p50_p95": [
-      0.158,
-      0.54,
+      0.107,
+      0.533,
       0.6
      ],
      "fill_contrast_p5": 1.54,
-     "stroke_contrast_p5": 2.03,
-     "pair_contrast_p5": 4.41,
+     "stroke_contrast_p5": 1.63,
+     "pair_contrast_p5": 3.46,
      "panel_contrast_min": 8.74
     }
    }
@@ -12126,8 +12305,10 @@
    "format": "wide",
    "title": "Jelly and Jazz",
    "title_source": "title_en",
-   "title_len": 4,
+   "title_len": 6,
    "title_pinyin": null,
+   "title_en": "Jelly and Jazz",
+   "title_en_source": "original",
    "empty_ratio": 0.099,
    "zones": [],
    "title_slot": {
@@ -12144,15 +12325,15 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (13% điểm là cạnh); nền loang sáng tối (lệch 0.243): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (15% điểm là cạnh); nền loang sáng tối (lệch 0.265): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.4046,
+     0.3776,
      0.0567,
-     0.1492,
+     0.2034,
      0.1614
     ],
     "anchor": {
-     "x": 0.4792,
+     "x": 0.4793,
      "y": 0.0567,
      "align": "center"
     },
@@ -12160,16 +12341,16 @@
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.0,
-     "edge_density": 0.12,
-     "luma_std": 0.239,
+     "edge_density": 0.144,
+     "luma_std": 0.262,
      "luma_p5_p50_p95": [
-      0.14,
-      0.612,
-      0.953
+      0.086,
+      0.614,
+      0.955
      ],
      "fill_contrast_p5": 1.0,
-     "stroke_contrast_p5": 1.94,
-     "pair_contrast_p5": 4.66,
+     "stroke_contrast_p5": 1.8,
+     "pair_contrast_p5": 4.44,
      "panel_contrast_min": 8.74
     }
    }
@@ -12199,6 +12380,8 @@
     "yuán",
     ""
    ],
+   "title_en": "A Street or a Zoo?",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.328,
    "zones": [
     {
@@ -12232,44 +12415,44 @@
    ],
    "title_slot": {
     "slot_bbox": [
-     0.3333,
+     0.25,
      0.0,
-     0.3333,
+     0.5,
      0.125
     ],
-    "calm_coarse": 0.42,
+    "calm_coarse": 0.31,
     "style": "panel",
     "source": "fixed",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (58% ô bận); nền nhiều hoạ tiết (6% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (63% ô bận): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
-     0.3524,
+     0.3441,
      0.0276,
-     0.2949,
-     0.0766
+     0.3119,
+     0.098
     ],
     "anchor": {
-     "x": 0.4999,
+     "x": 0.5,
      "y": 0.0276,
      "align": "center"
     },
-    "font_px": 30,
+    "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.42,
-     "edge_density": 0.042,
-     "luma_std": 0.127,
+     "calm_coarse": 0.41,
+     "edge_density": 0.033,
+     "luma_std": 0.124,
      "luma_p5_p50_p95": [
-      0.567,
+      0.584,
       0.939,
       1.0
      ],
      "fill_contrast_p5": 1.01,
-     "stroke_contrast_p5": 5.99,
-     "pair_contrast_p5": 5.99,
+     "stroke_contrast_p5": 6.16,
+     "pair_contrast_p5": 6.16,
      "panel_contrast_min": 9.31
     }
    }
@@ -12298,6 +12481,8 @@
     "zhī",
     "xíng"
    ],
+   "title_en": "Janice's Trip to Chinatown",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.436,
    "zones": [
     {
@@ -12343,12 +12528,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (100% ô bận); nền nhiều hoạ tiết (22% điểm là cạnh); nền loang sáng tối (lệch 0.285): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (93% ô bận); nền nhiều hoạ tiết (20% điểm là cạnh); nền loang sáng tối (lệch 0.302): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3369,
      0.0564,
      0.2847,
-     0.1608
+     0.2004
     ],
     "anchor": {
      "x": 0.4792,
@@ -12358,17 +12543,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.06,
-     "edge_density": 0.212,
-     "luma_std": 0.301,
+     "calm_coarse": 0.1,
+     "edge_density": 0.196,
+     "luma_std": 0.307,
      "luma_p5_p50_p95": [
-      0.011,
-      0.446,
-      0.909
+      0.013,
+      0.486,
+      0.925
      ],
-     "fill_contrast_p5": 1.04,
-     "stroke_contrast_p5": 1.36,
-     "pair_contrast_p5": 3.3,
+     "fill_contrast_p5": 1.03,
+     "stroke_contrast_p5": 1.39,
+     "pair_contrast_p5": 3.32,
      "panel_contrast_min": 8.74
     }
    }
@@ -12395,6 +12580,8 @@
     "wù",
     ""
    ],
+   "title_en": "Wild Cats!",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.333,
    "zones": [
     {
@@ -12440,12 +12627,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (82% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (86% ô bận); nền nhiều hoạ tiết (9% điểm là cạnh); nền loang sáng tối (lệch 0.187): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3639,
      0.0567,
      0.2305,
-     0.1614
+     0.2011
     ],
     "anchor": {
      "x": 0.4792,
@@ -12455,17 +12642,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.14,
-     "edge_density": 0.07,
-     "luma_std": 0.16,
+     "calm_coarse": 0.12,
+     "edge_density": 0.082,
+     "luma_std": 0.182,
      "luma_p5_p50_p95": [
-      0.273,
-      0.593,
+      0.12,
+      0.56,
       0.674
      ],
      "fill_contrast_p5": 1.38,
-     "stroke_contrast_p5": 3.13,
-     "pair_contrast_p5": 3.62,
+     "stroke_contrast_p5": 1.97,
+     "pair_contrast_p5": 3.49,
      "panel_contrast_min": 8.74
     }
    }
@@ -12493,6 +12680,8 @@
     "le",
     ""
    ],
+   "title_en": "Watch Out! Here Comes the Tiger!",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.068,
    "zones": [],
    "title_slot": {
@@ -12509,12 +12698,12 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (92% ô bận); nền loang sáng tối (lệch 0.277): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (93% ô bận); nền loang sáng tối (lệch 0.281): chữ C1 sẽ chìm, dùng panel",
     "text_box": [
      0.3504,
      0.0563,
      0.2576,
-     0.1606
+     0.2
     ],
     "anchor": {
      "x": 0.4792,
@@ -12524,17 +12713,17 @@
     "font_px": 32,
     "lines": 1,
     "legibility": {
-     "calm_coarse": 0.03,
-     "edge_density": 0.041,
-     "luma_std": 0.291,
+     "calm_coarse": 0.02,
+     "edge_density": 0.042,
+     "luma_std": 0.288,
      "luma_p5_p50_p95": [
-      0.057,
-      0.726,
+      0.042,
+      0.553,
       0.785
      ],
      "fill_contrast_p5": 1.2,
      "stroke_contrast_p5": 1.09,
-     "pair_contrast_p5": 4.94,
+     "pair_contrast_p5": 3.77,
      "panel_contrast_min": 8.76
     }
    }
@@ -12561,6 +12750,8 @@
     "tóu",
     ""
    ],
+   "title_en": "Stick Out Your Tongue!",
+   "title_en_source": "ai_gloss",
    "empty_ratio": 0.283,
    "zones": [
     {
@@ -12604,35 +12795,35 @@
     "source": "shifted",
     "shift_px": [
      251,
-     36
+     24
     ],
-    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (75% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +251px ngang, +36px dọc tới chỗ nền yên",
+    "reason": "vị trí cố định bị chìm (tranh có hình ngay chỗ chữ (74% ô bận); nền nhiều hoạ tiết (8% điểm là cạnh)); dời +251px ngang, +24px dọc tới chỗ nền yên",
     "text_box": [
      0.5559,
-     0.1197,
+     0.0986,
      0.2712,
-     0.1506
+     0.19
     ],
     "anchor": {
      "x": 0.6915,
-     "y": 0.1197,
+     "y": 0.0986,
      "align": "center"
     },
     "font_px": 44,
     "lines": 1,
     "legibility": {
      "calm_coarse": 0.86,
-     "edge_density": 0.034,
-     "luma_std": 0.052,
+     "edge_density": 0.038,
+     "luma_std": 0.058,
      "luma_p5_p50_p95": [
-      0.462,
-      0.497,
-      0.562
+      0.38,
+      0.496,
+      0.56
      ],
-     "fill_contrast_p5": 1.63,
-     "stroke_contrast_p5": 4.97,
-     "pair_contrast_p5": 4.97,
-     "panel_contrast_min": 9.0
+     "fill_contrast_p5": 1.64,
+     "stroke_contrast_p5": 4.17,
+     "pair_contrast_p5": 4.19,
+     "panel_contrast_min": 8.98
     }
    }
   }
@@ -12649,11 +12840,13 @@
  ],
  "summary": {
   "covers": 93,
-  "c1": 55,
-  "panel_long": 1,
-  "panel_busy": 37,
-  "c1_fixed": 19,
-  "c1_shifted": 36,
-  "no_zh_title": 20
+  "c1": 50,
+  "panel_long": 0,
+  "panel_busy": 43,
+  "c1_fixed": 16,
+  "c1_shifted": 34,
+  "no_zh_title": 20,
+  "en_missing": 0,
+  "en_ai_gloss": 23
  }
 }

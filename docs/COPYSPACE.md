@@ -19,7 +19,8 @@ python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang
    - `luma_std` ≤ 0.18: nền không loang sáng/tối mạnh;
    - `pair_contrast_p5` ≥ 3: ở 95% điểm nền, chữ kem hoặc viền rừng đạt ≥ 3:1.
 6. Trượt ở vị trí cố định → dò trong phần ba trên (bước 24px ngang, 12px dọc) tìm chỗ gần nhất đạt cả 4 (`source: shifted`, `shift_px`). Không có → panel trắng 85% + blur 8px, chữ rừng, bọc đúng dòng chữ tại vị trí cố định (`style: panel`). `reason` ghi lý do bằng tiếng Việt.
-7. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
+7. **Mapping tạm**: designer sẽ đặt chữ thật sau. Dưới tên Trung có một dòng tên tiếng Anh 16px (`title_en`) để biết truyện gì và tìm được. Nguồn `title_en_source`: `original` (sách tiếng Anh), `source_url` (lấy từ đường dẫn StoryWeaver), `ai_gloss` (đường dẫn chỉ là pinyin, dịch nháp trong `mapping/covers/title_en_gloss.json`), `missing`. Độ rộng chữ đo bằng font thật, nên tên tiếng Anh dài không tràn khung.
+8. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
 
 Ảnh duyệt trong `overlay/` vẽ tên tiếng Trung thật + pinyin (`title_pinyin`, từ gói `pypinyin`) đúng cỡ, màu, viền hoặc panel, để nhìn được chữ có chìm không.
 

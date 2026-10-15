@@ -15,7 +15,7 @@ Dùng:
   python3 scripts/covers.py --all                        # mọi sách dạng ảnh trang
   python3 scripts/covers.py SW-266338 ASB-13623          # vài cuốn
 """
-import argparse, json, os, sys
+import argparse, functools, json, os, re, sys
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -31,6 +31,8 @@ FRAME_W, MARGIN = 1180, 32
 C1 = {"max_px": 44, "min_px": 30, "pinyin_px": 16, "stroke_px": 6, "fill": "#FDF9F0", "stroke": "#0E4A3A"}
 PANEL = {"px": 32, "min_px": 24, "pad": (16, 24), "white_alpha": 0.85, "blur_px": 8, "ink": "#0E4A3A", "max_lines": 2}
 LINE_H = lambda px: px * 1.2 + C1["pinyin_px"] * 1.3      # 1 dòng chữ Hán + pinyin phía trên
+EN = {"px": 16, "line": 16 * 1.4, "char_w": 0.55}          # dòng tên tiếng Anh nhỏ bên dưới (để biết truyện gì)
+en_width = lambda en: font(EN["px"]).getlength(en) + 4 if en else 0   # đo bằng font thật
 # Ngưỡng đọc được cho C1 (đo trên hộp chữ, ảnh co về rộng FRAME_W):
 CALM_MIN = 0.85    # >= 85% ô lưới thô dưới chữ phải trống (không đè lên vật, nhân vật)
 EDGE_MAX = 0.05     # tỉ lệ điểm ảnh là cạnh hoạ tiết (gradient màu > EDGE_T)
@@ -42,7 +44,8 @@ def title_of(book):
     """Tên truyện bằng tiếng Trung nếu có, kèm nguồn của tên."""
     cover = next((p for p in book["pages"] if p["kind"] == "bìa"), None)
     if cover and cs.CJK.search(cover.get("text") or ""):
-        return cover["text"].strip(), "cover_text"
+        # chữ trang bìa có thể kèm dòng tên tác giả, minh hoạ: chỉ giữ các dòng có chữ Hán
+        return " ".join(l.strip() for l in cover["text"].splitlines() if cs.CJK.search(l)), "cover_text"
     tr = book.get("translation") or {}
     if tr.get("title_zh"):
         return tr["title_zh"], "translation"
@@ -51,9 +54,50 @@ def title_of(book):
     return book.get("title") or "", "title_en"
 
 
+GLOSS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "mapping", "covers", "title_en_gloss.json")
+_GLOSS = None
+
+
+def gloss():
+    """Tên tiếng Anh dịch nháp (AI) cho sách tiếng Trung mà nguồn chỉ ghi pinyin: {id: tên}."""
+    global _GLOSS
+    if _GLOSS is None:
+        _GLOSS = json.load(open(GLOSS_FILE)) if os.path.exists(GLOSS_FILE) else {}
+    return _GLOSS
+
+
+def title_en(book):
+    """Tên tiếng Anh để biết truyện gì, kèm nguồn: sách tiếng Anh dùng tên gốc; sách tiếng Trung
+    lấy từ đường dẫn nguồn (storyweaver.org.in/en/stories/266338-the-story-of-a-dancer); đường dẫn
+    chỉ là pinyin thì dùng bản dịch nháp trong GLOSS_FILE, chưa có thì để trống."""
+    if not cs.CJK.search(book.get("title") or ""):
+        return book.get("title") or "", "original"
+    url = ((book.get("fields") or {}).get("Source URL") or "").rstrip("/")
+    slug = url.rsplit("/", 1)[-1]
+    slug = slug.split("-", 1)[1] if "-" in slug and slug.split("-", 1)[0].isdigit() else slug
+    t = slug.replace("-", " ").strip()
+    if t and not cs.CJK.search(t) and "." not in t and not is_pinyin(t, book["title"]):
+        return t[:1].upper() + t[1:], "source_url"
+    if book["id"] in gloss():
+        return gloss()[book["id"]], "ai_gloss"
+    return "", "missing"
+
+
+def is_pinyin(text, zh):
+    """Đường dẫn có phải chỉ là pinyin của tên Trung không (vd. jintian-wo-shi)."""
+    try:
+        from pypinyin import lazy_pinyin
+    except ImportError:
+        return False
+    a = re.sub(r"[^a-z]", "", text.lower())
+    b = re.sub(r"[^a-z]", "", "".join(lazy_pinyin(zh)).replace("ü", "v"))
+    return bool(a) and (a == b or (len(a) > 6 and (a in b or b in a)))
+
+
 def title_len(title):
+    """Độ dài tên tính theo "ô chữ Hán" (1 ô = 1 em). Tên tiếng Anh đo bằng font thật."""
     n = len(cs.CJK.findall(title))
-    return n if n else round(len(title.split()) * 1.4)   # chưa có tên Trung: ước lượng
+    return n if n else int(np.ceil(font(100).getlength(title) / 100))
 
 
 def frame_scale(size):
@@ -84,7 +128,7 @@ def fixed_slot(freq, ref, its):
     return z
 
 
-def text_box(n, slot_bbox, size):
+def text_box(n, slot_bbox, size, en=""):
     """Hộp chữ thật cho một tên: thử C1 một dòng (44→30px) trong dải; không vừa thì panel 2 dòng.
     Trả về (kiểu, cỡ chữ, số dòng, bbox 0..1 của hộp chữ kể cả viền/padding), căn theo neo của dải."""
     w, h = size
@@ -93,21 +137,22 @@ def text_box(n, slot_bbox, size):
     avail = sw - 2 * MARGIN
     cx = sx + sw / 2
     for px in range(C1["max_px"], C1["min_px"] - 1, -2):
-        tw = n * px + 2 * C1["stroke_px"]
+        tw = max(n * px, en_width(en)) + 2 * C1["stroke_px"]
         if tw <= avail:
-            th = LINE_H(px) + 2 * C1["stroke_px"]
+            th = LINE_H(px) + (EN["line"] if en else 0) + 2 * C1["stroke_px"]
             return "c1", px, 1, _bbox(cx - tw / 2, sy + MARGIN, tw, th, w * s, h * s)
     for px in range(PANEL["px"], PANEL["min_px"] - 1, -2):
         per = max(1, int((avail - 2 * PANEL["pad"][1]) // px))
         lines = -(-n // per)
         if lines <= PANEL["max_lines"]:
-            tw = min(n, per) * px + 2 * PANEL["pad"][1]
-            th = lines * LINE_H(px) + 2 * PANEL["pad"][0]
+            tw = max(min(n, per) * px, min(en_width(en), avail - 2 * PANEL["pad"][1])) + 2 * PANEL["pad"][1]
+            th = lines * LINE_H(px) + (EN["line"] if en else 0) + 2 * PANEL["pad"][0]
             return "panel", px, lines, _bbox(cx - tw / 2, sy + MARGIN, tw, th, w * s, h * s)
     px = PANEL["min_px"]
     per = max(1, int((avail - 2 * PANEL["pad"][1]) // px))
     lines = -(-n // per)
-    tw, th = min(n, per) * px + 2 * PANEL["pad"][1], lines * LINE_H(px) + 2 * PANEL["pad"][0]
+    tw = max(min(n, per) * px, min(en_width(en), avail - 2 * PANEL["pad"][1])) + 2 * PANEL["pad"][1]
+    th = lines * LINE_H(px) + (EN["line"] if en else 0) + 2 * PANEL["pad"][0]
     return "panel", px, lines, _bbox(cx - tw / 2, sy + MARGIN, tw, th, w * s, h * s)
 
 
@@ -203,8 +248,17 @@ def fmt_key(size):
 
 
 def load(book_id, cache):
-    book = cs.load_book(book_id, cache)
-    cover = next((p for p in book["pages"] if p["kind"] == "bìa" and p.get("_local")), None)
+    """Chỉ tải JSON sách và ảnh bìa (không tải các trang ruột)."""
+    p = os.path.join(cache, book_id, "book.json")
+    if not os.path.exists(p):
+        cs.get(f"{cs.BASE}/v1/pilot/books/{book_id}", p)
+    book = json.load(open(p))
+    cover = next((pg for pg in book["pages"] if pg["kind"] == "bìa" and pg.get("image")), None)
+    if cover:
+        ext = os.path.splitext(cover["image"])[1] or ".png"
+        cover["_local"] = os.path.join(cache, book_id, "pages", f"{cover['n']:02d}{ext}")
+        if not os.path.exists(cover["_local"]):
+            cs.get(cs.BASE + cover["image"], cover["_local"])
     return book, cover
 
 
@@ -275,7 +329,10 @@ def main():
         own = [cs.zone(f"Z{j + 1}", r, a) for j, r in enumerate(cs.rects(empty, min_w=0.25, min_h=0.15))]
         slot = it["fmt_slot"]
         img = display(it["cover"]["_local"])
-        kind, px, lines, tb = text_box(n, slot["bbox"], a["size"])
+        en, en_src = title_en(book)
+        sub = en if tsrc != "title_en" else ""          # tên chính đã là tiếng Anh thì không lặp lại
+        it["_sub"] = sub
+        kind, px, lines, tb = text_box(n, slot["bbox"], a["size"], sub)
         leg = legibility(img, tb, empty)
         style, reason = decide(kind, lines, leg)
         source, shift = "fixed", [0, 0]
@@ -290,7 +347,8 @@ def main():
             else:   # không chỗ nào yên: panel bọc đúng dòng chữ ở vị trí cố định
                 Wf, Hf = img.shape[1], img.shape[0]
                 px = min(px, PANEL["px"])
-                bw, bh = n * px + 2 * PANEL["pad"][1], LINE_H(px) + 2 * PANEL["pad"][0]
+                bw = max(n * px, en_width(sub)) + 2 * PANEL["pad"][1]
+                bh = LINE_H(px) + (EN["line"] if sub else 0) + 2 * PANEL["pad"][0]
                 tb = _bbox((tb[0] + tb[2] / 2) * Wf - bw / 2, tb[1] * Hf, bw, bh, Wf, Hf)
                 leg = legibility(img, tb, empty)
         t, l = round(slot["bbox"][1] * cs.GRID), round(slot["bbox"][0] * cs.GRID)
@@ -301,6 +359,7 @@ def main():
             "id": book["id"], "source": book["source"], "lang": book["lang"],
             "image": cs.BASE + c["image"], "size": list(a["size"]), "format": it["fmt"],
             "title": title, "title_source": tsrc, "title_len": n, "title_pinyin": it["_pinyin"],
+            "title_en": en, "title_en_source": en_src,
             "empty_ratio": round(float(empty.mean()), 3),
             "zones": own,
             "title_slot": {"slot_bbox": slot["bbox"], "calm_coarse": round(calm, 2),
@@ -314,7 +373,7 @@ def main():
     covers.sort(key=lambda c: c["id"])
     res = {
         "schema": "covers/v2",
-        "params": {"grid": cs.GRID, "empty_t": cs.EMPTY_T, "blank_t": cs.BLANK_T,
+        "params": {"en": EN, "grid": cs.GRID, "empty_t": cs.EMPTY_T, "blank_t": cs.BLANK_T,
                    "stable_frac": STABLE_FRAC, "min_covers": MIN_COVERS, "frame_w": FRAME_W, "margin": MARGIN,
                    "c1": C1, "panel": PANEL, "calm_min": CALM_MIN, "edge_t": EDGE_T, "edge_max": EDGE_MAX, "luma_std_max": LUMA_STD_MAX},
         "formats": fmt_out,
@@ -328,6 +387,8 @@ def main():
             "c1_fixed": sum(c["title_slot"]["style"] == "c1" and c["title_slot"]["source"] == "fixed" for c in covers),
             "c1_shifted": sum(c["title_slot"]["source"] == "shifted" for c in covers),
             "no_zh_title": sum(c["title_source"] == "title_en" for c in covers),
+            "en_missing": sum(c["title_en_source"] == "missing" for c in covers),
+            "en_ai_gloss": sum(c["title_en_source"] == "ai_gloss" for c in covers),
         },
     }
     os.makedirs(args.out, exist_ok=True)
@@ -340,6 +401,7 @@ def main():
 FONT_FILES = ["/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc", "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"]
 
 
+@functools.lru_cache(maxsize=None)
 def font(px):
     """Font chữ Hán để vẽ ảnh duyệt (app dùng Noto Sans SC; máy chạy không có thì dùng WenQuanYi)."""
     from PIL import ImageFont
@@ -401,10 +463,23 @@ def draw(it, slot, ts, alt, path):
         im.paste(Image.alpha_composite(panel_bg, white), (int(x0), int(y0)))
         pad = PANEL["pad"]
         ox, oy, ink, stroke = x0 + pad[1], y0 + pad[0], forest, 0
-        per = max(1, int((x1 - x0 - 2 * pad[1]) // px))
+        per = -(-len(chars) // max(1, ts["lines"]))      # chia đều theo số dòng đã tính
     else:
         ox, oy, ink, stroke = x0 + C1["stroke_px"], y0 + C1["stroke_px"], cream, C1["stroke_px"]
         per = len(chars)
+    if not hanzi_chars(it["_title"]):      # tên chính tiếng Anh: xuống dòng theo từ, đo bằng font thật
+        maxw = (x1 - x0) - 2 * (PANEL["pad"][1] if ts["style"] == "panel" else C1["stroke_px"])
+        rows, cur = [], ""
+        for wd in it["_title"].split():
+            t = (cur + " " + wd).strip()
+            if cur and f_h.getlength(t) > maxw:
+                rows.append(cur)
+                cur = wd
+            else:
+                cur = t
+        rows.append(cur)
+        chars, per = rows, 1
+        pys = [""] * len(rows)
     for i, ch in enumerate(chars):
         li, k = divmod(i, per)
         cx = ox + k * px + px / 2
@@ -412,8 +487,14 @@ def draw(it, slot, ts, alt, path):
         if pys[i] if i < len(pys) else "":
             d.text((cx, top), pys[i], font=f_p, anchor="ma", fill=ink if not stroke else cream,
                    stroke_width=max(2, stroke // 2) if stroke else 0, stroke_fill=forest)
-        d.text((cx if len(chars) > 1 else ox, top + py_px * 1.3), ch, font=f_h, anchor="ma" if len(chars) > 1 else "la",
+        if per == 1 and not hanzi_chars(it["_title"]):
+            cx = (x0 + x1) / 2
+        d.text((cx, top + py_px * 1.3), ch, font=f_h, anchor="ma",
                fill=ink, stroke_width=stroke, stroke_fill=forest)
+    if it["_sub"]:
+        y_en = oy + (-(-len(chars) // per)) * LINE_H(px) + 2
+        d.text(((x0 + x1) / 2, y_en), it["_sub"], font=font(EN["px"]), anchor="ma",
+               fill=ink, stroke_width=3 if stroke else 0, stroke_fill=forest)
     if ts["style"] == "panel":
         d.rounded_rectangle([x0, y0, x1, y1], 24, outline=(230, 120, 40, 160), width=2)
     im = Image.alpha_composite(im, sim).convert("RGB")
