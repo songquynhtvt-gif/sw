@@ -20,11 +20,12 @@ python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang
    - `pair_contrast_p5` ≥ 3: ở 95% điểm nền, chữ kem hoặc viền rừng đạt ≥ 3:1.
 6. Trượt ở vị trí cố định → dò trong phần ba trên (bước 24px ngang, 12px dọc) tìm chỗ gần nhất đạt cả 4 (`source: shifted`, `shift_px`). Không có → panel trắng 85% + blur 8px, chữ rừng, bọc đúng dòng chữ tại vị trí cố định (`style: panel`). `reason` ghi lý do bằng tiếng Việt.
 7. **Mapping tạm**: designer sẽ đặt chữ thật sau. Dưới tên Trung có một dòng tên tiếng Anh 16px (`title_en`) để biết truyện gì và tìm được. Nguồn `title_en_source`: `original` (sách tiếng Anh), `source_url` (lấy từ đường dẫn StoryWeaver), `ai_gloss` (đường dẫn chỉ là pinyin, dịch nháp trong `mapping/covers/title_en_gloss.json`), `missing`. Độ rộng chữ đo bằng font thật, nên tên tiếng Anh dài không tràn khung.
-8. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
+8. **Chữ in sẵn trên bìa** (cần `rapidocr-onnxruntime`; `--no-ocr` để bỏ): OCR đọc chữ trên ảnh bìa (`baked_text`). Mỗi dòng (độ tin ≥ 0.5) thuộc tên nếu nằm trong tên tiếng Anh (bỏ hoa thường, khoảng trắng) hoặc giống một đoạn tên ≥ 80%. Các dòng khớp phủ ≥ 60% chữ cái của tên → `cover_text_flag: "title"`, `title_slot.style: "replace"`: designer xoá chữ Anh, đặt tên Trung vào đúng vùng đó (cỡ to nhất vừa vùng, 1–3 dòng). Có chữ khác (tác giả, logo, tên cách điệu OCR đọc không ra) → `cover_text_flag: "text"`, chữ lớn không khớp tên thì `reason` ghi "cần người xem". Không thấy chữ → `"none"`.
+9. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
 
 Ảnh duyệt trong `overlay/` vẽ tên tiếng Trung thật + pinyin (`title_pinyin`, từ gói `pypinyin`) đúng cỡ, màu, viền hoặc panel, để nhìn được chữ có chìm không.
 
-Giới hạn: chưa nhận diện mặt nhân vật, nên panel ở vị trí cố định có thể che đầu nhân vật nếu nhân vật chạm mép trên. Giới hạn: bìa đã in sẵn tên trong tranh (vd. "Lory Dory", "The Moon and The Cap") chưa được nhận ra; cần lọc tay hoặc thêm OCR.
+Giới hạn: chưa nhận diện mặt nhân vật, nên panel ở vị trí cố định có thể che đầu nhân vật nếu nhân vật chạm mép trên. Giới hạn: tên viết tay cách điệu (vd. "Lory Dory") OCR đọc không ra, chỉ được gắn cờ "text" để người xem.
 
 ## Trang ruột (tham khảo)
 

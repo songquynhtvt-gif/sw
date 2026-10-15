@@ -3529,7 +3529,15 @@
      "pair_contrast_p5": 3.94,
      "panel_contrast_min": 8.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "ASB-15459",
@@ -3676,7 +3684,15 @@
      "pair_contrast_p5": 10.06,
      "panel_contrast_min": 9.09
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "ASB-15523",
@@ -3767,7 +3783,7 @@
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem",
     "text_box": [
      0.6725,
      0.0293,
@@ -3795,7 +3811,25 @@
      "pair_contrast_p5": 7.55,
      "panel_contrast_min": 9.8
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": [
+     {
+      "text": "oru",
+      "bbox": [
+       0.378,
+       0.2546,
+       0.339,
+       0.1648
+      ]
+     }
+    ]
+   },
+   "cover_text_flag": "text"
   },
   {
    "id": "ASB-19258",
@@ -3914,7 +3948,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 10.2
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "ASB-2154",
@@ -3999,41 +4041,104 @@
      0.1667
     ],
     "calm_coarse": 0.82,
-    "style": "c1",
-    "source": "fixed",
+    "style": "replace",
+    "source": "baked_title",
     "shift_px": [
      0,
      0
     ],
-    "reason": "nền yên dưới chữ: chữ kem viền rừng đọc rõ",
+    "reason": "bìa đã in sẵn tên tiếng Anh (The Moon / and / TheCap, khớp 100%): xoá chữ Anh trong tranh, đặt tên Trung vào đúng vùng đó",
     "text_box": [
-     0.5793,
-     0.0308,
-     0.3831,
-     0.0825
+     0.2899,
+     0.1453,
+     0.4185,
+     0.2716
     ],
     "anchor": {
-     "x": 0.7709,
-     "y": 0.0308,
+     "x": 0.4991,
+     "y": 0.1453,
      "align": "center"
     },
-    "font_px": 44,
-    "lines": 1,
+    "font_px": 96,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.88,
-     "edge_density": 0.0,
-     "luma_std": 0.007,
+     "calm_coarse": 0.26,
+     "edge_density": 0.091,
+     "luma_std": 0.407,
      "luma_p5_p50_p95": [
-      0.069,
-      0.071,
-      0.071
+      0.0,
+      0.927,
+      0.956
      ],
-     "fill_contrast_p5": 8.26,
-     "stroke_contrast_p5": 1.16,
-     "pair_contrast_p5": 8.26,
-     "panel_contrast_min": 8.78
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 1.81,
+     "pair_contrast_p5": 6.48,
+     "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 1.0,
+    "title_bbox": [
+     0.3172,
+     0.163,
+     0.3639,
+     0.2362
+    ],
+    "title_lines": [
+     "The Moon",
+     "and",
+     "TheCap"
+    ],
+    "other_text": [
+     {
+      "text": "Read",
+      "bbox": [
+       0.1304,
+       0.1447,
+       0.0548,
+       0.0293
+      ]
+     },
+     {
+      "text": "india",
+      "bbox": [
+       0.1433,
+       0.163,
+       0.0564,
+       0.033
+      ]
+     },
+     {
+      "text": "Written by Noni",
+      "bbox": [
+       0.3172,
+       0.5751,
+       0.1787,
+       0.0385
+      ]
+     },
+     {
+      "text": "Illustrated by",
+      "bbox": [
+       0.3671,
+       0.6245,
+       0.1369,
+       0.0366
+      ]
+     },
+     {
+      "text": "Angie&Upesh",
+      "bbox": [
+       0.3607,
+       0.663,
+       0.1514,
+       0.0311
+      ]
+     }
+    ]
+   },
+   "cover_text_flag": "title"
   },
   {
    "id": "ASB-51370",
@@ -4124,7 +4229,15 @@
      "pair_contrast_p5": 8.36,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "ASB-51382",
@@ -4186,7 +4299,15 @@
      "pair_contrast_p5": 3.28,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "ASB-51398",
@@ -4305,7 +4426,15 @@
      "pair_contrast_p5": 8.18,
      "panel_contrast_min": 9.85
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "ASB-9117",
@@ -4333,41 +4462,57 @@
      0.125
     ],
     "calm_coarse": 0.58,
-    "style": "panel",
-    "source": "fixed",
+    "style": "replace",
+    "source": "baked_title",
     "shift_px": [
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (42% ô bận): chữ C1 sẽ chìm, dùng panel",
+    "reason": "bìa đã in sẵn tên tiếng Anh (BATHTUB / SAFARI, khớp 100%): xoá chữ Anh trong tranh, đặt tên Trung vào đúng vùng đó",
     "text_box": [
-     0.7181,
-     0.0248,
-     0.2305,
-     0.0706
+     0.1091,
+     0.063,
+     0.8158,
+     0.3539
     ],
     "anchor": {
-     "x": 0.8333,
-     "y": 0.0248,
+     "x": 0.517,
+     "y": 0.063,
      "align": "center"
     },
-    "font_px": 32,
-    "lines": 1,
+    "font_px": 96,
+    "lines": 2,
     "legibility": {
-     "calm_coarse": 0.56,
-     "edge_density": 0.001,
-     "luma_std": 0.17,
+     "calm_coarse": 0.22,
+     "edge_density": 0.026,
+     "luma_std": 0.26,
      "luma_p5_p50_p95": [
-      0.169,
       0.17,
-      0.668
+      0.677,
+      0.978
      ],
-     "fill_contrast_p5": 1.39,
-     "stroke_contrast_p5": 2.13,
-     "pair_contrast_p5": 4.03,
-     "panel_contrast_min": 8.93
+     "fill_contrast_p5": 1.01,
+     "stroke_contrast_p5": 2.14,
+     "pair_contrast_p5": 3.79,
+     "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 1.0,
+    "title_bbox": [
+     0.1623,
+     0.0861,
+     0.7094,
+     0.3077
+    ],
+    "title_lines": [
+     "BATHTUB",
+     "SAFARI"
+    ],
+    "other_text": []
+   },
+   "cover_text_flag": "title"
   },
   {
    "id": "ASB-9229",
@@ -4514,7 +4659,15 @@
      "pair_contrast_p5": 7.93,
      "panel_contrast_min": 9.82
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-113955",
@@ -4582,7 +4735,15 @@
      "pair_contrast_p5": 9.78,
      "panel_contrast_min": 10.07
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-113998",
@@ -4738,7 +4899,15 @@
      "pair_contrast_p5": 3.12,
      "panel_contrast_min": 8.97
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-129026",
@@ -4857,7 +5026,15 @@
      "pair_contrast_p5": 9.12,
      "panel_contrast_min": 9.97
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-129035",
@@ -4919,7 +5096,15 @@
      "pair_contrast_p5": 3.63,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-129737",
@@ -5048,7 +5233,15 @@
      "pair_contrast_p5": 5.66,
      "panel_contrast_min": 9.52
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-133051",
@@ -5121,7 +5314,15 @@
      "pair_contrast_p5": 3.83,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-133581",
@@ -5221,7 +5422,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 10.2
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-136331",
@@ -5296,7 +5505,15 @@
      "pair_contrast_p5": 3.36,
      "panel_contrast_min": 8.92
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-15657",
@@ -5358,7 +5575,15 @@
      "pair_contrast_p5": 4.0,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-163932",
@@ -5454,7 +5679,15 @@
      "pair_contrast_p5": 9.68,
      "panel_contrast_min": 10.12
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-174802",
@@ -5522,7 +5755,15 @@
      "pair_contrast_p5": 4.49,
      "panel_contrast_min": 8.78
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-18459",
@@ -5590,7 +5831,15 @@
      "pair_contrast_p5": 3.69,
      "panel_contrast_min": 8.77
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-18461",
@@ -5663,7 +5912,15 @@
      "pair_contrast_p5": 4.03,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-18749",
@@ -5816,7 +6073,15 @@
      "pair_contrast_p5": 9.84,
      "panel_contrast_min": 10.03
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-19009",
@@ -5968,7 +6233,15 @@
      "pair_contrast_p5": 7.13,
      "panel_contrast_min": 9.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-19920",
@@ -6067,7 +6340,15 @@
      "pair_contrast_p5": 3.51,
      "panel_contrast_min": 8.76
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-20491",
@@ -6164,7 +6445,15 @@
      "pair_contrast_p5": 5.23,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-20896",
@@ -6233,7 +6522,15 @@
      "pair_contrast_p5": 6.42,
      "panel_contrast_min": 8.81
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-218999",
@@ -6324,7 +6621,15 @@
      "pair_contrast_p5": 3.67,
      "panel_contrast_min": 9.05
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-219719",
@@ -6391,7 +6696,15 @@
      "pair_contrast_p5": 3.34,
      "panel_contrast_min": 8.82
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-22294",
@@ -6544,7 +6857,15 @@
      "pair_contrast_p5": 9.58,
      "panel_contrast_min": 9.99
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-244316",
@@ -6671,7 +6992,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 10.2
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-265474",
@@ -6797,7 +7126,15 @@
      "pair_contrast_p5": 8.41,
      "panel_contrast_min": 9.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-266338",
@@ -6925,7 +7262,15 @@
      "pair_contrast_p5": 5.24,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-266453",
@@ -7052,7 +7397,15 @@
      "pair_contrast_p5": 5.47,
      "panel_contrast_min": 8.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-266456",
@@ -7148,7 +7501,15 @@
      "pair_contrast_p5": 7.9,
      "panel_contrast_min": 9.67
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-28636",
@@ -7299,7 +7660,15 @@
      "pair_contrast_p5": 7.84,
      "panel_contrast_min": 9.79
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-28647",
@@ -7400,7 +7769,15 @@
      "pair_contrast_p5": 9.12,
      "panel_contrast_min": 10.0
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-28649",
@@ -7469,7 +7846,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 9.91
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-30254",
@@ -7596,7 +7981,15 @@
      "pair_contrast_p5": 4.54,
      "panel_contrast_min": 9.08
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-306694",
@@ -7724,7 +8117,15 @@
      "pair_contrast_p5": 8.08,
      "panel_contrast_min": 8.76
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-30971",
@@ -7849,7 +8250,15 @@
      "pair_contrast_p5": 7.52,
      "panel_contrast_min": 9.58
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-31005",
@@ -7949,7 +8358,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 8.79
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-31013",
@@ -8018,7 +8435,15 @@
      "pair_contrast_p5": 3.52,
      "panel_contrast_min": 8.77
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-31246",
@@ -8172,7 +8597,15 @@
      "pair_contrast_p5": 5.0,
      "panel_contrast_min": 8.82
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-31256",
@@ -8238,7 +8671,15 @@
      "pair_contrast_p5": 3.48,
      "panel_contrast_min": 8.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-31278",
@@ -8304,7 +8745,15 @@
      "pair_contrast_p5": 6.46,
      "panel_contrast_min": 9.08
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-31284",
@@ -8427,7 +8876,15 @@
      "pair_contrast_p5": 4.87,
      "panel_contrast_min": 9.37
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-316354",
@@ -8577,7 +9034,15 @@
      "pair_contrast_p5": 9.72,
      "panel_contrast_min": 10.06
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-31900",
@@ -8705,7 +9170,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 9.1
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-323450",
@@ -8804,7 +9277,15 @@
      "pair_contrast_p5": 7.35,
      "panel_contrast_min": 8.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-323565",
@@ -8932,7 +9413,15 @@
      "pair_contrast_p5": 8.62,
      "panel_contrast_min": 8.76
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-32370",
@@ -9033,7 +9522,15 @@
      "pair_contrast_p5": 6.82,
      "panel_contrast_min": 9.05
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-32403",
@@ -9159,7 +9656,15 @@
      "pair_contrast_p5": 8.62,
      "panel_contrast_min": 9.79
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-32698",
@@ -9288,7 +9793,15 @@
      "pair_contrast_p5": 8.07,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-32850",
@@ -9356,7 +9869,15 @@
      "pair_contrast_p5": 3.81,
      "panel_contrast_min": 8.76
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-330676",
@@ -9418,7 +9939,15 @@
      "pair_contrast_p5": 3.23,
      "panel_contrast_min": 8.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-33391",
@@ -9516,7 +10045,15 @@
      "pair_contrast_p5": 7.88,
      "panel_contrast_min": 9.64
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-33549",
@@ -9614,7 +10151,15 @@
      "pair_contrast_p5": 5.32,
      "panel_contrast_min": 9.37
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-339531",
@@ -9682,7 +10227,15 @@
      "pair_contrast_p5": 3.56,
      "panel_contrast_min": 8.76
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-339562",
@@ -9781,7 +10334,15 @@
      "pair_contrast_p5": 3.23,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-35041",
@@ -9850,7 +10411,15 @@
      "pair_contrast_p5": 3.6,
      "panel_contrast_min": 8.81
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-35185",
@@ -10004,7 +10573,15 @@
      "pair_contrast_p5": 8.86,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-35233",
@@ -10157,7 +10734,15 @@
      "pair_contrast_p5": 8.79,
      "panel_contrast_min": 9.4
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-36201",
@@ -10248,7 +10833,15 @@
      "pair_contrast_p5": 4.81,
      "panel_contrast_min": 8.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-36213",
@@ -10371,7 +10964,15 @@
      "pair_contrast_p5": 10.03,
      "panel_contrast_min": 9.31
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-37233",
@@ -10462,7 +11063,15 @@
      "pair_contrast_p5": 5.21,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-444471",
@@ -10553,7 +11162,15 @@
      "pair_contrast_p5": 8.18,
      "panel_contrast_min": 9.06
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-444501",
@@ -10615,7 +11232,15 @@
      "pair_contrast_p5": 3.32,
      "panel_contrast_min": 8.87
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-455539",
@@ -10711,7 +11336,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 10.15
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-467099",
@@ -10834,7 +11467,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 10.2
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-467125",
@@ -10904,7 +11545,15 @@
      "pair_contrast_p5": 6.54,
      "panel_contrast_min": 8.76
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-577649",
@@ -10972,7 +11621,15 @@
      "pair_contrast_p5": 6.03,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-577907",
@@ -11095,7 +11752,15 @@
      "pair_contrast_p5": 4.88,
      "panel_contrast_min": 9.04
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-588744",
@@ -11165,7 +11830,15 @@
      "pair_contrast_p5": 5.83,
      "panel_contrast_min": 9.28
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-604310",
@@ -11264,7 +11937,15 @@
      "pair_contrast_p5": 6.94,
      "panel_contrast_min": 9.68
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-604371",
@@ -11364,7 +12045,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 8.75
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-62617",
@@ -11461,7 +12150,15 @@
      "pair_contrast_p5": 7.29,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-638692",
@@ -11532,7 +12229,15 @@
      "pair_contrast_p5": 3.43,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-638705",
@@ -11627,7 +12332,15 @@
      "pair_contrast_p5": 4.14,
      "panel_contrast_min": 9.09
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-639015",
@@ -11783,7 +12496,15 @@
      "pair_contrast_p5": 10.2,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-659337",
@@ -11855,7 +12576,15 @@
      "pair_contrast_p5": 5.4,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-659348",
@@ -11898,7 +12627,7 @@
      0,
      0
     ],
-    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.47): chữ C1 sẽ chìm, dùng panel",
+    "reason": "tranh có hình ngay chỗ chữ (80% ô bận); nền nhiều hoạ tiết (12% điểm là cạnh); nền loang sáng tối (lệch 0.47): chữ C1 sẽ chìm, dùng panel; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem",
     "text_box": [
      0.3504,
      0.0566,
@@ -11926,7 +12655,25 @@
      "pair_contrast_p5": 5.74,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": [
+     {
+      "text": "MM",
+      "bbox": [
+       0.7672,
+       0.1595,
+       0.0624,
+       0.0791
+      ]
+     }
+    ]
+   },
+   "cover_text_flag": "text"
   },
   {
    "id": "SW-659365",
@@ -12029,7 +12776,15 @@
      "pair_contrast_p5": 3.13,
      "panel_contrast_min": 9.04
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-659392",
@@ -12156,7 +12911,15 @@
      "pair_contrast_p5": 5.52,
      "panel_contrast_min": 9.14
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-68010",
@@ -12224,7 +12987,15 @@
      "pair_contrast_p5": 6.83,
      "panel_contrast_min": 9.64
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-69527",
@@ -12291,7 +13062,15 @@
      "pair_contrast_p5": 3.46,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-87044",
@@ -12353,7 +13132,25 @@
      "pair_contrast_p5": 4.44,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": [
+     {
+      "text": "oewd",
+      "bbox": [
+       0.3796,
+       0.549,
+       0.0928,
+       0.0523
+      ]
+     }
+    ]
+   },
+   "cover_text_flag": "text"
   },
   {
    "id": "SW-93066",
@@ -12455,7 +13252,15 @@
      "pair_contrast_p5": 6.16,
      "panel_contrast_min": 9.31
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-99711",
@@ -12556,7 +13361,15 @@
      "pair_contrast_p5": 3.32,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-99712",
@@ -12655,7 +13468,15 @@
      "pair_contrast_p5": 3.49,
      "panel_contrast_min": 8.74
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-99713",
@@ -12726,7 +13547,15 @@
      "pair_contrast_p5": 3.77,
      "panel_contrast_min": 8.76
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   },
   {
    "id": "SW-99794",
@@ -12825,7 +13654,15 @@
      "pair_contrast_p5": 4.19,
      "panel_contrast_min": 8.98
     }
-   }
+   },
+   "baked_text": {
+    "ocr": true,
+    "title_score": 0.0,
+    "title_bbox": null,
+    "title_lines": [],
+    "other_text": []
+   },
+   "cover_text_flag": "none"
   }
  ],
  "errors": [
@@ -12840,11 +13677,15 @@
  ],
  "summary": {
   "covers": 93,
-  "c1": 50,
+  "c1": 49,
   "panel_long": 0,
-  "panel_busy": 43,
-  "c1_fixed": 16,
+  "panel_busy": 42,
+  "c1_fixed": 15,
   "c1_shifted": 34,
+  "replace_baked_title": 2,
+  "text_needs_review": 2,
+  "flag_title": 2,
+  "flag_text": 3,
   "no_zh_title": 20,
   "en_missing": 0,
   "en_ai_gloss": 23

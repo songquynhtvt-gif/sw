@@ -15,7 +15,7 @@ Dùng:
   python3 scripts/covers.py --all                        # mọi sách dạng ảnh trang
   python3 scripts/covers.py SW-266338 ASB-13623          # vài cuốn
 """
-import argparse, functools, json, os, re, sys
+import argparse, difflib, functools, json, os, re, sys, threading
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -220,6 +220,92 @@ def shift_c1(img, tb, empty, step=24):
     return best and (best[1], best[2])
 
 
+_ocr_local = threading.local()
+
+
+def ocr(path):
+    """Đọc chữ đã in sẵn trên bìa (cần gói rapidocr-onnxruntime; không có thì trả None).
+    Trả về [{text, conf, bbox 0..1}]."""
+    try:
+        from rapidocr_onnxruntime import RapidOCR
+    except ImportError:
+        return None
+    if not hasattr(_ocr_local, "eng"):
+        _ocr_local.eng = RapidOCR()
+    im = Image.open(path).convert("RGB")
+    W, H = im.size
+    res, _ = _ocr_local.eng(np.asarray(im))
+    out = []
+    for box, text, conf in res or []:
+        xs, ys = [p[0] for p in box], [p[1] for p in box]
+        out.append({"text": text, "conf": round(float(conf), 2),
+                    "bbox": [round(min(xs) / W, 4), round(min(ys) / H, 4),
+                             round((max(xs) - min(xs)) / W, 4), round((max(ys) - min(ys)) / H, 4)]})
+    return out
+
+
+def letters(t):
+    return re.sub(r"[^a-z0-9]", "", (t or "").lower())
+
+
+def baked_title(found, en):
+    """Rule nhận ra tên tiếng Anh đã in sẵn trên bìa:
+    - mỗi dòng OCR (độ tin >= 0.5) được tính là thuộc tên nếu chữ của nó nằm trong tên (bỏ dấu, khoảng trắng),
+      hoặc giống một đoạn của tên >= 80%;
+    - tổng số chữ cái khớp >= 60% số chữ cái của tên -> bìa có tên in sẵn, vùng tên = hộp bao các dòng khớp.
+    Trả về (score, bbox, các dòng khớp, các dòng chữ khác)."""
+    t = letters(en)
+    if not found or len(t) < 3:
+        return 0.0, None, [], [x for x in found or [] if x["conf"] >= 0.5]
+    hit, other, covered = [], [], 0
+    for x in found:
+        w = letters(x["text"])
+        if x["conf"] < 0.5 or len(w) < 2:
+            continue
+        ok = w in t or max((difflib.SequenceMatcher(None, w, t[i:i + len(w)]).ratio()
+                            for i in range(0, max(1, len(t) - len(w) + 1))), default=0) >= 0.8
+        if ok:
+            hit.append(x)
+            covered += len(w)
+        else:
+            other.append(x)
+    score = min(1.0, covered / len(t))
+    if not hit:
+        return score, None, hit, other
+    x0 = min(h["bbox"][0] for h in hit)
+    y0 = min(h["bbox"][1] for h in hit)
+    x1 = max(h["bbox"][0] + h["bbox"][2] for h in hit)
+    y1 = max(h["bbox"][1] + h["bbox"][3] for h in hit)
+    return round(score, 2), [round(x0, 4), round(y0, 4), round(x1 - x0, 4), round(y1 - y0, 4)], hit, other
+
+
+def cover_flag(baked):
+    """Cờ chữ in sẵn trên bìa: "title" (có tên tiếng Anh in sẵn), "text" (có chữ khác: tác giả,
+    logo, hoặc tên viết cách điệu OCR đọc không ra), "none" (không thấy chữ), "unknown" (chưa chạy OCR)."""
+    if not baked["ocr"]:
+        return "unknown"
+    if baked["title_bbox"] and baked["title_score"] >= 0.6:
+        return "title"
+    return "text" if baked["other_text"] or baked["title_lines"] else "none"
+
+
+def replace_box(n, bbox, size, sub):
+    """Tên Trung đặt vào đúng vùng tên Anh in sẵn: chọn số dòng (1–3) cho chữ to nhất vừa vùng."""
+    W, H = size[0] * frame_scale(size), size[1] * frame_scale(size)
+    pad = 0.15
+    bw, bh = bbox[2] * W, bbox[3] * H
+    x, y = bbox[0] * W - bw * pad / 2, bbox[1] * H - bh * pad / 2
+    bw, bh = bw * (1 + pad), bh * (1 + pad)
+    best = (0, 1)
+    for lines in (1, 2, 3):
+        per = -(-n // lines)
+        px = min(bw / per, (bh - (EN["line"] if sub else 0)) / (lines * 1.2 + 0.4))
+        if px > best[0]:
+            best = (px, lines)
+    px = int(max(16, min(96, best[0])))
+    return px, best[1], [round(max(0, x) / W, 4), round(max(0, y) / H, 4), round(min(bw, W) / W, 4), round(min(bh, H) / H, 4)]
+
+
 def decide(kind, lines, leg):
     """Rule chọn kiểu chữ. C1 chỉ khi tên một dòng VÀ nền dưới chữ yên ở thang mịn."""
     if kind == "panel":
@@ -271,6 +357,7 @@ def main():
     ap.add_argument("--cache", default="out/cache")
     ap.add_argument("--out", default="out/covers")
     ap.add_argument("--no-overlay", action="store_true")
+    ap.add_argument("--no-ocr", action="store_true", help="bỏ bước dò chữ in sẵn trên bìa")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -288,7 +375,8 @@ def main():
             book, cover = load(bid, args.cache)
             if not cover:
                 return {"id": bid, "error": "không có ảnh bìa"}
-            return {"id": bid, "book": book, "cover": cover, "a": cs.analyse(cover["_local"])}
+            return {"id": bid, "book": book, "cover": cover, "a": cs.analyse(cover["_local"]),
+                    "ocr": None if args.no_ocr else ocr(cover["_local"])}
         except Exception as e:
             return {"id": bid, "error": repr(e)}
 
@@ -351,6 +439,20 @@ def main():
                 bh = LINE_H(px) + (EN["line"] if sub else 0) + 2 * PANEL["pad"][0]
                 tb = _bbox((tb[0] + tb[2] / 2) * Wf - bw / 2, tb[1] * Hf, bw, bh, Wf, Hf)
                 leg = legibility(img, tb, empty)
+        found = it.get("ocr")
+        score, bt, hit, other = baked_title(found, en)
+        baked = {"ocr": found is not None, "title_score": score, "title_bbox": bt,
+                 "title_lines": [h["text"] for h in hit],
+                 "other_text": [{"text": o["text"], "bbox": o["bbox"]} for o in other]}
+        if bt and score >= 0.6:
+            # bìa đã in sẵn tên tiếng Anh: tên Trung thay vào đúng chỗ đó, designer xoá chữ Anh
+            px, lines, tb = replace_box(n, bt, a["size"], sub)
+            leg = legibility(img, tb, empty)
+            style, source, shift = "replace", "baked_title", [0, 0]
+            reason = (f"bìa đã in sẵn tên tiếng Anh ({' / '.join(baked['title_lines'])}, khớp {round(score * 100)}%): "
+                      "xoá chữ Anh trong tranh, đặt tên Trung vào đúng vùng đó")
+        elif other and any(o["bbox"][3] >= 0.06 for o in other):
+            reason += "; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem"
         t, l = round(slot["bbox"][1] * cs.GRID), round(slot["bbox"][0] * cs.GRID)
         hh, ww = round(slot["bbox"][3] * cs.GRID), round(slot["bbox"][2] * cs.GRID)
         calm = float(empty[t:t + hh, l:l + ww].mean())
@@ -366,6 +468,8 @@ def main():
                            "style": style, "source": source, "shift_px": shift, "reason": reason,
                            "text_box": tb, "anchor": {"x": round(tb[0] + tb[2] / 2, 4), "y": tb[1], "align": "center"},
                            "font_px": px, "lines": lines, "legibility": leg},
+            "baked_text": baked,
+            "cover_text_flag": cover_flag(baked),
         })
         if not args.no_overlay:
             draw(it, slot, covers[-1]["title_slot"], None, os.path.join(args.out, "overlay", f"{book['id']}.jpg"))
@@ -386,6 +490,10 @@ def main():
             "panel_busy": sum(c["title_slot"]["style"] == "panel" and not c["title_slot"]["reason"].startswith("tên dài") for c in covers),
             "c1_fixed": sum(c["title_slot"]["style"] == "c1" and c["title_slot"]["source"] == "fixed" for c in covers),
             "c1_shifted": sum(c["title_slot"]["source"] == "shifted" for c in covers),
+            "replace_baked_title": sum(c["title_slot"]["style"] == "replace" for c in covers),
+            "text_needs_review": sum("cần người xem" in c["title_slot"]["reason"] for c in covers),
+            "flag_title": sum(c["cover_text_flag"] == "title" for c in covers),
+            "flag_text": sum(c["cover_text_flag"] == "text" for c in covers),
             "no_zh_title": sum(c["title_source"] == "title_en" for c in covers),
             "en_missing": sum(c["title_en_source"] == "missing" for c in covers),
             "en_ai_gloss": sum(c["title_en_source"] == "ai_gloss" for c in covers),
@@ -457,7 +565,18 @@ def draw(it, slot, ts, alt, path):
     pys = it["_pinyin"] or [""] * len(chars)
     f_h, f_p = font(px), font(py_px)
     forest, cream = (14, 74, 58, 255), (253, 249, 240, 255)
-    if ts["style"] == "panel":
+    if ts["style"] == "replace":
+        # mô phỏng designer xoá chữ Anh: phủ vùng tên bằng màu nền quanh viền vùng đó
+        arr = np.asarray(im.convert("RGB"))
+        X0, Y0, X1, Y1 = int(x0), int(y0), min(arr.shape[1] - 1, int(x1)), min(arr.shape[0] - 1, int(y1))
+        ring = np.concatenate([arr[Y0, X0:X1], arr[Y1, X0:X1], arr[Y0:Y1, X0], arr[Y0:Y1, X1]])
+        fill = tuple(int(v) for v in np.median(ring, 0)) + (255,)
+        patch = Image.new("RGBA", (X1 - X0, Y1 - Y0), fill)
+        im.paste(patch, (X0, Y0))
+        ox, oy, ink, stroke = x0, y0 + (y1 - y0 - ts["lines"] * LINE_H(px) - (EN["line"] if it["_sub"] else 0)) / 2, cream, C1["stroke_px"]
+        per = -(-len(chars) // max(1, ts["lines"]))
+        ox = (x0 + x1) / 2 - per * px / 2
+    elif ts["style"] == "panel":
         panel_bg = im.crop((int(x0), int(y0), int(x1), int(y1))).filter(ImageFilter.GaussianBlur(PANEL["blur_px"]))
         white = Image.new("RGBA", panel_bg.size, (255, 255, 255, int(255 * PANEL["white_alpha"])))
         im.paste(Image.alpha_composite(panel_bg, white), (int(x0), int(y0)))
