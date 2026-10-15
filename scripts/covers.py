@@ -270,6 +270,8 @@ def main():
         a, book, empty = it["a"], it["book"], it["empty"]
         title, tsrc = title_of(book)
         n = it["_n"] = title_len(title)
+        it["_title"] = title
+        it["_pinyin"] = pinyin_of(title) if cs.CJK.search(title) else None
         own = [cs.zone(f"Z{j + 1}", r, a) for j, r in enumerate(cs.rects(empty, min_w=0.25, min_h=0.15))]
         slot = it["fmt_slot"]
         img = display(it["cover"]["_local"])
@@ -298,7 +300,7 @@ def main():
         covers.append({
             "id": book["id"], "source": book["source"], "lang": book["lang"],
             "image": cs.BASE + c["image"], "size": list(a["size"]), "format": it["fmt"],
-            "title": title, "title_source": tsrc, "title_len": n,
+            "title": title, "title_source": tsrc, "title_len": n, "title_pinyin": it["_pinyin"],
             "empty_ratio": round(float(empty.mean()), 3),
             "zones": own,
             "title_slot": {"slot_bbox": slot["bbox"], "calm_coarse": round(calm, 2),
@@ -335,6 +337,33 @@ def main():
         print(f["format"], f["covers"], f["title_slot"]["position"], f["title_slot"]["bbox"], f["title_slot"]["empty_freq"])
 
 
+FONT_FILES = ["/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc", "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"]
+
+
+def font(px):
+    """Font chữ Hán để vẽ ảnh duyệt (app dùng Noto Sans SC; máy chạy không có thì dùng WenQuanYi)."""
+    from PIL import ImageFont
+    for f in FONT_FILES:
+        if os.path.exists(f):
+            return ImageFont.truetype(f, int(px))
+    return ImageFont.load_default()
+
+
+def pinyin_of(title):
+    """Pinyin có dấu cho từng chữ Hán (cần gói pypinyin; không có thì bỏ trống)."""
+    try:
+        from pypinyin import pinyin, Style
+    except ImportError:
+        return None
+    chars = hanzi_chars(title)
+    return [p[0] if ch.isalpha() else "" for ch, p in zip(chars, pinyin(chars, style=Style.TONE))]
+
+
+def hanzi_chars(title):
+    """Các ký tự sẽ đặt lên bìa (chữ Hán + dấu câu CJK), đúng với số đếm của title_len."""
+    return cs.CJK.findall(title)
+
+
 def draw(it, slot, ts, alt, path):
     """Ảnh duyệt ở kích thước hiển thị: ô bận đỏ nhạt, dải cố định xanh dương, hộp chữ xanh lá
     (C1) hoặc cam (panel), chỗ phụ vàng; mô phỏng luôn chữ để nhìn có chìm không."""
@@ -357,32 +386,36 @@ def draw(it, slot, ts, alt, path):
     if alt:
         d.rectangle(rect(alt["text_box"]), outline=(255, 190, 0, 255), width=4)
     im = Image.alpha_composite(im.convert("RGBA"), ov)
-    # mô phỏng chữ: khối đặc thay cho glyph (cùng kích thước, màu, viền) để thấy độ nổi
+    # vẽ tên thật (chữ Hán + pinyin) đúng cỡ, màu, viền để nhìn chữ có chìm không
     sim = Image.new("RGBA", im.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(sim)
     x0, y0, x1, y1 = rect(ts["text_box"])
+    px, py_px = ts["font_px"], C1["pinyin_px"]
+    chars = hanzi_chars(it["_title"]) or [it["_title"]]
+    pys = it["_pinyin"] or [""] * len(chars)
+    f_h, f_p = font(px), font(py_px)
+    forest, cream = (14, 74, 58, 255), (253, 249, 240, 255)
     if ts["style"] == "panel":
         panel_bg = im.crop((int(x0), int(y0), int(x1), int(y1))).filter(ImageFilter.GaussianBlur(PANEL["blur_px"]))
         white = Image.new("RGBA", panel_bg.size, (255, 255, 255, int(255 * PANEL["white_alpha"])))
         im.paste(Image.alpha_composite(panel_bg, white), (int(x0), int(y0)))
-        ink, pad = (14, 74, 58, 255), PANEL["pad"]
-        gx, gy = x0 + pad[1], y0 + pad[0]
-        per = max(1, int((x1 - x0 - 2 * pad[1]) // ts["font_px"]))
-        for li in range(ts["lines"]):
-            for k in range(max(0, min(per, it["_n"] - li * per))):
-                gx_ = gx + k * ts["font_px"]
-                gy_ = gy + li * LINE_H(ts["font_px"]) + C1["pinyin_px"] * 1.3
-                d.rounded_rectangle([gx_ + 3, gy_ + 3, gx_ + ts["font_px"] - 3, gy_ + ts["font_px"] - 3], 4, fill=ink)
-        d.rounded_rectangle([x0, y0, x1, y1], 24, outline=(230, 120, 40, 255), width=3)
+        pad = PANEL["pad"]
+        ox, oy, ink, stroke = x0 + pad[1], y0 + pad[0], forest, 0
+        per = max(1, int((x1 - x0 - 2 * pad[1]) // px))
     else:
-        sp = C1["stroke_px"]
-        gy = y0 + sp + C1["pinyin_px"] * 1.3
-        for k in range(it["_n"]):
-            gx = x0 + sp + k * ts["font_px"]
-            box = [gx + 3, gy + 3, gx + ts["font_px"] - 3, gy + ts["font_px"] - 3]
-            d.rounded_rectangle([box[0] - sp, box[1] - sp, box[2] + sp, box[3] + sp], 6, fill=(14, 74, 58, 255))
-            d.rounded_rectangle(box, 4, fill=(253, 249, 240, 255))
-        d.rectangle([x0, y0, x1, y1], outline=(0, 170, 80, 255), width=3)
+        ox, oy, ink, stroke = x0 + C1["stroke_px"], y0 + C1["stroke_px"], cream, C1["stroke_px"]
+        per = len(chars)
+    for i, ch in enumerate(chars):
+        li, k = divmod(i, per)
+        cx = ox + k * px + px / 2
+        top = oy + li * LINE_H(px)
+        if pys[i] if i < len(pys) else "":
+            d.text((cx, top), pys[i], font=f_p, anchor="ma", fill=ink if not stroke else cream,
+                   stroke_width=max(2, stroke // 2) if stroke else 0, stroke_fill=forest)
+        d.text((cx if len(chars) > 1 else ox, top + py_px * 1.3), ch, font=f_h, anchor="ma" if len(chars) > 1 else "la",
+               fill=ink, stroke_width=stroke, stroke_fill=forest)
+    if ts["style"] == "panel":
+        d.rounded_rectangle([x0, y0, x1, y1], 24, outline=(230, 120, 40, 160), width=2)
     im = Image.alpha_composite(im, sim).convert("RGB")
     im.thumbnail((800, 800))
     os.makedirs(os.path.dirname(path), exist_ok=True)

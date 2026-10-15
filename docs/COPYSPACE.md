@@ -21,7 +21,7 @@ python3 scripts/covers.py --all                 # mọi sách dạng ảnh trang
 6. Trượt ở vị trí cố định → dò trong phần ba trên (bước 24px ngang, 12px dọc) tìm chỗ gần nhất đạt cả 4 (`source: shifted`, `shift_px`). Không có → panel trắng 85% + blur 8px, chữ rừng, bọc đúng dòng chữ tại vị trí cố định (`style: panel`). `reason` ghi lý do bằng tiếng Việt.
 7. Tên lấy theo thứ tự: chữ trên trang bìa → `translation.title_zh` → `title` nếu là chữ Hán → tên tiếng Anh (`title_source: title_en`, độ dài ước lượng 1.4 chữ/từ).
 
-Ảnh duyệt trong `overlay/` vẽ khối chữ giả đúng cỡ, màu, viền (hoặc panel) để nhìn được chữ có chìm không.
+Ảnh duyệt trong `overlay/` vẽ tên tiếng Trung thật + pinyin (`title_pinyin`, từ gói `pypinyin`) đúng cỡ, màu, viền hoặc panel, để nhìn được chữ có chìm không.
 
 Giới hạn: chưa nhận diện mặt nhân vật, nên panel ở vị trí cố định có thể che đầu nhân vật nếu nhân vật chạm mép trên. Giới hạn: bìa đã in sẵn tên trong tranh (vd. "Lory Dory", "The Moon and The Cap") chưa được nhận ra; cần lọc tay hoặc thêm OCR.
 

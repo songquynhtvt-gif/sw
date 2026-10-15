@@ -3477,6 +3477,7 @@
    "title": "Goat and Hyena's knife",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.406,
    "zones": [],
    "title_slot": {
@@ -3536,6 +3537,7 @@
    "title": "Little Ant's big plan",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.604,
    "zones": [
     {
@@ -3680,6 +3682,7 @@
    "title": "Lory Dory",
    "title_source": "title_en",
    "title_len": 3,
+   "title_pinyin": null,
    "empty_ratio": 0.45,
    "zones": [
     {
@@ -3796,6 +3799,7 @@
    "title": "Why Fly pesters Cow",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.675,
    "zones": [
     {
@@ -3912,6 +3916,7 @@
    "title": "The moon and the cap",
    "title_source": "title_en",
    "title_len": 7,
+   "title_pinyin": null,
    "empty_ratio": 0.455,
    "zones": [
     {
@@ -4028,6 +4033,7 @@
    "title": "Jaŋkuno mini Baa ni Bolli",
    "title_source": "title_en",
    "title_len": 7,
+   "title_pinyin": null,
    "empty_ratio": 0.345,
    "zones": [
     {
@@ -4116,6 +4122,7 @@
    "title": "Jaŋkuno mini Baa ni kahimpiɛɣu",
    "title_source": "title_en",
    "title_len": 7,
+   "title_pinyin": null,
    "empty_ratio": 0.356,
    "zones": [],
    "title_slot": {
@@ -4175,6 +4182,7 @@
    "title": "Jaŋkuno mini Baa ni galli",
    "title_source": "title_en",
    "title_len": 7,
+   "title_pinyin": null,
    "empty_ratio": 0.349,
    "zones": [
     {
@@ -4291,6 +4299,7 @@
    "title": "Bathtub Safari",
    "title_source": "title_en",
    "title_len": 3,
+   "title_pinyin": null,
    "empty_ratio": 0.365,
    "zones": [],
    "title_slot": {
@@ -4350,6 +4359,7 @@
    "title": "Tortoise finds his house",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.795,
    "zones": [
     {
@@ -4494,6 +4504,13 @@
    "title": "今天，我是...",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "jīn",
+    "tiān",
+    "",
+    "wǒ",
+    "shì"
+   ],
    "empty_ratio": 0.394,
    "zones": [],
    "title_slot": {
@@ -4553,6 +4570,16 @@
    "title": "母鸡妈妈正忙着呢",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "mǔ",
+    "jī",
+    "mā",
+    "mā",
+    "zhèng",
+    "máng",
+    "zhe",
+    "ne"
+   ],
    "empty_ratio": 0.714,
    "zones": [
     {
@@ -4697,6 +4724,7 @@
    "title": "Just the Way I Am",
    "title_source": "title_en",
    "title_len": 7,
+   "title_pinyin": null,
    "empty_ratio": 0.443,
    "zones": [
     {
@@ -4813,6 +4841,7 @@
    "title": "I Miss My Dog",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.108,
    "zones": [],
    "title_slot": {
@@ -4872,6 +4901,17 @@
    "title": "方脸儿猫，尖脸儿鼠",
    "title_source": "cover_text",
    "title_len": 9,
+   "title_pinyin": [
+    "fāng",
+    "liǎn",
+    "ér",
+    "māo",
+    "",
+    "jiān",
+    "liǎn",
+    "ér",
+    "shǔ"
+   ],
    "empty_ratio": 0.569,
    "zones": [
     {
@@ -4988,6 +5028,18 @@
    "title": "奇妙的昆虫：看图识数",
    "title_source": "cover_text",
    "title_len": 10,
+   "title_pinyin": [
+    "qí",
+    "miào",
+    "de",
+    "kūn",
+    "chóng",
+    "",
+    "kàn",
+    "tú",
+    "shí",
+    "shù"
+   ],
    "empty_ratio": 0.189,
    "zones": [],
    "title_slot": {
@@ -5047,6 +5099,16 @@
    "title": "谁是我们的朋友？",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "shuí",
+    "shì",
+    "wǒ",
+    "men",
+    "de",
+    "péng",
+    "yǒu",
+    ""
+   ],
    "empty_ratio": 0.3,
    "zones": [
     {
@@ -5135,6 +5197,20 @@
    "title": "魔力粉末 - 一个缅甸民间故事",
    "title_source": "cover_text",
    "title_len": 12,
+   "title_pinyin": [
+    "mó",
+    "lì",
+    "fěn",
+    "mò",
+    "yī",
+    "gè",
+    "miǎn",
+    "diān",
+    "mín",
+    "jiān",
+    "gù",
+    "shì"
+   ],
    "empty_ratio": 0.146,
    "zones": [],
    "title_slot": {
@@ -5194,6 +5270,7 @@
    "title": "The Brave Monkey",
    "title_source": "title_en",
    "title_len": 4,
+   "title_pinyin": null,
    "empty_ratio": 0.325,
    "zones": [],
    "title_slot": {
@@ -5253,6 +5330,12 @@
    "title": "别、别做",
    "title_source": "cover_text",
    "title_len": 4,
+   "title_pinyin": [
+    "bié",
+    "",
+    "bié",
+    "zuò"
+   ],
    "empty_ratio": 0.319,
    "zones": [
     {
@@ -5341,6 +5424,13 @@
    "title": "高高在树上",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "gāo",
+    "gāo",
+    "zài",
+    "shù",
+    "shàng"
+   ],
    "empty_ratio": 0.304,
    "zones": [],
    "title_slot": {
@@ -5400,6 +5490,13 @@
    "title": "我的小伙伴",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "wǒ",
+    "de",
+    "xiǎo",
+    "huǒ",
+    "bàn"
+   ],
    "empty_ratio": 0.054,
    "zones": [],
    "title_slot": {
@@ -5459,6 +5556,18 @@
    "title": "笃乐和布鲁对付大野狼",
    "title_source": "cover_text",
    "title_len": 10,
+   "title_pinyin": [
+    "dǔ",
+    "lè",
+    "hé",
+    "bù",
+    "lǔ",
+    "duì",
+    "fù",
+    "dà",
+    "yě",
+    "láng"
+   ],
    "empty_ratio": 0.106,
    "zones": [],
    "title_slot": {
@@ -5518,6 +5627,13 @@
    "title": "另外一个我",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "lìng",
+    "wài",
+    "yī",
+    "gè",
+    "wǒ"
+   ],
    "empty_ratio": 0.703,
    "zones": [
     {
@@ -5662,6 +5778,12 @@
    "title": "我会爬！",
    "title_source": "cover_text",
    "title_len": 4,
+   "title_pinyin": [
+    "wǒ",
+    "huì",
+    "pá",
+    ""
+   ],
    "empty_ratio": 0.514,
    "zones": [
     {
@@ -5806,6 +5928,15 @@
    "title": "萨姆的圣诞礼物",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "sà",
+    "mǔ",
+    "de",
+    "shèng",
+    "dàn",
+    "lǐ",
+    "wù"
+   ],
    "empty_ratio": 0.387,
    "zones": [
     {
@@ -5894,6 +6025,13 @@
    "title": "黄瓢虫拉拉",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "huáng",
+    "piáo",
+    "chóng",
+    "lā",
+    "lā"
+   ],
    "empty_ratio": 0.372,
    "zones": [
     {
@@ -5982,6 +6120,14 @@
    "title": "一样和不一样",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "yī",
+    "yàng",
+    "hé",
+    "bù",
+    "yī",
+    "yàng"
+   ],
    "empty_ratio": 0.392,
    "zones": [],
    "title_slot": {
@@ -6041,6 +6187,7 @@
    "title": "Our Colourful World",
    "title_source": "title_en",
    "title_len": 4,
+   "title_pinyin": null,
    "empty_ratio": 0.408,
    "zones": [
     {
@@ -6129,6 +6276,12 @@
    "title": "躲猫猫！",
    "title_source": "cover_text",
    "title_len": 4,
+   "title_pinyin": [
+    "duǒ",
+    "māo",
+    "māo",
+    ""
+   ],
    "empty_ratio": 0.368,
    "zones": [],
    "title_slot": {
@@ -6188,6 +6341,13 @@
    "title": "月亮和帽子",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "yuè",
+    "liàng",
+    "hé",
+    "mào",
+    "zi"
+   ],
    "empty_ratio": 0.67,
    "zones": [
     {
@@ -6332,6 +6492,15 @@
    "title": "小蚂蚁的大计划",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "xiǎo",
+    "mǎ",
+    "yǐ",
+    "de",
+    "dà",
+    "jì",
+    "huà"
+   ],
    "empty_ratio": 0.571,
    "zones": [
     {
@@ -6448,6 +6617,14 @@
    "title": "小猫，回来！",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "xiǎo",
+    "māo",
+    "",
+    "huí",
+    "lái",
+    ""
+   ],
    "empty_ratio": 0.766,
    "zones": [
     {
@@ -6564,6 +6741,16 @@
    "title": "一名舞蹈家的故事",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "yī",
+    "míng",
+    "wǔ",
+    "dǎo",
+    "jiā",
+    "de",
+    "gù",
+    "shì"
+   ],
    "empty_ratio": 0.646,
    "zones": [
     {
@@ -6680,6 +6867,15 @@
    "title": "在外太空的古尔",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "zài",
+    "wài",
+    "tài",
+    "kōng",
+    "de",
+    "gǔ",
+    "ěr"
+   ],
    "empty_ratio": 0.345,
    "zones": [
     {
@@ -6796,6 +6992,12 @@
    "title": "魔幻眼镜",
    "title_source": "cover_text",
    "title_len": 4,
+   "title_pinyin": [
+    "mó",
+    "huàn",
+    "yǎn",
+    "jìng"
+   ],
    "empty_ratio": 0.358,
    "zones": [
     {
@@ -6884,6 +7086,11 @@
    "title": "小画家Tèo",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "xiǎo",
+    "huà",
+    "jiā"
+   ],
    "empty_ratio": 0.681,
    "zones": [
     {
@@ -7028,6 +7235,17 @@
    "title": "谁把鞋扔到我头上？",
    "title_source": "cover_text",
    "title_len": 9,
+   "title_pinyin": [
+    "shuí",
+    "bǎ",
+    "xié",
+    "rēng",
+    "dào",
+    "wǒ",
+    "tóu",
+    "shàng",
+    ""
+   ],
    "empty_ratio": 0.498,
    "zones": [
     {
@@ -7116,6 +7334,14 @@
    "title": "躲在哪儿呢？",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "duǒ",
+    "zài",
+    "nǎ",
+    "ér",
+    "ne",
+    ""
+   ],
    "empty_ratio": 0.134,
    "zones": [],
    "title_slot": {
@@ -7175,6 +7401,15 @@
    "title": "标点符号出去玩",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "biāo",
+    "diǎn",
+    "fú",
+    "hào",
+    "chū",
+    "qù",
+    "wán"
+   ],
    "empty_ratio": 0.47,
    "zones": [
     {
@@ -7291,6 +7526,16 @@
    "title": "表哥到村子来探望",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "biǎo",
+    "gē",
+    "dào",
+    "cūn",
+    "zi",
+    "lái",
+    "tàn",
+    "wàng"
+   ],
    "empty_ratio": 0.545,
    "zones": [
     {
@@ -7407,6 +7652,13 @@
    "title": "黏土的冒险",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "nián",
+    "tǔ",
+    "de",
+    "mào",
+    "xiǎn"
+   ],
    "empty_ratio": 0.625,
    "zones": [
     {
@@ -7523,6 +7775,16 @@
    "title": "把水桶拿给哥哥！",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "bǎ",
+    "shuǐ",
+    "tǒng",
+    "ná",
+    "gěi",
+    "gē",
+    "gē",
+    ""
+   ],
    "empty_ratio": 0.493,
    "zones": [
     {
@@ -7611,6 +7873,14 @@
    "title": "小松鼠去上学",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "xiǎo",
+    "sōng",
+    "shǔ",
+    "qù",
+    "shàng",
+    "xué"
+   ],
    "empty_ratio": 0.054,
    "zones": [],
    "title_slot": {
@@ -7670,6 +7940,14 @@
    "title": "好大的太阳呀",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "hǎo",
+    "dà",
+    "de",
+    "tài",
+    "yáng",
+    "ya"
+   ],
    "empty_ratio": 0.724,
    "zones": [
     {
@@ -7814,6 +8092,11 @@
    "title": "Kèng Kẹc学认字",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "xué",
+    "rèn",
+    "zì"
+   ],
    "empty_ratio": 0.056,
    "zones": [],
    "title_slot": {
@@ -7873,6 +8156,11 @@
    "title": "Bơ的生日",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "de",
+    "shēng",
+    "rì"
+   ],
    "empty_ratio": 0.457,
    "zones": [],
    "title_slot": {
@@ -7932,6 +8220,11 @@
    "title": "Bo的宝贝",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "de",
+    "bǎo",
+    "bèi"
+   ],
    "empty_ratio": 0.736,
    "zones": [
     {
@@ -8048,6 +8341,10 @@
    "title": "颜色",
    "title_source": "cover_text",
    "title_len": 2,
+   "title_pinyin": [
+    "yán",
+    "sè"
+   ],
    "empty_ratio": 0.646,
    "zones": [
     {
@@ -8192,6 +8489,16 @@
    "title": "嘘！小宝宝在睡觉",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "xū",
+    "",
+    "xiǎo",
+    "bǎo",
+    "bǎo",
+    "zài",
+    "shuì",
+    "jué"
+   ],
    "empty_ratio": 0.479,
    "zones": [
     {
@@ -8308,6 +8615,15 @@
    "title": "那颗摇晃的牙齿",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "nà",
+    "kē",
+    "yáo",
+    "huǎng",
+    "de",
+    "yá",
+    "chǐ"
+   ],
    "empty_ratio": 0.392,
    "zones": [
     {
@@ -8396,6 +8712,16 @@
    "title": "最佳脚脚前进!前进!",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "zuì",
+    "jiā",
+    "jiǎo",
+    "jiǎo",
+    "qián",
+    "jìn",
+    "qián",
+    "jìn"
+   ],
    "empty_ratio": 0.41,
    "zones": [
     {
@@ -8512,6 +8838,17 @@
    "title": "你拿了我的坚果吗？",
    "title_source": "cover_text",
    "title_len": 9,
+   "title_pinyin": [
+    "nǐ",
+    "ná",
+    "le",
+    "wǒ",
+    "de",
+    "jiān",
+    "guǒ",
+    "ma",
+    ""
+   ],
    "empty_ratio": 0.512,
    "zones": [
     {
@@ -8600,6 +8937,14 @@
    "title": "我得躲起来！",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "wǒ",
+    "dé",
+    "duǒ",
+    "qǐ",
+    "lái",
+    ""
+   ],
    "empty_ratio": 0.75,
    "zones": [
     {
@@ -8716,6 +9061,17 @@
    "title": "家里人多又怎么样？",
    "title_source": "cover_text",
    "title_len": 9,
+   "title_pinyin": [
+    "jiā",
+    "lǐ",
+    "rén",
+    "duō",
+    "yòu",
+    "zěn",
+    "me",
+    "yàng",
+    ""
+   ],
    "empty_ratio": 0.524,
    "zones": [
     {
@@ -8832,6 +9188,13 @@
    "title": "奇怪的夏天",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "qí",
+    "guài",
+    "de",
+    "xià",
+    "tiān"
+   ],
    "empty_ratio": 0.297,
    "zones": [],
    "title_slot": {
@@ -8891,6 +9254,7 @@
    "title": "Yellow Shoes",
    "title_source": "title_en",
    "title_len": 3,
+   "title_pinyin": null,
    "empty_ratio": 0.153,
    "zones": [],
    "title_slot": {
@@ -8950,6 +9314,14 @@
    "title": "黄色在哪儿？",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "huáng",
+    "sè",
+    "zài",
+    "nǎ",
+    "ér",
+    ""
+   ],
    "empty_ratio": 0.3,
    "zones": [
     {
@@ -9038,6 +9410,14 @@
    "title": "蓝色大海的梦",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "lán",
+    "sè",
+    "dà",
+    "hǎi",
+    "de",
+    "mèng"
+   ],
    "empty_ratio": 0.457,
    "zones": [
     {
@@ -9126,6 +9506,13 @@
    "title": "米拉和美拉",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "mǐ",
+    "lā",
+    "hé",
+    "měi",
+    "lā"
+   ],
    "empty_ratio": 0.33,
    "zones": [],
    "title_slot": {
@@ -9185,6 +9572,15 @@
    "title": "让我们来数脚吧",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "ràng",
+    "wǒ",
+    "men",
+    "lái",
+    "shù",
+    "jiǎo",
+    "ba"
+   ],
    "empty_ratio": 0.502,
    "zones": [
     {
@@ -9273,6 +9669,14 @@
    "title": "能干的水葫芦",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "néng",
+    "gàn",
+    "de",
+    "shuǐ",
+    "hú",
+    "lú"
+   ],
    "empty_ratio": 0.12,
    "zones": [],
    "title_slot": {
@@ -9332,6 +9736,14 @@
    "title": "大海在哪儿？",
    "title_source": "cover_text",
    "title_len": 6,
+   "title_pinyin": [
+    "dà",
+    "hǎi",
+    "zài",
+    "nǎ",
+    "ér",
+    ""
+   ],
    "empty_ratio": 0.719,
    "zones": [
     {
@@ -9476,6 +9888,13 @@
    "title": "迷路的种子",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "mí",
+    "lù",
+    "de",
+    "zhǒng",
+    "zi"
+   ],
    "empty_ratio": 0.618,
    "zones": [
     {
@@ -9620,6 +10039,7 @@
    "title": "Fishing in My Village",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.24,
    "zones": [
     {
@@ -9708,6 +10128,11 @@
    "title": "Xanh真绿呀",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "zhēn",
+    "lǜ",
+    "ya"
+   ],
    "empty_ratio": 0.469,
    "zones": [
     {
@@ -9824,6 +10249,7 @@
    "title": "Piggy Wants to Fly",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.406,
    "zones": [
     {
@@ -9912,6 +10338,7 @@
    "title": "Behind You",
    "title_source": "title_en",
    "title_len": 3,
+   "title_pinyin": null,
    "empty_ratio": 0.451,
    "zones": [
     {
@@ -10000,6 +10427,7 @@
    "title": "The Lonely Whale Shark",
    "title_source": "title_en",
    "title_len": 6,
+   "title_pinyin": null,
    "empty_ratio": 0.378,
    "zones": [],
    "title_slot": {
@@ -10059,6 +10487,12 @@
    "title": "小蝉的歌",
    "title_source": "cover_text",
    "title_len": 4,
+   "title_pinyin": [
+    "xiǎo",
+    "chán",
+    "de",
+    "gē"
+   ],
    "empty_ratio": 0.486,
    "zones": [
     {
@@ -10147,6 +10581,11 @@
    "title": "是谁？",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "shì",
+    "shuí",
+    ""
+   ],
    "empty_ratio": 0.497,
    "zones": [
     {
@@ -10263,6 +10702,15 @@
    "title": "特拉的红豆植物",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "tè",
+    "lā",
+    "de",
+    "hóng",
+    "dòu",
+    "zhí",
+    "wù"
+   ],
    "empty_ratio": 0.45,
    "zones": [],
    "title_slot": {
@@ -10322,6 +10770,13 @@
    "title": "爸爸的爱好\nTan Jun Qi\nTan Jun Qi",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "bà",
+    "bà",
+    "de",
+    "ài",
+    "hǎo"
+   ],
    "empty_ratio": 0.215,
    "zones": [],
    "title_slot": {
@@ -10381,6 +10836,11 @@
    "title": "睡觉吧\nKrisha Tamrakar\nKrisha Tamrakar\nJenny Lu",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "shuì",
+    "jué",
+    "ba"
+   ],
    "empty_ratio": 0.663,
    "zones": [
     {
@@ -10497,6 +10957,15 @@
    "title": "这里有多少个？",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "zhè",
+    "lǐ",
+    "yǒu",
+    "duō",
+    "shǎo",
+    "gè",
+    ""
+   ],
    "empty_ratio": 0.262,
    "zones": [],
    "title_slot": {
@@ -10556,6 +11025,15 @@
    "title": "胖猫喜欢吃甜点",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "pàng",
+    "māo",
+    "xǐ",
+    "huān",
+    "chī",
+    "tián",
+    "diǎn"
+   ],
    "empty_ratio": 0.365,
    "zones": [
     {
@@ -10644,6 +11122,16 @@
    "title": "莉拉学骑自行车！",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "lì",
+    "lā",
+    "xué",
+    "qí",
+    "zì",
+    "xíng",
+    "chē",
+    ""
+   ],
    "empty_ratio": 0.302,
    "zones": [
     {
@@ -10732,6 +11220,13 @@
    "title": "生气的阿库",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "shēng",
+    "qì",
+    "de",
+    "ā",
+    "kù"
+   ],
    "empty_ratio": 0.234,
    "zones": [
     {
@@ -10820,6 +11315,16 @@
    "title": "护理乔西的恶作剧",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "hù",
+    "lǐ",
+    "qiáo",
+    "xī",
+    "de",
+    "è",
+    "zuò",
+    "jù"
+   ],
    "empty_ratio": 0.391,
    "zones": [],
    "title_slot": {
@@ -10879,6 +11384,11 @@
    "title": "大和解",
    "title_source": "cover_text",
    "title_len": 3,
+   "title_pinyin": [
+    "dà",
+    "hé",
+    "jiě"
+   ],
    "empty_ratio": 0.276,
    "zones": [
     {
@@ -10967,6 +11477,16 @@
    "title": "喜欢跳舞的小河马",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "xǐ",
+    "huān",
+    "tiào",
+    "wǔ",
+    "de",
+    "xiǎo",
+    "hé",
+    "mǎ"
+   ],
    "empty_ratio": 0.646,
    "zones": [
     {
@@ -11111,6 +11631,17 @@
    "title": "我的银河系有个黑洞",
    "title_source": "cover_text",
    "title_len": 9,
+   "title_pinyin": [
+    "wǒ",
+    "de",
+    "yín",
+    "hé",
+    "xì",
+    "yǒu",
+    "gè",
+    "hēi",
+    "dòng"
+   ],
    "empty_ratio": 0.132,
    "zones": [],
    "title_slot": {
@@ -11170,6 +11701,16 @@
    "title": "第五个去哪儿了？",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "dì",
+    "wǔ",
+    "gè",
+    "qù",
+    "nǎ",
+    "ér",
+    "le",
+    ""
+   ],
    "empty_ratio": 0.17,
    "zones": [],
    "title_slot": {
@@ -11229,6 +11770,19 @@
    "title": "古姆古姆鳄鱼的光荣冒险",
    "title_source": "cover_text",
    "title_len": 11,
+   "title_pinyin": [
+    "gǔ",
+    "mǔ",
+    "gǔ",
+    "mǔ",
+    "è",
+    "yú",
+    "de",
+    "guāng",
+    "róng",
+    "mào",
+    "xiǎn"
+   ],
    "empty_ratio": 0.399,
    "zones": [
     {
@@ -11317,6 +11871,15 @@
    "title": "来与我共度时光",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "lái",
+    "yǔ",
+    "wǒ",
+    "gòng",
+    "dù",
+    "shí",
+    "guāng"
+   ],
    "empty_ratio": 0.686,
    "zones": [
     {
@@ -11433,6 +11996,13 @@
    "title": "绿豆的节日",
    "title_source": "cover_text",
    "title_len": 5,
+   "title_pinyin": [
+    "lǜ",
+    "dòu",
+    "de",
+    "jié",
+    "rì"
+   ],
    "empty_ratio": 0.229,
    "zones": [],
    "title_slot": {
@@ -11492,6 +12062,12 @@
    "title": "三只小猫",
    "title_source": "cover_text",
    "title_len": 4,
+   "title_pinyin": [
+    "sān",
+    "zhǐ",
+    "xiǎo",
+    "māo"
+   ],
    "empty_ratio": 0.319,
    "zones": [],
    "title_slot": {
@@ -11551,6 +12127,7 @@
    "title": "Jelly and Jazz",
    "title_source": "title_en",
    "title_len": 4,
+   "title_pinyin": null,
    "empty_ratio": 0.099,
    "zones": [],
    "title_slot": {
@@ -11610,6 +12187,18 @@
    "title": "一条街 或一个动物园？",
    "title_source": "cover_text",
    "title_len": 10,
+   "title_pinyin": [
+    "yī",
+    "tiáo",
+    "jiē",
+    "huò",
+    "yī",
+    "gè",
+    "dòng",
+    "wù",
+    "yuán",
+    ""
+   ],
    "empty_ratio": 0.328,
    "zones": [
     {
@@ -11698,6 +12287,17 @@
    "title": "贾尼丝的唐人街之行",
    "title_source": "cover_text",
    "title_len": 9,
+   "title_pinyin": [
+    "jiǎ",
+    "ní",
+    "sī",
+    "de",
+    "táng",
+    "rén",
+    "jiē",
+    "zhī",
+    "xíng"
+   ],
    "empty_ratio": 0.436,
    "zones": [
     {
@@ -11786,6 +12386,15 @@
    "title": "野生猫科动物！",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "yě",
+    "shēng",
+    "māo",
+    "kē",
+    "dòng",
+    "wù",
+    ""
+   ],
    "empty_ratio": 0.333,
    "zones": [
     {
@@ -11874,6 +12483,16 @@
    "title": "小心！ 老虎来了！",
    "title_source": "cover_text",
    "title_len": 8,
+   "title_pinyin": [
+    "xiǎo",
+    "xīn",
+    "",
+    "lǎo",
+    "hǔ",
+    "lái",
+    "le",
+    ""
+   ],
    "empty_ratio": 0.068,
    "zones": [],
    "title_slot": {
@@ -11933,6 +12552,15 @@
    "title": "伸出你的舌头！",
    "title_source": "cover_text",
    "title_len": 7,
+   "title_pinyin": [
+    "shēn",
+    "chū",
+    "nǐ",
+    "de",
+    "shé",
+    "tóu",
+    ""
+   ],
    "empty_ratio": 0.283,
    "zones": [
     {
