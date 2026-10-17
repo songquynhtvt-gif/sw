@@ -7,6 +7,9 @@ Rule chính: tên KHÔNG được đè lên hình vẽ hay hoạ tiết. Mỗi b
 
   - templates[]: neo chuẩn theo khổ bìa (giữa-trên, trái-trên, phải-trên, giữa-dưới, ...). Các bìa đặt
     đúng một neo là nhóm IDENTICAL: designer căn 1 lần cho cả nhóm (danh sách id trong `covers`).
+  - cover_bucket: A bìa sạch | B có chữ in sẵn (xoá bằng inpaint rồi như A) | C kín hình (nới canvas / dải tên,
+    luôn cần người xem) | D không có trang bìa (dựng từ hero_page). Bìa sách PDF lấy từ trang 1 (pdf_crop:
+    spread_right_half = nửa phải bìa trải đôi Book Dash, embedded_image = tranh chính của trang tên GDL).
   - covers[]: từng bìa, khung tên cuối cùng (bbox tỉ lệ 0..1 và px theo ảnh gốc):
       placement = "identical"  -> đúng một neo chuẩn của khổ, chỗ đó trống (template_id cho biết neo nào)
                   "shifted"    -> mọi neo chuẩn đều đè hình, dời tới chỗ trống thật gần vị trí cố định nhất
@@ -27,6 +30,15 @@ import json, sys
 from collections import defaultdict
 
 import numpy as np
+
+
+# 4 loại bìa (cover triage)
+ACTION = {
+    "A": "Bìa sạch: đặt tên vào khung",
+    "B": "Có chữ in sẵn trong tranh: xoá chữ bằng inpaint (inpaint_bboxes), rồi đặt tên như loại A",
+    "C": "Kín hình: nới canvas lên trên hoặc dùng dải tên đặc (title_band); luôn cần người xem",
+    "D": "Không có trang bìa: dựng bìa từ trang hero_page, rồi đặt tên như loại A; cần người xem",
+}
 
 
 def px(bbox, size):
@@ -62,7 +74,12 @@ def main(src, dst):
             members[tid].append((c["id"], bbox))
         covers.append({
             "id": c["id"], "title_en": c["title_en"], "title_zh": c["title"] if c["title_source"] != "title_en" else "",
-            "image": c["image"], "image_size": c["size"], "format": c["format"],
+            "source": c["source"], "image": c["image"], "image_page": c.get("image_page"), "pdf_crop": c.get("pdf_crop"),
+            "image_size": c["size"], "format": c["format"],
+            "cover_bucket": c.get("cover_bucket"), "bucket_action": ACTION.get(c.get("cover_bucket")),
+            "cover_from": c.get("cover_from"), "hero_page": c.get("hero_page"),
+            "inpaint_bboxes": c.get("inpaint_bboxes") or [], "title_band": c.get("title_band"),
+            "needs_human": c.get("needs_human", False),
             "template_id": tid, "placement": placement,
             "bbox": bbox, "bbox_px": px(bbox, c["size"]),
             "anchor": anchor_of(bbox, name if placement == "identical" else None),
@@ -92,6 +109,8 @@ def main(src, dst):
             "shifted": sum(c["placement"] == "shifted" for c in covers),
             "replace": sum(c["placement"] == "replace" for c in covers),
             "no_room": sum(c["placement"] == "no_room" for c in covers),
+            **{f"bucket_{k}": sum(c["cover_bucket"] == k for c in covers) for k in "ABCD"},
+            "needs_human": sum(c["needs_human"] for c in covers),
             "backing_panel": sum(c["backing"] == "panel" for c in covers),
             "length_2_lines": sum(c["length"]["check"] == "2_lines" for c in covers),
             "length_small": sum(c["length"]["check"] == "small" for c in covers),
@@ -101,6 +120,7 @@ def main(src, dst):
         },
         "covers": covers,
     }
+    res["buckets"] = ACTION
     json.dump(res, open(dst, "w"), ensure_ascii=False, indent=1)
     print(json.dumps(res["summary"], ensure_ascii=False))
     for t in out_t:

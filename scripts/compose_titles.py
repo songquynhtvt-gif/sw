@@ -24,7 +24,7 @@ def sheet(slots, dst):
     d = json.load(open(slots))
     with open(dst, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
-        w.writerow(["id", "file_name", "title_zh", "title_en", "template_id", "placement", "align",
+        w.writerow(["id", "file_name", "title_zh", "title_en", "cover_bucket", "needs_human", "template_id", "placement", "align",
                     "design_w", "design_h", "chars", "lines", "backing", "check", "note"])
         for c in d["covers"]:
             s = FRAME_W / c["image_size"][0]
@@ -32,7 +32,8 @@ def sheet(slots, dst):
             L = c.get("length", {})
             flags = [x for x in (c["placement"] if c["placement"] in ("no_room", "replace") else "",
                                  L.get("check") if L.get("check") not in (None, "ok") else "") if x]
-            w.writerow([c["id"], f"{c['id']}.png", c["title_zh"], c["title_en"], c["template_id"] or "riêng",
+            w.writerow([c["id"], f"{c['id']}.png", c["title_zh"], c["title_en"], c.get("cover_bucket"),
+                        "yes" if c.get("needs_human") else "", c["template_id"] or "riêng",
                         c["placement"], c["anchor"]["align"], round(bw), round(bh), L.get("chars"), L.get("lines"),
                         c["backing"], ",".join(flags), c["note"]])
     print(f"{len(d['covers'])} dòng -> {dst}")
@@ -41,6 +42,17 @@ def sheet(slots, dst):
 def fetch(url):
     with urllib.request.urlopen(url, timeout=60) as r:
         return Image.open(io.BytesIO(r.read())).convert("RGBA")
+
+
+def cover_image(c, cache="out/cache"):
+    """Ảnh bìa đúng như lúc tính khung: ảnh trang bìa, trang hero, hoặc trang 1 PDF đã cắt (dùng lại covers.pdf_cover)."""
+    if not c.get("image_page"):
+        return fetch(c["image"])
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import covers
+    base = covers.cs.BASE
+    pg = covers.pdf_cover(cache, {"id": c["id"], "source": c["source"], "pdf": c["image"][len(base):]})
+    return Image.open(pg["_local"]).convert("RGBA")
 
 
 def compose(slots, titles, out):
@@ -54,7 +66,7 @@ def compose(slots, titles, out):
         if cid not in files:
             missing.append(cid)
             continue
-        cover = fetch(c["image"])
+        cover = cover_image(c)
         W, H = cover.size
         x, y, bw, bh = c["bbox"][0] * W, c["bbox"][1] * H, c["bbox"][2] * W, c["bbox"][3] * H
         t = Image.open(files[cid]).convert("RGBA")

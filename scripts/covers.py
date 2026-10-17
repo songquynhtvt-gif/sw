@@ -15,7 +15,7 @@ Dùng:
   python3 scripts/covers.py --all                        # mọi sách dạng ảnh trang
   python3 scripts/covers.py SW-266338 ASB-13623          # vài cuốn
 """
-import argparse, difflib, functools, json, os, re, sys, threading
+import argparse, difflib, functools, json, os, re, subprocess, sys, threading
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
@@ -201,7 +201,7 @@ def legibility(img, bbox, empty):
     }
 
 
-def art_maps(img, empty, other_text=()):
+def art_maps(img, empty, other_text=(), erase=()):
     """Bản đồ "có hình" ở kích thước hiển thị: ô thô bận (vật, nhân vật) + điểm cạnh hoạ tiết mịn
     + vùng chữ in sẵn khác (tác giả, logo). Trả về ảnh tích phân để đo nhanh mọi hộp."""
     H, W = img.shape[:2]
@@ -217,6 +217,9 @@ def art_maps(img, empty, other_text=()):
     g[:, :-1] = np.maximum(g[:, :-1], np.abs(np.diff(img, axis=1)).max(2))
     g[:-1, :] = np.maximum(g[:-1, :], np.abs(np.diff(img, axis=0)).max(2))
     edge = (g > EDGE_T).astype(np.float32)
+    for x, y, w, h in erase:     # chữ in sẵn sẽ được xoá (inpaint): coi như nền trống
+        sl = (slice(int(y * H), int(np.ceil((y + h) * H))), slice(int(x * W), int(np.ceil((x + w) * W))))
+        busy[sl], edge[sl] = 0, 0
     ii = lambda a: np.pad(a.cumsum(0).cumsum(1), ((1, 0), (1, 0)))
     return {"W": W, "H": H, "busy": ii(busy), "edge": ii(edge)}
 
@@ -468,19 +471,94 @@ def fmt_key(size):
     return f"r{r:.2f}"
 
 
+def _page_local(cache, book_id, pg):
+    ext = os.path.splitext(pg["image"])[1] or ".png"
+    pg["_local"] = os.path.join(cache, book_id, "pages", f"{pg['n']:02d}{ext}")
+    if not os.path.exists(pg["_local"]):
+        cs.get(cs.BASE + pg["image"], pg["_local"])
+    return pg
+
+
+def pdf_cover(cache, book):
+    """Sách chỉ có PDF: lấy tranh bìa từ trang 1.
+    - GDL / PDF có trang 1 là trang tên (tranh nhỏ + chữ trên nền trắng): tranh bìa = ảnh nhúng lớn nhất
+      của trang 1 (pdfimages), tức tranh không kèm chữ.
+    - Book Dash: trang 1 là bìa trải đôi (bìa sau | bìa trước) -> cắt nửa phải.
+    - Còn lại: cả trang 1, render rộng 1200px."""
+    d = os.path.join(cache, book["id"])
+    pdf, png = os.path.join(d, "book.pdf"), os.path.join(d, "pages", "00_pdf.png")
+    if not os.path.exists(png):
+        if not os.path.exists(pdf):
+            cs.get(cs.BASE + book["pdf"], pdf)
+        os.makedirs(os.path.dirname(png), exist_ok=True)
+        how = "page"
+        if book.get("source") == "GDL":
+            tmp = os.path.join(d, "pdfimg")
+            os.makedirs(tmp, exist_ok=True)
+            subprocess.run(["pdfimages", "-f", "1", "-l", "1", "-png", pdf, os.path.join(tmp, "i")], check=True, capture_output=True)
+            # chọn theo diện tích HIỂN THỊ trên trang (px / ppi), không theo số px: logo nhỏ thường có ppi rất cao
+            lst = subprocess.run(["pdfimages", "-f", "1", "-l", "1", "-list", pdf], check=True, capture_output=True, text=True).stdout
+            shown = {}
+            for row in lst.splitlines()[2:]:
+                c = row.split()
+                if len(c) > 13 and c[2] == "image":
+                    shown[int(c[1])] = (int(c[3]) / max(1, float(c[11]))) * (int(c[4]) / max(1, float(c[12])))
+            imgs = []
+            for f in sorted(os.listdir(tmp)):
+                num = int(re.sub(r"\D", "", f.split(".")[0]) or -1)
+                im = Image.open(os.path.join(tmp, f))
+                if num in shown and min(im.size) >= 200:
+                    imgs.append((shown[num], f, im))
+            if imgs:
+                im = max(imgs, key=lambda t: t[0])[2].convert("RGB")
+                if im.size[0] < 1200:
+                    im = im.resize((1200, round(im.size[1] * 1200 / im.size[0])), Image.LANCZOS)
+                im.save(png)
+                how = "embedded_image"
+        if how == "page":
+            subprocess.run(["pdftoppm", "-f", "1", "-l", "1", "-png", "-singlefile", "-scale-to-x", "2400",
+                            "-scale-to-y", "-1", pdf, png[:-4]], check=True, capture_output=True)
+            im = Image.open(png).convert("RGB")
+            if book.get("source") == "Book Dash" and im.size[0] / im.size[1] > 1.5:
+                im = im.crop((im.size[0] // 2, 0, im.size[0], im.size[1]))
+                how = "spread_right_half"
+            im.resize((1200, round(im.size[1] * 1200 / im.size[0])), Image.LANCZOS).save(png)
+        open(png + ".how", "w").write(how)
+    how = open(png + ".how").read() if os.path.exists(png + ".how") else "page"
+    return {"n": 1, "kind": "bìa", "image": book["pdf"], "image_page": 1, "pdf_crop": how, "_local": png}
+
+
+def hero_page(cache, book):
+    """Sách không có trang bìa (loại D): chọn trang ruột làm bìa = trang có phần ba trên trống nhiều nhất
+    (dễ đặt tên), bỏ trang chữ dày; hoà thì lấy trang sớm hơn."""
+    best = None
+    pages = [pg for pg in book["pages"] if pg.get("image")]
+    for pg in pages[:3]:          # chỉ xét 3 trang tranh đầu: trang cuối hay là "THE END", trang tác giả
+        _page_local(cache, book["id"], pg)
+        a = cs.analyse(pg["_local"])
+        empty = a["busy"] < cs.EMPTY_T
+        score = float(empty[: cs.GRID // 3].mean()) - 0.002 * len((pg.get("text") or "").split())
+        if best is None or score > best[0] + 1e-6:
+            best = (score, pg)
+    return best and best[1]
+
+
 def load(book_id, cache):
-    """Chỉ tải JSON sách và ảnh bìa (không tải các trang ruột)."""
+    """Tải JSON sách và ảnh bìa: trang 'bìa' (sách ảnh trang), trang 1 PDF (sách PDF),
+    hoặc trang ruột chọn làm bìa nếu sách không có bìa (gắn _hero)."""
     p = os.path.join(cache, book_id, "book.json")
     if not os.path.exists(p):
         cs.get(f"{cs.BASE}/v1/pilot/books/{book_id}", p)
     book = json.load(open(p))
+    if book.get("view") == "pdf" or (not book.get("pages") and book.get("pdf")):
+        return book, pdf_cover(cache, book)
     cover = next((pg for pg in book["pages"] if pg["kind"] == "bìa" and pg.get("image")), None)
     if cover:
-        ext = os.path.splitext(cover["image"])[1] or ".png"
-        cover["_local"] = os.path.join(cache, book_id, "pages", f"{cover['n']:02d}{ext}")
-        if not os.path.exists(cover["_local"]):
-            cs.get(cs.BASE + cover["image"], cover["_local"])
-    return book, cover
+        return book, _page_local(cache, book_id, cover)
+    hero = hero_page(cache, book)
+    if hero:
+        hero["_hero"] = True
+    return book, hero
 
 
 def main():
@@ -499,7 +577,7 @@ def main():
     ids = list(args.ids)
     if args.all or args.status:
         lst = json.loads(cs.get(f"{cs.BASE}/v1/pilot/books"))["books"]
-        ids += [b["id"] for b in lst if b["view"] == "pages"
+        ids += [b["id"] for b in lst if b["view"] in ("pages", "pdf")
                 and (not args.status or b["review"]["status"] == args.status)]
     ids = ids[:args.limit] if args.limit else ids
     if not ids:
@@ -560,7 +638,11 @@ def main():
         baked = {"ocr": found is not None, "title_score": score, "title_bbox": bt,
                  "title_lines": [h["text"] for h in hit],
                  "other_text": [{"text": o["text"], "bbox": o["bbox"]} for o in other]}
-        m = art_maps(img, empty, baked["other_text"])
+        # Loại B: có chữ in sẵn trong tranh -> xoá bằng inpaint (vùng chữ nới 30% chiều cao), rồi xử lý như bìa sạch
+        texts = [x for x in (found or []) if x["conf"] >= 0.5 and len(letters(x["text"])) >= 2]
+        inpaint = [[round(max(0, x - h * 0.3), 4), round(max(0, y - h * 0.3), 4), round(w + h * 0.6, 4), round(h * 1.6, 4)]
+                   for x, y, w, h in (t["bbox"] for t in texts)]
+        m = art_maps(img, empty, (), inpaint)
         Wf, Hf = img.shape[1], img.shape[0]
         kind, px, lines, tb = text_box(n, slot["bbox"], a["size"], sub)
         tb_fixed = tb
@@ -604,23 +686,25 @@ def main():
         elif style == "panel" and kind == "c1":
             reason = reason.replace("dùng panel", "lót panel nhẹ (chỗ trống, không che hình)")
         room = grow_room(m, tb, max(tb[2], slot["bbox"][2] - 2 * MARGIN / Wf)) if room_ok else tb
-        if bt and score >= 0.6:
-            # bìa đã in sẵn tên tiếng Anh: tên Trung thay vào đúng chỗ đó, designer xoá chữ Anh
-            px, lines, tb = replace_box(n, bt, a["size"], sub)
-            room = tb
-            leg = legibility(img, tb, empty)
-            style, source, shift, anchor = "replace", "baked_title", [0, 0], None
-            reason = (f"bìa đã in sẵn tên tiếng Anh ({' / '.join(baked['title_lines'])}, khớp {round(score * 100)}%): "
-                      "xoá chữ Anh trong tranh, đặt tên Trung vào đúng vùng đó")
-        elif other and any(o["bbox"][3] >= 0.06 for o in other):
-            reason += "; có chữ lớn in sẵn trên bìa nhưng không khớp tên, cần người xem"
+        if inpaint:
+            reason = (f"xoá {len(inpaint)} dòng chữ in sẵn bằng inpaint"
+                      + (f" (có tên tiếng Anh: {' / '.join(baked['title_lines'])})" if bt and score >= 0.6 else "")
+                      + "; " + reason)
+        hero = it["cover"].get("_hero")
+        bucket = "D" if hero else "B" if inpaint else "C" if source == "no_room" else "A"
+        band = None
+        if source == "no_room":   # loại C: nới canvas lên trên hoặc dải tên đặc, cao = hộp chữ + 2 lề
+            band = {"height_px_1180": round(tb[3] * Hf + 2 * MARGIN), "height_frac": round((tb[3] * Hf + 2 * MARGIN) / Hf, 4)}
         t, l = round(slot["bbox"][1] * cs.GRID), round(slot["bbox"][0] * cs.GRID)
         hh, ww = round(slot["bbox"][3] * cs.GRID), round(slot["bbox"][2] * cs.GRID)
         calm = float(empty[t:t + hh, l:l + ww].mean())
         c = it["cover"]
         covers.append({
             "id": book["id"], "source": book["source"], "lang": book["lang"],
-            "image": cs.BASE + c["image"], "size": list(a["size"]), "format": it["fmt"],
+            "image": cs.BASE + c["image"], "image_page": c.get("image_page"), "pdf_crop": c.get("pdf_crop"), "size": list(a["size"]), "format": it["fmt"],
+            "cover_bucket": bucket, "cover_from": "hero_page" if hero else f"pdf_page_1:{c.get('pdf_crop')}" if c.get("image_page") else "cover_page",
+            "hero_page": c["n"] if hero else None, "inpaint_bboxes": inpaint, "title_band": band,
+            "needs_human": bucket in ("C", "D") or source == "no_room",
             "title": title, "title_source": tsrc, "title_len": n, "title_pinyin": it["_pinyin"],
             "title_en": en, "title_en_source": en_src,
             "empty_ratio": round(float(empty.mean()), 3),
@@ -639,7 +723,7 @@ def main():
 
     covers.sort(key=lambda c: c["id"])
     res = {
-        "schema": "covers/v3",
+        "schema": "covers/v4",
         "params": {"en": EN, "grid": cs.GRID, "empty_t": cs.EMPTY_T, "blank_t": cs.BLANK_T,
                    "stable_frac": STABLE_FRAC, "min_covers": MIN_COVERS, "frame_w": FRAME_W, "margin": MARGIN,
                    "c1": C1, "panel": PANEL, "calm_min": CALM_MIN, "edge_t": EDGE_T, "edge_max": EDGE_MAX, "luma_std_max": LUMA_STD_MAX},
@@ -658,7 +742,12 @@ def main():
             "length_2_lines": sum(c["title_slot"]["length_check"] == "2_lines" for c in covers),
             "length_small": sum(c["title_slot"]["length_check"] == "small" for c in covers),
             "length_too_long": sum(c["title_slot"]["length_check"] == "too_long" for c in covers),
-            "replace_baked_title": sum(c["title_slot"]["style"] == "replace" for c in covers),
+            "bucket_A": sum(c["cover_bucket"] == "A" for c in covers),
+            "bucket_B": sum(c["cover_bucket"] == "B" for c in covers),
+            "bucket_C": sum(c["cover_bucket"] == "C" for c in covers),
+            "bucket_D": sum(c["cover_bucket"] == "D" for c in covers),
+            "b_also_no_room": sum(c["cover_bucket"] == "B" and c["title_slot"]["source"] == "no_room" for c in covers),
+            "needs_human": sum(c["needs_human"] for c in covers),
             "text_needs_review": sum("cần người xem" in c["title_slot"]["reason"] for c in covers),
             "flag_title": sum(c["cover_text_flag"] == "title" for c in covers),
             "flag_text": sum(c["cover_text_flag"] == "text" for c in covers),

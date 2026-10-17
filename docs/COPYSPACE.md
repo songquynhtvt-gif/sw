@@ -1,8 +1,18 @@
 # Mapping chữ vào tranh (copy space + điểm neo)
 
-> **Phạm vi hiện tại: chỉ bìa truyện** (chốt 15/10). Script bìa: `scripts/covers.py`, toàn bộ 93 bìa đã Approve ở `mapping/covers/` (cover_slots.json, title_sheet.csv). Phần trang ruột bên dưới giữ làm tham khảo, `covers.py` dùng lại bộ đo độ bận của `copyspace.py`.
+> **Phạm vi hiện tại: chỉ bìa truyện** (chốt 15/10). Script bìa: `scripts/covers.py`, toàn bộ 175 truyện đã Approve (95 sách ảnh trang + 80 sách PDF) ở `mapping/covers/` (cover_slots.json, title_sheet.csv). Phần trang ruột bên dưới giữ làm tham khảo, `covers.py` dùng lại bộ đo độ bận của `copyspace.py`.
 
 ## Bìa truyện
+
+**Phân loại bìa** (`cover_bucket`, chạy trên mọi sách Approve, kể cả sách PDF):
+| Loại | Rule | Xử lý |
+|---|---|---|
+| A · Bìa sạch | có bìa, OCR không thấy chữ | đặt tên vào khung |
+| B · Có chữ in sẵn | OCR thấy chữ trong tranh (tên Anh, tác giả, logo) | xoá chữ bằng inpaint (`inpaint_bboxes`, hộp chữ nới 30% chiều cao), vùng đó coi như trống, rồi như A |
+| C · Kín hình | không chỗ nào trống mà không che hình | nới canvas lên trên hoặc dải tên đặc (`title_band`); luôn cần người xem |
+| D · Không có bìa | sách không có trang `bìa` | dựng bìa từ trang `hero_page` (trong 3 trang tranh đầu, phần ba trên trống nhất, ít chữ); cần người xem |
+
+Sách PDF (`image_page: 1`, `pdf_crop`): Book Dash trang 1 là bìa trải đôi → cắt nửa phải (`spread_right_half`); GDL trang 1 là trang tên → lấy ảnh nhúng có diện tích hiển thị lớn nhất (`embedded_image`, bỏ logo); còn lại render cả trang. Cần `pdftoppm`/`pdfimages` (poppler-utils).
 
 **Rule chính: tên không bao giờ đè lên hình vẽ hay hoạ tiết.** Bìa có hình ở đâu thì tìm chỗ trống khác để đặt tên; panel chỉ dùng để tăng tương phản trên chỗ đã trống, không dùng để che hình.
 
